@@ -1,0 +1,29 @@
+# Large datasets
+processed_graphs/
+relaxed_structures/
+experiments/
+
+# Large QMOF files
+qmof.json
+qmof.csv
+qmof_structure_data.json
+
+# Nested dataset copies
+qmof_database/qmof_database/processed_graphs/
+qmof_database/qmof_database/relaxed_structures/
+qmof_database/qmof_database/qmof.json
+qmof_database/qmof_database/qmof.csv
+qmof_database/qmof_database/qmof_structure_data.json
+
+# VSCode
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+
+# Zip
+*.zip
+
+# Notebook
+.ipynb_checkpoints/
