@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  color: #1f2937;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.hero h1 {
+  color: #102a43;
+  font-size: 34px;
+}
+
+.hero p {
+  color: #52606d;
+  font-size: 18px;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+input[type="file"] {
+  display: block;
+  margin: 16px 0;
+}
+
+button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+.hidden {
+  display: none;
+}
+
+.prediction-box {
+  background: #eef6ff;
+  border-left: 6px solid #2563eb;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+.label {
+  margin: 0;
+  color: #52606d;
+}
+
+.prediction {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1d4ed8;
+  margin: 6px 0 0;
+}
+
+.prob-row {
+  margin-bottom: 12px;
+}
+
+.prob-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.bar {
+  background: #e5e7eb;
+  border-radius: 8px;
+  height: 14px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  background: #2563eb;
+  height: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #e5e7eb;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>QMOF Material Classifier</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <h1>QMOF Sparse GNN Material Classifier</h1>
+      <p>
+        Upload a CIF file to classify the material type using a sparse GraphSAGE model.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Upload CIF File</h2>
+
+      <input type="file" id="cifFile" accept=".cif" />
+
+      <button onclick="predictMaterial()">Predict Material Type</button>
+
+      <div id="loading" class="hidden">Predicting...</div>
+    </section>
+
+    <section id="resultCard" class="card hidden">
+      <h2>Prediction Result</h2>
+
+      <div class="prediction-box">
+        <p class="label">Predicted Material Type</p>
+        <p id="materialType" class="prediction"></p>
+      </div>
+
+      <p><strong>Confidence:</strong> <span id="confidence"></span></p>
+      <p><strong>Filename:</strong> <span id="filename"></span></p>
+
+      <h3>Class Probabilities</h3>
+      <div id="probabilities"></div>
+
+      <h3>Graph Statistics</h3>
+      <table>
+        <tbody id="graphStats"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
