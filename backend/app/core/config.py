@@ -110,5 +110,9 @@ class Settings:
         "sentence-transformers/all-MiniLM-L6-v2",
     )
 
+    QMOF_CIF_DIR = os.getenv(
+    "QMOF_CIF_DIR",
+    )
+
 
 settings = Settings()

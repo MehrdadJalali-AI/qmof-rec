@@ -1,92 +1,87 @@
 import axios from "axios";
 
+/* =======================================
+   AXIOS INSTANCE
+======================================= */
+
 const API = axios.create({
   baseURL: "http://127.0.0.1:8000",
 
   timeout: 120000,
 });
 
-/* -------------------- */
-/* HEALTH CHECK */
-/* -------------------- */
+/* =======================================
+   HEALTH CHECK
+======================================= */
 
 export async function healthCheck() {
-  const res = await API.get("/");
+  const response = await API.get("/");
 
-  return res.data;
+  return response.data;
 }
 
-/* -------------------- */
-/* CHAT */
-/* -------------------- */
+/* =======================================
+   CHAT API
+======================================= */
 
-export async function askChat(
-  question,
+export async function askChat(question, topK = 5) {
+  const response = await API.post("/chat/", {
+    question: question,
 
-  topK = 5,
-) {
-  const res = await API.post(
-    "/chat/",
+    top_k: topK,
+  });
 
-    {
-      question,
-
-      top_k: topK,
-    },
-  );
-
-  return res.data;
+  return response.data;
 }
 
-/* -------------------- */
-/* RECOMMENDATION */
-/* NEW PHASE-1 VERSION */
-/* -------------------- */
+/* =======================================
+   RECOMMENDATION API
+   PHASE 1 / PHASE 2 / PHASE 3
+======================================= */
 
-export async function recommendMaterials(
-  query,
+export async function recommendMaterials(query, topK = 5) {
+  const response = await API.post("/recommend/", {
+    query: query,
 
-  topK = 5,
-) {
-  const res = await API.post(
-    "/recommend/",
+    top_k: topK,
+  });
 
-    {
-      query,
-
-      top_k: topK,
-    },
-  );
-
-  return res.data;
+  return response.data;
 }
 
-/* -------------------- */
-/* MATERIAL PREDICTION */
-/* -------------------- */
+/* =======================================
+   MATERIAL STRUCTURE API
+   FOR 3D CIF VIEWER
+======================================= */
+
+export async function getMaterialStructure(qmofId) {
+  const response = await API.get(`/materials/${qmofId}/structure`, {
+    responseType: "text",
+  });
+
+  return response.data;
+}
+
+/* =======================================
+   MATERIAL PREDICTION API
+======================================= */
 
 export async function predictMaterial(file) {
   const formData = new FormData();
 
-  formData.append(
-    "file",
+  formData.append("file", file);
 
-    file,
-  );
-
-  const res = await API.post(
-    "/materials/predict",
-
-    formData,
-
-    {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
+  const response = await API.post("/materials/predict", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
     },
-  );
+  });
 
-  return res.data;
+  return response.data;
 }
+
+/* =======================================
+   EXPORT INSTANCE
+======================================= */
 
 export default API;
