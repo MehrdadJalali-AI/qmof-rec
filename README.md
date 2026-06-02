@@ -1,4 +1,4 @@
-# QMOF-Rec: AI-Powered Recommender System for Materials Discovery
+# QMOF-Rec: A Graph-Enhanced Multi-Objective Retrieval-Augmented Recommender System for Scientific Materials Discovery
 
 **QMOF-Rec** is an end-to-end AI platform for **QMOF-based materials discovery, recommendation, property prediction, and scientific assistance**.  
 The system combines recommender systems, graph neural networks, retrieval-augmented generation, and large language models to support explainable and interactive discovery of metal–organic frameworks.
