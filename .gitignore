@@ -27,3 +27,18 @@ __pycache__/
 
 # Notebook
 .ipynb_checkpoints/
+.env
+venv/
+__pycache__/
+*.pyc
+.env
+node_modules/
+dist/
+build/
+.DS_Store
+*.log
+frontend/node_modules/
+backend/__pycache__/
+backend/app/**/__pycache__/
+backend/models/*.pt
+backend/app/models/*.pt

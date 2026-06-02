@@ -1,9 +1,15 @@
 fastapi
 uvicorn
-python-multipart
 torch
 torch-geometric
 pymatgen
-numpy
 pandas
+numpy
 scikit-learn
+sentence-transformers
+langchain
+langchain-community
+langchain-openai
+ollama
+python-multipart
+faiss-cpu
