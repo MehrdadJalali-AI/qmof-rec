@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+torch
+torch-geometric
+pymatgen
+pandas
+numpy
+scikit-learn
+sentence-transformers
+langchain
+langchain-community
+langchain-openai
+ollama
+python-multipart
+faiss-cpu

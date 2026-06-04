@@ -1,0 +1,6 @@
+test,comparison,metric,n_pairs,statistic,p_value,mean_first,mean_second,paired_cohens_d,status,reason
+wilcoxon_signed_rank,LEA baseline vs WeightedSum,mean_relevance,50,0.0,3.498296822371681e-07,0.6939362221956253,0.6960913956165313,-0.777704330888573,executed,
+wilcoxon_signed_rank,LEA baseline vs MMR,mean_relevance,50,138.0,1.7394549622906652e-07,0.6939362221956253,0.6884815871715546,0.9573562869917774,executed,
+wilcoxon_signed_rank,LEA baseline vs RandomRepeated,mean_relevance,50,11.0,9.769962616701378e-14,0.6939362221956253,0.6826723366975784,1.4120269820244764,executed,
+wilcoxon_signed_rank,LEA baseline vs SemanticOnly,mean_relevance,50,7.0,3.375077994860476e-14,0.6939362221956253,0.6817818880081177,1.446665107064829,executed,
+friedman,SemanticOnly;WeightedSum;MMR;RandomRepeated;LEA baseline,mean_relevance,50,173.62601626016257,1.742402422902733e-36,,,,executed,

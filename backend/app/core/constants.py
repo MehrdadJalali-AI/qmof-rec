@@ -1,0 +1,5 @@
+SUPPORTED_FILE_TYPES = [".cif"]
+
+DEFAULT_TOP_K = 3
+
+SPARSIFICATION_METHOD = "k-nearest neighbors"

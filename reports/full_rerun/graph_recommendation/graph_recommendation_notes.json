@@ -1,0 +1,8 @@
+{
+  "embedding_sources": {
+    "GraphSAGE": "reports/full_rerun/gnn/graphsage_band_gap_embeddings.npy",
+    "GAT": "reports/full_rerun/gnn/gat_band_gap_embeddings.npy"
+  },
+  "skipped": [],
+  "graph_objective_note": "Graph-aware LEA blends normalized graph similarity into semantic_score with graph_weight=0.15."
+}
