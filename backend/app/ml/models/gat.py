@@ -1,1 +1,0 @@
-# Future extension: Graph Attention Network model
