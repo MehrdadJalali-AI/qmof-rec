@@ -1,7 +1,9 @@
+import qmofRecLogo from "../assets/qmof-rec-logo.svg";
+
 export default function Navbar() {
   return (
     <div className="navbar">
-      <h1>QMOF AI Discovery Platform</h1>
+      <img className="navbar-logo" src={qmofRecLogo} alt="QMOF-Rec" />
     </div>
   );
 }

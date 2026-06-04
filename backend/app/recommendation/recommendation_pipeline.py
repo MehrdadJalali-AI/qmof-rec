@@ -16,8 +16,8 @@ from app.recommendation.material_similarity import (
     material_similarity,
 )
 
-from app.recommendation.pareto_optimizer import (
-    pareto_optimizer,
+from app.recommendation.lea_optimizer import (
+    lea_optimizer,
 )
 
 from app.utils.json_utils import (
@@ -58,7 +58,7 @@ class RecommendationPipeline:
 
         ↓
 
-        Pareto Optimization
+        Lotus Effect Optimization
 
         ↓
 
@@ -69,11 +69,16 @@ class RecommendationPipeline:
             query
         )
 
+        candidate_pool_size = max(
+            top_k,
+            top_k * 5,
+        )
+
         retrieved = retrieve_materials(
 
             query=query,
 
-            top_k=top_k,
+            top_k=candidate_pool_size,
 
         )
 
@@ -253,6 +258,42 @@ class RecommendationPipeline:
                         4,
                     ),
 
+                "band_gap_score":
+
+                    round(
+                        hybrid_scores[
+                            "band_gap_score"
+                        ],
+                        4,
+                    ),
+
+                "density_score":
+
+                    round(
+                        hybrid_scores[
+                            "density_score"
+                        ],
+                        4,
+                    ),
+
+                "porosity_score":
+
+                    round(
+                        hybrid_scores[
+                            "porosity_score"
+                        ],
+                        4,
+                    ),
+
+                "stability_score":
+
+                    round(
+                        hybrid_scores[
+                            "stability_score"
+                        ],
+                        4,
+                    ),
+
                 "final_score":
 
                     round(
@@ -266,15 +307,62 @@ class RecommendationPipeline:
 
             })
 
-        ranked_results = pareto_optimizer.rank(
-            ranked_results
+        ranked_results = lea_optimizer.rank(
+            materials=ranked_results,
+            weights=weights,
+            top_k=top_k,
         )
+
+        for material in ranked_results:
+            material["explanations"] = explainability_engine.explain(
+                material,
+                material,
+            )
 
         result = {
 
             "query": query,
 
             "weights": weights,
+
+            "optimization": {
+
+                "method": "Lotus Effect Algorithm",
+
+                "candidate_pool_size":
+
+                    len(
+                        retrieved
+                    ),
+
+                "iterations":
+
+                    lea_optimizer.max_iterations,
+
+                "population_size":
+
+                    lea_optimizer.population_size,
+
+                "best_fitness_history":
+
+                    [
+                        round(
+                            sanitize_number(value),
+                            4,
+                        )
+                        for value in lea_optimizer.fitness_history
+                    ],
+
+                "diversity_score":
+
+                    round(
+                        sanitize_number(
+                            lea_optimizer.diversity_score
+                        ),
+                        4,
+                    ),
+
+            },
 
             "recommendation_count":
 

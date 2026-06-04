@@ -54,5 +54,38 @@ class PropertyScorer:
         except:
             return 0.0
 
+    def score_stability(
+        self,
+        material,
+    ):
+
+        synthesized = material.get(
+            "synthesized"
+        )
+
+        if isinstance(
+            synthesized,
+            bool,
+        ):
+            return 1.0 if synthesized else 0.4
+
+        stability = material.get(
+            "stability"
+        )
+
+        try:
+            stability = float(stability)
+
+            return max(
+                0.0,
+                min(
+                    1.0,
+                    stability,
+                ),
+            )
+
+        except:
+            return 0.5
+
 
 property_scorer = PropertyScorer()

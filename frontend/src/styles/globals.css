@@ -52,9 +52,27 @@ button {
 }
 
 .logo {
-  font-size: 22px;
-  font-weight: 800;
+  width: 100%;
   margin-bottom: 32px;
+}
+
+.logo img {
+  display: block;
+  width: 100%;
+  max-width: 190px;
+  height: auto;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+}
+
+.navbar-logo {
+  display: block;
+  width: 220px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  background: #ffffff;
 }
 
 .nav-btn {

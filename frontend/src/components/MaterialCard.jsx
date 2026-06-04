@@ -69,7 +69,7 @@ export default function MaterialCard({ material, rank }) {
         <div className="score-badge">
           <Award size={16} />
 
-          {material.final_score ?? "N/A"}
+          {material.lea_score ?? material.final_score ?? "N/A"}
         </div>
       </div>
 
@@ -92,6 +92,12 @@ export default function MaterialCard({ material, rank }) {
           <BadgeInfo size={16} />
           Void Fraction
           <strong>{material.void_fraction ?? "N/A"}</strong>
+        </div>
+
+        <div>
+          <BadgeInfo size={16} />
+          LEA Rank
+          <strong>{material.lea_rank ?? "N/A"}</strong>
         </div>
       </div>
 

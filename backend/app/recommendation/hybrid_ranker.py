@@ -45,6 +45,12 @@ class HybridRanker:
             )
         )
 
+        stability_score = sanitize_number(
+            property_scorer.score_stability(
+                material
+            )
+        )
+
         final_score = (
 
             weights.get(
@@ -73,6 +79,13 @@ class HybridRanker:
                 0,
             ) * porosity_score
 
+            +
+
+            weights.get(
+                "stability",
+                0,
+            ) * stability_score
+
         )
 
         final_score = sanitize_number(
@@ -95,6 +108,9 @@ class HybridRanker:
 
             "porosity_score":
                 porosity_score,
+
+            "stability_score":
+                stability_score,
         }
 
 

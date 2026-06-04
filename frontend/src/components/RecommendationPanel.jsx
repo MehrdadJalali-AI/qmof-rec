@@ -15,6 +15,8 @@ export default function RecommendationPanel() {
 
   const [weights, setWeights] = useState({});
 
+  const [optimization, setOptimization] = useState(null);
+
   async function handleRecommend() {
     if (!query.trim()) return;
 
@@ -23,6 +25,8 @@ export default function RecommendationPanel() {
     setRecommendations([]);
 
     setWeights({});
+
+    setOptimization(null);
 
     try {
       const data = await recommendMaterials(
@@ -34,6 +38,8 @@ export default function RecommendationPanel() {
       setRecommendations(data.recommendations || []);
 
       setWeights(data.weights || {});
+
+      setOptimization(data.optimization || null);
     } catch (err) {
       console.log(err);
     } finally {
@@ -73,6 +79,42 @@ export default function RecommendationPanel() {
                 {(v * 100).toFixed(1)}%
               </div>
             ))}
+        </div>
+      )}
+
+      {optimization && (
+        <div className="weights-card">
+          <h3>LEA Optimization</h3>
+
+          <div>
+            <strong>method</strong>
+            {" : "}
+            {optimization.method}
+          </div>
+
+          <div>
+            <strong>candidate pool</strong>
+            {" : "}
+            {optimization.candidate_pool_size}
+          </div>
+
+          <div>
+            <strong>population</strong>
+            {" : "}
+            {optimization.population_size}
+          </div>
+
+          <div>
+            <strong>iterations</strong>
+            {" : "}
+            {optimization.iterations}
+          </div>
+
+          <div>
+            <strong>diversity</strong>
+            {" : "}
+            {Number(optimization.diversity_score || 0).toFixed(4)}
+          </div>
         </div>
       )}
 

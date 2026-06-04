@@ -23,6 +23,16 @@ class ExplainabilityEngine:
                 "Low density structure"
             )
 
+        if scores.get("stability_score", 0) > 0.8:
+            explanations.append(
+                "Favorable stability signal"
+            )
+
+        if scores.get("lea_score", 0) > 0:
+            explanations.append(
+                "Selected by Lotus Effect Optimization"
+            )
+
         return explanations
 
 

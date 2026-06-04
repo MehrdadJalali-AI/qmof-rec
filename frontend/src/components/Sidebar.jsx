@@ -5,6 +5,8 @@ import {
   BarChart3,
 } from "lucide-react";
 
+import qmofRecLogo from "../assets/qmof-rec-logo.svg";
+
 export default function Sidebar({ activePage, setActivePage }) {
   const items = [
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -15,7 +17,9 @@ export default function Sidebar({ activePage, setActivePage }) {
 
   return (
     <aside className="sidebar">
-      <div className="logo">QMOF AI</div>
+      <div className="logo">
+        <img src={qmofRecLogo} alt="QMOF-Rec" />
+      </div>
 
       {items.map((item) => {
         const Icon = item.icon;
