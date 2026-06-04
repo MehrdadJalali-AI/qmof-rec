@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-# Notes
+<img src="QMOF-Rec.svg" alt="QMOF-Rec Logo" width="420"/>
 
 ## MOF Explorer
 
