@@ -15,6 +15,15 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./qmof.db")
 
+# Railway (and some other hosts) hand out a plain "postgresql://" or
+# "postgres://" URL. SQLAlchemy needs the driver specified explicitly for
+# psycopg2, so normalize either form here instead of requiring every
+# deploy environment to get the "+psycopg2" suffix exactly right by hand.
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql+psycopg2://", 1)
+elif DATABASE_URL.startswith("postgresql://"):
+    DATABASE_URL = DATABASE_URL.replace("postgresql://", "postgresql+psycopg2://", 1)
+
 connect_args = {"check_same_thread": False} if DATABASE_URL.startswith("sqlite") else {}
 
 engine = create_engine(DATABASE_URL, connect_args=connect_args, pool_pre_ping=True)

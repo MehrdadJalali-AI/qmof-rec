@@ -23,6 +23,10 @@ config = context.config
 # Use the same DATABASE_URL the app itself uses (env var, falling back to
 # the sqlite default) instead of whatever is hardcoded in alembic.ini.
 database_url = os.getenv("DATABASE_URL", "sqlite:///./qmof.db")
+if database_url.startswith("postgres://"):
+    database_url = database_url.replace("postgres://", "postgresql+psycopg2://", 1)
+elif database_url.startswith("postgresql://"):
+    database_url = database_url.replace("postgresql://", "postgresql+psycopg2://", 1)
 config.set_main_option("sqlalchemy.url", database_url)
 
 # Interpret the config file for Python logging.
