@@ -1,0 +1,164 @@
+[
+  {
+    "query": "stable porous MOFs for CO2 adsorption",
+    "qmof_id": "QMOF-123",
+    "relevance": 5,
+    "usefulness": 4,
+    "comment": "",
+    "timestamp": "2026-06-06T21:33:52.876796",
+    "created_at": "2026-06-06T21:33:52.876796"
+  },
+  {
+    "query": "stable porous MOFs for CO2 adsorption",
+    "qmof_id": "qmof-fe81804",
+    "relevance": 3,
+    "usefulness": 1,
+    "comment": "",
+    "timestamp": "2026-06-06T21:38:22.143282",
+    "created_at": "2026-06-06T21:38:22.143282"
+  },
+  {
+    "query": "stable porous MOFs for CO2 adsorption",
+    "qmof_id": "qmof-04a25d2",
+    "relevance": 4,
+    "usefulness": 4,
+    "comment": "",
+    "timestamp": "2026-06-06T21:39:31.539090",
+    "created_at": "2026-06-06T21:39:31.541534"
+  },
+  {
+    "query": "stable porous MOFs for CO2 adsorption",
+    "qmof_id": "qmof-04a25d2",
+    "relevance": 5,
+    "usefulness": 5,
+    "comment": "",
+    "timestamp": "2026-06-06T21:58:22.695477",
+    "created_at": "2026-06-06T21:58:22.696499"
+  },
+  {
+    "query": "stable porous MOFs for CO2 adsorption",
+    "qmof_id": "qmof-fe81804",
+    "relevance": 3,
+    "usefulness": 3,
+    "comment": "",
+    "timestamp": "2026-06-06T21:58:51.915751",
+    "created_at": "2026-06-06T21:58:51.942005"
+  },
+  {
+    "query": "Recommend MOFs that may be suitable for CO2 adsorption based on available QMOF metadata",
+    "qmof_id": "qmof-93ec4e0",
+    "relevance": 5,
+    "usefulness": 5,
+    "comment": "",
+    "timestamp": "2026-06-11T23:58:57.907331",
+    "created_at": "2026-06-11T23:58:57.907731"
+  },
+  {
+    "query": "Recommend MOFs that may be suitable for CO2 adsorption based on available QMOF metadata. Focus on band gap and density as screening criteria.",
+    "qmof_id": "qmof-a2a9bf5",
+    "relevance": 5,
+    "usefulness": 5,
+    "comment": "",
+    "timestamp": "2026-06-14T22:13:35.839291",
+    "created_at": "2026-06-14T22:13:35.855250"
+  },
+  {
+    "query": "Recommend MOFs that may be suitable for CO2 adsorption based on available QMOF metadata. Focus on band gap and density as screening criteria.",
+    "qmof_id": "qmof-ff169e1",
+    "relevance": 4,
+    "usefulness": 4,
+    "comment": "",
+    "timestamp": "2026-06-14T22:14:28.145849",
+    "created_at": "2026-06-14T22:14:28.160131"
+  },
+  {
+    "query": "Find low-density QMOF candidates that may be relevant for hydrogen or methane gas storage applications. Explain uncertainty where porosity data is missing.",
+    "qmof_id": "qmof-f204bbf",
+    "relevance": 5,
+    "usefulness": 5,
+    "comment": "",
+    "timestamp": "2026-06-14T22:29:01.979197",
+    "created_at": "2026-06-14T22:29:01.979801"
+  },
+  {
+    "query": "Find low-density QMOF candidates that may be relevant for hydrogen or methane gas storage applications. Explain uncertainty where porosity data is missing.",
+    "qmof_id": "qmof-e17ecdb",
+    "relevance": 3,
+    "usefulness": 4,
+    "comment": "",
+    "timestamp": "2026-06-14T22:29:22.175678",
+    "created_at": "2026-06-14T22:29:22.199596"
+  },
+  {
+    "query": "Lightweight nitrogen-rich MOFs with band gap between 2 and 4 eV",
+    "qmof_id": "qmof-886aa55",
+    "relevance": 1,
+    "usefulness": 1,
+    "comment": "",
+    "timestamp": "2026-06-14T22:40:31.119629",
+    "created_at": "2026-06-14T22:40:31.119974"
+  },
+  {
+    "query": "Lightweight nitrogen-rich MOFs with band gap between 2 and 4 eV",
+    "qmof_id": "qmof-3172fe0",
+    "relevance": 1,
+    "usefulness": 1,
+    "comment": "",
+    "timestamp": "2026-06-14T22:40:37.915289",
+    "created_at": "2026-06-14T22:40:37.936523"
+  },
+  {
+    "query": "Lightweight nitrogen-rich MOFs with band gap between 2 and 4 eV",
+    "qmof_id": "qmof-3d535c4",
+    "relevance": 1,
+    "usefulness": 1,
+    "comment": "",
+    "timestamp": "2026-06-14T22:40:42.244110",
+    "created_at": "2026-06-14T22:40:42.264172"
+  },
+  {
+    "query": "Co2 MOF",
+    "qmof_id": "qmof-51d789e",
+    "relevance": 5,
+    "usefulness": 5,
+    "comment": "",
+    "timestamp": "2026-07-03T22:21:05.925993",
+    "created_at": "2026-07-03T22:21:05.926343"
+  },
+  {
+    "query": "water",
+    "qmof_id": "qmof-46f2ccb",
+    "relevance": 5,
+    "usefulness": 5,
+    "comment": "",
+    "timestamp": "2026-07-03T22:47:03.252618",
+    "created_at": "2026-07-03T22:47:03.253396"
+  },
+  {
+    "query": "co2",
+    "qmof_id": "qmof-51d789e",
+    "relevance": 5,
+    "usefulness": 5,
+    "comment": "",
+    "timestamp": "2026-07-05T10:04:46.701197",
+    "created_at": "2026-07-05T10:04:46.739634"
+  },
+  {
+    "query": "water",
+    "qmof_id": "qmof-46f2ccb",
+    "relevance": 5,
+    "usefulness": 5,
+    "comment": "",
+    "timestamp": "2026-07-05T11:18:09.956855",
+    "created_at": "2026-07-05T11:18:09.958103"
+  },
+  {
+    "query": "water",
+    "qmof_id": "qmof-db5d1ed",
+    "relevance": 5,
+    "usefulness": 5,
+    "comment": "",
+    "timestamp": "2026-07-05T11:18:28.215081",
+    "created_at": "2026-07-05T11:18:28.272971"
+  }
+]
