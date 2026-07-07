@@ -160,5 +160,50 @@
     "comment": "",
     "timestamp": "2026-07-05T11:18:28.215081",
     "created_at": "2026-07-05T11:18:28.272971"
+  },
+  {
+    "query": "What QMOF candidates show promise for CO2 storage based on available metadata?\n",
+    "qmof_id": "qmof-1406ccc",
+    "relevance": 5,
+    "usefulness": 5,
+    "comment": "",
+    "timestamp": "2026-07-07T14:10:00.991799",
+    "created_at": "2026-07-07T14:10:01.003782"
+  },
+  {
+    "query": "What QMOF candidates show promise for CO2 storage based on available metadata?\n",
+    "qmof_id": "qmof-ec84fcf",
+    "relevance": 4,
+    "usefulness": 5,
+    "comment": "",
+    "timestamp": "2026-07-07T14:10:07.354215",
+    "created_at": "2026-07-07T14:10:07.444841"
+  },
+  {
+    "query": "What QMOF candidates show promise for CO2 storage based on available metadata?\n",
+    "qmof_id": "qmof-93ec4e0",
+    "relevance": 3,
+    "usefulness": 4,
+    "comment": "",
+    "timestamp": "2026-07-07T14:10:13.172661",
+    "created_at": "2026-07-07T14:10:13.236449"
+  },
+  {
+    "query": "What QMOF candidates show promise for CO2 storage based on available metadata?\n",
+    "qmof_id": "qmof-f260694",
+    "relevance": 3,
+    "usefulness": 3,
+    "comment": "",
+    "timestamp": "2026-07-07T14:10:25.027195",
+    "created_at": "2026-07-07T14:10:25.098706"
+  },
+  {
+    "query": "What QMOF candidates show promise for CO2 storage based on available metadata?\n",
+    "qmof_id": "qmof-f47b0d0",
+    "relevance": 2,
+    "usefulness": 3,
+    "comment": "",
+    "timestamp": "2026-07-07T14:10:34.910494",
+    "created_at": "2026-07-07T14:10:34.990353"
   }
 ]

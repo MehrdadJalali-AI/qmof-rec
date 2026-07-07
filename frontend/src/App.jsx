@@ -3,6 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import { ThemeProvider } from "./context/ThemeContext";
 import { AuthProvider } from "./context/AuthContext";
+import { RecommendationProvider } from "./context/RecommendationContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Sidebar from "./components/Sidebar";
 import AppBackground from "./components/AppBackground";
@@ -25,13 +26,13 @@ function Workspace() {
   }
 
   return (
-    <>
+    <RecommendationProvider>
       <AppBackground />
       <div className="app-shell">
         <Sidebar activePage={activePage} setActivePage={setActivePage} />
         <main className="main">{renderPage()}</main>
       </div>
-    </>
+    </RecommendationProvider>
   );
 }
 

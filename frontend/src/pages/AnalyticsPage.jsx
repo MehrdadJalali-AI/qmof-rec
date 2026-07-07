@@ -1,4 +1,4 @@
-import MetricsDashboard from "../components/MetricsDashboard";
+import RecommendationAnalytics from "../components/RecommendationAnalytics";
 
 export default function AnalyticsPage() {
   return (
@@ -12,7 +12,7 @@ export default function AnalyticsPage() {
         </div>
       </div>
 
-      <MetricsDashboard />
+      <RecommendationAnalytics />
     </>
   );
 }

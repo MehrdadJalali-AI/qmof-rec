@@ -5,9 +5,12 @@ import ChatWindow from "../components/ChatWindow";
 import MetricsDashboard from "../components/MetricsDashboard";
 
 import { healthCheck } from "../api/api";
+import { useRecommendation } from "../context/RecommendationContext";
 
 export default function Dashboard() {
   const [backendStatus, setBackendStatus] = useState("checking");
+  const { recommendation } = useRecommendation();
+  const topMaterial = recommendation?.results?.[0] || null;
 
   useEffect(() => {
     let cancelled = false;
@@ -36,7 +39,9 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className={`status-pill ${backendStatus === "offline" ? "offline" : ""}`}>
+        <div
+          className={`status-pill ${backendStatus === "offline" ? "offline" : ""}`}
+        >
           {backendStatus === "online" && "Backend Connected"}
           {backendStatus === "offline" && "Backend Unreachable"}
           {backendStatus === "checking" && "Checking Backend..."}
@@ -49,7 +54,7 @@ export default function Dashboard() {
         </div>
 
         <div>
-          <MetricsDashboard />
+          <MetricsDashboard material={topMaterial} />
         </div>
       </div>
 
