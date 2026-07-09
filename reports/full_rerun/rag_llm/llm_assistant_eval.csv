@@ -1,2 +1,0 @@
-status,reason,groundedness,citation_fidelity,metadata_consistency
-not_executable,OPENAI_API_KEY is not set; repository LLM client depends on OpenAI chat completions.,,,
