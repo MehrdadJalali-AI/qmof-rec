@@ -1,6 +1,12 @@
+# Each subproject has its own .gitignore (backend/.gitignore, frontend/.gitignore).
+# This root file covers things that might appear at the repo root.
+
+.DS_Store
+.vscode/
+.idea/
+*.log
 # Large datasets
 processed_graphs/
-relaxed_structures/
 experiments/
 
 # Large QMOF files
@@ -9,7 +15,7 @@ qmof.csv
 qmof_structure_data.json
 
 # Nested dataset copies
-qmof_database/qmof_database/processed_graphs/
+
 qmof_database/qmof_database/relaxed_structures/
 qmof_database/qmof_database/qmof.json
 qmof_database/qmof_database/qmof.csv
@@ -40,22 +46,3 @@ build/
 frontend/node_modules/
 backend/__pycache__/
 backend/app/**/__pycache__/
-backend/models/*.pt
-backend/app/models/*.ptvenv/
-.venv/
-backend/venv/
-backend/.venv/
-__pycache__/
-*.pyc
-venv/
-.venv/
-backend/venv/
-backend/.venv/
-__pycache__/
-*.pyc
-venv/
-.venv/
-backend/venv/
-backend/.venv/
-__pycache__/
-*.pyc
