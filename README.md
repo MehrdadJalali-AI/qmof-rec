@@ -104,6 +104,49 @@ Dev server: `http://localhost:5173`
 origin (e.g. `http://localhost:5173` for local dev, or your Netlify URL for
 production), or browser requests will be blocked.
 
+## Reviewer-revision reproducibility
+
+The reviewer-revision branch `reviewer-arnd-revision` introduces explicit
+descriptor availability masks for numerical reranking. Missing descriptors are
+not interpreted as physical zero values. Active numerical objectives are:
+
+- `semantic_score`
+- `band_gap_score`
+- `density_score`
+- `stability_score`
+
+Void fraction is unavailable for all 20,372 local metadata records and is
+excluded from numerical relevance scoring, LEA candidate remapping, diversity
+distance, objective-balance interpretation, radar plots, and frontend metric
+plots. It remains only as unavailable metadata and as a limitation-warning
+field for porosity or adsorption questions.
+
+Focused revision tests:
+
+```bash
+PYTHONPATH=backend pytest -q backend/tests/test_missing_data_masks.py
+```
+
+Manuscript builds are maintained in:
+
+```text
+/Users/mehrdadjalali/Documents/SRH_Research/QMOF-Rec/QMOF_Rec
+```
+
+Build commands from that manuscript folder:
+
+```bash
+latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+latexmk -pdf -interaction=nonstopmode -halt-on-error supplementary_material.tex
+```
+
+Repository-side revision logs:
+
+- `REVISION_CHANGELOG.md`
+- `REPRODUCTION_COMMANDS.md`
+- `REVIEWER_COMMENT_MATRIX.csv`
+- `FINAL_REVISION_AUDIT.md`
+
 ## Deployment
 
 ### Backend -> Railway

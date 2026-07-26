@@ -82,6 +82,8 @@ def masked_weighted_sum(scores: dict, weights: dict, availability: dict) -> floa
 def masked_distance(left: np.ndarray, right: np.ndarray, left_mask: np.ndarray, right_mask: np.ndarray) -> float:
     joint = np.logical_and(left_mask.astype(bool), right_mask.astype(bool))
     if not np.any(joint):
+        # No shared evidence means no distance contribution; callers treat this
+        # as neutral rather than inventing a descriptor value.
         return 0.0
     diff = left[joint] - right[joint]
     return float(np.sqrt(np.mean(diff * diff)))
@@ -90,6 +92,8 @@ def masked_distance(left: np.ndarray, right: np.ndarray, left_mask: np.ndarray, 
 def masked_cosine(left: np.ndarray, right: np.ndarray, left_mask: np.ndarray, right_mask: np.ndarray) -> float:
     joint = np.logical_and(left_mask.astype(bool), right_mask.astype(bool))
     if not np.any(joint):
+        # Zero similarity is the neutral fallback when two materials have no
+        # jointly observed descriptor dimensions.
         return 0.0
     lvec = left[joint]
     rvec = right[joint]
