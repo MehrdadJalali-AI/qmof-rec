@@ -2,6 +2,18 @@
 
 ## Focused backend tests
 
+Clean-clone setup:
+
+```bash
+git clone https://github.com/MehrdadJalali-AI/qmof-rec.git
+cd qmof-rec
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r backend/requirements.txt
+```
+
+Run the focused mask-aware regression suite:
+
 ```bash
 PYTHONPATH=backend pytest -q backend/tests/test_missing_data_masks.py
 ```
@@ -9,7 +21,7 @@ PYTHONPATH=backend pytest -q backend/tests/test_missing_data_masks.py
 Observed result during revision:
 
 ```text
-5 passed in 0.34s
+8 passed in 0.33s
 ```
 
 ## Manuscript builds

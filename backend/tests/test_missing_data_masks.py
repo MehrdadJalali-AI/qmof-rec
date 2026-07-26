@@ -5,6 +5,7 @@ from app.recommendation.feature_extractor import feature_extractor
 from app.recommendation.hybrid_ranker import hybrid_ranker
 from app.recommendation.lea_optimizer import LotusEffectOptimizer
 from app.recommendation.material_similarity import material_similarity
+from app.recommendation.objective_utils import masked_balance_score, masked_distance
 
 
 def test_missing_and_genuine_zero_have_different_masks():
@@ -51,6 +52,48 @@ def test_masked_similarity_is_symmetric_and_finite():
     assert np.isfinite(lr)
     assert np.isfinite(rl)
     assert lr == rl
+
+
+def test_masked_distance_ignores_unsupported_dimensions():
+    left = np.array([1.0, 0.2, 0.9])
+    right = np.array([1.0, 0.8, 0.1])
+    left_mask = np.array([True, False, False])
+    right_mask = np.array([True, True, True])
+
+    assert masked_distance(left, right, left_mask, right_mask) == 0.0
+
+
+def test_masked_distance_detects_observed_difference_symmetrically():
+    left = np.array([1.0, 0.2, 0.9])
+    right = np.array([0.0, 0.8, 0.1])
+    left_mask = np.array([True, False, True])
+    right_mask = np.array([True, True, True])
+
+    lr = masked_distance(left, right, left_mask, right_mask)
+    rl = masked_distance(right, left, right_mask, left_mask)
+
+    assert np.isfinite(lr)
+    assert lr == rl
+    assert lr > 0.0
+
+
+def test_masked_balance_measures_evenness_not_mean_quality():
+    even_high = masked_balance_score(
+        np.array([0.8, 0.8, 0.8, 0.8]),
+        np.array([True, True, True, True]),
+    )
+    uneven_same_mean = masked_balance_score(
+        np.array([1.0, 1.0, 0.2, 0.2]),
+        np.array([True, True, True, True]),
+    )
+    ignored_missing_extreme = masked_balance_score(
+        np.array([0.8, 0.8, 0.0, 1.0]),
+        np.array([True, True, False, False]),
+    )
+
+    assert even_high == 1.0
+    assert uneven_same_mean < even_high
+    assert ignored_missing_extreme == 1.0
 
 
 def test_lea_ignores_porosity_score_when_ranking():

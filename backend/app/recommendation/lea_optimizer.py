@@ -7,6 +7,7 @@ import numpy as np
 from app.recommendation.objective_utils import (
     ACTIVE_OBJECTIVES,
     WEIGHT_KEYS,
+    masked_balance_score,
     masked_distance,
     normalize_weights,
 )
@@ -156,7 +157,7 @@ class LotusEffectOptimizer:
         else:
             weighted_score = float(np.dot(objectives, active_weights) / weight_total)
 
-        balance_score = float(np.mean(objectives[mask])) if np.any(mask) else 0.0
+        balance_score = masked_balance_score(objectives, mask)
 
         diversity_score = 0.0
 

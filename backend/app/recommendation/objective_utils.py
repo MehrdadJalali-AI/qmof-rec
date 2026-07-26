@@ -79,6 +79,17 @@ def masked_weighted_sum(scores: dict, weights: dict, availability: dict) -> floa
     return numerator / denominator
 
 
+def masked_balance_score(values: np.ndarray, mask: np.ndarray) -> float:
+    observed = mask.astype(bool)
+    if not np.any(observed):
+        return 0.0
+
+    observed_values = values[observed]
+    mean_value = float(np.mean(observed_values))
+    dispersion = float(np.sqrt(np.mean((observed_values - mean_value) ** 2)))
+    return max(0.0, min(1.0, 1.0 - dispersion))
+
+
 def masked_distance(left: np.ndarray, right: np.ndarray, left_mask: np.ndarray, right_mask: np.ndarray) -> float:
     joint = np.logical_and(left_mask.astype(bool), right_mask.astype(bool))
     if not np.any(joint):
