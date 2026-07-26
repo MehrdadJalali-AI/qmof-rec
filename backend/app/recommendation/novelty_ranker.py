@@ -1,5 +1,6 @@
 import numpy as np
 
+from app.recommendation.objective_utils import ACTIVE_OBJECTIVES, masked_distance
 from app.utils.json_utils import (
     sanitize_number,
 )
@@ -7,57 +8,58 @@ from app.utils.json_utils import (
 
 class NoveltyRanker:
 
-    def _vector(
+    def _vector_with_mask(
         self,
         item,
     ):
 
-        vector = [
-            sanitize_number(
-                item.get("semantic_score"),
-                default=0.0,
-            ),
-            sanitize_number(
-                item.get("band_gap_score"),
-                default=0.0,
-            ),
-            sanitize_number(
-                item.get("density_score"),
-                default=0.0,
-            ),
-            sanitize_number(
-                item.get("porosity_score"),
-                default=0.0,
-            ),
-            sanitize_number(
-                item.get("stability_score"),
-                default=0.0,
-            ),
-        ]
+        availability = item.get("availability", {}) or {}
 
-        return np.array(
-            vector,
-            dtype=np.float32,
+        vector = []
+        mask = []
+
+        for objective in ACTIVE_OBJECTIVES:
+            vector.append(
+                sanitize_number(
+                    item.get(objective),
+                    default=0.0,
+                )
+            )
+            mask.append(bool(availability.get(objective.replace("_score", ""), True)))
+
+        return (
+            np.array(
+                vector,
+                dtype=np.float32,
+            ),
+            np.array(
+                mask,
+                dtype=bool,
+            ),
         )
 
     def _normalize_vectors(
         self,
         vectors,
+        masks,
     ):
 
-        mins = vectors.min(
-            axis=0,
-            keepdims=True,
-        )
+        normalized = vectors.copy()
 
-        maxs = vectors.max(
-            axis=0,
-            keepdims=True,
-        )
-
-        denominator = maxs - mins + 1e-8
-
-        normalized = (vectors - mins) / denominator
+        for col in range(vectors.shape[1]):
+            observed = masks[:, col]
+            if not np.any(observed):
+                normalized[:, col] = 0.0
+                continue
+            col_values = vectors[observed, col]
+            col_min = float(col_values.min())
+            col_max = float(col_values.max())
+            denominator = col_max - col_min
+            if denominator <= 1e-8:
+                normalized[observed, col] = 0.0
+            else:
+                normalized[observed, col] = (vectors[observed, col] - col_min) / denominator
+            normalized[~observed, col] = 0.0
 
         return normalized
 
@@ -70,23 +72,31 @@ class NoveltyRanker:
 
             return []
 
+        extracted = [self._vector_with_mask(item) for item in candidates]
+
         vectors = np.array(
-            [self._vector(item) for item in candidates],
+            [vector for vector, _ in extracted],
             dtype=np.float32,
         )
-
-        normalized_vectors = self._normalize_vectors(vectors)
-
-        centroid = np.mean(
-            normalized_vectors,
-            axis=0,
+        masks = np.array(
+            [mask for _, mask in extracted],
+            dtype=bool,
         )
+
+        normalized_vectors = self._normalize_vectors(vectors, masks)
+
+        centroid = np.zeros(normalized_vectors.shape[1], dtype=np.float32)
+        centroid_mask = np.any(masks, axis=0)
+        for col in range(normalized_vectors.shape[1]):
+            observed = masks[:, col]
+            if np.any(observed):
+                centroid[col] = float(np.mean(normalized_vectors[observed, col]))
 
         distances = []
 
-        for vector in normalized_vectors:
+        for vector, mask in zip(normalized_vectors, masks):
 
-            distance = float(np.linalg.norm(vector - centroid))
+            distance = masked_distance(vector, centroid, mask, centroid_mask)
 
             distances.append(distance)
 

@@ -1,12 +1,8 @@
-import numpy as np
-
-from sklearn.metrics.pairwise import (
-    cosine_similarity,
-)
-
 from app.recommendation.feature_extractor import (
     feature_extractor,
 )
+
+from app.recommendation.objective_utils import masked_cosine
 
 
 class MaterialSimilarity:
@@ -17,32 +13,13 @@ class MaterialSimilarity:
         candidate_material,
     ):
 
-        q = feature_extractor.extract(query_material)
+        q, q_mask = feature_extractor.extract_with_mask(query_material)
 
-        c = feature_extractor.extract(candidate_material)
-
-        if np.linalg.norm(q) == 0:
-
-            return 0.0
-
-        if np.linalg.norm(c) == 0:
-
-            return 0.0
+        c, c_mask = feature_extractor.extract_with_mask(candidate_material)
 
         try:
 
-            score = cosine_similarity(
-                [q],
-                [c],
-            )[
-                0
-            ][0]
-
-            if np.isnan(score):
-
-                return 0.0
-
-            return float(score)
+            return masked_cosine(q, c, q_mask, c_mask)
 
         except Exception:
 

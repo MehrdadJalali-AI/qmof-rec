@@ -44,10 +44,6 @@ export default function MetricsDashboard({ material }) {
       value: safeMetric(material?.density),
     },
     {
-      name: "Porosity",
-      value: safeMetric(material?.void_fraction),
-    },
-    {
       name: "Score",
       value: safeMetric(material?.final_score),
     },
@@ -82,6 +78,18 @@ export default function MetricsDashboard({ material }) {
           }}
         >
           {material.qmof_id}
+        </p>
+      )}
+
+      {material?.void_fraction_note && (
+        <p
+          style={{
+            margin: "-8px 0 16px",
+            fontSize: "12.5px",
+            color: "var(--muted)",
+          }}
+        >
+          Void fraction {material.void_fraction_note}.
         </p>
       )}
 

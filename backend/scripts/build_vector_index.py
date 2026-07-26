@@ -19,6 +19,17 @@ logging.basicConfig(
 logger = logging.getLogger("qmof.build_index")
 
 
+def value_or_unavailable(value):
+    if pd.isna(value):
+        return None
+    return value
+
+
+def display_value(value):
+    observed = value_or_unavailable(value)
+    return "unavailable" if observed is None else observed
+
+
 def build_vector_database():
     logger.info("Loading QMOF CSV from %s", settings.QMOF_CSV_PATH)
 
@@ -34,7 +45,7 @@ def build_vector_database():
                 f"Formula: {row.get('info.formula', '')}\n"
                 f"Band Gap: {row.get('outputs.hse06.bandgap', '')}\n"
                 f"Density: {row.get('info.density', '')}\n"
-                f"Void Fraction: {row.get('info.void_fraction', '')}"
+                f"Void Fraction: {display_value(row.get('info.void_fraction'))}"
             )
 
             embedding = embedding_engine.encode(text)
@@ -42,9 +53,9 @@ def build_vector_database():
             metadata = {
                 "qmof_id": row.get("qmof_id"),
                 "formula": row.get("info.formula"),
-                "band_gap": row.get("outputs.hse06.bandgap"),
-                "density": row.get("info.density"),
-                "void_fraction": row.get("info.void_fraction"),
+                "band_gap": value_or_unavailable(row.get("outputs.hse06.bandgap")),
+                "density": value_or_unavailable(row.get("info.density")),
+                "void_fraction": value_or_unavailable(row.get("info.void_fraction")),
                 "text": text,
             }
 

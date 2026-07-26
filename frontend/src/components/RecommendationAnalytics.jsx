@@ -27,7 +27,6 @@ function shortId(qmofId, index) {
 const CHART_COLORS = {
   band_gap: "var(--accent)",
   density: "var(--accent-strong)",
-  void_fraction: "#8a5a12",
   final_score: "var(--accent)",
   novelty_score: "var(--accent-strong)",
   semantic_score: "#5b5470",
@@ -298,12 +297,6 @@ export default function RecommendationAnalytics() {
             title="Density"
             unit="g/cm\u00b3"
             dataKey="density"
-            results={results}
-          />
-          <PropertyBarChart
-            title="Void Fraction"
-            unit=""
-            dataKey="void_fraction"
             results={results}
           />
         </div>

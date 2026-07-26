@@ -1,3 +1,6 @@
+from app.recommendation.objective_utils import normalize_weights
+
+
 class DynamicWeightEngine:
 
     def generate_weights(
@@ -8,33 +11,24 @@ class DynamicWeightEngine:
         query = query.lower()
 
         weights = {
-            "semantic": 0.30,
-            "band_gap": 0.20,
-            "density": 0.15,
-            "porosity": 0.20,
-            "stability": 0.15,
+            "semantic": 0.35,
+            "band_gap": 0.25,
+            "density": 0.20,
+            "stability": 0.20,
         }
 
         if "photocatalysis" in query:
             weights["band_gap"] += 0.25
 
-        if "gas adsorption" in query:
-            weights["porosity"] += 0.25
-
-        if "co2" in query:
-            weights["porosity"] += 0.15
-
         if "stable" in query:
             weights["stability"] += 0.20
 
-        if "lightweight" in query:
-            weights["density"] += 0.20
+        if "lightweight" in query or "gas adsorption" in query or "co2" in query:
+            weights["density"] += 0.15
 
-        total = sum(weights.values())
+        normalized = normalize_weights(weights)
 
-        normalized = {k: round(v / total, 4) for k, v in weights.items()}
-
-        return normalized
+        return {k: round(v, 4) for k, v in normalized.items()}
 
 
 dynamic_weight_engine = DynamicWeightEngine()

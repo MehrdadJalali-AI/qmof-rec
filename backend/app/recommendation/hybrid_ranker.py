@@ -1,7 +1,11 @@
+from app.recommendation.objective_utils import (
+    is_observed,
+    masked_weighted_sum,
+    observed_float,
+)
 from app.recommendation.property_scorer import (
     property_scorer,
 )
-
 from app.utils.json_utils import (
     sanitize_number,
 )
@@ -13,32 +17,26 @@ class HybridRanker:
         self,
         material,
         density_score,
-        porosity_score,
+        density_available,
     ):
 
-        real_stability = sanitize_number(
-            material.get("stability"),
-            default=None,
-        )
+        real_stability = material.get("stability")
 
-        if real_stability is not None:
+        if is_observed(real_stability):
 
             return sanitize_number(
                 real_stability,
                 default=0.0,
-            )
+            ), True
 
-        """
-        Proxy stability only when
-        real descriptor missing
-        """
+        if density_available:
 
-        proxy = 0.6 * density_score + 0.4 * (1 - abs(porosity_score - 0.5))
+            return sanitize_number(
+                density_score,
+                default=0.0,
+            ), True
 
-        return sanitize_number(
-            proxy,
-            default=0.0,
-        )
+        return 0.0, False
 
     def compute_score(
         self,
@@ -52,73 +50,51 @@ class HybridRanker:
             default=0.0,
         )
 
-        band_gap_score = sanitize_number(
-            property_scorer.score_band_gap(material.get("band_gap")),
-            default=0.0,
+        band_gap_available = is_observed(material.get("band_gap"))
+        density_available = is_observed(material.get("density"))
+        void_fraction_available = is_observed(material.get("void_fraction"))
+
+        band_gap_score = (
+            sanitize_number(
+                property_scorer.score_band_gap(material.get("band_gap")),
+                default=0.0,
+            )
+            if band_gap_available
+            else 0.0
         )
 
-        density_score = sanitize_number(
-            property_scorer.score_density(material.get("density")),
-            default=0.0,
+        density_score = (
+            sanitize_number(
+                property_scorer.score_density(material.get("density")),
+                default=0.0,
+            )
+            if density_available
+            else 0.0
         )
 
-        porosity_score = sanitize_number(
-            property_scorer.score_porosity(material.get("void_fraction")),
-            default=0.0,
-        )
-
-        stability_score = self._compute_stability_score(
+        stability_score, stability_available = self._compute_stability_score(
             material=material,
             density_score=density_score,
-            porosity_score=porosity_score,
+            density_available=density_available,
         )
 
-        semantic_weight = sanitize_number(
-            weights.get(
-                "semantic",
-                0.0,
-            ),
-            default=0.0,
-        )
+        scores = {
+            "semantic_score": semantic_score,
+            "band_gap_score": band_gap_score,
+            "density_score": density_score,
+            "stability_score": stability_score,
+        }
+        availability = {
+            "semantic": True,
+            "band_gap": band_gap_available,
+            "density": density_available,
+            "stability": stability_available,
+        }
 
-        band_gap_weight = sanitize_number(
-            weights.get(
-                "band_gap",
-                0.0,
-            ),
-            default=0.0,
-        )
-
-        density_weight = sanitize_number(
-            weights.get(
-                "density",
-                0.0,
-            ),
-            default=0.0,
-        )
-
-        porosity_weight = sanitize_number(
-            weights.get(
-                "porosity",
-                0.0,
-            ),
-            default=0.0,
-        )
-
-        stability_weight = sanitize_number(
-            weights.get(
-                "stability",
-                0.0,
-            ),
-            default=0.0,
-        )
-
-        final_score = (
-            semantic_weight * semantic_score
-            + band_gap_weight * band_gap_score
-            + density_weight * density_score
-            + porosity_weight * porosity_score
-            + stability_weight * stability_score
+        final_score = masked_weighted_sum(
+            scores=scores,
+            weights=weights,
+            availability=availability,
         )
 
         final_score = sanitize_number(
@@ -139,14 +115,14 @@ class HybridRanker:
                 density_score,
                 4,
             ),
-            "porosity_score": round(
-                porosity_score,
-                4,
-            ),
+            "porosity_score": None,
             "stability_score": round(
                 stability_score,
                 4,
             ),
+            "availability": availability,
+            "void_fraction_available": void_fraction_available,
+            "void_fraction_note": "unavailable; excluded from numerical ranking",
         }
 
 

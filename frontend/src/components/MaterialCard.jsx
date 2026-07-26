@@ -150,7 +150,7 @@ export default function MaterialCard({ material, rank, query }) {
         <div>
           <BadgeInfo size={16} />
           Void Fraction
-          <strong>{material.void_fraction ?? "N/A"}</strong>
+          <strong>{material.void_fraction ?? "Unavailable"}</strong>
         </div>
       </div>
 

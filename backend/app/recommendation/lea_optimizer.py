@@ -1,9 +1,15 @@
 from __future__ import annotations
 
-from typing import Dict, List, Optional, Tuple
+from typing import Optional
 
 import numpy as np
 
+from app.recommendation.objective_utils import (
+    ACTIVE_OBJECTIVES,
+    WEIGHT_KEYS,
+    masked_distance,
+    normalize_weights,
+)
 from app.utils.json_utils import sanitize_number
 
 
@@ -31,67 +37,19 @@ class LotusEffectOptimizer:
 
     def _objective_names(self):
 
-        return [
-            "semantic_score",
-            "band_gap_score",
-            "density_score",
-            "porosity_score",
-            "stability_score",
-        ]
+        return list(ACTIVE_OBJECTIVES)
 
     def _weights(
         self,
         weights,
     ):
 
-        raw = np.array(
-            [
-                sanitize_number(
-                    weights.get(
-                        "semantic",
-                        0,
-                    ),
-                    default=0,
-                ),
-                sanitize_number(
-                    weights.get(
-                        "band_gap",
-                        0,
-                    ),
-                    default=0,
-                ),
-                sanitize_number(
-                    weights.get(
-                        "density",
-                        0,
-                    ),
-                    default=0,
-                ),
-                sanitize_number(
-                    weights.get(
-                        "porosity",
-                        0,
-                    ),
-                    default=0,
-                ),
-                sanitize_number(
-                    weights.get(
-                        "stability",
-                        0,
-                    ),
-                    default=0,
-                ),
-            ],
+        normalized = normalize_weights(weights, keys=WEIGHT_KEYS)
+
+        return np.array(
+            [normalized[key] for key in WEIGHT_KEYS],
             dtype=np.float32,
         )
-
-        total = float(raw.sum())
-
-        if total <= 0:
-
-            return np.ones_like(raw) / len(raw)
-
-        return raw / total
 
     def _candidate_matrix(
         self,
@@ -99,92 +57,117 @@ class LotusEffectOptimizer:
     ):
 
         rows = []
+        masks = []
 
         for material in materials:
 
             row = []
+            mask = []
+
+            availability = material.get("availability", {}) or {}
 
             for name in self._objective_names():
 
                 value = sanitize_number(
                     material.get(name),
-                    default=0,
+                    default=0.0,
                 )
 
                 row.append(value)
 
+                available_key = name.replace("_score", "")
+                mask.append(bool(availability.get(available_key, True)))
+
             rows.append(row)
+            masks.append(mask)
 
         matrix = np.array(
             rows,
             dtype=np.float32,
         )
-
-        """
-        normalize objectives
-        avoids one metric dominating
-        """
-
-        mins = matrix.min(
-            axis=0,
-            keepdims=True,
+        availability_matrix = np.array(
+            masks,
+            dtype=bool,
         )
 
-        maxs = matrix.max(
-            axis=0,
-            keepdims=True,
-        )
+        normalized = matrix.copy()
 
-        denominator = maxs - mins + 1e-8
+        for col in range(matrix.shape[1]):
+            observed = availability_matrix[:, col]
+            if not np.any(observed):
+                normalized[:, col] = 0.0
+                continue
 
-        matrix = (matrix - mins) / denominator
+            col_values = matrix[observed, col]
+            col_min = float(col_values.min())
+            col_max = float(col_values.max())
+            denominator = col_max - col_min
 
-        return matrix
+            if denominator <= 1e-8:
+                normalized[observed, col] = 0.0
+            else:
+                normalized[observed, col] = (matrix[observed, col] - col_min) / denominator
+
+            normalized[~observed, col] = 0.0
+
+        return normalized, availability_matrix
 
     def _nearest_candidate(
         self,
         individual,
+        individual_mask,
         candidate_matrix,
+        availability_matrix,
     ):
 
-        distances = np.linalg.norm(
-            candidate_matrix - individual,
-            axis=1,
-        )
+        distances = [
+            masked_distance(individual, row, individual_mask, mask)
+            for row, mask in zip(candidate_matrix, availability_matrix)
+        ]
 
         return int(np.argmin(distances))
 
     def _fitness(
         self,
         individual,
+        individual_mask,
         candidate_matrix,
+        availability_matrix,
         objective_weights,
         selected_vectors,
+        selected_masks,
     ):
 
         candidate_idx = self._nearest_candidate(
             individual,
+            individual_mask,
             candidate_matrix,
+            availability_matrix,
         )
 
         objectives = candidate_matrix[candidate_idx]
+        mask = availability_matrix[candidate_idx]
 
-        weighted_score = float(
-            np.dot(
-                objectives,
-                objective_weights,
-            )
-        )
+        active_weights = objective_weights * mask.astype(np.float32)
+        weight_total = float(active_weights.sum())
 
-        balance_score = float(np.mean(objectives))
+        if weight_total <= 1e-8:
+            weighted_score = 0.0
+        else:
+            weighted_score = float(np.dot(objectives, active_weights) / weight_total)
 
-        diversity_score = 0
+        balance_score = float(np.mean(objectives[mask])) if np.any(mask) else 0.0
 
-        redundancy_penalty = 0
+        diversity_score = 0.0
+
+        redundancy_penalty = 0.0
 
         if selected_vectors:
 
-            distances = [np.linalg.norm(objectives - vec) for vec in selected_vectors]
+            distances = [
+                masked_distance(objectives, vec, mask, selected_mask)
+                for vec, selected_mask in zip(selected_vectors, selected_masks)
+            ]
 
             diversity_score = float(np.mean(distances))
 
@@ -268,11 +251,9 @@ class LotusEffectOptimizer:
 
             top_k = self.top_k
 
-        candidate_matrix = self._candidate_matrix(materials)
+        candidate_matrix, availability_matrix = self._candidate_matrix(materials)
 
         objective_weights = self._weights(weights)
-
-        dimension = candidate_matrix.shape[1]
 
         population_size = min(
             max(
@@ -287,9 +268,15 @@ class LotusEffectOptimizer:
             for i in range(population_size)
         ]
 
-        fitnesses = [0] * population_size
+        population_masks = [
+            availability_matrix[i % len(availability_matrix)].copy()
+            for i in range(population_size)
+        ]
+
+        fitnesses = [0.0] * population_size
 
         selected_vectors = []
+        selected_masks = []
 
         best_materials = {}
 
@@ -301,9 +288,12 @@ class LotusEffectOptimizer:
 
                 fitness, candidate_idx = self._fitness(
                     individual,
+                    population_masks[idx],
                     candidate_matrix,
+                    availability_matrix,
                     objective_weights,
                     selected_vectors,
+                    selected_masks,
                 )
 
                 fitnesses[idx] = fitness
@@ -326,7 +316,8 @@ class LotusEffectOptimizer:
 
             self.fitness_history.append(float(max(fitnesses)))
 
-            best = population[int(np.argmax(fitnesses))]
+            best_index = int(np.argmax(fitnesses))
+            best = population[best_index]
 
             population = [
                 self._lotus_mutation(
@@ -344,13 +335,12 @@ class LotusEffectOptimizer:
                     fitnesses,
                 )
 
-            selected_vectors = [
-                candidate_matrix[idx]
-                for _, idx in sorted(
-                    best_materials.values(),
-                    reverse=True,
-                )[:top_k]
-            ]
+            ordered_so_far = sorted(
+                best_materials.values(),
+                reverse=True,
+            )[:top_k]
+            selected_vectors = [candidate_matrix[idx] for _, idx in ordered_so_far]
+            selected_masks = [availability_matrix[idx] for _, idx in ordered_so_far]
 
         ordered = sorted(
             best_materials.values(),
@@ -358,6 +348,24 @@ class LotusEffectOptimizer:
         )[:top_k]
 
         results = []
+
+        selected_vectors = [candidate_matrix[idx] for _, idx in ordered]
+        selected_masks = [availability_matrix[idx] for _, idx in ordered]
+        if len(selected_vectors) > 1:
+            pairwise = []
+            for i in range(len(selected_vectors)):
+                for j in range(i + 1, len(selected_vectors)):
+                    pairwise.append(
+                        masked_distance(
+                            selected_vectors[i],
+                            selected_vectors[j],
+                            selected_masks[i],
+                            selected_masks[j],
+                        )
+                    )
+            self.diversity_score = float(np.mean(pairwise)) if pairwise else 0.0
+        else:
+            self.diversity_score = 0.0
 
         for rank, (
             fitness,

@@ -65,14 +65,6 @@ class RecommendationPipeline:
         weights,
     ):
 
-        porosity_weight = sanitize_number(
-            weights.get(
-                "porosity",
-                0.0,
-            ),
-            default=0.0,
-        )
-
         stability_weight = sanitize_number(
             weights.get(
                 "stability",
@@ -81,7 +73,7 @@ class RecommendationPipeline:
             default=0.0,
         )
 
-        novelty_weight = 0.03 + 0.04 * (porosity_weight + stability_weight)
+        novelty_weight = 0.03 + 0.04 * stability_weight
 
         return min(
             0.10,
@@ -235,6 +227,14 @@ class RecommendationPipeline:
                     material.get("void_fraction"),
                     default=None,
                 ),
+                "void_fraction_note": hybrid_scores.get(
+                    "void_fraction_note",
+                    "unavailable; excluded from numerical ranking",
+                ),
+                "availability": hybrid_scores.get(
+                    "availability",
+                    {},
+                ),
                 "semantic_score": round(
                     semantic_score,
                     4,
@@ -261,13 +261,7 @@ class RecommendationPipeline:
                     ),
                     default=0.0,
                 ),
-                "porosity_score": sanitize_number(
-                    hybrid_scores.get(
-                        "porosity_score",
-                        0.0,
-                    ),
-                    default=0.0,
-                ),
+                "porosity_score": None,
                 "stability_score": sanitize_number(
                     hybrid_scores.get(
                         "stability_score",
