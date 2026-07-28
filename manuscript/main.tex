@@ -1,0 +1,834 @@
+\documentclass[12pt,a4paper]{article}
+
+%% ── Packages ──────────────────────────────────────────────────────────────
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{newunicodechar}
+\newunicodechar{₂}{$_2$}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage[patch=none]{microtype}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15pt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\hypersetup{colorlinks=false, hidelinks,
+  pdftitle={Multi-Objective Quantum-Chemical MOF Recommendation},
+  pdfauthor={Soumya Sekhar Banerjee, Mehrdad Jalali}}
+
+\onehalfspacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+\captionsetup{font=small,labelfont=bf,format=plain,justification=justified}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{QMOF-Rec: Multi-Objective MOF Recommendation}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+\begin{document}
+
+%% ── Title ─────────────────────────────────────────────────────────────────
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\centering\vspace*{1cm}
+{\LARGE\bfseries QMOF-Rec: A Multi-Objective Recommender-System Framework for Quantum-Chemical MOF Candidate Screening\par}
+\vspace{1.5cm}
+{\large Soumya Sekhar Banerjee$^{1}$ \quad and \quad Mehrdad Jalali$^{1,*}$\par}
+\vspace{0.5cm}
+{\normalsize $^{1}$SRH University of Applied Sciences Heidelberg, Heidelberg, Germany\par}
+{\normalsize $^{*}$Corresponding author: \href{mailto:mehrdad.jalali@srh.de}{mehrdad.jalali@srh.de}\par}
+\vspace{2cm}
+\begin{abstract}
+\noindent
+Materials discovery in large quantum-chemical databases requires ranking candidates under partially competing objectives, incomplete descriptors, and diverse user intent, a challenge that conventional high-throughput screening addresses only partially. We present QMOF-Rec, a query-driven scientific recommender system that frames quantum-chemical MOF discovery as a multi-objective top-$K$ recommendation problem. Given a scientific query such as ``CO$_2$ adsorption MOFs'' or ``photocatalytic frameworks,'' QMOF-Rec retrieves a query-relevant candidate pool and applies a Lotus Effect Algorithm (LEA)-guided reranking layer to construct a final recommendation portfolio that balances relevance, property suitability, and intra-list diversity.
+The system integrates semantic and metadata retrieval, property-aware scoring, formula-derived metadata-graph learning using GraphSAGE and graph attention networks (GAT), and retrieval-augmented generation (RAG) with large language model (LLM) explanation support. Saved offline evaluation artifacts on 20{,}372 QMOF vector metadata records across five query scenarios show that LEA preserves near-optimal relevance (Rel@5 = 0.6939) and ranking quality (NDCG@5 = 0.9959) while substantially improving intra-list diversity (0.1764); WeightedSum remains strongest on the aligned relevance metric. The revised repository handles descriptor availability with explicit masks: density is available for all 20{,}372 records, band gap for 10{,}810 records, and void fraction for none, so porosity is excluded from active numerical ranking, and new regression tests verify that unavailable descriptors are not interpreted as physical zero values. GraphSAGE/GAT results are reported as formula-derived metadata-graph baselines, not CIF-derived atomistic graph learning. A completed 30-query RAG/LLM evaluation across seven scientific scenarios shows perfect groundedness (5.0/5), zero metadata inconsistencies, a 3.3\% overall hallucination rate, and strong limitation-awareness and explanation quality under automated checks. No experimental, DFT, adsorption-uptake, or porosity validation is claimed.
+
+
+
+\medskip\noindent\textbf{Keywords:}~QMOF, metal--organic frameworks, materials recommendation, multi-objective optimization, Lotus Effect Algorithm, retrieval-augmented generation, graph neural networks, GraphSAGE, graph attention networks, materials informatics, explainable AI
+\end{abstract}
+\end{titlepage}
+\hypersetup{pageanchor=true}
+
+%% ════════════════════════════════════════════════════════════════════════════
+\section{Introduction}
+\label{sec:intro}
+
+Materials discovery increasingly depends on computational screening, machine learning, and interactive decision support because experimentally accessible materials spaces are too large to explore by manual intuition alone. Metal--organic frameworks (MOFs) are a representative example: their modular chemistry, tunable pore environments, and broad electronic-property landscape make them attractive for gas adsorption, storage, catalysis, separations, sensing, drug delivery, and electronic applications. Yet the same chemical diversity creates a practical recommendation problem.
+
+We present QMOF-Rec, a multi-objective scientific recommender system for quantum-chemical MOF discovery. QMOF discovery can be formulated as a scientific top-$K$ recommendation task: given a user query and an incomplete set of material descriptors, the system must return a ranked and diverse shortlist of candidate MOFs that are relevant, scientifically plausible, and useful for follow-up investigation.
+
+In this manuscript, \emph{quantum-chemical MOF recommendation} means recommending experimentally derived QMOF records using query intent together with available quantum-chemical and metadata-derived signals such as band gap, density, stability proxies, and graph-aware material relationships. The formulation extends conventional single-target screening by modelling recommendation as a multi-objective ranking problem over relevance, property suitability, diversity, and graph-aware material relationships.
+
+The Quantum MOF (QMOF) database introduced by Rosen et al.\ provides quantum-chemical properties for experimentally derived MOF structures and has become an important resource for machine-learning-assisted MOF discovery \cite{rosen2021,rosen2022}. However, using QMOF as a recommendation substrate is different from using it as a static table. A scientific recommender must interpret user intent, retrieve a candidate pool, score property suitability, avoid redundant candidates, explain trade-offs, and communicate uncertainty when descriptors are missing. This is especially important for queries such as ``CO$_2$ adsorption MOFs'' or ``photocatalytic MOFs'', where semantic relevance alone is not equivalent to scientific suitability.
+
+QMOF recommendation is a query-conditioned candidate-prioritization problem rather than a database lookup. A user rarely asks only for the nearest textual match to a query; instead, they seek a scientifically plausible portfolio of candidates that balances several objectives under incomplete evidence. Vector retrieval can identify materials whose metadata are textually or semantically related to a query, but semantic similarity alone is not a sufficient scientific objective. A material may match a query textually while lacking the available band-gap, density, stability-proxy, or graph-level signals needed for a specific use case. Conversely, a material with sparse metadata may remain worth inspecting when its observed descriptors or graph neighbourhood resemble high-value candidates. QMOF recommendation is therefore naturally multi-objective and partially evidence-limited.
+
+The central idea of QMOF-Rec is to use retrieval for candidate generation, property and graph scoring for scientific item representation, LEA-guided optimization for multi-objective top-$K$ portfolio construction, and RAG/LLM interaction for explainable recommendation. The implemented evaluation focuses on the LEA-guided reranking layer. The broader architecture also supports graph-aware representation learning, property prediction, retrieval-augmented scientific assistance, and user feedback.
+
+QMOF-Rec moves beyond similarity retrieval toward multi-objective scientific recommendation. Its core novelty is the LEA-guided post-retrieval reranking layer, which treats the final recommendation list as a candidate portfolio. This allows QMOF-Rec to preserve high relevance while reducing redundancy and increasing intra-list diversity. To the best of our knowledge, QMOF-Rec is among the first frameworks to formulate quantum-chemical MOF discovery as a multi-objective, retrieval-augmented, graph-aware, and LEA-guided scientific recommendation task.
+
+The contributions are:
+\begin{enumerate}[leftmargin=*, label=\arabic*.]
+  \item A scientific recommender-system formulation of quantum-chemical MOF discovery, defining users, items, candidate generation, item representation, top-$K$ ranking, reranking, feedback, and explanation.
+  \item A two-stage candidate generation and reranking architecture for QMOF-Rec, combining retrieval-based candidate generation with LEA-guided multi-objective reranking.
+  \item A LEA-rec adaptation that optimizes top-$K$ QMOF candidate portfolios for relevance, objective suitability, balance, and diversity.
+  \item A graph-aware recommendation extension using GraphSAGE/GAT embeddings as additional recommendation signals.
+  \item A reproducible recommender-system evaluation using Rel@$K$, NDCG@$K$, intra-list diversity, coverage, runtime, ablation studies, and query-blocked statistical robustness analyses.
+  \item A completed 30-query RAG/LLM answer-quality benchmark across seven scientific query scenarios, with automated hallucination detection, metadata consistency checking, and limitation-awareness scoring.
+\end{enumerate}
+
+%% ════════════════════════════════════════════════════════════════════════════
+\section{QMOF-Rec as a Scientific Recommender System}
+\label{sec:rec}
+
+QMOF-Rec is designed as a query-driven scientific recommender system. The user is a materials scientist, chemist, or researcher seeking a practical shortlist of candidate MOFs for a target application. The items are QMOF material records. The user intent is expressed as a scientific query such as ``CO$_2$ adsorption MOFs'', ``photocatalytic MOFs'', ``lightweight storage frameworks'', or ``wide-band-gap insulating frameworks''. The recommendation task is to map this query context to a top-$K$ list of QMOF candidates that balances relevance, scientific suitability, diversity, and available graph-aware signals.
+
+The architecture follows a common two-stage recommender-system design. Candidate generation first narrows the searchable item universe to a query-relevant candidate pool using vector, semantic, or metadata retrieval. Ranking and reranking then operate on this smaller candidate set. Deterministic rankers such as WeightedSum, Technique for Order Preference by Similarity to Ideal Solution (TOPSIS), ParetoCrowding, SemanticOnly, Random, and maximal marginal relevance (MMR) provide baseline recommendation policies, while LEA-guided multi-objective reranking optimizes the final user-facing top-$K$ candidate portfolio. Explanation is provided through RAG/LLM-assisted recommendation rationale, uncertainty communication, and evidence-grounded response generation.
+
+Table~\ref{tab:rec_mapping} makes explicit that QMOF-Rec is a hybrid scientific recommender with a strong content-based focus rather than a collaborative-filtering system. No large-scale user--MOF interaction matrix is currently available. Instead, recommendation is driven by query context and item content, including metadata, property scores, semantic retrieval signals, and graph-derived representations.
+
+\begin{table}[H]
+\centering
+\caption{Mapping classical recommender-system components to QMOF-Rec.}
+\label{tab:rec_mapping}
+\small
+\begin{tabular}{L{2.8cm} L{4.5cm} L{5.5cm}}
+\toprule
+\textbf{RS Concept} & \textbf{QMOF-Rec Implementation} & \textbf{Role in Materials Discovery}\\
+\midrule
+User & Materials scientist, chemist, or researcher & Defines scientific intent and evaluates usefulness\\
+Item & QMOF material candidate & Candidate MOF for follow-up investigation\\
+Query/context & Application-oriented scientific query & Specifies target use case and objective weights\\
+Candidate generation & Vector, semantic, or metadata retrieval & Narrows QMOF search space to $C_q$\\
+Item representation & Metadata, formula, density, band gap, stability proxy, graph embedding, semantic metadata & Encodes scientific signals for ranking\\
+Scoring function & Query-dependent objective utility & Estimates relevance and suitability\\
+Multi-objective ranking & WeightedSum, TOPSIS, ParetoCrowding, SemanticOnly, Random, MMR & Provides deterministic and diversity-aware baselines\\
+Reranking & LEA-guided multi-objective reranking & Optimizes final top-$K$ portfolio\\
+Top-$K$ recommendation & Ranked shortlist $S_K(q)$ & Produces practical candidate list for expert inspection\\
+Diversity & Intra-list diversity and future novelty metrics & Reduces redundant candidate portfolios\\
+Explanation & RAG/LLM-assisted rationale and uncertainty explanation & Supports interpretable scientific decision support\\
+Feedback & User/expert feedback, logging, analytics & Enables future preference-aware improvement\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%% ════════════════════════════════════════════════════════════════════════════
+\section{Related Work}
+\label{sec:related}
+
+\subsection{QMOF Databases and Machine-Learning-Assisted MOF Discovery}
+
+High-throughput computational databases have reshaped materials informatics by making electronic, structural, and thermodynamic properties available at scales that support statistical learning. QMOF is especially relevant because it focuses on quantum-chemical properties of MOFs and coordination polymers \cite{rosen2021}. Rosen et al.\ later expanded the electronic-property analysis of QMOF and benchmarked graph neural networks for high-throughput electronic-property prediction \cite{rosen2022}. These studies establish QMOF as a resource for property prediction, screening, and data exploration.
+
+Machine learning has also been used broadly for materials and MOF screening, including adsorption-property prediction, band-gap prediction, and data-driven discovery workflows. Seko et al.\ demonstrated that matrix- and tensor-based recommender systems can prioritize currently unknown inorganic compounds \cite{seko2018}. Transformer-based MOF representations such as MOFormer illustrate the increasing role of learned representations for QMOF and hypothetical MOF tasks \cite{luo2023}. Recent natural-language-guided materials discovery work further motivates query-conditioned retrieval and ranking interfaces for scientific users \cite{qu2023}. In the present work, QMOF records are used as the retrieval and recommendation substrate. Because the locally available metadata are incomplete for some descriptors, the manuscript avoids strong adsorption-specific claims and focuses on ranking behavior under the descriptors actually present.
+
+\subsection{Graph-Based and Structure-Aware MOF Learning}
+
+Graph neural networks (GNNs) are natural for molecular and crystalline materials because atoms, bonds, distances, and higher-level material relationships can be represented as nodes, edges, and attributes. Crystal Graph Convolutional Neural Networks (CGCNN) demonstrated interpretable graph-based prediction of crystalline properties \cite{xie2018}. Graph networks have also been framed as a general machine-learning architecture for molecules and crystals \cite{chen2019}. Foundational GNN methods include the graph convolutional network (GCN) \cite{kipf2017}, GraphSAGE \cite{hamilton2017}, and Graph Attention Networks (GAT) \cite{velickovic2018}.
+
+MOF-specific graph learning has developed rapidly. MOFGalaxyNet used social-network-style graph analysis and graph convolutional learning to predict guest accessibility in MOFs \cite{jalali2023}. The Black Hole Strategy later introduced gravity-based representative sampling for frugal graph learning on MOF networks, including GraphSAGE, GCN, and GAT experiments \cite{jalali2025bh}. These works motivate the graph-aware extension in QMOF-Rec: graph embeddings can provide relational and structural signals that complement vector retrieval and scalar descriptors.
+
+\subsection{Retrieval-Augmented Systems and Vector Search}
+
+Large-scale vector retrieval enables fast nearest-neighbor search over embedded documents, materials, and metadata. FAISS is a widely used library for billion-scale similarity search \cite{johnson2019}. Sentence-BERT showed that Siamese sentence-transformer architectures can produce effective dense sentence embeddings for semantic search \cite{reimers2019}. Retrieval-Augmented Generation (RAG) combines parametric generation with retrieved evidence to support knowledge-intensive tasks \cite{lewis2020}.
+
+For QMOF-Rec, retrieval serves two functions. First, it provides a candidate pool for recommendation. Second, it supplies evidence for the scientific assistant. The LLM is treated as an explanation and interaction layer rather than as a source of ground-truth material properties. This distinction is important because generated text can be fluent while still requiring verification against QMOF metadata, retrieved literature, and candidate records.
+
+The deployed repository separates semantic retrieval from numerical reranking. Retrieval uses SentenceTransformer embeddings of metadata text templates stored in a FAISS L2 index; it does not search directly over the normalized numerical objective vector used by WeightedSum or LEA. During vector-index construction, unavailable fields are serialized as unavailable metadata rather than numerical zeros. Reranking then constructs explicit objective vectors and availability masks for semantic score, band-gap score, density score, and stability score. The reproducible offline benchmark tables were generated with a deterministic semantic proxy over metadata text and formula tokens rather than by rerunning a live sentence-embedding search.
+
+Research-data assistants such as KadiAssistant provide a related but distinct direction: privacy-preserving access to heterogeneous research repositories through semantic search and local or self-hosted language-model components \cite{kadiassistant2026}. QMOF-Rec instead focuses on MOF candidate retrieval, objective-aware reranking, and recommendation evaluation over QMOF-derived metadata.
+
+\subsection{Scientific, Content-Based, and Hybrid Recommender Systems}
+
+Scientific recommender systems extend classical recommendation from consumer preference prediction to expert decision support, candidate discovery, and prioritization under incomplete evidence. In materials discovery, Seko et al.\ used matrix- and tensor-based recommender systems to identify currently unknown inorganic compounds \cite{seko2018}, and Qu et al.\ used language representations for material recommendation, ranking, and exploration \cite{qu2023}. In QMOF-Rec, users are scientists and items are material candidates rather than products, movies, or documents. The absence of large user--item interaction histories makes the problem closer to query-driven, content-based, context-aware recommendation than to collaborative filtering. Content-based recommenders rank items using item attributes and user/query profiles, while hybrid recommenders combine multiple signals such as metadata, semantic retrieval, graph representations, and user feedback when available \cite{burke2002,lops2011,ricci2011}.
+
+QMOF-Rec is therefore a query-driven hybrid recommender with a strong content-based focus. Candidate items are represented by QMOF metadata, formula-derived information, property scores, graph embeddings, and semantic retrieval signals. This differs from matrix/tensor completion over composition spaces \cite{seko2018} and complements language-representation-based material ranking \cite{qu2023} by adding descriptor masks, graph-aware signals, and LEA list-level reranking. Future user feedback can support preference-aware or online recommendation, but the current offline evaluation uses query-dependent objective weights rather than click logs or explicit ratings.
+
+\subsection{Multi-Objective Recommender Systems and Diversity-Aware Reranking}
+
+Scientific recommendation is typically a multi-objective problem. Candidate portfolios should include relevant, diverse, and non-redundant materials rather than a list of nearly identical top-scoring records. Multi-criteria recommender systems explicitly model multiple utility dimensions \cite{adomavicius2011,jannach2014}, while explainable recommendation emphasizes transparency and user trust \cite{zhang2020}. Diversity-aware reranking has a long history in information retrieval, including maximal marginal relevance (MMR) \cite{carbonell1998}.
+
+Classical decision methods also remain useful baselines. TOPSIS ranks alternatives by closeness to ideal and anti-ideal solutions \cite{hwang1981}. Pareto ranking and crowding-distance strategies provide diversity-aware approximations of multi-objective selection, and Non-dominated Sorting Genetic Algorithm II (NSGA-II) is a standard evolutionary reference method for multi-objective optimization \cite{deb2002}. QMOF-Rec evaluates weighted-sum, TOPSIS, ParetoCrowding, random, semantic-only, and LEA-based reranking under a common top-$K$ protocol.
+
+Unlike similarity-only material recommendation, QMOF-Rec formulates MOF discovery as a multi-objective top-$K$ recommendation problem. It combines retrieval augmentation, property-aware scoring, graph-learning signals, LEA-guided reranking, and explanation support to recommend diverse candidate portfolios rather than only nearest-neighbor materials.
+
+\subsection{Explainable Recommendation and Scientific Assistance}
+
+Explainable recommender systems aim to clarify why items are recommended, how scores are produced, and where uncertainty remains \cite{zhang2020}. For scientific recommendation, explanation is especially important because candidate lists may influence costly follow-up experiments, simulations, or synthesis decisions. In QMOF-Rec, RAG/LLM-assisted explanations are framed as an explainable-recommendation layer that can summarize retrieved evidence, material metadata, objective trade-offs, and uncertainty flags. The current manuscript does not claim that LLM explanation improves recommendation accuracy, and LLM faithfulness remains a separate evaluation target.
+
+\subsection{Nature-Inspired and Evolutionary Optimization for Scientific Discovery}
+
+Nature-inspired and evolutionary optimization methods are often used when search spaces are continuous, nonconvex, or multi-objective. Particle swarm optimization, genetic algorithms, NSGA-II, and related evolutionary or swarm-based methods have been applied across scientific discovery and engineering optimization \cite{deb2002}. Bayesian optimization is better described separately as model-based sequential optimization for expensive black-box objectives \cite{shahriari2016}. The Lotus Effect Algorithm (LEA) is a lotus-nature-inspired optimization algorithm originally proposed for engineering design optimization \cite{dalirinia2024}. MOF-LENS later used LEA-inspired optimization for accelerated discovery of MOF nanocarriers for doxorubicin delivery \cite{jalali2025lens}.
+
+The present work distinguishes the original LEA algorithm from the implemented LEA-rec adaptation. LEA-rec uses lotus-inspired mutation and self-cleaning replacement in a post-retrieval normalized objective space, then maps candidates back to valid QMOF records. The method constructs recommendation portfolios from a retrieved candidate pool and leaves physics-based validation, DFT, adsorption simulations, and expert assessment as downstream steps.
+
+\subsection{Positioning of the Present Work}
+
+This manuscript positions QMOF-Rec between materials informatics, recommender systems, graph learning, and scientific-assistant systems. It models user intent and top-$K$ recommendation, evaluates candidates using objective scores and diversity, and grounds explanations in retrieved evidence and material metadata. The current graph-learning results are formula-derived metadata-graph baselines; CIF-derived, atomistic, and full structure-aware GNN evaluation remains future work.
+
+%% ════════════════════════════════════════════════════════════════════════════
+\section{End-to-End QMOF-Rec Recommendation Architecture}
+\label{sec:arch}
+
+QMOF-Rec is framed as an end-to-end scientific recommender architecture for materials discovery rather than only a materials database or optimization script. Figure~\ref{fig:arch} summarizes the QMOF-Rec architecture, showing the interaction between the user-facing frontend, backend services, data infrastructure, retrieval/RAG layer, graph-learning modules, property-prediction components, LEA-guided recommendation engine, and feedback loop. Figure~\ref{fig:arch} follows the common two-stage recommender-system design: candidate generation narrows the search space, and reranking optimizes the final user-facing recommendation list.
+
+The platform is organized into five integrated layers.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{figures/fig1_architecture.png}
+  \caption{Overview of the QMOF-Rec platform architecture. The system integrates user-facing interfaces, backend application services, retrieval-augmented generation, LLM-assisted scientific chat, formula-derived metadata-graph learning, property prediction, LEA-guided recommendation, data infrastructure, and feedback-driven analytics.}
+  \label{fig:arch}
+\end{figure}
+
+\subsection{User Interaction and Frontend}
+
+The user-facing layer supports a web dashboard, scientific chat assistant, recommendation interface, material detail cards, 3D structure/CIF viewer, and feedback interface. The recommendation interface exposes top-$K$ materials, objective contributions, and explanatory text. Material detail cards provide record-level metadata and, where available, structural files. The feedback interface records user judgments for later analytics, preference modeling, and possible continual-improvement workflows.
+
+The frontend prototype was executed locally and inspected through browser-based screenshots (Figure~\ref{fig:frontend}). These views demonstrate the user-facing interaction layer of QMOF-Rec, including query input, the scientific chat interface, the recommendation interface, and analytics views. The screenshots are used only as implementation evidence and do not replace the offline ranking, graph, or ablation evaluations.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\linewidth]{figures/fig2_qmof_frontend.png}
+  \caption{Compact QMOF-Rec application screenshot montage. Panel~A shows the recommendation workspace, Panel~B the scientific chat interface, Panel~C the research workspace, and Panel~D the analytics view. Screenshots demonstrate the implemented interface and are not part of the offline ranking validation.}
+  \label{fig:frontend}
+\end{figure}
+
+\subsection{Backend and Application Services}
+
+The backend layer is designed around a FastAPI application service pattern. The current repository defines routed services for chat, recommendation, material prediction uploads, and structure access, while flat \texttt{/feedback} and \texttt{/analytics} endpoints are platform-design targets rather than validated routes in the present rerun. Application services include an API gateway, recommendation service, chat/scientific-assistant service, property prediction service, graph construction service, RAG service, feedback/analytics service, and background jobs for indexing, embedding, graph generation, CIF processing, and model inference. Pydantic data models support typed request and response contracts.
+
+\subsection{Data, Storage, and Infrastructure}
+
+The data layer integrates the QMOF database, metadata tables, CIF/structure files, literature and papers, domain knowledge, and optional external public materials datasets. Storage and infrastructure include a metadata database, a vector database such as FAISS or pgvector, PostgreSQL-style tabular storage, Redis-like cache/queue support, file storage, logs, reports, and experiment outputs. The current reproducible evaluation uses vector metadata records and saved report artifacts rather than a fully rebuilt descriptor database.
+
+\subsection{AI and Representation Layer}
+
+The recommendation layer combines candidate generation, item representation, scoring, reranking, and explanation. Embedding models and metadata retrieval generate a candidate pool. Property scores, formula-derived metadata features, semantic signals, and graph embeddings represent candidate items. WeightedSum, TOPSIS, ParetoCrowding, SemanticOnly, Random, and MMR provide ranking baselines, while LEA performs multi-objective list-level reranking. A local graph-learning rerun constructs a formula-derived $k$-nearest-neighbor QMOF graph and evaluates GraphSAGE/GAT property-prediction and graph-aware recommendation variants; these results should be interpreted as metadata-graph baselines rather than CIF-derived atomic-graph benchmarks.
+
+\subsection{Scientific Assistant and Feedback Layer}
+
+The scientific assistant layer supports RAG retrieval, prompt construction, LLM orchestration, evidence-based explanations, recommendation rationales, confidence notes, and reference-supported answer generation. It generates text from retrieved evidence, candidate records, and QMOF metadata, while authoritative material-property values remain those stored in the underlying records. The feedback loop records user feedback, logging, analytics, and future model-improvement signals.
+
+%% ════════════════════════════════════════════════════════════════════════════
+\section{End-to-End Recommendation Scenario}
+\label{sec:scenario}
+
+This section illustrates how QMOF-Rec operates as a scientific recommender system from user request to final recommendation. Consider a materials scientist who enters the query: ``Recommend promising MOFs for CO$_2$ adsorption with low density and good stability.'' QMOF-Rec treats this input as a recommendation context rather than only as a text-search string. The system identifies semantic relevance to CO$_2$ adsorption, density, stability proxy, diversity, and optional graph-aware similarity as relevant objectives. Because void fraction is unavailable in the current metadata, porosity is not used as an active numerical objective.
+
+The first stage is candidate generation. QMOF-Rec retrieves an initial candidate pool $C_q$ from the QMOF metadata/vector store. This stage is analogous to candidate generation in a two-stage recommender-system pipeline: it narrows the full QMOF item catalog to a smaller set of query-relevant materials. In the current reproducible evaluation, this pool contains 100 candidate QMOF records for each query scenario.
+
+Each retrieved material is then represented as an item feature vector. Available descriptors and scores, including formula-derived signals, density, band gap where available, semantic metadata score, stability proxy, and metadata-derived objective scores, are normalized before ranking. Missing descriptors are handled explicitly. In particular, void fraction is absent in the current metadata, so the system avoids strong adsorption or porosity claims and communicates that limitation in the recommendation rationale.
+
+If graph embeddings are available, QMOF-Rec can add a graph-aware signal from GraphSAGE/GAT models trained on the formula-derived metadata graph. This signal is useful as a local graph-neighborhood baseline, but it should not be interpreted as a CIF-derived atomistic graph result or as a physically validated structure-aware adsorption model.
+
+The retrieved pool can be ranked by multiple baselines. WeightedSum provides the strongest relevance-oriented scoring baseline. TOPSIS ranks candidates by distance to ideal and anti-ideal solutions. ParetoCrowding emphasizes trade-offs and diversity. MMR provides a diversity-aware reranking reference. SemanticOnly and Random provide retrieval-only and chance-level controls. LEA is the active multi-objective reranker. In recommender-system terms, LEA acts as a multi-objective reranker that converts a retrieved candidate pool into a diverse top-$K$ scientific recommendation portfolio.
+
+Table~\ref{tab:workflow} summarizes the complete workflow. The final output is a ranked top-$K$ list in which each recommendation can include the QMOF identifier, formula, available property values, method score, a short rationale, and a warning when relevant descriptors are missing. The RAG/LLM explanation layer is evaluated for answer quality, groundedness, metadata consistency, hallucination flags, limitation awareness, and explanation quality in Section~\ref{sec:rag_eval}; it is not evaluated as improving ranking quality. After inspecting candidate records or 3D/CIF structures where available, the user can mark materials as useful, uncertain, or irrelevant. Such feedback is stored for future expert review and possible preference-aware recommendation.
+
+\begin{table}[H]
+\centering
+\caption{Example end-to-end QMOF-Rec recommendation scenario.}
+\label{tab:workflow}
+\small
+\begin{tabular}{L{2.2cm} L{3.4cm} L{2.8cm} L{4.3cm}}
+\toprule
+\textbf{Step} & \textbf{System Action} & \textbf{RS Role} & \textbf{QMOF-Rec Output}\\
+\midrule
+User query & Interpret ``CO$_2$ adsorption with low density and good stability'' & Query/context capture & Weights for relevance, density, stability, diversity, and graph signal; porosity excluded when void fraction is unavailable\\
+Candidate generation & Retrieve 100 query-relevant QMOF records & First-stage candidate generation & Candidate pool $C_q$\\
+Objective scoring & Normalize available descriptors and metadata scores & Item representation and scoring & Objective matrix $X_q$ with missing-descriptor flags\\
+Graph signal & Use formula-derived GraphSAGE/GAT embeddings when available & Hybrid signal & Metadata-graph similarity baseline\\
+Baseline ranking & Apply deterministic and diversity-aware policies & Baseline top-$K$ ranking & Comparable ranked lists for offline evaluation\\
+LEA reranking & Optimize relevance, balance, and diversity & List-level reranking & LEA-guided top-$K$ portfolio\\
+Top-$K$ output & Return ranked QMOF candidates & User-facing recommendation & IDs, formulas, values, scores, and warnings\\
+Explanation & Generate evidence-aware rationale & Explainable recommendation & Trade-off and uncertainty notes\\
+Feedback & Record expert judgments & Future preference learning & Logs for review and later preference modeling\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:co2_example} reports the saved LEA top-5 recommendation output for the CO$_2$ adsorption scenario from the offline ranking artifact \texttt{lea\_evaluation/top\_rankings.csv}. The values should be interpreted under the metadata limitations above: density and band-gap values are available for these records, but void fraction is unavailable.
+
+\begin{table}[H]
+\centering
+\caption{Example top-$K$ recommendations for the CO$_2$ adsorption scenario. Values are reproduced from the saved offline QMOF-Rec evaluation artifact. Void-fraction values are unavailable in the current metadata.}
+\label{tab:co2_example}
+\small
+\begin{tabular}{C{0.8cm} L{2.6cm} L{4.0cm} C{1.5cm} C{1.8cm} C{1.8cm}}
+\toprule
+\textbf{Rank} & \textbf{QMOF ID} & \textbf{Formula} & \textbf{Density} & \textbf{Band gap} & \textbf{LEA score}\\
+\midrule
+1 & qmof-f69d443 & Co$_2$C$_{40}$H$_{28}$N$_{12}$O$_8$ & 1.370 & 2.878 & 0.4808\\
+2 & qmof-95efdd8 & Co$_2$C$_{50}$H$_{40}$N$_8$O$_8$    & 1.148 & 4.008 & 0.4801\\
+3 & qmof-14eb177 & Co$_2$C$_{44}$H$_{36}$N$_8$O$_8$    & 1.411 & 3.497 & 0.4797\\
+4 & qmof-f2d872e & Co$_2$C$_{36}$H$_{40}$N$_8$O$_{12}$ & 1.334 & 3.378 & 0.4781\\
+5 & qmof-145a0bf & Co$_2$C$_{40}$H$_{28}$N$_4$O$_8$    & 1.525 & 2.997 & 0.4768\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The CO$_2$ scenario ranks candidates by balancing query relevance, density, band-gap-derived suitability, and stability proxy values under the available metadata. The missing void-fraction descriptor means these entries should be treated as recommendation candidates for expert follow-up rather than validated CO$_2$ uptake materials.
+
+%% ════════════════════════════════════════════════════════════════════════════
+\section{Problem Formulation}
+\label{sec:formulation}
+
+Let $\mathcal{M} = \{m_1, \ldots, m_{|\mathcal{M}|}\}$ denote the item catalog of QMOF material records and let $q$ denote a scientific query. In recommender-system terms, $q$ is the query context, $m_i$ is an item, and the goal is to return a ranked top-$K$ recommendation list. The initial candidate-generation stage returns a query-dependent candidate pool
+\begin{equation}
+  C_q = \{m_1, \ldots, m_n\} \subset \mathcal{M}.
+  \label{eq:cq}
+\end{equation}
+Each candidate item $m_i$ is represented by a normalized active objective vector $\mathbf{x}_i \in [0,1]^d$ and an availability mask $\mathbf{a}_i \in \{0,1\}^d$. The mask entry $a_{ij}=1$ only when objective $j$ is observed or defensibly derived for material $m_i$; unsupported or missing descriptors have $a_{ij}=0$ and are excluded from active numerical scoring. This distinction prevents missing descriptors from being interpreted as physical zero values.
+The query-specific weight vector is
+\begin{equation}
+  \mathbf{w}_q = (w_{q1}, \ldots, w_{qd}),\quad w_{qj} \geq 0,\quad \sum_{j=1}^{d} w_{qj} = 1.
+\end{equation}
+The objective matrix for the candidate pool is
+\begin{equation}
+  X_q = \begin{pmatrix} x_{11} & \cdots & x_{1d} \\ \vdots & \ddots & \vdots \\ x_{n1} & \cdots & x_{nd} \end{pmatrix},\quad x_{ij}\in[0,1].
+\end{equation}
+The corresponding availability matrix is
+\begin{equation}
+  A_q = \begin{pmatrix} a_{11} & \cdots & a_{1d} \\ \vdots & \ddots & \vdots \\ a_{n1} & \cdots & a_{nd} \end{pmatrix},\quad a_{ij}\in\{0,1\}.
+\end{equation}
+The recommender outputs a top-$K$ list $S_K \subset C_q$. Let $f(q, m_i, S)$ be the context-aware ranking or reranking utility of item $m_i$ for query $q$, optionally conditioned on the partial recommendation list $S$. The top-$K$ recommendation list is
+\begin{equation}
+  S_K(q) = \underset{m_i \in C_q}{\operatorname{TopK}}\; f(q, m_i, S).
+\end{equation}
+For deterministic pointwise rankers, $S$ is ignored. For list-aware reranking, $S$ captures the candidates already selected and enables diversity-aware portfolio construction. The masked weighted relevance score is
+\begin{equation}
+  R(m_i, q) =
+  \frac{\sum_{j=1}^{d} a_{ij}w_{qj}x_{ij}}
+       {\sum_{j=1}^{d} a_{ij}w_{qj}+\epsilon}.
+  \label{eq:relevance}
+\end{equation}
+For a target property $p_i$ and query-specific target $\tau$, a normalized target score can be defined as
+\begin{equation}
+  s_{\mathrm{target}}(p_i;\tau) = \max\!\left(0, 1 - \frac{|p_i - \tau|}{r + \epsilon}\right),
+\end{equation}
+where $r$ is a normalization range and $\epsilon$ avoids division by zero. The masked balance score is
+\begin{equation}
+  B(m_i) =
+  \begin{cases}
+  1-\sqrt{\dfrac{1}{\sum_j a_{ij}}\displaystyle\sum_{j:a_{ij}=1}\left(x_{ij}-\bar{x}_{i,\mathrm{obs}}\right)^2}, & \sum_j a_{ij} > 0,\\[8pt]
+  0, & \sum_j a_{ij}=0.
+  \end{cases}
+\end{equation}
+where $\bar{x}_{i,\mathrm{obs}}$ is the mean of the observed active objectives for candidate $m_i$; the implementation clips this score to $[0,1]$. For two candidates, the joint availability indicator is $a_{i\ell,j}=a_{ij}a_{\ell j}$. Masked cosine similarity is computed only over jointly observed dimensions and is used for auxiliary material-similarity scoring:
+\begin{equation}
+  \cos_{\mathrm{mask}}(\mathbf{x}_i,\mathbf{x}_\ell)=
+  \frac{\sum_{j:a_{i\ell,j}=1}x_{ij}x_{\ell j}}
+       {\sqrt{\sum_{j:a_{i\ell,j}=1}x_{ij}^2}\sqrt{\sum_{j:a_{i\ell,j}=1}x_{\ell j}^2}+\epsilon}.
+\end{equation}
+If no jointly observed dimension exists, or if the denominator is zero, the implemented fallback returns zero similarity. With one jointly observed dimension, the same one-dimensional cosine expression is used. LEA diversity and candidate remapping use the masked Euclidean-style distance below rather than cosine similarity.
+The diversity score relative to a partial list $S$ is
+\begin{equation}
+  D(m_i, S) = \begin{cases} 0, & |S|=0,\\[4pt] \dfrac{1}{|S|}\displaystyle\sum_{m_\ell \in S}d_{\mathrm{mask}}(\mathbf{x}_i,\mathbf{x}_\ell), & |S|>0. \end{cases}
+\end{equation}
+where the implemented masked distance is the root mean squared distance over jointly observed dimensions:
+\begin{equation}
+  d_{\mathrm{mask}}(\mathbf{x}_i,\mathbf{x}_\ell)=
+  \begin{cases}
+  \sqrt{\dfrac{\sum_{j:a_{i\ell,j}=1}(x_{ij}-x_{\ell j})^2}{\sum_j a_{i\ell,j}}}, & \sum_j a_{i\ell,j}>0,\\[8pt]
+  0, & \sum_j a_{i\ell,j}=0.
+  \end{cases}
+\end{equation}
+QMOF-Rec defines the list-aware multi-objective utility as
+\begin{equation}
+  f(q,m_i,S) = \alpha R(m_i,q) + \beta B(m_i) + \gamma D(m_i,S) + \eta G(m_i,q) + \delta N(m_i),
+  \label{eq:utility}
+\end{equation}
+where $R$ is query relevance, $B$ is objective balance, $D$ is diversity relative to the partial list, $G$ is optional graph-aware similarity, and $N$ is optional novelty. The current repository implementation uses $\alpha=1.0$, $\beta=0.10$, $\gamma=0.10$, $\eta=0$ for non-graph reranking, and a redundancy penalty of $0.05\exp[-D(m_i,S)]$ inside LEA fitness. Historical repeated-seed ablation artifacts used the earlier configurable LEA script with $\beta=0.12$ and $\gamma=0.08$ for the baseline, and $\gamma=0$ for LEA no diversity; this protocol distinction is stated in the results.
+
+%% ════════════════════════════════════════════════════════════════════════════
+\section{Retrieval-Augmented Scientific Assistance}
+\label{sec:rag_form}
+
+Let $\mathcal{D} = \{d_1, \ldots, d_M\}$ be the document and metadata corpus. Each document chunk is embedded as $\mathbf{e}_i = f_\theta(d_i)$, and the query is embedded as $\mathbf{e}_q = f_\theta(q)$. The implemented FAISS retrieval index uses squared L2 distance, so the retrieved evidence set is
+\begin{equation}
+  \mathcal{R}_K(q) = \underset{d_i\in\mathcal{D}}{\operatorname{TopK}}\;[-\|\mathbf{e}_q-\mathbf{e}_i\|_2^2],
+\end{equation}
+where smaller FAISS L2 distance corresponds to higher retrieval rank. This equation describes the live retrieval store; the offline ranking tables use the deterministic semantic proxy described above.
+The augmented LLM input is
+\begin{equation}
+  A(q) = \operatorname{Template}(q, \mathcal{R}_K(q), C_q, X_q, \mathbf{w}_q),
+\end{equation}
+and the generated scientific response is $y = \operatorname{LLM}_\phi(A(q))$.
+
+The scientific-assistant component generates explanations from retrieved evidence, candidate records, and QMOF metadata. Authoritative material-property values are taken from the underlying records rather than generated text. The RAG/LLM layer is evaluated in Section~\ref{sec:rag_eval} for answer quality, groundedness, metadata consistency, hallucination flags, limitation awareness, and explanation quality under automated checks. It is not evaluated as improving ranking quality. Expert human evaluation, citation-fidelity assessment, and user-usefulness studies remain future work.
+
+%% ════════════════════════════════════════════════════════════════════════════
+\section{Graph-Aware QMOF Representation Learning}
+\label{sec:graph}
+
+The QMOF materials graph is defined as $\mathcal{G} = (\mathcal{V}, \mathcal{E})$, where each node $v_i \in \mathcal{V}$ represents a QMOF material and each edge $(v_i, v_j) \in \mathcal{E}$ represents a relationship between two materials. Edges can be constructed from structural similarity, descriptor similarity, text/embedding similarity, shared metal chemistry, shared linker chemistry, topology similarity, guest-accessibility similarity, or $k$-nearest-neighbor relations in descriptor space.
+
+The initial node representation can be written as
+\begin{equation}
+  \mathbf{h}_i^{(0)} = [\mathbf{x}_i,\; \mathbf{p}_i,\; \mathbf{s}_i],
+\end{equation}
+where $\mathbf{x}_i$ is the normalized recommendation objective vector, $\mathbf{p}_i$ contains physico-chemical descriptors, and $\mathbf{s}_i$ contains semantic or structural embeddings.
+
+GraphSAGE supports inductive representation learning for unseen or newly added QMOFs by aggregating neighbor representations:
+\begin{equation}
+  \mathbf{h}_v^{(k)} = \sigma\!\left(W^{(k)}\cdot\left[\mathbf{h}_v^{(k-1)}\;\Big\|\;\operatorname{AGG}^{(k)}\!\left\{\mathbf{h}_u^{(k-1)}:u\in\mathcal{N}(v)\right\}\right]\right).
+\end{equation}
+Here, $\mathcal{N}(v)$ is the neighborhood of node $v$, AGG may be a mean, max, or LSTM-style aggregation function, and $\|$ denotes concatenation.
+
+GAT learns attention weights over neighboring materials. The attention coefficient is
+\begin{equation}
+  \alpha_{vu} = \frac{\exp\!\left(\operatorname{LeakyReLU}\!\left(\mathbf{a}^\top[W\mathbf{h}_v\|W\mathbf{h}_u]\right)\right)}{\sum_{r\in\mathcal{N}(v)}\exp\!\left(\operatorname{LeakyReLU}\!\left(\mathbf{a}^\top[W\mathbf{h}_v\|W\mathbf{h}_r]\right)\right)}.
+\end{equation}
+Here, $W$ is a trainable linear transformation, $\mathbf{a}$ is a trainable attention vector, and the denominator normalizes attention over neighbors $r \in \mathcal{N}(v)$. The GAT update is
+\begin{equation}
+  \mathbf{h}_v' = \sigma\!\left(\sum_{u\in\mathcal{N}(v)}\alpha_{vu}\,W\mathbf{h}_u\right).
+\end{equation}
+GraphSAGE can support inductive updates when new QMOFs are added to the platform, while GAT can expose learned neighbor importance. In the current manuscript, the reproduced graph-learning results use a formula-derived metadata graph. They are not presented as CIF-derived, atomistic, or full structure-aware GNN results.
+
+%% ════════════════════════════════════════════════════════════════════════════
+\section{Integration of Graph Embeddings into Recommendation}
+\label{sec:graph_int}
+
+Let the graph embedding of a material be $\mathbf{g}_i = \operatorname{GNN}(\mathcal{G}, \mathbf{h}_i^{(0)})$. A graph similarity score can be defined as $s_{\mathrm{graph}}(m_i, q) = \cos(\mathbf{g}_i, \mathbf{g}_q)$, where $\mathbf{g}_q$ may be obtained by aggregating graph embeddings of initially retrieved candidates or by projecting the query embedding into graph-embedding space.
+
+The graph-aware objective vector becomes
+\begin{equation}
+  \tilde{\mathbf{x}}_i = [s_{\mathrm{sem}}(m_i,q),\; s_{\mathrm{bandgap}}(m_i),\; s_{\mathrm{density}}(m_i),\; s_{\mathrm{stability}}(m_i),\; s_{\mathrm{graph}}(m_i,q)].
+\end{equation}
+Descriptor availability is tracked by a binary mask $\mathbf{a}_i \in \{0,1\}^{d+1}$, where $a_{ij}=1$ only when objective $j$ is observed or defensibly derived for material $m_i$. The updated weighted relevance is
+\begin{equation}
+  R(m_i,q) =
+  \frac{\sum_{j=1}^{d+1} a_{ij}\tilde{w}_{qj}\tilde{x}_{ij}}
+       {\sum_{j=1}^{d+1} a_{ij}\tilde{w}_{qj}+\epsilon}.
+\end{equation}
+Distances for diversity and candidate remapping are computed on jointly observed objectives. This extension makes the recommender graph-aware while preserving the distinction between missing descriptors and genuine zero values. Structurally meaningful candidates can be promoted when metadata are incomplete or when semantic metadata do not fully describe material similarity. Graph embeddings should be treated as an additional scientific signal, not as a replacement for property validation, adsorption simulation, synthesis feasibility analysis, or expert review.
+
+%% ════════════════════════════════════════════════════════════════════════════
+\section{LEA-Guided Multi-Objective Reranking}
+\label{sec:lea}
+
+The original LEA algorithm is a lotus-nature-inspired metaheuristic introduced for engineering design optimization \cite{dalirinia2024}. The LEA-rec adaptation implemented here uses the same broad intuition of adaptive exploration and self-cleaning but operates as a post-retrieval reranker over normalized recommendation objectives. Individuals move in continuous normalized objective space, but final recommendations must always map back to valid QMOF records.
+
+The candidate-validity mapping uses the same masked distance definition as the diversity calculation:
+\begin{equation}
+  \pi(\mathbf{z}) = \arg\min_{m_i \in C_q}d_{\mathrm{mask}}(\mathbf{z},\mathbf{x}_i),
+\end{equation}
+where the candidate mask $\mathbf{a}_i$ determines which candidate objectives participate in the remapping distance. The implementation uses iteration-dependent Gaussian exploration and exploitation toward the current best solution:
+\begin{equation}
+  \mathbf{z}_i^{t+1} =
+  \operatorname{clip}_{[0,1]}\!\left(\mathbf{z}_i^t
+  + \boldsymbol{\epsilon}_t
+  + \frac{t}{T}(\mathbf{g}^t-\mathbf{z}_i^t)\right),
+\end{equation}
+where $t$ is the current iteration, $T$ is the maximum iteration count, $\mathbf{g}^t$ is the current best solution, and $\boldsymbol{\epsilon}_t \sim \mathcal{N}(0,(0.20(1-t/T))^2I)$. The clipping operation keeps solutions inside the normalized objective domain.
+
+The self-cleaning replacement step is applied every $\tau = 10$ iterations in the implemented code. The weakest fraction of the population is replaced by random normalized vectors:
+\begin{equation}
+  P^{t+1}_{\mathrm{weak}} \leftarrow \{u_1,\ldots,u_{\lceil\rho N\rceil}\},\quad u_j \sim \mathcal{U}(0,1)^d,
+\end{equation}
+with $\rho = 0.15$ in the current implementation. This replacement increases exploration and helps avoid portfolios that collapse into a narrow region of the objective space.
+
+%% ════════════════════════════════════════════════════════════════════════════
+\section{Workflow Summary}
+\label{sec:algorithms}
+
+The computational workflow has three stages. First, QMOF-Rec retrieves a query-dependent candidate pool from metadata and text representations. Second, it converts candidate records into active objective vectors with descriptor-availability masks, excluding unsupported descriptors from numerical relevance, diversity, balance, and remapping calculations. Third, LEA-guided reranking constructs a diverse top-$K$ portfolio and the RAG/LLM layer generates an evidence-grounded explanation. Full pseudocode for retrieval/objective scoring, LEA reranking, and graph-aware RAG assistance is provided in the supplementary material.
+
+%% ════════════════════════════════════════════════════════════════════════════
+\section{Experimental Setup}
+\label{sec:setup}
+
+The current evaluation uses 20{,}372 QMOF vector metadata records. Density is available for all materials. Band gap is available for 10{,}810 materials, corresponding to approximately 53.1\% coverage. Void fraction is absent in the current metadata. Figure~\ref{fig:coverage} summarizes this descriptor coverage.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\linewidth]{figures/figure_2_data_coverage.png}
+  \caption{Coverage of metadata fields used in the current reproducible QMOF-Rec evaluation. Density is available for all records, band gap is partially available, and void fraction is absent.}
+  \label{fig:coverage}
+\end{figure}
+
+The missing void-fraction field materially affects interpretation. The current evaluation supports density-aware and partial band-gap-aware ranking. It does not support strong porosity-aware, adsorption-specific, or CO$_2$ uptake claims. CO$_2$ adsorption recommendations should be read as preliminary recommendation behavior under incomplete metadata, not as validated adsorption screening.
+
+Five query scenarios are evaluated: CO$_2$ adsorption, photocatalysis, lightweight gas storage, balanced discovery, and wide-band-gap insulating frameworks. Each scenario retrieves a candidate pool of 100 materials and returns a top-$K$ list with $K=5$. The main ranking evaluation compares SemanticOnly, WeightedSum, TOPSIS, ParetoCrowding, Random, and LEA. A separate ablation and graph-aware evaluation reports MMR, LEA no diversity, LEA no self-clean, GraphSAGE-only, GAT-only, LEA+GraphSAGE, and LEA+GAT using the formula-derived metadata graph. The supplementary material reports retrieval missingness, query-stratified repeated-seed summaries, variance decomposition, available candidate-pool-size sensitivity results, the LEA-no-diversity metric identity check, and an observed physical-descriptor plot comparing all records with selected top-$K$ portfolios. Future baselines not implemented in the current repository include Non-dominated Sorting Genetic Algorithm II (NSGA-II), particle swarm optimization (PSO), genetic algorithm (GA), Bayesian optimization, learning-to-rank methods, and expert-labeled supervised metrics.
+
+%% ════════════════════════════════════════════════════════════════════════════
+\section{Recommendation Evaluation Metrics}
+\label{sec:metrics}
+
+\subsection{Offline Recommendation Protocol Without User Histories}
+
+Because no historical user-click or rating log exists for QMOF materials, the evaluation follows an offline query-driven recommendation protocol. QMOF-Rec is a hybrid scientific recommender with a strong content-based focus: it does not rely on collaborative filtering because no large-scale user--MOF interaction log is available. The task is similar to session-based or context-aware recommendation, where the query supplies the current user intent and item content supplies the ranking evidence. User feedback is included architecturally for future online learning, but the present evaluation uses query-dependent objective weights rather than user ratings.
+
+\subsection{Ranking, Diversity, and Coverage Metrics}
+
+Mean relevance is computed as
+\begin{equation}
+  \mathrm{Rel}@K(S_K) = \frac{1}{K}\sum_{m_i \in S_K} R(m_i, q).
+\end{equation}
+If binary or graded expert labels become available, Precision@$K$ can be computed as $\mathrm{Precision}@K(S_K) = \frac{1}{K}\sum_{m_i\in S_K}\mathbf{1}[\mathrm{rel}(m_i,q)\geq\theta]$, where $\theta$ is a relevance threshold. In the current offline protocol, no expert-labeled relevant set is available, so Precision@$K$ is defined as a future supervised recommender-system metric. Discounted cumulative gain is
+\begin{equation}
+  \mathrm{DCG}@K = \sum_{r=1}^{K}\frac{2^{\mathrm{rel}_r}-1}{\log_2(r+1)},
+\end{equation}
+and normalized discounted cumulative gain is $\mathrm{NDCG}@K = \mathrm{DCG}@K / \mathrm{IDCG}@K$. Intra-list diversity (ILD) is computed with the masked objective distance defined in Section~\ref{sec:formulation}:
+\begin{equation}
+  \mathrm{ILD}(S_K) = \frac{2}{K(K-1)}\sum_{i<j}d_{\mathrm{mask}}(\mathbf{x}_i,\mathbf{x}_j).
+\end{equation}
+Catalog coverage measures how much of the item space is recommended across a query set $\mathcal{Q}$:
+\begin{equation}
+  \mathrm{Coverage} = \frac{\left|\bigcup_{q\in\mathcal{Q}}S_K(q)\right|}{|\mathcal{M}|}.
+\end{equation}
+The ablation rerun also reports top-$K$ uniqueness coverage within each recommendation list. Runtime is reported as mean runtime in milliseconds. The reported hypervolume value is a hypervolume proxy rather than exact Pareto hypervolume, computed from the product-like multi-objective footprint used by the reproducible evaluation script and should be interpreted as a comparative proxy only.
+
+The archived primary and repeated-seed results were generated using the historical evaluation protocol. The revised repository introduces mask-aware relevance, diversity, balance, and candidate remapping as a post-review implementation correction. Unless explicitly marked as a new mask-aware test, the numerical results reported below refer to the archived evaluation artifacts.
+
+%% ════════════════════════════════════════════════════════════════════════════
+\section{Recommendation Performance: Ranking Quality and Portfolio Diversity}
+\label{sec:results}
+
+Table~\ref{tab:ranking} reports the saved primary single-run aggregate top-$K$ recommendation results. WeightedSum achieves the highest mean relevance and NDCG because the relevance metric is aligned with weighted scoring. LEA is therefore not presented as universally outperforming WeightedSum in relevance. Its contribution is a different trade-off: WeightedSum is the strongest relevance-oriented ranker, but it produces a highly redundant list. LEA sacrifices only a small amount of relevance and NDCG while substantially improving intra-list diversity, making it more suitable for scientific candidate portfolios.
+
+Figures~\ref{fig:comparison}--\ref{fig:convergence} summarize the archived evaluation from complementary perspectives. Figure~\ref{fig:comparison} compares aggregate quality metrics, Figure~\ref{fig:runtime} reports runtime on a logarithmic axis, and Figure~\ref{fig:convergence} shows LEA convergence behavior across query scenarios. Figure~\ref{fig:radar} illustrates the active objective representation used in the revised repository after excluding unavailable porosity information.
+
+\begin{table}[H]
+\centering
+\caption{Aggregate ranking results from the saved primary single-run QMOF-Rec evaluation artifact. Higher is better for Rel@5, Diversity, NDCG@5, and the hypervolume proxy; lower is better for runtime. Bold denotes the best value and underline denotes the second-best value. Hypervolume is reported as a proxy rather than exact Pareto hypervolume.}
+\label{tab:ranking}
+\small
+\begin{tabular}{L{2.8cm} C{1.4cm} C{1.6cm} C{1.6cm} C{2.4cm} C{2.2cm}}
+\toprule
+\textbf{Method} & \textbf{Rel@5} & \textbf{Diversity} & \textbf{NDCG@5} & \textbf{Hypervolume} & \textbf{Runtime (ms)}\\
+\midrule
+WeightedSum    & \textbf{0.6961} & 0.0169 & \textbf{1.0000} & $3.46\times10^{-10}$ & 0.15\\
+LEA            & \underline{0.6939} & \underline{0.1764} & \underline{0.9959} & \underline{$4.24\times10^{-10}$} & 126.28\\
+TOPSIS         & 0.6936 & 0.0527 & 0.9952 & $\mathbf{4.79\times10^{-10}}$ & 0.20\\
+ParetoCrowding & 0.6932 & \textbf{0.1831} & 0.9951 & $4.15\times10^{-10}$ & 34.63\\
+Random         & 0.6830 & 0.0522 & 0.9746 & $3.01\times10^{-10}$ & \underline{0.14}\\
+SemanticOnly   & 0.6818 & 0.0330 & 0.9702 & $3.04\times10^{-10}$ & \textbf{0.11}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{figures/figure_3_metric_comparison.png}
+  \caption{Aggregate ranking metric comparison for SemanticOnly, WeightedSum, TOPSIS, ParetoCrowding, Random, and LEA using the unified warm orange/gray publication palette.}
+  \label{fig:comparison}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.72\linewidth]{figures/figure_4_runtime_log.png}
+  \caption{Runtime comparison for SemanticOnly, WeightedSum, TOPSIS, ParetoCrowding, Random, and LEA. The y-axis uses a logarithmic scale; deterministic rankers operate below 1\,ms, whereas ParetoCrowding and LEA introduce larger post-retrieval optimization costs.}
+  \label{fig:runtime}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.72\linewidth]{figures/figure_5_lea_convergence.png}
+  \caption{LEA convergence traces across the evaluated query scenarios.}
+  \label{fig:convergence}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.62\linewidth]{figures/figure_6_objective_radar.png}
+  \caption{Objective radar profile of recommended candidates over active numerical objectives. Void fraction is unavailable for all 20{,}372 records and porosity is therefore excluded from the active radar profile.}
+  \label{fig:radar}
+\end{figure}
+
+The main empirical conclusion is conservative. LEA preserves high relevance and NDCG while substantially improving diversity compared with WeightedSum. ParetoCrowding achieves the highest diversity but with slightly lower relevance than LEA. TOPSIS obtains the highest hypervolume proxy in the current setup. In recommender-system terms, LEA acts as a multi-objective reranker that improves list-level utility. Its value is not single-item optimality, but the construction of a top-$K$ portfolio that is relevant, less redundant, and more useful for downstream expert inspection.
+
+\subsection{Example Recommendation Scenarios}
+
+Table~\ref{tab:examples} reports the highest-ranked LEA recommendation for each evaluated query scenario from the saved offline ranking artifact. These examples illustrate the recommendation use case and should be read as offline recommendation outputs, not as experimentally validated discoveries.
+
+For CO$_2$ adsorption, the recommender balances query relevance, density, and stability-oriented signals while excluding porosity from numerical ranking because void fraction is unavailable; the missing void-fraction descriptor limits adsorption-specific interpretation. For photocatalysis, the recommender emphasizes semantic relevance and band-gap suitability. For lightweight storage, low density and list diversity are central. For balanced discovery, the goal is broad multi-objective suitability rather than a single target. For insulating frameworks, the top-$K$ list prioritizes wide band gap and stability-oriented signals.
+
+\begin{table}[H]
+\centering
+\caption{Example LEA top-1 recommendations from the saved offline QMOF-Rec evaluation artifact. Void-fraction values are unavailable in the current metadata.}
+\label{tab:examples}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{L{2.2cm} L{2.0cm} L{3.25cm} C{1.25cm} C{1.2cm} C{1.35cm} L{2.1cm}}
+\toprule
+\textbf{Scenario} & \textbf{QMOF ID} & \textbf{Formula} & \textbf{Band gap} & \textbf{Density} & \textbf{LEA score} & \textbf{Rationale}\\
+\midrule
+CO$_2$ adsorption  & qmof-f69d443 & Co$_2$C$_{40}$H$_{28}$N$_{12}$O$_8$ & 2.878 & 1.370 & 0.4808 & Relevance, density, stability\\
+Photocatalysis     & qmof-cef46c3 & Zn$_2$C$_{48}$H$_{32}$N$_8$O$_8$   & 2.913 & 0.790 & 0.8628 & Query match, band gap\\
+Lightweight storage & qmof-b1cbe7a & Fe$_2$C$_{24}$H$_{16}$N$_8$        & 3.528 & 0.686 & 0.7467 & Low density, diversity\\
+Balanced discovery  & qmof-b1cbe7a & Fe$_2$C$_{24}$H$_{16}$N$_8$        & 3.528 & 0.686 & 0.5981 & Broad objective profile\\
+Insulating frameworks & qmof-017128d & Zn$_6$C$_{48}$H$_{60}$N$_{24}$   & 5.311 & 0.913 & 0.8944 & Wide band gap, stability\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%% ════════════════════════════════════════════════════════════════════════════
+\section{GraphSAGE and GAT Property-Prediction Results}
+\label{sec:gnn}
+
+The saved graph-aware evaluation implemented a local QMOF metadata graph with 20{,}372 nodes and 301{,}307 directed edges after symmetrizing 8-nearest-neighbor relations in formula-derived feature space. The graph has 26 node features, an average out-degree of 14.79 after symmetrization, and 60 connected components. Node features were derived from chemical formula counts and simple availability indicators to avoid directly using target values as input features. This graph is therefore a metadata-derived relational baseline, not a CIF-derived atomistic graph.
+
+GraphSAGE and GAT were evaluated for band-gap and density regression with three repeated random seeds and 70/15/15 train/validation/test splits among records with available target values. Band gap was available for 10{,}810 records, whereas density was available for all 20{,}372 records. Performance was evaluated using mean absolute error (MAE), root mean squared error (RMSE), coefficient of determination ($R^2$), and Spearman correlation. Table~\ref{tab:gnn} reports these property-prediction results.
+
+\begin{table}[H]
+\centering
+\caption{Graph neural network property-prediction performance from the saved graph-aware evaluation artifact. Values are mean $\pm$ standard deviation over three seeds using the formula-derived QMOF $k$-nearest-neighbor metadata graph; this is not a CIF-derived atomistic graph.}
+\label{tab:gnn}
+\small
+\begin{tabular}{L{2.6cm} L{1.8cm} C{2.0cm} C{2.0cm} C{1.8cm} C{2.2cm}}
+\toprule
+\textbf{Model} & \textbf{Target} & \textbf{MAE} & \textbf{RMSE} & \textbf{R$^2$} & \textbf{Spearman}\\
+\midrule
+GraphSAGE & Band gap & $0.702\pm0.008$ & $0.905\pm0.008$ & $0.264\pm0.006$ & $0.492\pm0.005$\\
+GAT       & Band gap & $0.705\pm0.010$ & $0.911\pm0.007$ & $0.254\pm0.004$ & $0.484\pm0.009$\\
+GraphSAGE & Density  & $0.334\pm0.001$ & $0.448\pm0.001$ & $0.520\pm0.008$ & $0.730\pm0.008$\\
+GAT       & Density  & $0.347\pm0.002$ & $0.459\pm0.002$ & $0.497\pm0.009$ & $0.724\pm0.009$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+MAE and RMSE summarize absolute prediction error, $R^2$ summarizes explained variance, and Spearman correlation is included because the downstream recommender uses predicted or embedded signals for ranking.
+
+The results show that the formula-derived graph provides a usable but limited relational signal. Density prediction is stronger than band-gap prediction, consistent with density being fully available and more directly related to formula-level descriptors. Because CIF-derived atomic graphs were not available for the local rerun, these values should not be interpreted as final structure-aware GNN benchmarks.
+
+%% ════════════════════════════════════════════════════════════════════════════
+\section{Ablation and Graph-Aware Recommendation Results}
+\label{sec:ablation}
+
+Table~\ref{tab:ablation} reports the saved historical repeated-seed ablation and graph-aware recommendation results. These experiments compare deterministic rankers, MMR, LEA variants, graph-only ranking, and graph-augmented LEA using reproduced GraphSAGE/GAT embeddings from the formula-derived metadata graph. Table~\ref{tab:ranking} and Table~\ref{tab:ablation} therefore have different LEA diversity and runtime values because Table~\ref{tab:ranking} is the primary five-scenario single-run artifact, whereas Table~\ref{tab:ablation} is a ten-seed ablation artifact generated with the earlier configurable LEA script.
+
+\begin{table}[H]
+\centering
+\caption{Saved historical ablation and graph-aware recommendation results. Values are means over repeated query/seed runs from the earlier configurable LEA protocol. Higher is better for Rel@K, NDCG@K, Diversity, and coverage; lower is better for runtime. The ``LEA no diversity'' row recovers the same saved aggregate values as WeightedSum in this configuration; this is a configuration-specific empirical identity, not a general equivalence claim. GraphSAGE/GAT variants use a formula-derived metadata graph, not a CIF-derived atomistic graph.}
+\label{tab:ablation}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{L{2.6cm} C{1.15cm} C{1.3cm} C{1.3cm} C{1.0cm} C{1.65cm} L{2.55cm}}
+\toprule
+\textbf{Variant} & \textbf{Rel@K} & \shortstack{\textbf{NDCG}\\\textbf{@K}} & \shortstack{\textbf{Diversity}\\\textbf{score}} & \textbf{Cov.} & \textbf{Runtime (ms)} & \textbf{Notes}\\
+\midrule
+SemanticOnly      & 0.6818 & 0.9702 & 0.0330 & 1.000 & 0.09   & Vector/proxy retrieval only\\
+WeightedSum       & 0.6961 & 1.0000 & 0.0169 & 1.000 & 0.13   & Deterministic weighted scoring\\
+MMR               & 0.6885 & 0.9874 & 0.2105 & 1.000 & 2.66   & Diversity-aware reranking\\
+LEA baseline      & 0.6939 & 0.9959 & 0.1662 & 1.000 & 129.17 & Historical baseline: $\beta=0.12$, $\gamma=0.08$\\
+LEA no diversity  & 0.6961 & 1.0000 & 0.0169 & 1.000 & 124.19 & Diversity term disabled\\
+LEA no self-clean & 0.6941 & 0.9963 & 0.1672 & 1.000 & 84.54  & Replacement disabled\\
+GraphSAGE only    & 0.6840 & 0.9760 & 0.0514 & 1.000 & 0.04   & Graph similarity ranking\\
+GAT only          & 0.6824 & 0.9749 & 0.0294 & 1.000 & 0.02   & Attention-embedding ranking\\
+LEA + GraphSAGE   & 0.6930 & 0.9944 & 0.1795 & 1.000 & 120.31 & Graph-aware LEA signal\\
+LEA + GAT         & 0.6913 & 0.9925 & 0.1916 & 1.000 & 93.48  & Graph-aware LEA signal\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The ablation results support the same conservative interpretation as Table~\ref{tab:ranking}. MMR is strong in diversity but weaker in relevance. LEA provides a more balanced relevance--diversity compromise for scientific candidate portfolios. In the saved aggregate artifacts, disabling diversity recovers the same aggregate relevance, NDCG, and diversity values as WeightedSum for the tested configuration; the result is reported as an empirical ablation outcome rather than as proof that the algorithms are generally equivalent. The saved metrics CSV does not include top-$K$ identifiers, so identity of the actual top-$K$ material IDs and ordering cannot be verified from that artifact. The graph-aware LEA variants increase diversity relative to WeightedSum and graph-only ranking, but they should not be overclaimed as physically validated until CIF-derived graph models and external validation are available. Full ablation outputs, including additional population sizes, iteration counts, candidate-pool sizes, and metric-level LEA-no-diversity checks, are reported in the supplementary material and reviewer revision artifact directory.
+
+%% ════════════════════════════════════════════════════════════════════════════
+\section{Statistical Analysis}
+\label{sec:stats}
+
+Repeated-run statistical summaries were computed on mean relevance over five query scenarios with ten random seeds per scenario. These 50 paired query/seed rows are useful for checking reranking robustness, but they should not be interpreted as 50 independent scientific queries because query-level variance may dominate seed-level variance. The primary statistical interpretation therefore treats query scenario as the blocking unit. At the query-block level, LEA baseline differs from the relevance-aligned WeightedSum configuration by a mean Rel@5 difference of $-0.0022$ (standard deviation across five query blocks $0.0030$; range $-0.0072$ to approximately $0.0000$). The historical Wilcoxon and Friedman tests over query/seed rows are retained only as descriptive ranking-metric checks in the supplementary artifact directory, not as evidence of physical material superiority.
+
+%% ════════════════════════════════════════════════════════════════════════════
+\section{RAG/LLM Evaluation}
+\label{sec:rag_eval}
+
+\subsection{Evaluation Protocol}
+
+A completed 30-query RAG/LLM answer-quality evaluation was conducted across seven scientific query scenarios: CO$_2$ adsorption, photocatalysis, lightweight gas storage, balanced discovery, wide band gap, general recommendation, and missing information trap. Retrieval used top-$k=5$ candidates per query. Responses were scored for retrieval relevance, groundedness, metadata consistency, limitation awareness, explanation quality, and binary hallucination flags. The detailed scoring rubric and flag definitions are reported in the supplementary material. The LLM was constrained not to claim experimental validation, CO$_2$ uptake, porosity performance, or CIF-derived graph evidence unless such evidence was present in retrieved context; these constraints were checked by the system prompt and post-hoc automated evaluators.
+
+\subsection{Per-Scenario Results}
+
+Table~\ref{tab:rag_results} reports evaluation results across all seven scenarios. The system achieves perfect scores on groundedness (5.0/5) and metadata consistency (5.0/5) across every scenario, confirming that the grounding rules and metadata-checking modules function correctly. The \texttt{wide\_band\_gap} scenario shows the lowest limitation-awareness score (3.0/5) because none of the four queries in that scenario triggered the missing-descriptor warning, as the band-gap descriptor is available for a substantial fraction of records.
+
+\begin{table}[H]
+\centering
+\caption{Per-scenario RAG/LLM evaluation summary across 30 queries and 7 scenarios. All groundedness and metadata consistency scores are perfect (5.0/5).}
+\label{tab:rag_results}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{L{3.25cm} C{1.35cm} C{1.65cm} C{1.65cm} C{1.75cm} C{1.45cm}}
+\toprule
+\textbf{Scenario} & \textbf{Ground.} & \textbf{Metadata} & \textbf{Limitation} & \textbf{Explanation} & \textbf{Halluc.}\\
+\midrule
+balanced\_discovery       & 5.0/5 & 5.0/5 & 4.60/5 & 4.80/5 & 0\%\\
+co2\_adsorption           & 5.0/5 & 5.0/5 & 4.80/5 & 5.00/5 & 20\%\\
+general\_recommendation   & 5.0/5 & 5.0/5 & 4.33/5 & 4.67/5 & 0\%\\
+lightweight\_gas\_storage & 5.0/5 & 5.0/5 & 5.00/5 & 5.00/5 & 0\%\\
+missing\_info\_trap       & 5.0/5 & 5.0/5 & 4.33/5 & 4.67/5 & 0\%\\
+photocatalysis            & 5.0/5 & 5.0/5 & 4.20/5 & 4.60/5 & 0\%\\
+wide\_band\_gap           & 5.0/5 & 5.0/5 & 3.00/5 & 4.00/5 & 0\%\\
+\midrule
+\textbf{OVERALL (30 q.)} & \textbf{5.0/5} & \textbf{5.0/5} & \textbf{4.37/5} & \textbf{4.70/5} & \textbf{3.3\%}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The overall hallucination rate is 3.3\% (1 query out of 30). The single hallucination event occurred in the \texttt{co2\_adsorption} scenario, where the assistant implied a structural link between density and gas-adsorption capacity without sufficient qualifier language, triggering the \texttt{unsupported\_adsorption\_claim} flag. All other scenarios achieved a 0\% hallucination rate. The \texttt{missing\_information\_trap} scenario---specifically designed to elicit fabricated claims about experimentally validated CO$_2$ uptake---achieved a 0\% hallucination rate, confirming that the system correctly refuses to confirm experimental validation when no such evidence exists in the retrieved context.
+
+\subsection{Supplementary Evaluation Screenshots}
+
+Representative RAG/LLM query--response screenshots are provided in the supplementary material rather than the main manuscript. These screenshots demonstrate the implemented interface, grounded metadata reporting, explicit missing-descriptor warnings, refusal of unsupported validation claims, and structured ranking explanations. They are illustrative interface evidence and are not part of the offline ranking validation.
+
+%% ════════════════════════════════════════════════════════════════════════════
+\section{Additional Robustness Scope}
+\label{sec:robustness}
+
+The saved repeated-seed artifacts add robustness experiments for LEA ablations, MMR, population size, iteration count, and candidate-pool size variants. Ten random seeds were used across five query scenarios, producing 50 query/seed rows per ablation variant; these rows are seed-repeated observations nested within five query scenarios, not 50 independent query tasks. NSGA-II, PSO, GA, and Bayesian optimization were not added to the completed-results table because no executable implementations for those baselines were available in the repository for this historical protocol. RAG explanation ablations were executed and their results are reported in Section~\ref{sec:rag_eval}.
+
+%% ════════════════════════════════════════════════════════════════════════════
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Recommendation-System Perspective}
+
+The results illustrate why multi-objective recommendation is different from single-score screening. WeightedSum is fast and strongly aligned with the relevance metric, so it is expected to win on mean relevance. Scientific discovery, however, often benefits from a top-$K$ portfolio that spans multiple plausible regions of the materials space. LEA provides this list-level trade-off by preserving high relevance while improving intra-list diversity.
+
+QMOF-Rec is an offline, query-driven hybrid scientific recommender with a strong content-based focus. Item representations are built from material metadata, query context, objective scores, graph-derived signals, and semantic retrieval rather than collaborative-filtering logs. LEA operates after candidate generation: the retrieved pool provides recall, deterministic scoring provides relevance and property suitability, and LEA reranking improves diversity and balance in the final recommendation list.
+
+RAG/LLM explanation belongs naturally to explainable recommendation because it can communicate why candidates were selected, where metadata are missing, and how objectives trade off. The RAG/LLM evaluation indicates that explanation quality and limitation-awareness are achievable under the automated grounding rules applied in this work. The 0\% hallucination rate across six of seven scenarios, and the single hallucination event in the CO$_2$ adsorption scenario, show that the grounding protocol and automated checking modules function as intended for this query set. The \texttt{missing\_information\_trap} scenario achieving 0\% hallucination is particularly useful evidence: it shows that the system declines to fabricate experimental validation claims even under direct user pressure.
+
+Explanation faithfulness, citation fidelity, and user usefulness require dedicated evaluation before the assistant can be treated as a validated explanation module. Similarly, feedback logging is an architectural path toward future active-learning or preference-aware recommendation, not a completed online-learning result.
+
+\subsection{Graph-Learning Perspective}
+
+Graph embeddings are useful when relational similarity is not fully captured by text metadata or scalar descriptors. MOFGalaxyNet and the Black Hole Strategy show how MOF networks can encode guest accessibility, sparsification, and graph-learning behavior \cite{jalali2023,jalali2025bh}. In QMOF-Rec, the local graph-learning rerun provides formula-derived GraphSAGE/GAT baselines for property prediction and graph-aware ranking; CIF-derived graph models and external validation remain necessary before treating those signals as physically validated recommendation evidence.
+
+Because void fraction is absent in the local metadata, porosity and CO$_2$ adsorption claims remain limited. Full QMOF descriptor reconstruction, adsorption-relevant features, and structure-level simulations would be required before making stronger domain-discovery claims.
+
+%% ════════════════════════════════════════════════════════════════════════════
+\section{Limitations and Threats to Validity}
+\label{sec:limitations}
+
+The current evaluation has several limitations. Descriptor metadata are incomplete, with absent void-fraction information and partial band-gap coverage. The semantic signal in the reproducible benchmark is a deterministic proxy rather than a complete embedding-retrieval evaluation, stability is represented heuristically, the query suite is small, and the top-$K$ size is limited to five. The implemented LEA-rec variant is a simplified post-retrieval adaptation of LEA rather than a full reproduction of every mechanism in the original LEA paper \cite{dalirinia2024}. LEA also introduces a runtime trade-off compared with deterministic rankers.
+
+There is no experimental synthesis, adsorption simulation, DFT validation, expert-labeled relevance benchmark, or online A/B testing of recommended candidates. Relevance is proxy/objective-derived rather than based on human-labeled relevant sets, and the system is not personalized for individual scientists or laboratories. The reported GraphSAGE/GAT results use formula-derived metadata graphs rather than CIF-derived atomic or crystal graphs. The RAG/LLM evaluation used automated scoring rather than expert human evaluation; expert-labeled faithfulness and usefulness evaluations remain future work.
+
+%% ════════════════════════════════════════════════════════════════════════════
+\section{Future Work}
+\label{sec:future}
+
+Future work should rebuild the full QMOF descriptor matrix, add real embedding-based retrieval evaluation, incorporate CIF-derived graph embeddings, evaluate graph-aware recommendation on larger query suites, assess LLM faithfulness and citation fidelity with expert review, expand comparisons with evolutionary and swarm-based baselines such as NSGA-II, PSO, and GA, add Bayesian optimization as a separate model-based sequential optimization baseline, evaluate additional MMR settings, and optimize deployment latency.
+
+Recommender-system extensions should include expert-labeled relevance benchmarks, user studies with materials scientists, active-learning from feedback, preference-aware recommendation for application domains, cold-start analysis for newly added QMOFs, learning-to-rank baselines, and explainable-recommendation evaluation with faithfulness and usefulness metrics. RAG/LLM extensions should include multi-turn dialogue evaluation, citation fidelity scoring, expert usefulness ratings, and adversarial robustness testing against fabrication-inducing prompts.
+
+%% ════════════════════════════════════════════════════════════════════════════
+\section{Conclusion}
+\label{sec:conclusion}
+
+QMOF-Rec demonstrates that quantum-chemical MOF discovery can be framed as a query-driven scientific recommender-system problem. The evaluated LEA-guided reranker improves list-level diversity while maintaining high relevance and NDCG, making it suitable for constructing practical offline candidate portfolios for expert follow-up. WeightedSum remains strongest on the aligned relevance metric. A local formula-derived metadata-graph rerun also provides GraphSAGE/GAT property-prediction baselines and graph-aware recommendation variants; these are not CIF-derived atomistic graph-learning results. The platform architecture supports RAG-based scientific explanation.
+
+A completed 30-query RAG/LLM evaluation across seven scientific scenarios shows perfect groundedness and metadata consistency, a 3.3\% overall hallucination rate, strong limitation-awareness including refusal of unsupported experimental-validation claims, and structured explanation quality under automated checks. These results evaluate answer quality, not ranking improvement or expert-human usefulness.
+
+No experimental synthesis, DFT, adsorption-uptake, porosity, or expert-human validation is claimed. Stronger domain-discovery claims require complete descriptor reconstruction, structure-level graph-model evaluation, citation-fidelity and expert-usefulness evaluation, expert relevance labels, and expert or physics-based validation.
+
+%% ════════════════════════════════════════════════════════════════════════════
+\section*{Declarations}
+
+\noindent\textbf{Data Availability.}\ The public QMOF database is available from the original QMOF data release. The evaluation uses locally prepared QMOF-derived vector metadata and processed artifacts generated from the repository scripts. The processed metadata, scripts, and evaluation artifacts used in this study are available at: \url{https://github.com/MehrdadJalali-AI/qmof-rec}.
+
+\noindent\textbf{Code Availability.}\ The code and processed evaluation artifacts used for the reported offline ranking, graph-aware, ablation, and RAG/LLM evaluations are available at the same repository: \url{https://github.com/MehrdadJalali-AI/qmof-rec}.
+
+\noindent\textbf{Use of Generative AI.}\ Generative AI tools were used to assist with language editing, consistency checking, code-review support, figure-preparation support, and response-to-review preparation. The authors reviewed, edited, verified, and approved the final text, code changes, figures, and response materials and take full responsibility for the manuscript content, analyses, and conclusions.
+
+\noindent\textbf{Competing Interests.}\ The authors declare no competing interests.
+
+\noindent\textbf{Author Contributions.}\ S.S.B. implemented the QMOF-Rec platform, conducted experiments, prepared figures and tables, and contributed to manuscript drafting. M.J. conceived and supervised the study, designed the methodological framing, guided the LEA-based recommender formulation, interpreted the results, and wrote and revised the manuscript. Both authors reviewed and approved the final manuscript.
+
+\noindent\textbf{Funding.}\ The authors received no specific funding for this work.
+
+\noindent\textbf{Acknowledgements.}\ The authors thank SRH University of Applied Sciences Heidelberg for institutional support.
+
+%% ════════════════════════════════════════════════════════════════════════════
+\begin{thebibliography}{99}
+
+\bibitem{adomavicius2011} G.~Adomavicius and Y.~Kwon. New recommendation techniques for multicriteria rating systems. \textit{IEEE Intelligent Systems}, 26(5):48--55, 2011.
+
+\bibitem{burke2002} R.~Burke. Hybrid recommender systems: Survey and experiments. \textit{User Modeling and User-Adapted Interaction}, 12:331--370, 2002.
+
+\bibitem{carbonell1998} J.~Carbonell and J.~Goldstein. The use of MMR, diversity-based reranking for reordering documents and producing summaries. In \textit{Proc.\ 21st ACM SIGIR}, pp.\ 335--336, 1998.
+
+\bibitem{chen2019} C.~Chen, W.~Ye, Y.~Zuo, C.~Zheng, and S.~P.~Ong. Graph networks as a universal machine learning framework for molecules and crystals. \textit{Chemistry of Materials}, 31(9):3564--3572, 2019.
+
+\bibitem{dalirinia2024} E.~Dalirinia, M.~Jalali, M.~Yaghoobi, and H.~Tabatabaee. Lotus effect optimization algorithm (LEA): a lotus nature-inspired algorithm for engineering design optimization. \textit{The Journal of Supercomputing}, 80:8543--8597, 2024.
+
+\bibitem{deb2002} K.~Deb, A.~Pratap, S.~Agarwal, and T.~Meyarivan. A fast and elitist multiobjective genetic algorithm: NSGA-II. \textit{IEEE Trans.\ Evolutionary Computation}, 6(2):182--197, 2002.
+
+\bibitem{hamilton2017} W.~L.~Hamilton, R.~Ying, and J.~Leskovec. Inductive representation learning on large graphs. In \textit{Advances in Neural Information Processing Systems}, vol.\ 30, 2017.
+
+\bibitem{hwang1981} C.-L.~Hwang and K.~Yoon. \textit{Multiple Attribute Decision Making: Methods and Applications}. Springer, 1981.
+
+\bibitem{jalali2023} M.~Jalali, M.~Schmitt, A.~D.~Dinga~Wonanke, C.~W\"{o}ll, and P.~Friederich. MOFGalaxyNet: a social network analysis for predicting guest accessibility in metal--organic frameworks utilizing graph convolutional networks. \textit{Journal of Cheminformatics}, 15:99, 2023.
+
+\bibitem{jalali2025lens} M.~Jalali, B.~Vu, S.~Mehraeen, S.~Chandna, and F.~Jalali. MOF-LENS: Bio-inspired lotus effect optimization for accelerated discovery of metal--organic framework nanocarriers for doxorubicin delivery in cancer therapy. \textit{Materials Today Communications}, 49:114448, 2025.
+
+\bibitem{jalali2025bh} M.~Jalali, A.~D.~Dinga~Wonanke, P.~Friederich, and C.~W\"{o}ll. The black hole strategy: Gravity-based representative sampling for frugal graph learning on metal--organic framework networks. \textit{Journal of Chemical Information and Modeling}, 65(20):10885--10902, 2025.
+
+\bibitem{jannach2014} D.~Jannach, M.~Zanker, and M.~Fuchs. Leveraging multi-criteria customer feedback for satisfaction analysis and improved recommendations. \textit{Information Technology \& Tourism}, 14:119--149, 2014.
+
+\bibitem{johnson2019} J.~Johnson, M.~Douze, and H.~J\'{e}gou. Billion-scale similarity search with GPUs. \textit{IEEE Transactions on Big Data}, 7(3):535--547, 2019.
+
+\bibitem{kipf2017} T.~N.~Kipf and M.~Welling. Semi-supervised classification with graph convolutional networks. In \textit{International Conference on Learning Representations}, 2017.
+
+\bibitem{lewis2020} P.~Lewis et al. Retrieval-augmented generation for knowledge-intensive NLP tasks. In \textit{Advances in Neural Information Processing Systems}, vol.\ 33, pp.\ 9459--9474, 2020.
+
+\bibitem{lops2011} P.~Lops, M.~de~Gemmis, and G.~Semeraro. Content-based recommender systems: State of the art and trends. In \textit{Recommender Systems Handbook}, pp.\ 73--105. Springer, 2011.
+
+\bibitem{luo2023} Y.~Luo, K.~Yan, and S.~Ji. MOFormer: Self-supervised transformer model for metal--organic framework property prediction. \textit{Journal of the American Chemical Society}, 145(3):1615--1624, 2023.
+
+\bibitem{reimers2019} N.~Reimers and I.~Gurevych. Sentence-BERT: Sentence embeddings using siamese BERT-networks. In \textit{Proc.\ EMNLP-IJCNLP}, pp.\ 3982--3992, 2019.
+
+\bibitem{ricci2011} F.~Ricci, L.~Rokach, B.~Shapira, and P.~B.~Kantor (eds). \textit{Recommender Systems Handbook}. Springer, 2011.
+
+\bibitem{rosen2021} A.~S.~Rosen et al. Machine learning the quantum-chemical properties of metal--organic frameworks for accelerated materials discovery. \textit{Matter}, 4(5):1578--1597, 2021.
+
+\bibitem{rosen2022} A.~S.~Rosen et al. High-throughput predictions of metal--organic framework electronic properties: theoretical challenges, graph neural networks, and data exploration. \textit{npj Computational Materials}, 8:112, 2022.
+
+\bibitem{seko2018} A.~Seko, H.~Hayashi, H.~Kashima, and I.~Tanaka. Matrix- and tensor-based recommender systems for the discovery of currently unknown inorganic compounds. \textit{Physical Review Materials}, 2:013805, 2018.
+
+\bibitem{shahriari2016} B.~Shahriari et al. Taking the human out of the loop: A review of Bayesian optimization. \textit{Proceedings of the IEEE}, 104(1):148--175, 2016.
+
+\bibitem{qu2023} J.~Qu, Y.~R.~Xie, K.~M.~Ciesielski, C.~E.~Porter, E.~S.~Toberer, and E.~Ertekin. Leveraging language representation for material recommendation, ranking, and exploration. arXiv:2305.01101, 2023.
+
+\bibitem{kadiassistant2026} A.~Cierpka, M.~S.~Islam, J.~Steinh\"{u}lb, E.~D.~S.~Domtchoueng, M.~Selzer, and A.~Koeppe. KadiAssistant: A conversational AI agent for information retrieval in Kadi4Mat. arXiv:2605.18850, 2026.
+
+\bibitem{velickovic2018} P.~Veli\v{c}kovi\'{c} et al. Graph attention networks. In \textit{International Conference on Learning Representations}, 2018.
+
+\bibitem{xie2018} T.~Xie and J.~C.~Grossman. Crystal graph convolutional neural networks for an accurate and interpretable prediction of material properties. \textit{Physical Review Letters}, 120:145301, 2018.
+
+\bibitem{zhang2020} Y.~Zhang and X.~Chen. Explainable recommendation: A survey and new perspectives. \textit{Foundations and Trends in Information Retrieval}, 14(1):1--101, 2020.
+
+\end{thebibliography}
+
+\end{document}

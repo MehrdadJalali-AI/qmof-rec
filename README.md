@@ -147,6 +147,10 @@ Repository-side revision logs:
 - `REVIEWER_COMMENT_MATRIX.csv`
 - `FINAL_REVISION_AUDIT.md`
 
+Current send-to-Arnd manuscript files are packaged in `manuscript/`, including
+the main manuscript PDF/source, supplementary PDF/source, response-to-comments
+files, figures, and protocol audit artifacts.
+
 ## Deployment
 
 ### Backend -> Railway

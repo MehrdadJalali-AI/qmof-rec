@@ -1,0 +1,4 @@
+descriptor,observed,total,coverage
+band_gap,10810,20372,0.5306302768505792
+density,20372,20372,1.0
+void_fraction,0,20372,0.0

@@ -1,0 +1,151 @@
+query_id,query,method,rank,qmof_id,formula,band_gap,density,void_fraction,semantic_score,band_gap_score,density_score,porosity_score,stability_score,lea_score,baseline_score
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,SemanticOnly,1,qmof-1406ccc,Co2C28H24N12O12S6,2.943077,1.811820363,,0.45,1.0,0.54704490925,0.0,0.85,,0.45
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,SemanticOnly,2,qmof-51d789e,Co2C16H24O12,3.034007,1.634350468,,0.45,1.0,0.591412383,0.0,0.85,,0.45
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,SemanticOnly,3,qmof-fd921b0,Co2C16H16N8O8,3.390441,1.58214776,,0.45,1.0,0.60446306,0.0,0.85,,0.45
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,SemanticOnly,4,qmof-c1d4910,Ag2Co2C52H68N4O16,3.401985,1.591390503,,0.45,1.0,0.60215237425,0.0,0.85,,0.45
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,SemanticOnly,5,qmof-e268c52,Co2C28H24N8,3.826909,1.39905003,,0.45,0.9065974285714286,0.6502374925000001,0.0,0.85,,0.45
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,WeightedSum,1,qmof-f2d872e,Co2C36H40N8O12,3.378082,1.334171796,,0.45,1.0,0.6664570510000001,0.0,0.85,,0.474469
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,WeightedSum,2,qmof-f69d443,Co2C40H28N12O8,2.877886,1.370451155,,0.45,1.0,0.65738721125,0.0,0.85,,0.473108
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,WeightedSum,3,qmof-68234b7,Co2C30H32N2O14,3.266102,1.399169923,,0.45,1.0,0.65020751925,0.0,0.85,,0.472031
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,WeightedSum,4,qmof-c11323c,Co2C40H32N4O8,3.474905,1.402324029,,0.45,1.0,0.64941899275,0.0,0.85,,0.471913
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,WeightedSum,5,qmof-c96d53b,Co2C72H56N8O8,3.014331,1.404307277,,0.45,1.0,0.64892318075,0.0,0.85,,0.471838
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,TOPSIS,1,qmof-f2d872e,Co2C36H40N8O12,3.378082,1.334171796,,0.45,1.0,0.6664570510000001,0.0,0.85,,0.483311
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,TOPSIS,2,qmof-f69d443,Co2C40H28N12O8,2.877886,1.370451155,,0.45,1.0,0.65738721125,0.0,0.85,,0.482399
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,TOPSIS,3,qmof-68234b7,Co2C30H32N2O14,3.266102,1.399169923,,0.45,1.0,0.65020751925,0.0,0.85,,0.481676
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,TOPSIS,4,qmof-c11323c,Co2C40H32N4O8,3.474905,1.402324029,,0.45,1.0,0.64941899275,0.0,0.85,,0.481597
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,TOPSIS,5,qmof-c96d53b,Co2C72H56N8O8,3.014331,1.404307277,,0.45,1.0,0.64892318075,0.0,0.85,,0.481547
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,ParetoCrowding,1,qmof-f2d872e,Co2C36H40N8O12,3.378082,1.334171796,,0.45,1.0,0.6664570510000001,0.0,0.85,,71.004745
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,ParetoCrowding,2,qmof-95efdd8,Co2C50H40N8O8,4.008194,1.14838817,,0.45,0.8548017142857144,0.7129029575,0.0,0.85,,71.0047
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,ParetoCrowding,3,qmof-1d78da0,Co2C16Cl4H12N8,3.902632,1.292027771,,0.45,0.8849622857142857,0.67699305725,0.0,0.85,,71.004669
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,ParetoCrowding,4,qmof-f69d443,Co2C40H28N12O8,2.877886,1.370451155,,0.45,1.0,0.65738721125,0.0,0.85,,70.00473
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,ParetoCrowding,5,qmof-2fa85e9,Co2C30H24N8O10,4.206159,1.362972361,,0.45,0.7982402857142856,0.6592569097500001,0.0,0.85,,70.00457
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,Random,1,qmof-14eb177,Co2C44H36N8O8,3.496948,1.411241713,,0.45,1.0,0.64718957175,0.0,0.85,,0.975622
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,Random,2,qmof-2f1a847,Co2C66H48N4O12,3.171648,1.563157733,,0.45,1.0,0.6092105667500001,0.0,0.85,,0.970698
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,Random,3,qmof-1c91623,Co2C40H32N8O10,3.573676,1.562765936,,0.45,0.9789497142857143,0.609308516,0.0,0.85,,0.96751
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,Random,4,qmof-1406ccc,Co2C28H24N12O12S6,2.943077,1.811820363,,0.45,1.0,0.54704490925,0.0,0.85,,0.961898
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,Random,5,qmof-54f7ee7,Co2K2C48H44N4O6,1.505111,1.497174385,,0.45,1.0,0.62570640375,0.0,0.85,,0.926765
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA,1,qmof-f69d443,Co2C40H28N12O8,2.877886,1.370451155,,0.45,1.0,0.65738721125,0.0,0.85,0.4808,
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA,2,qmof-95efdd8,Co2C50H40N8O8,4.008194,1.14838817,,0.45,0.8548017142857144,0.7129029575,0.0,0.85,0.4801,
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA,3,qmof-14eb177,Co2C44H36N8O8,3.496948,1.411241713,,0.45,1.0,0.64718957175,0.0,0.85,0.4797,
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA,4,qmof-f2d872e,Co2C36H40N8O12,3.378082,1.334171796,,0.45,1.0,0.6664570510000001,0.0,0.85,0.4781,
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA,5,qmof-145a0bf,Co2C40H28N4O8,2.997371,1.524583442,,0.45,1.0,0.6188541395,0.0,0.85,0.4768,
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,SemanticOnly,1,qmof-b47e703,Zn2C52H44N4O8,3.342839,1.359530272,,1.0,1.0,0.6601174320000001,0.0,0.85,,1.0
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,SemanticOnly,2,qmof-700998f,Mg4C52H32N4O20,2.893457,1.215878681,,1.0,1.0,0.69603032975,0.0,0.85,,1.0
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,SemanticOnly,3,qmof-0df7bd9,Cu4C44H36N16,2.630135,1.179009193,,1.0,1.0,0.7052477017500001,0.0,0.85,,1.0
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,SemanticOnly,4,qmof-688ca67,Cu4C36H20N16O4,3.314783,1.185027717,,1.0,1.0,0.70374307075,0.0,0.85,,1.0
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,SemanticOnly,5,qmof-da92f5a,Cu4C44H36N16,2.693294,1.196556606,,1.0,1.0,0.7008608485000001,0.0,0.85,,1.0
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,WeightedSum,1,qmof-cef46c3,Zn2C48H32N8O8,2.913296,0.7895211,,1.0,1.0,0.802619725,0.0,0.85,,0.86171
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,WeightedSum,2,qmof-ac6a77a,Zn4C76H44N8O16,2.401359,0.82887956,,1.0,1.0,0.79278011,0.0,0.85,,0.860922
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,WeightedSum,3,qmof-e566fbb,Zn2C36H22N6O8,2.93315,0.83426434,,1.0,1.0,0.791433915,0.0,0.85,,0.860815
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,WeightedSum,4,qmof-b1cbe7a,Fe2C24H16N8,3.528396,0.685538233,,1.0,0.9918868571428572,0.82861544175,0.0,0.85,,0.860382
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,WeightedSum,5,qmof-235f291,Ni2C24H16N8,3.336142,0.870801372,,1.0,1.0,0.782299657,0.0,0.85,,0.860084
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,TOPSIS,1,qmof-b1cbe7a,Fe2C24H16N8,3.528396,0.685538233,,1.0,0.9918868571428572,0.82861544175,0.0,0.85,,0.736539
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,TOPSIS,2,qmof-cef46c3,Zn2C48H32N8O8,2.913296,0.7895211,,1.0,1.0,0.802619725,0.0,0.85,,0.736261
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,TOPSIS,3,qmof-ac6a77a,Zn4C76H44N8O16,2.401359,0.82887956,,1.0,1.0,0.79278011,0.0,0.85,,0.735824
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,TOPSIS,4,qmof-e566fbb,Zn2C36H22N6O8,2.93315,0.83426434,,1.0,1.0,0.791433915,0.0,0.85,,0.735763
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,TOPSIS,5,qmof-8deddd1,Zn6C42H18O18,3.550246,0.720023443,,1.0,0.985644,0.81999413925,0.0,0.85,,0.735517
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,ParetoCrowding,1,qmof-cef46c3,Zn2C48H32N8O8,2.913296,0.7895211,,1.0,1.0,0.802619725,0.0,0.85,,97.008614
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,ParetoCrowding,2,qmof-b1cbe7a,Fe2C24H16N8,3.528396,0.685538233,,1.0,0.9918868571428572,0.82861544175,0.0,0.85,,97.008606
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,ParetoCrowding,3,qmof-ac6a77a,Zn4C76H44N8O16,2.401359,0.82887956,,1.0,1.0,0.79278011,0.0,0.85,,96.008606
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,ParetoCrowding,4,qmof-8deddd1,Zn6C42H18O18,3.550246,0.720023443,,1.0,0.985644,0.81999413925,0.0,0.85,,96.008568
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,ParetoCrowding,5,qmof-175a5d9,Fe6C42Cl6H12N18O12,3.544636,0.750832979,,1.0,0.9872468571428571,0.81229175525,0.0,0.85,,96.008568
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,Random,1,qmof-73ded45,Co6C24H6O18,2.716522,1.164695229,,1.0,1.0,0.7088261927499999,0.0,0.85,,0.997882
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,Random,2,qmof-25c9c0b,Cu2C26H34N4O14S2,3.222521,1.356838454,,1.0,1.0,0.6607903865,0.0,0.85,,0.993226
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,Random,3,qmof-cc4c6c7,Zn4C52H44N12O16,2.737265,1.050231232,,1.0,1.0,0.737442192,0.0,0.85,,0.955315
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,Random,4,qmof-a9bd3f7,ZnC24F6H20N8Si,3.080181,1.115860862,,1.0,1.0,0.7210347845,0.0,0.85,,0.951754
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,Random,5,qmof-ea9f3ea,Ni6C24H6O18,3.32766,1.151541311,,1.0,1.0,0.71211467225,0.0,0.85,,0.945127
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,LEA,1,qmof-cef46c3,Zn2C48H32N8O8,2.913296,0.7895211,,1.0,1.0,0.802619725,0.0,0.85,0.8628,
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,LEA,2,qmof-b1cbe7a,Fe2C24H16N8,3.528396,0.685538233,,1.0,0.9918868571428572,0.82861544175,0.0,0.85,0.8628,
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,LEA,3,qmof-ac6a77a,Zn4C76H44N8O16,2.401359,0.82887956,,1.0,1.0,0.79278011,0.0,0.85,0.8619,
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,LEA,4,qmof-e566fbb,Zn2C36H22N6O8,2.93315,0.83426434,,1.0,1.0,0.791433915,0.0,0.85,0.8618,
+q2_photocatalysis,semiconducting MOFs for photocatalysis with suitable band gap,LEA,5,qmof-235f291,Ni2C24H16N8,3.336142,0.870801372,,1.0,1.0,0.782299657,0.0,0.85,0.8615,
+q3_lightweight_storage,lightweight low density MOFs for gas storage,SemanticOnly,1,qmof-1a2e603,Zn4C55H44O16,,0.274803,,1.0,0.0,0.93129925,0.0,0.85,,1.0
+q3_lightweight_storage,lightweight low density MOFs for gas storage,SemanticOnly,2,qmof-4a41a68,Cu12C84H60N24,,0.171176743,,1.0,0.0,0.95720581425,0.0,0.85,,1.0
+q3_lightweight_storage,lightweight low density MOFs for gas storage,SemanticOnly,3,qmof-e27ef5d,Cu12C84H36N24,,0.151246293,,1.0,0.0,0.96218842675,0.0,0.85,,1.0
+q3_lightweight_storage,lightweight low density MOFs for gas storage,SemanticOnly,4,qmof-97ee5b6,Cu12C72H24N36,,0.157095049,,1.0,0.0,0.96072623775,0.0,0.85,,1.0
+q3_lightweight_storage,lightweight low density MOFs for gas storage,SemanticOnly,5,qmof-b52c6c5,Cu12C108H84N24,,0.16200726,,1.0,0.0,0.959498185,0.0,0.85,,1.0
+q3_lightweight_storage,lightweight low density MOFs for gas storage,WeightedSum,1,qmof-efd8c2a,Cu12C108H36N24,,0.087070039,,1.0,0.0,0.97823249025,0.0,0.85,,0.673728
+q3_lightweight_storage,lightweight low density MOFs for gas storage,WeightedSum,2,qmof-ca7c71a,Cu12C96H24N36,,0.089655409,,1.0,0.0,0.97758614775,0.0,0.85,,0.673483
+q3_lightweight_storage,lightweight low density MOFs for gas storage,WeightedSum,3,qmof-d475ee7,Cu12C132H72N28,,0.094919309,,1.0,0.0,0.97627017275,0.0,0.85,,0.672983
+q3_lightweight_storage,lightweight low density MOFs for gas storage,WeightedSum,4,qmof-2efade9,Cu12C108H84N24,,0.103378824,,1.0,0.0,0.974155294,0.0,0.85,,0.672179
+q3_lightweight_storage,lightweight low density MOFs for gas storage,WeightedSum,5,qmof-ad473d2,Cu12C48H24N24,,0.104079125,,1.0,0.0,0.97398021875,0.0,0.85,,0.672112
+q3_lightweight_storage,lightweight low density MOFs for gas storage,TOPSIS,1,qmof-b1cbe7a,Fe2C24H16N8,3.528396,0.685538233,,1.0,0.9918868571428572,0.82861544175,0.0,0.85,,0.600626
+q3_lightweight_storage,lightweight low density MOFs for gas storage,TOPSIS,2,qmof-8deddd1,Zn6C42H18O18,3.550246,0.720023443,,1.0,0.985644,0.81999413925,0.0,0.85,,0.598884
+q3_lightweight_storage,lightweight low density MOFs for gas storage,TOPSIS,3,qmof-a2d95c3,Zn8C48H24O26,4.650938,0.57861881,,1.0,0.6711605714285714,0.8553452975,0.0,0.85,,0.597692
+q3_lightweight_storage,lightweight low density MOFs for gas storage,TOPSIS,4,qmof-175a5d9,Fe6C42Cl6H12N18O12,3.544636,0.750832979,,1.0,0.9872468571428571,0.81229175525,0.0,0.85,,0.597454
+q3_lightweight_storage,lightweight low density MOFs for gas storage,TOPSIS,5,qmof-cef46c3,Zn2C48H32N8O8,2.913296,0.7895211,,1.0,1.0,0.802619725,0.0,0.85,,0.595857
+q3_lightweight_storage,lightweight low density MOFs for gas storage,ParetoCrowding,1,qmof-efd8c2a,Cu12C108H36N24,,0.087070039,,1.0,0.0,0.97823249025,0.0,0.85,,95.006737
+q3_lightweight_storage,lightweight low density MOFs for gas storage,ParetoCrowding,2,qmof-cef46c3,Zn2C48H32N8O8,2.913296,0.7895211,,1.0,1.0,0.802619725,0.0,0.85,,95.006569
+q3_lightweight_storage,lightweight low density MOFs for gas storage,ParetoCrowding,3,qmof-a2d95c3,Zn8C48H24O26,4.650938,0.57861881,,1.0,0.6711605714285714,0.8553452975,0.0,0.85,,95.006607
+q3_lightweight_storage,lightweight low density MOFs for gas storage,ParetoCrowding,4,qmof-b1cbe7a,Fe2C24H16N8,3.528396,0.685538233,,1.0,0.9918868571428572,0.82861544175,0.0,0.85,,95.006668
+q3_lightweight_storage,lightweight low density MOFs for gas storage,ParetoCrowding,5,qmof-ca7c71a,Cu12C96H24N36,,0.089655409,,1.0,0.0,0.97758614775,0.0,0.85,,94.006737
+q3_lightweight_storage,lightweight low density MOFs for gas storage,Random,1,qmof-6a62f82,Cu12C60H48N28,,0.243140254,,1.0,0.0,0.9392149365,0.0,0.85,,0.995386
+q3_lightweight_storage,lightweight low density MOFs for gas storage,Random,2,qmof-4a41a68,Cu12C84H60N24,,0.171176743,,1.0,0.0,0.95720581425,0.0,0.85,,0.983622
+q3_lightweight_storage,lightweight low density MOFs for gas storage,Random,3,qmof-f756730,Cu12C87H72N24,,0.206269379,,1.0,0.0,0.94843265525,0.0,0.85,,0.977948
+q3_lightweight_storage,lightweight low density MOFs for gas storage,Random,4,qmof-e27ef5d,Cu12C84H36N24,,0.151246293,,1.0,0.0,0.96218842675,0.0,0.85,,0.977154
+q3_lightweight_storage,lightweight low density MOFs for gas storage,Random,5,qmof-2efade9,Cu12C108H84N24,,0.103378824,,1.0,0.0,0.974155294,0.0,0.85,,0.969184
+q3_lightweight_storage,lightweight low density MOFs for gas storage,LEA,1,qmof-b1cbe7a,Fe2C24H16N8,3.528396,0.685538233,,1.0,0.9918868571428572,0.82861544175,0.0,0.85,0.7467,
+q3_lightweight_storage,lightweight low density MOFs for gas storage,LEA,2,qmof-175a5d9,Fe6C42Cl6H12N18O12,3.544636,0.750832979,,1.0,0.9872468571428571,0.81229175525,0.0,0.85,0.7401,
+q3_lightweight_storage,lightweight low density MOFs for gas storage,LEA,3,qmof-cef46c3,Zn2C48H32N8O8,2.913296,0.7895211,,1.0,1.0,0.802619725,0.0,0.85,0.7382,
+q3_lightweight_storage,lightweight low density MOFs for gas storage,LEA,4,qmof-efd8c2a,Cu12C108H36N24,,0.087070039,,1.0,0.0,0.97823249025,0.0,0.85,0.7221,
+q3_lightweight_storage,lightweight low density MOFs for gas storage,LEA,5,qmof-efd24b7,Cu12C96H72N36,,0.108516432,,1.0,0.0,0.972870892,0.0,0.85,0.7207,
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,SemanticOnly,1,qmof-bf460d2,Cu2C40Cl2H32N12,2.524101,1.35714137,,0.25,1.0,0.6607146575,0.0,0.85,,0.25
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,SemanticOnly,2,qmof-700998f,Mg4C52H32N4O20,2.893457,1.215878681,,0.25,1.0,0.69603032975,0.0,0.85,,0.25
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,SemanticOnly,3,qmof-0df7bd9,Cu4C44H36N16,2.630135,1.179009193,,0.25,1.0,0.7052477017500001,0.0,0.85,,0.25
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,SemanticOnly,4,qmof-688ca67,Cu4C36H20N16O4,3.314783,1.185027717,,0.25,1.0,0.70374307075,0.0,0.85,,0.25
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,SemanticOnly,5,qmof-da92f5a,Cu4C44H36N16,2.693294,1.196556606,,0.25,1.0,0.7008608485000001,0.0,0.85,,0.25
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,WeightedSum,1,qmof-b1cbe7a,Fe2C24H16N8,3.528396,0.685538233,,0.25,0.9918868571428572,0.82861544175,0.0,0.85,,0.596601
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,WeightedSum,2,qmof-8deddd1,Zn6C42H18O18,3.550246,0.720023443,,0.25,0.985644,0.81999413925,0.0,0.85,,0.593628
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,WeightedSum,3,qmof-cef46c3,Zn2C48H32N8O8,2.913296,0.7895211,,0.25,1.0,0.802619725,0.0,0.85,,0.593024
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,WeightedSum,4,qmof-175a5d9,Fe6C42Cl6H12N18O12,3.544636,0.750832979,,0.25,0.9872468571428571,0.81229175525,0.0,0.85,,0.592408
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,WeightedSum,5,qmof-ac6a77a,Zn4C76H44N8O16,2.401359,0.82887956,,0.25,1.0,0.79278011,0.0,0.85,,0.591056
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,TOPSIS,1,qmof-b1cbe7a,Fe2C24H16N8,3.528396,0.685538233,,0.25,0.9918868571428572,0.82861544175,0.0,0.85,,0.561661
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,TOPSIS,2,qmof-8deddd1,Zn6C42H18O18,3.550246,0.720023443,,0.25,0.985644,0.81999413925,0.0,0.85,,0.560072
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,TOPSIS,3,qmof-cef46c3,Zn2C48H32N8O8,2.913296,0.7895211,,0.25,1.0,0.802619725,0.0,0.85,,0.55957
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,TOPSIS,4,qmof-175a5d9,Fe6C42Cl6H12N18O12,3.544636,0.750832979,,0.25,0.9872468571428571,0.81229175525,0.0,0.85,,0.559369
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,TOPSIS,5,qmof-ac6a77a,Zn4C76H44N8O16,2.401359,0.82887956,,0.25,1.0,0.79278011,0.0,0.85,,0.558452
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,ParetoCrowding,1,qmof-b1cbe7a,Fe2C24H16N8,3.528396,0.685538233,,0.25,0.9918868571428572,0.82861544175,0.0,0.85,,94.005966
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,ParetoCrowding,2,qmof-cef46c3,Zn2C48H32N8O8,2.913296,0.7895211,,0.25,1.0,0.802619725,0.0,0.85,,94.005928
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,ParetoCrowding,3,qmof-8deddd1,Zn6C42H18O18,3.550246,0.720023443,,0.25,0.985644,0.81999413925,0.0,0.85,,93.005936
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,ParetoCrowding,4,qmof-ac6a77a,Zn4C76H44N8O16,2.401359,0.82887956,,0.25,1.0,0.79278011,0.0,0.85,,93.005913
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,ParetoCrowding,5,qmof-175a5d9,Fe6C42Cl6H12N18O12,3.544636,0.750832979,,0.25,0.9872468571428571,0.81229175525,0.0,0.85,,93.00592
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,Random,1,qmof-70e1be7,CuC24H42N4O4,3.364469,1.227143915,,0.25,1.0,0.69321402125,0.0,0.85,,0.992493
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,Random,2,qmof-d6b4784,Cu2C46H46N10O8,3.022075,1.243926116,,0.25,1.0,0.689018471,0.0,0.85,,0.974761
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,Random,3,qmof-c1b5346,Zn4C48H44N12O8,3.145918,1.091246093,,0.25,1.0,0.72718847675,0.0,0.85,,0.964066
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,Random,4,qmof-dfd0917,Co6C24H12O18,2.832428,1.211747493,,0.25,1.0,0.69706312675,0.0,0.85,,0.960396
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,Random,5,qmof-bf460d2,Cu2C40Cl2H32N12,2.524101,1.35714137,,0.25,1.0,0.6607146575,0.0,0.85,,0.920536
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA,1,qmof-b1cbe7a,Fe2C24H16N8,3.528396,0.685538233,,0.25,0.9918868571428572,0.82861544175,0.0,0.85,0.5981,
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA,2,qmof-8deddd1,Zn6C42H18O18,3.550246,0.720023443,,0.25,0.985644,0.81999413925,0.0,0.85,0.5948,
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA,3,qmof-cef46c3,Zn2C48H32N8O8,2.913296,0.7895211,,0.25,1.0,0.802619725,0.0,0.85,0.5942,
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA,4,qmof-175a5d9,Fe6C42Cl6H12N18O12,3.544636,0.750832979,,0.25,0.9872468571428571,0.81229175525,0.0,0.85,0.5934,
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA,5,qmof-ac6a77a,Zn4C76H44N8O16,2.401359,0.82887956,,0.25,1.0,0.79278011,0.0,0.85,0.5927,
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,SemanticOnly,1,qmof-9c487ce,Zn2C32H24N16,4.921389,1.492616107,,1.0,0.9842777999999999,0.62684597325,0.0,0.85,,1.0
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,SemanticOnly,2,qmof-bc9ad02,Mg4C32H72O8,4.82439,1.189350818,,1.0,0.964878,0.7026622954999999,0.0,0.85,,1.0
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,SemanticOnly,3,qmof-c80c803,Zn2C40H44N12S4,5.160106,1.398290971,,1.0,1.0,0.6504272572500001,0.0,0.85,,1.0
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,SemanticOnly,4,qmof-14210e6,Zn2C16H24N4O16,5.777117,1.414837245,,1.0,1.0,0.64629068875,0.0,0.85,,1.0
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,SemanticOnly,5,qmof-41d1d42,ZnC24H20N6O6,4.844519,1.16767614,,1.0,0.9689038,0.708080965,0.0,0.85,,1.0
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,WeightedSum,1,qmof-017128d,Zn6C48H60N24,5.310987,0.913433658,,1.0,1.0,0.7716415855000001,0.0,0.85,,0.887761
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,WeightedSum,2,qmof-e3dcc4d,Zn6C48H60N24,5.279321,0.917677932,,1.0,1.0,0.770580517,0.0,0.85,,0.887528
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,WeightedSum,3,qmof-ec58109,Zn2C32H44N8O8,5.358947,1.117104636,,1.0,1.0,0.720723841,0.0,0.85,,0.876559
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,WeightedSum,4,qmof-574737f,Zn2C8H12N16,6.954052,1.126981272,,1.0,1.0,0.718254682,0.0,0.85,,0.876016
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,WeightedSum,5,qmof-f75eb5a,Zn2C4H8N20,5.270056,1.128207629,,1.0,1.0,0.7179480927499999,0.0,0.85,,0.875949
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,TOPSIS,1,qmof-a2d95c3,Zn8C48H24O26,4.650938,0.57861881,,1.0,0.9301876,0.8553452975,0.0,0.85,,0.78785
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,TOPSIS,2,qmof-017128d,Zn6C48H60N24,5.310987,0.913433658,,1.0,1.0,0.7716415855000001,0.0,0.85,,0.784529
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,TOPSIS,3,qmof-e3dcc4d,Zn6C48H60N24,5.279321,0.917677932,,1.0,1.0,0.770580517,0.0,0.85,,0.78435
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,TOPSIS,4,qmof-ec58109,Zn2C32H44N8O8,5.358947,1.117104636,,1.0,1.0,0.720723841,0.0,0.85,,0.775418
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,TOPSIS,5,qmof-574737f,Zn2C8H12N16,6.954052,1.126981272,,1.0,1.0,0.718254682,0.0,0.85,,0.774951
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,ParetoCrowding,1,qmof-017128d,Zn6C48H60N24,5.310987,0.913433658,,1.0,1.0,0.7716415855000001,0.0,0.85,,69.008881
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,ParetoCrowding,2,qmof-a2d95c3,Zn8C48H24O26,4.650938,0.57861881,,1.0,0.9301876,0.8553452975,0.0,0.85,,69.008751
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,ParetoCrowding,3,qmof-e3dcc4d,Zn6C48H60N24,5.279321,0.917677932,,1.0,1.0,0.770580517,0.0,0.85,,68.008873
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,ParetoCrowding,4,qmof-ec58109,Zn2C32H44N8O8,5.358947,1.117104636,,1.0,1.0,0.720723841,0.0,0.85,,67.008766
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,ParetoCrowding,5,qmof-4050181,Li4C28H32N4O8,5.066465,0.936198777,,1.0,1.0,0.76595030575,0.0,0.6,,67.008667
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,Random,1,qmof-c931987,Mg4C48H56O16,6.56836,1.465431332,,1.0,1.0,0.633642167,0.0,0.85,,0.991599
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,Random,2,qmof-b605e3f,Zn4C32H56N8O28,5.709258,1.543037936,,1.0,1.0,0.614240516,0.0,0.85,,0.969378
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,Random,3,qmof-b4b5423,Al2C8Cl6H16O4,6.754743,1.494218165,,1.0,1.0,0.62644545875,0.0,0.85,,0.956748
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,Random,4,qmof-51966a1,Na2B4C16H44N2O4,6.819524,1.175168805,,1.0,1.0,0.70620779875,0.0,0.6,,0.944267
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,Random,5,qmof-f75eb5a,Zn2C4H8N20,5.270056,1.128207629,,1.0,1.0,0.7179480927499999,0.0,0.85,,0.934028
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA,1,qmof-017128d,Zn6C48H60N24,5.310987,0.913433658,,1.0,1.0,0.7716415855000001,0.0,0.85,0.8944,
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA,2,qmof-e3dcc4d,Zn6C48H60N24,5.279321,0.917677932,,1.0,1.0,0.770580517,0.0,0.85,0.8941,
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA,3,qmof-a2d95c3,Zn8C48H24O26,4.650938,0.57861881,,1.0,0.9301876,0.8553452975,0.0,0.85,0.8851,
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA,4,qmof-2a5ad82,Zn2C8H12N16,6.886243,1.128265531,,1.0,1.0,0.7179336172499999,0.0,0.85,0.8848,
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA,5,qmof-4050181,Li4C28H32N4O8,5.066465,0.936198777,,1.0,1.0,0.76595030575,0.0,0.6,0.883,
