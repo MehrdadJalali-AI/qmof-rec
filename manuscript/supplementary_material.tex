@@ -1,0 +1,337 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\captionsetup{font=small,labelfont=bf,format=plain,justification=justified}
+\renewcommand{\thefigure}{S\arabic{figure}}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Supplementary Material for QMOF-Rec}\\[0.5em]
+{\normalsize Representative RAG/LLM Interface Screenshots}
+\end{center}
+
+The screenshots below illustrate representative query--response behavior in the implemented QMOF-Rec interface. They demonstrate interface behavior, grounded metadata reporting, missing-descriptor warnings, and refusal of unsupported validation claims. They are not part of the offline ranking validation.
+
+\section*{Descriptor Availability and Masking}
+
+The reproducible QMOF-Rec evaluation uses 20{,}372 local vector-metadata records. Descriptor coverage was audited before revision: density is available for 20{,}372/20{,}372 records, band gap for 10{,}810/20{,}372 records, and void fraction for 0/20{,}372 records. Void fraction is therefore treated as unavailable rather than as zero, and porosity is excluded from active numerical ranking, diversity distances, and LEA candidate remapping.
+
+\begin{table}[H]
+\centering
+\caption{Descriptor coverage in the local metadata used for the revised evaluation.}
+\small
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Descriptor} & \textbf{Observed} & \textbf{Total} & \textbf{Coverage}\\
+\midrule
+Band gap & 10{,}810 & 20{,}372 & 53.1\%\\
+Density & 20{,}372 & 20{,}372 & 100.0\%\\
+Void fraction & 0 & 20{,}372 & 0.0\%\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For each material $m_i$, QMOF-Rec stores an availability mask $\mathbf{a}_i$ in parallel with the normalized objective vector. Weighted relevance is computed only over observed objectives, and distances are computed only over jointly observed dimensions. This prevents a missing descriptor from being interpreted as a physical value of zero.
+
+\section*{Retrieval Versus Reranking Missingness}
+
+The implemented retrieval layer and the numerical reranking layer use different representations. Retrieval uses SentenceTransformer embeddings of metadata text templates stored in a FAISS L2 index. The retrieval vector is therefore a text embedding rather than the numerical objective vector used by WeightedSum or LEA. In the revised vector-index builder, unavailable fields are written as unavailable metadata rather than as zero. The reproducible offline benchmark tables use a deterministic semantic proxy over metadata text and formula tokens, not a live sentence-transformer retrieval rerun.
+
+Reranking uses active numerical objectives with masks. The active objectives are semantic score, band-gap score, density score, and stability score. Void fraction is excluded from relevance scoring, diversity distances, candidate remapping, objective balance, hypervolume proxy interpretation, and radar plots because it is unavailable for every local metadata record.
+
+\section*{Detailed Computational Workflow}
+
+\begin{algorithm}[H]
+\caption{QMOF-Rec retrieval and objective scoring}
+\begin{algorithmic}[1]
+\Require Query $q$, metadata corpus $\mathcal{D}$, QMOF records $\mathcal{M}$, candidate pool size $n$
+\Ensure Candidate pool $C_q$, objective matrix $X_q$, weight vector $\mathbf{w}_q$
+\State Embed query $q$ and retrieve an initial semantic neighborhood from $\mathcal{D}$
+\State Construct $C_q = \{m_1, \ldots, m_n\}$ from the top retrieved material records
+\State Infer or select query-dependent weights $\mathbf{w}_q$
+\For{each material $m_i \in C_q$}
+  \State Compute semantic score $s_{\mathrm{sem}}(m_i, q)$
+  \State Compute available property scores, including band-gap and density scores where descriptors exist
+  \State Build availability mask $\mathbf{a}_i$; do not impute missing descriptors as numerical zeros
+  \State Exclude unsupported descriptors from active weighted scoring
+  \State Form normalized objective vector $\mathbf{x}_i$
+\EndFor
+\State Assemble $X_q$ from all $\mathbf{x}_i$ and $A_q$ from all $\mathbf{a}_i$
+\State \Return $C_q, X_q, A_q, \mathbf{w}_q$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\caption{LEA-guided multi-objective reranking for QMOF-Rec}
+\begin{algorithmic}[1]
+\Require Query $q$, candidate pool $C_q$, objective matrix $X_q$, availability matrix $A_q$, weight vector $\mathbf{w}_q$, population size $N$, iterations $T$, recommendation length $K$
+\Ensure Top-$K$ recommendation list $S_K$
+\State Initialize population $P^0$ using candidate objective vectors and random vectors in $[0,1]^d$
+\For{$t = 1$ to $T$}
+  \For{each individual $\mathbf{z}_i^t \in P^t$}
+    \State Map to nearest valid candidate $m_i = \pi(\mathbf{z}_i^t)$ using masked distance
+    \State Compute $f(q, m_i, S)$ using the list-aware utility
+    \State Generate mutant $\tilde{\mathbf{z}}_i^{t+1}$ using the implemented lotus mutation
+    \State Map mutant to nearest valid candidate $\tilde{m}_i = \pi(\tilde{\mathbf{z}}_i^{t+1})$ using masked distance
+    \If{$f(q, \tilde{m}_i, S) > f(q, m_i, S)$}
+      \State Accept $\tilde{\mathbf{z}}_i^{t+1}$
+    \Else
+      \State Retain $\mathbf{z}_i^t$
+    \EndIf
+  \EndFor
+  \If{$t \bmod \tau = 0$}
+    \State Replace weakest $\rho N$ individuals by random normalized vectors
+  \EndIf
+\EndFor
+\State Rank unique mapped QMOFs by LEA fitness and diversity-aware tie-breaking
+\State \Return top-$K$ materials $S_K$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\caption{Graph-aware RAG-assisted recommendation workflow}
+\begin{algorithmic}[1]
+\Require Query $q$, QMOF graph $\mathcal{G}$, metadata corpus $\mathcal{D}$, material records $\mathcal{M}$
+\Ensure Recommended materials with evidence-grounded explanation
+\State Retrieve candidate pool $C_q$ and evidence set $\mathcal{R}_K(q)$
+\State Build or update material graph features $\mathbf{h}_i^{(0)}$
+\State Encode QMOF graph with GraphSAGE or GAT when trained models are available
+\State Compute optional graph similarity objective $s_{\mathrm{graph}}(m_i, q)$
+\State Run objective scoring and LEA-guided reranking to obtain $S_K$
+\State Construct augmented prompt $A(q)$ from evidence, candidate records, scores, and uncertainty flags
+\State Generate explanation $y$ using the scientific assistant
+\State Record feedback, logs, and analytics for future model improvement
+\State \Return $S_K, y$
+\end{algorithmic}
+\end{algorithm}
+
+\section*{RAG/LLM Scoring Rubric and Hallucination Flags}
+
+\begin{table}[H]
+\centering
+\caption{RAG/LLM evaluation dimensions and scoring rubric.}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{p{2.5cm} p{3.6cm} p{1.0cm} p{2.1cm} p{2.1cm} p{2.5cm}}
+\toprule
+\textbf{Dimension} & \textbf{Question} & \textbf{Scale} & \textbf{1 (Poor)} & \textbf{3 (Acceptable)} & \textbf{5 (Excellent)}\\
+\midrule
+Retrieval relevance & Does the RAG module retrieve relevant QMOF records for the query? & 0--5 & Irrelevant retrieval & Partially relevant & Directly useful for answering the query\\
+Groundedness & Are the QMOF IDs and claims supported by retrieved candidates? & 1--5 & No retrieved IDs mentioned; context ignored & About half of IDs overlap with retrieved & All IDs drawn from retrieved candidates\\
+Metadata consistency & Are QMOF IDs, formulas, density, and band-gap values consistent? & 1--5 & 5+ inconsistencies & 2 inconsistencies & No inconsistencies\\
+Limitation awareness & Does the answer state when void fraction, porosity, or adsorption data are unavailable? & 1--5 & Makes unsupported adsorption/porosity claims & No explicit statement, but no false claims & Explicitly and correctly states missing descriptors\\
+Explanation quality & Does the answer explain recommendation rationale? & 1--5 & Very short, no property discussion & Discusses some properties & Discusses properties, relevance, and uncertainty\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Binary hallucination flags used in the automated evaluation harness.}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{p{4.0cm} p{10.0cm}}
+\toprule
+\textbf{Flag} & \textbf{Meaning}\\
+\midrule
+Hallucination detected & Any of the flags below is true\\
+Unsupported adsorption claim & Answer states or implies a specific CO$_2$ uptake, adsorption capacity, or gas-storage performance value\\
+Unsupported porosity claim & Answer states or implies a specific or measured/confirmed porosity value\\
+Experimental-validation claim & Answer claims a candidate is experimentally or laboratory validated\\
+Graph misrepresentation & Answer describes GraphSAGE/GAT results as CIF-derived atomistic graphs rather than formula-derived metadata graphs\\
+Metadata error & At least one mentioned QMOF ID is not in the retrieved set, or a stated formula does not match retrieved metadata\\
+Missing-descriptor warning & Answer explicitly notes that a requested descriptor, such as void fraction or adsorption data, is unavailable\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section*{Repeated-Seed and Candidate-Pool Scope}
+
+The repeated-run artifacts use five query scenarios with ten random seeds per scenario. These 50 query/seed rows are useful for robustness checks, but they are nested within five query scenarios and should not be interpreted as 50 independent scientific queries. Candidate-pool-size sweeps are retained as supplementary reproducibility artifacts; they are used to examine retrieval--reranking sensitivity rather than to establish a universally optimal pool size.
+
+\begin{table}[H]
+\centering
+\caption{Query-stratified repeated-seed results for selected methods. Values are means and standard deviations over ten seeds within each query scenario. Seeds quantify stochastic algorithm variation within a fixed query, not independent scientific tasks.}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{llrrrrrr}
+\toprule
+\textbf{Query} & \textbf{Method} & \textbf{Rel@5} & \textbf{SD} & \textbf{NDCG@5} & \textbf{SD} & \textbf{Div.} & \textbf{SD}\\
+\midrule
+q1\_co2\_adsorption & LEA baseline & 0.4711 & 0.0005 & 0.9958 & 0.0014 & 0.0781 & 0.0072\\
+q1\_co2\_adsorption & MMR & 0.4654 & 0.0000 & 0.9856 & 0.0000 & 0.1211 & 0.0000\\
+q1\_co2\_adsorption & WeightedSum & 0.4727 & 0.0000 & 1.0000 & 0.0000 & 0.0086 & 0.0000\\
+q2\_photocatalysis & LEA baseline & 0.8608 & 0.0001 & 0.9999 & 0.0001 & 0.0216 & 0.0014\\
+q2\_photocatalysis & MMR & 0.8575 & 0.0000 & 0.9950 & 0.0000 & 0.0815 & 0.0000\\
+q2\_photocatalysis & WeightedSum & 0.8608 & 0.0000 & 1.0000 & 0.0000 & 0.0211 & 0.0000\\
+q3\_lightweight\_storage & LEA baseline & 0.6657 & 0.0016 & 0.9861 & 0.0038 & 0.5687 & 0.0845\\
+q3\_lightweight\_storage & MMR & 0.6695 & 0.0000 & 0.9939 & 0.0000 & 0.5381 & 0.0000\\
+q3\_lightweight\_storage & WeightedSum & 0.6729 & 0.0000 & 1.0000 & 0.0000 & 0.0024 & 0.0000\\
+q4\_balanced\_discovery & LEA baseline & 0.5933 & 0.0000 & 1.0000 & 0.0000 & 0.0203 & 0.0002\\
+q4\_balanced\_discovery & MMR & 0.5808 & 0.0000 & 0.9768 & 0.0000 & 0.1115 & 0.0000\\
+q4\_balanced\_discovery & WeightedSum & 0.5933 & 0.0000 & 1.0000 & 0.0000 & 0.0202 & 0.0000\\
+q5\_insulating\_frameworks & LEA baseline & 0.8788 & 0.0006 & 0.9977 & 0.0008 & 0.1425 & 0.0243\\
+q5\_insulating\_frameworks & MMR & 0.8693 & 0.0000 & 0.9854 & 0.0000 & 0.2003 & 0.0000\\
+q5\_insulating\_frameworks & WeightedSum & 0.8808 & 0.0000 & 1.0000 & 0.0000 & 0.0319 & 0.0000\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Direct variance decomposition for mean relevance in repeated-seed artifacts. Between-query variance is much larger than within-query seed variance, supporting the interpretation that query scenario, not random seed, is the main dependence unit.}
+\small
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Method} & \textbf{Between-query var.} & \textbf{Within-query seed var.} & \textbf{Ratio}\\
+\midrule
+LEA baseline & 0.030648 & 0.000001 & 49{,}331.3\\
+MMR & 0.030754 & 0.000000 & $>10^6$\\
+RandomRepeated & 0.030125 & 0.000005 & 6{,}215.4\\
+SemanticOnly & 0.030144 & 0.000000 & $>10^6$\\
+WeightedSum & 0.030560 & 0.000000 & $>10^6$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Candidate-pool-size sensitivity for the available repeated-seed LEA pool variants. The saved artifacts contain pool sizes 50, 100, and 200. Pool size 100 is retained as the predefined main experimental setting to maintain consistency with the primary evaluation, not because this sensitivity analysis establishes it as optimal. Pool sizes 50--200 produce broadly similar quality, while runtime increases moderately with pool size.}
+\small
+\begin{tabular}{rrrrrr}
+\toprule
+\textbf{Pool} & \textbf{Rel@5} & \textbf{NDCG@5} & \textbf{Diversity} & \textbf{Unique top-K frac.} & \textbf{Runtime (ms)}\\
+\midrule
+50 & 0.6945 & 0.9968 & 0.1739 & 1.000 & 123.65\\
+100 & 0.6939 & 0.9959 & 0.1662 & 1.000 & 129.17\\
+200 & 0.6936 & 0.9948 & 0.1716 & 1.000 & 143.40\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Metric-level check of LEA no-diversity versus WeightedSum in the saved repeated-seed artifacts. All 50 query/seed rows have identical saved Rel@5 and diversity values. The saved CSV does not include top-K identifiers, so top-K identity and ordering could not be verified from the available artifact.}
+\small
+\begin{tabular}{lcc}
+\toprule
+\textbf{Check} & \textbf{Rows} & \textbf{Result}\\
+\midrule
+Same Rel@5 & 50/50 & yes\\
+Same diversity & 50/50 & yes\\
+Same top-K IDs & 0/50 & not available in saved metrics CSV\\
+Same top-K order & 0/50 & not available in saved metrics CSV\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section*{Observed Physical Descriptor Means: All Records Versus Selected Top-K Portfolios}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.88\linewidth]{figures/figure_s3_all_vs_selected_active_descriptors.png}
+  \caption{Observed physical descriptor means for all local records versus selected top-$K$ portfolios. The figure includes only band gap and density because these are the observed physical descriptors available for comparison in the local metadata; semantic and stability scores are excluded from this physical-descriptor plot, and void fraction/porosity is excluded because void fraction is unavailable for all local records. Selected top-$K$ values are averaged over the main saved single-run ranking artifact.}
+\end{figure}
+
+\section*{Missing-Data Ablation Status}
+
+A full missing-data ablation comparing zero filling, neutral filling, and masked scoring was not added to the numerical results because the saved repeated-seed artifacts do not include the ranked top-$K$ identifiers needed to quantify changed top-$K$ lists, and rerunning the full historical pipeline after the mask-aware code revision would require regenerating all primary and ablation tables under a new protocol. Instead, the repository now implements the preferred masked method and includes focused regression tests that verify missing descriptors are not treated as physical zero values.
+
+\section*{CO$_2$ Adsorption Scenario}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{figures/Scenarion_1a-CO2.png}
+  \caption{CO$_2$ adsorption scenario. The assistant recommends candidates based on available metadata and states that porosity and CO$_2$ uptake data are unavailable. Void fraction and adsorption uptake are unavailable in the current metadata.}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{figures/Scenarion_1b-CO2.png}
+  \caption{CO$_2$ adsorption scenario with structured candidate justifications and missing-descriptor warnings. Screenshots demonstrate the implemented interface and are not part of the offline ranking validation.}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{figures/Scenarion_1c-CO2.png}
+  \caption{CO$_2$ adsorption scenario showing material metrics for a candidate record. In the revised implementation, void fraction is displayed only as unavailable metadata and is excluded from active numerical ranking.}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{figures/Scenarion_1d-CO2.png}
+  \caption{CO$_2$ adsorption scenario testing unsupported uptake claims. The assistant declines to identify experimentally validated CO$_2$ uptake because the retrieved context contains no experimentally validated uptake data.}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{figures/Scenarion_1e-CO2.png}
+  \caption{CO$_2$ adsorption scenario testing industrial-readiness claims. The assistant treats the listed MOFs as recommendation candidates requiring expert follow-up, not as experimentally validated capture materials.}
+\end{figure}
+
+\section*{Photocatalysis Scenario}
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.49\linewidth}
+    \includegraphics[width=\linewidth]{figures/Scenarion_2a-Photolytic.png}
+    \caption{Top-5 photocatalysis candidates with band-gap-oriented justifications.}
+  \end{subfigure}\hfill
+  \begin{subfigure}[b]{0.49\linewidth}
+    \includegraphics[width=\linewidth]{figures/Scenarion_2b-Photolytic.png}
+    \caption{Dynamic objective weights for a photocatalysis-oriented query.}
+  \end{subfigure}
+  \caption{Photocatalysis scenario screenshots. These illustrate answer structure and interface behavior rather than physical validation.}
+\end{figure}
+
+\section*{Missing-Information Trap}
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.49\linewidth}
+    \includegraphics[width=\linewidth]{figures/Scenarion_3a-Hallusination.png}
+    \caption{Refusal to confirm experimentally validated CO$_2$ uptake.}
+  \end{subfigure}\hfill
+  \begin{subfigure}[b]{0.49\linewidth}
+    \includegraphics[width=\linewidth]{figures/Scenarion_3b-Hallusination.png}
+    \caption{Refusal to confirm industrial readiness.}
+  \end{subfigure}
+  \caption{Missing-information trap screenshots. The assistant declines to fabricate experimental validation claims.}
+\end{figure}
+
+\section*{Lightweight Gas Storage}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{figures/Scenarion_4a-GasStorage.png}
+  \caption{Lightweight gas-storage scenario. Candidate recommendations are based on available metadata such as density; void fraction, porosity, and gas uptake data are unavailable, so conclusions are preliminary.}
+\end{figure}
+
+\section*{Ranking Logic}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{figures/Scenarion_5a-RankingLogic.png}
+  \caption{Ranking-logic scenario. The assistant provides a structured recommendation list with explicit ranking rationale and missing-descriptor reporting.}
+\end{figure}
+
+\section*{Chemically Novel Candidates}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{figures/Scenarion-Chemcallynovel.png}
+  \caption{Chemically novel candidate scenario. The response is grounded in available metadata and should not be interpreted as experimental, adsorption, porosity, or structure-level validation.}
+\end{figure}
+
+\end{document}
