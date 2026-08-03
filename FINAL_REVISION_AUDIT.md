@@ -9,6 +9,8 @@
 - Added final diversity-revision artifacts, including active-vector audits, pairwise distances, diversity-representation comparison, aggregate metrics, per-query/seed metrics, catalog coverage, top-K overlap, candidate-pool sensitivity, and RAG/explanation rerun outputs.
 - Extended missing-data and diversity regression tests.
 - Updated the main manuscript and supplementary material for the final diversity-aware protocol.
+- Added a final code--manuscript consistency audit under `artifacts/final_consistency_audit/`, including distance-use checks, hybrid-weight sensitivity, query-blocked LEA-versus-WeightedSum diversity differences, and manuscript/code consistency notes.
+- Regenerated the final radar figure with explicit score-axis labels and added the method-minus-WeightedSum diversity figure for the supplement.
 - Created `manuscript/main_submission_ready.pdf`.
 - Created `manuscript/supplementary_material_submission_ready.pdf`.
 - Created a separate `manuscript/title_page.docx` with authors and affiliation while keeping the main manuscript anonymous per prior author-list removal request.
@@ -35,7 +37,10 @@ The zero diversity in the prior final-mask-aware run was a representation limita
 - LEA no-diversity is not list-identical to WeightedSum: same top-K set in 11/50 rows, same exact order in 0/50 rows, mean overlap 0.576.
 - Candidate-pool sizes 50, 100, and 200 preserve Rel@5 = 0.8479 and NDCG@5 = 1.0000, with diversity 0.0225, 0.0224, and 0.0229.
 - Actual catalog coverage for baseline LEA is 32/20,372 = 0.001571.
-- Final local grounded explanation rerun: 30 queries, 5.0/5 groundedness, 5.0/5 metadata consistency, 5.0/5 limitation awareness, 4.5/5 explanation quality, 0% automated hallucination flags.
+- Final local grounded explanation rerun: 30 queries, 5.0/5 groundedness, 5.0/5 metadata consistency, 5.0/5 limitation awareness, 4.5/5 explanation quality, and no automated unsupported-claim or safeguard-violation flags.
+- Query-blocked LEA minus WeightedSum diversity differences: mean 0.0037, median 0.0028, minimum 0.0000, maximum 0.0125 across five query blocks. This is a descriptive robustness check, not a statistical-superiority claim.
+- Hybrid-weight sensitivity preserves LEA above WeightedSum for the tested saved-list rescoring settings, while omitting formula descriptors changes the ordering among other methods.
+- LEA candidate remapping uses active objective-space masked distance; reported list diversity, MMR redundancy, and Pareto crowding use the final hybrid material distance.
 
 ## Remaining Limitations
 

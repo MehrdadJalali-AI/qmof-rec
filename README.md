@@ -237,3 +237,19 @@ python3 scripts/run_final_diversity_aware_masked_protocol.py \
 ```
 
 Outputs are written to `artifacts/final_diversity_aware_masked_protocol/`, with the zero-diversity diagnosis and representation comparison in `artifacts/diversity_revision/`. The selected diversity metric is a full-precision hybrid material distance over observed density, observed band gap, formula-derived descriptors, and formula-derived graph proxies; void fraction remains excluded.
+
+Final consistency artifacts are stored in:
+
+```text
+artifacts/final_consistency_audit/
+```
+
+The final implementation keeps three related quantities separate:
+
+- Relevance and NDCG use mask-aware active numerical objectives.
+- LEA candidate remapping uses active objective-space masked distance.
+- Reported list diversity, MMR redundancy, and Pareto crowding use the full-precision hybrid material distance.
+
+The saved final explanation evaluation is deterministic and candidate-conditioned. It checks groundedness, metadata consistency, limitation awareness, and unsupported-claim safeguards using the final seed-42 LEA candidate lists. Live OpenAI chat generation remains optional and requires `OPENAI_API_KEY`; it is not the source of the reported 30-query explanation table.
+
+The command above reproduces the manuscript ranking tables, including the aggregate ranking table, ablation/graph-aware table, and candidate-conditioned explanation table. Main and supplementary manuscript sources are in `manuscript/`.

@@ -1006,7 +1006,7 @@ def plot_outputs(aggregate_rows: list[dict[str, Any]], convergence_rows: list[di
     plt.close()
 
     compare = [r for r in aggregate_rows if r["method"] in {"WeightedSum", "MMR", "LEA", "LEA + GraphSAGE", "LEA + GAT"}]
-    labels = ["Rel@5", "NDCG@5", "Diversity", "Mean band gap", "Mean density"]
+    labels = ["Rel@5", "NDCG@5", "Hybrid diversity", "Band-gap score", "Density score"]
     angles = np.linspace(0, 2 * np.pi, len(labels), endpoint=False).tolist()
     plt.figure(figsize=(5.8, 5.2))
     ax = plt.subplot(111, polar=True)

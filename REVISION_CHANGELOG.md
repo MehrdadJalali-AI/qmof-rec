@@ -50,3 +50,11 @@ Branch: `reviewer-arnd-revision`
 - Updated the manuscript and supplement with final values: LEA Rel@5 = 0.8479, NDCG@5 = 1.0000, diversity = 0.0224; WeightedSum diversity = 0.0187; MMR diversity = 0.0241.
 - Corrected `Unique@K` versus actual catalog coverage terminology.
 - Created `manuscript/main_submission_ready.pdf`, `manuscript/supplementary_material_submission_ready.pdf`, and `manuscript/title_page.docx`.
+
+## Final consistency and submission-readiness pass
+
+- Added `artifacts/final_consistency_audit/` with distance-use, hybrid-weight sensitivity, query-blocked diversity-difference, and manuscript/code consistency artifacts.
+- Clarified that LEA candidate remapping uses active objective-space masked distance, while reported list diversity, MMR redundancy, and Pareto crowding use the full-precision hybrid material distance.
+- Moderated LEA diversity claims: the LEA pipeline shows a modest diversity difference versus WeightedSum, but explicit diversity and self-cleaning ablations do not isolate a measurable aggregate benefit in this configuration.
+- Clarified that the 30-query explanation evaluation is deterministic, local, and candidate-conditioned rather than a live LLM generation benchmark.
+- Regenerated the final radar figure with explicit score-axis labels and added a supplementary method-minus-WeightedSum diversity figure.
