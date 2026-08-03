@@ -27,13 +27,14 @@ The screenshots below illustrate representative query--response behavior in the 
 
 The reproducible QMOF-Rec evaluation uses 20{,}372 local vector-metadata records. Descriptor coverage was audited before revision: density is available for 20{,}372/20{,}372 records, band gap for 10{,}810/20{,}372 records, and void fraction for 0/20{,}372 records. Void fraction is therefore treated as unavailable rather than as zero, and porosity is excluded from active numerical ranking, diversity distances, and LEA candidate remapping.
 
-\section*{Final Mask-Aware Rerun Artifacts}
+\section*{Final Diversity-Aware Mask-Aware Rerun Artifacts}
 
-The final protocol was rerun with \texttt{configs/final\_mask\_aware\_protocol.json}. The rerun uses five query scenarios, ten random seeds (42--51), top-$K=5$, a main candidate-pool size of 100, and candidate-pool sensitivity at 50, 100, and 200. All ranking methods use the same saved candidate pool for a given query and seed. The complete machine-readable outputs are stored under \texttt{artifacts/final\_masked\_protocol/}, including candidate pools, per-method top-$K$ identifiers, aggregate metrics, per-query/seed metrics, query-stratified summaries, variance decomposition, candidate-pool sensitivity, and WeightedSum versus LEA-no-diversity list-level comparisons.
+The final protocol was rerun with the repository configuration file
+\path{configs/final_diversity_aware_masked_protocol.json}. The rerun uses five query scenarios, ten random seeds (42--51), top-$K=5$, a main candidate-pool size of 100, and candidate-pool sensitivity at 50, 100, and 200. All ranking methods use the same saved candidate pool for a given query and seed. The complete machine-readable outputs are stored under the final diversity-aware artifact directory and include candidate pools, top-$K$ identifiers, aggregate metrics, per-query/seed metrics, query-stratified summaries, variance decomposition, candidate-pool sensitivity, catalog coverage, top-$K$ overlap, list-level comparisons, and the final grounded explanation rerun.
 
-Historical artifacts used in earlier drafts are preserved read-only under \path{artifacts/historical_protocol/}. Direct historical-versus-final comparisons are provided in \path{artifacts/protocol_comparison/}: \path{historical_vs_masked_metrics.csv}, \path{historical_vs_masked_topk.csv}, and \path{protocol_change_report.md}.
+Historical artifacts used in earlier drafts are preserved read-only under the historical artifact directory. The prior final-mask-aware outputs are preserved under the before-diversity-revision directory. The zero-diversity diagnosis is stored in the diversity-revision artifacts and shows that the previous zero-diversity result was caused by binned active utility scores: band gaps between 1.0 and 3.5 eV mapped to the same score, densities between 1.0 and 2.0 g/cm$^3$ mapped to the same score, and the stability proxy often inherited the binned density score. The top CO$_2$ candidates had different raw values but identical transformed active objective vectors.
 
-In the final rerun, WeightedSum, TOPSIS, ParetoCrowding, and baseline LEA tie on Rel@5 (0.8479) and NDCG@5 (1.0000) and have zero masked diversity under the active objective representation. MMR gives nonzero diversity (0.0400) with lower Rel@5 (0.8400), while graph-aware LEA variants preserve Rel@5 = 0.8479 and add small nonzero diversity (0.0070--0.0127). Candidate-pool sizes 50, 100, and 200 give identical aggregate LEA Rel@5 and NDCG@5 in this rerun, with runtime increasing as pool size increases.
+The final selected diversity representation is a full-precision hybrid material distance using observed density, observed band gap, formula-derived descriptors, and formula-derived graph proxies. Void fraction remains excluded. In the final rerun, WeightedSum, TOPSIS, MMR, and baseline LEA tie on Rel@5 (0.8479) and NDCG@5 (1.0000). LEA improves diversity relative to WeightedSum (0.0224 versus 0.0187), while MMR is slightly more diverse (0.0241) but much slower. Candidate-pool sizes 50, 100, and 200 give identical aggregate LEA Rel@5 and NDCG@5 in this rerun, with small diversity variation and runtime increasing as pool size increases.
 
 \begin{table}[H]
 \centering
@@ -177,21 +178,21 @@ The repeated-run artifacts use five query scenarios with ten random seeds per sc
 \toprule
 \textbf{Query} & \textbf{Method} & \textbf{Rel@5} & \textbf{SD} & \textbf{NDCG@5} & \textbf{SD} & \textbf{Div.} & \textbf{SD}\\
 \midrule
-q1\_co2\_adsorption & LEA baseline & 0.4711 & 0.0005 & 0.9958 & 0.0014 & 0.0781 & 0.0072\\
-q1\_co2\_adsorption & MMR & 0.4654 & 0.0000 & 0.9856 & 0.0000 & 0.1211 & 0.0000\\
-q1\_co2\_adsorption & WeightedSum & 0.4727 & 0.0000 & 1.0000 & 0.0000 & 0.0086 & 0.0000\\
-q2\_photocatalysis & LEA baseline & 0.8608 & 0.0001 & 0.9999 & 0.0001 & 0.0216 & 0.0014\\
-q2\_photocatalysis & MMR & 0.8575 & 0.0000 & 0.9950 & 0.0000 & 0.0815 & 0.0000\\
-q2\_photocatalysis & WeightedSum & 0.8608 & 0.0000 & 1.0000 & 0.0000 & 0.0211 & 0.0000\\
-q3\_lightweight\_storage & LEA baseline & 0.6657 & 0.0016 & 0.9861 & 0.0038 & 0.5687 & 0.0845\\
-q3\_lightweight\_storage & MMR & 0.6695 & 0.0000 & 0.9939 & 0.0000 & 0.5381 & 0.0000\\
-q3\_lightweight\_storage & WeightedSum & 0.6729 & 0.0000 & 1.0000 & 0.0000 & 0.0024 & 0.0000\\
-q4\_balanced\_discovery & LEA baseline & 0.5933 & 0.0000 & 1.0000 & 0.0000 & 0.0203 & 0.0002\\
-q4\_balanced\_discovery & MMR & 0.5808 & 0.0000 & 0.9768 & 0.0000 & 0.1115 & 0.0000\\
-q4\_balanced\_discovery & WeightedSum & 0.5933 & 0.0000 & 1.0000 & 0.0000 & 0.0202 & 0.0000\\
-q5\_insulating\_frameworks & LEA baseline & 0.8788 & 0.0006 & 0.9977 & 0.0008 & 0.1425 & 0.0243\\
-q5\_insulating\_frameworks & MMR & 0.8693 & 0.0000 & 0.9854 & 0.0000 & 0.2003 & 0.0000\\
-q5\_insulating\_frameworks & WeightedSum & 0.8808 & 0.0000 & 1.0000 & 0.0000 & 0.0319 & 0.0000\\
+q1\_co2\_adsorption & LEA baseline & 0.7599 & 0.0000 & 1.0000 & 0.0000 & 0.0288 & 0.0026\\
+q1\_co2\_adsorption & MMR & 0.7599 & 0.0000 & 1.0000 & 0.0000 & 0.0333 & 0.0011\\
+q1\_co2\_adsorption & WeightedSum & 0.7599 & 0.0000 & 1.0000 & 0.0000 & 0.0163 & 0.0000\\
+q2\_photocatalysis & LEA baseline & 0.8752 & 0.0000 & 1.0000 & 0.0000 & 0.0150 & 0.0000\\
+q2\_photocatalysis & MMR & 0.8752 & 0.0000 & 1.0000 & 0.0000 & 0.0150 & 0.0000\\
+q2\_photocatalysis & WeightedSum & 0.8752 & 0.0000 & 1.0000 & 0.0000 & 0.0150 & 0.0000\\
+q3\_lightweight\_storage & LEA baseline & 0.9174 & 0.0000 & 1.0000 & 0.0000 & 0.0193 & 0.0022\\
+q3\_lightweight\_storage & MMR & 0.9174 & 0.0000 & 1.0000 & 0.0000 & 0.0204 & 0.0006\\
+q3\_lightweight\_storage & WeightedSum & 0.9174 & 0.0000 & 1.0000 & 0.0000 & 0.0165 & 0.0000\\
+q4\_balanced\_discovery & LEA baseline & 0.8979 & 0.0000 & 1.0000 & 0.0000 & 0.0194 & 0.0010\\
+q4\_balanced\_discovery & MMR & 0.8979 & 0.0000 & 1.0000 & 0.0000 & 0.0204 & 0.0006\\
+q4\_balanced\_discovery & WeightedSum & 0.8979 & 0.0000 & 1.0000 & 0.0000 & 0.0165 & 0.0000\\
+q5\_insulating\_frameworks & LEA baseline & 0.7893 & 0.0000 & 1.0000 & 0.0000 & 0.0294 & 0.0014\\
+q5\_insulating\_frameworks & MMR & 0.7893 & 0.0000 & 1.0000 & 0.0000 & 0.0316 & 0.0018\\
+q5\_insulating\_frameworks & WeightedSum & 0.7893 & 0.0000 & 1.0000 & 0.0000 & 0.0293 & 0.0000\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -204,11 +205,11 @@ q5\_insulating\_frameworks & WeightedSum & 0.8808 & 0.0000 & 1.0000 & 0.0000 & 0
 \toprule
 \textbf{Method} & \textbf{Between-query var.} & \textbf{Within-query seed var.} & \textbf{Ratio}\\
 \midrule
-LEA baseline & 0.030648 & 0.000001 & 49{,}331.3\\
-MMR & 0.030754 & 0.000000 & $>10^6$\\
-RandomRepeated & 0.030125 & 0.000005 & 6{,}215.4\\
-SemanticOnly & 0.030144 & 0.000000 & $>10^6$\\
-WeightedSum & 0.030560 & 0.000000 & $>10^6$\\
+LEA baseline & 0.004815 & 0.000000 & 481{,}544.3\\
+MMR & 0.004815 & 0.000000 & 481{,}544.3\\
+Random & 0.006060 & 0.000266 & 22.8\\
+SemanticOnly & 0.006870 & 0.000071 & 96.9\\
+WeightedSum & 0.004815 & 0.000000 & 481{,}544.3\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -221,25 +222,65 @@ WeightedSum & 0.030560 & 0.000000 & $>10^6$\\
 \toprule
 \textbf{Pool} & \textbf{Rel@5} & \textbf{NDCG@5} & \textbf{Diversity} & \textbf{Unique top-K frac.} & \textbf{Runtime (ms)}\\
 \midrule
-50 & 0.6945 & 0.9968 & 0.1739 & 1.000 & 123.65\\
-100 & 0.6939 & 0.9959 & 0.1662 & 1.000 & 129.17\\
-200 & 0.6936 & 0.9948 & 0.1716 & 1.000 & 143.40\\
+50 & 0.8479 & 1.0000 & 0.0225 & 1.000 & 76.94\\
+100 & 0.8479 & 1.0000 & 0.0224 & 1.000 & 83.49\\
+200 & 0.8479 & 1.0000 & 0.0229 & 1.000 & 98.74\\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \begin{table}[H]
 \centering
-\caption{Metric-level check of LEA no-diversity versus WeightedSum in the saved repeated-seed artifacts. All 50 query/seed rows have identical saved Rel@5 and diversity values. The saved CSV does not include top-K identifiers, so top-K identity and ordering could not be verified from the available artifact.}
+\caption{List-level check of LEA no-diversity versus WeightedSum in the final diversity-aware rerun. Aggregate Rel@5 and NDCG@5 are identical in all 50 query/seed rows, but top-$K$ lists and ordering are not generally identical.}
 \small
 \begin{tabular}{lcc}
 \toprule
 \textbf{Check} & \textbf{Rows} & \textbf{Result}\\
 \midrule
 Same Rel@5 & 50/50 & yes\\
-Same diversity & 50/50 & yes\\
-Same top-K IDs & 0/50 & not available in saved metrics CSV\\
-Same top-K order & 0/50 & not available in saved metrics CSV\\
+Same NDCG@5 & 50/50 & yes\\
+Same diversity & 11/50 & only where top-$K$ set matches\\
+Same top-K IDs & 11/50 & exact set match\\
+Same top-K order & 0/50 & no exact order match\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Actual catalog coverage in the final diversity-aware rerun. Coverage is the number of unique QMOF records selected across all top-$K$ lists for a method divided by the full catalog size of 20{,}372 records. This is distinct from Unique@K, which is 1.000 for every method in the aggregate table.}
+\small
+\begin{tabular}{lrr}
+\toprule
+\textbf{Method} & \textbf{Unique catalog items} & \textbf{Catalog coverage}\\
+\midrule
+WeightedSum & 16 & 0.000785\\
+LEA baseline & 32 & 0.001571\\
+MMR & 34 & 0.001669\\
+ParetoCrowding & 50 & 0.002454\\
+SemanticOnly & 163 & 0.008001\\
+Random & 236 & 0.011585\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Final local grounded explanation rerun using the final diversity-aware LEA candidate lists. The live OpenAI chat service requires an external API key in this checkout, so the rerun uses deterministic candidate-conditioned explanations with the same no-fabrication constraints and automated rubric.}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Scenario} & \textbf{Queries} & \textbf{Ground.} & \textbf{Metadata} & \textbf{Limit.} & \textbf{Halluc.}\\
+\midrule
+balanced\_discovery & 5 & 5.0 & 5.0 & 5.0 & 0\%\\
+co2\_adsorption & 5 & 5.0 & 5.0 & 5.0 & 0\%\\
+general\_recommendation & 3 & 5.0 & 5.0 & 5.0 & 0\%\\
+lightweight\_gas\_storage & 5 & 5.0 & 5.0 & 5.0 & 0\%\\
+missing\_information\_trap & 3 & 5.0 & 5.0 & 5.0 & 0\%\\
+photocatalysis & 5 & 5.0 & 5.0 & 5.0 & 0\%\\
+wide\_band\_gap & 4 & 5.0 & 5.0 & 5.0 & 0\%\\
+\midrule
+\textbf{Overall} & 30 & 5.0 & 5.0 & 5.0 & 0\%\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -252,9 +293,9 @@ Same top-K order & 0/50 & not available in saved metrics CSV\\
   \caption{Observed physical descriptor means for all local records versus selected top-$K$ portfolios. The figure includes only band gap and density because these are the observed physical descriptors available for comparison in the local metadata; semantic and stability scores are excluded from this physical-descriptor plot, and void fraction/porosity is excluded because void fraction is unavailable for all local records. Selected top-$K$ values are averaged over the main saved single-run ranking artifact.}
 \end{figure}
 
-\section*{Missing-Data Ablation Status}
+\section*{Missing-Data and Diversity Regression Tests}
 
-A full missing-data ablation comparing zero filling, neutral filling, and masked scoring was not added to the numerical results because the saved repeated-seed artifacts do not include the ranked top-$K$ identifiers needed to quantify changed top-$K$ lists, and rerunning the full historical pipeline after the mask-aware code revision would require regenerating all primary and ablation tables under a new protocol. Instead, the repository now implements the preferred masked method and includes focused regression tests that verify missing descriptors are not treated as physical zero values.
+The final repository includes focused regression tests for missing descriptors, score clipping, full-precision distance calculation, symmetric masked distances, identical versus different active vectors, top-$K$ pairwise-distance averaging, LEA candidate identifier preservation, and the exclusion of unavailable void fraction from numerical ranking. The test output is stored in \path{artifacts/diversity_revision/test_results.txt}; the completed local run reports 21 passing tests.
 
 \section*{CO$_2$ Adsorption Scenario}
 

@@ -18,30 +18,30 @@ Run the focused mask-aware regression suite:
 PYTHONPATH=backend pytest -q backend/tests/test_missing_data_masks.py
 ```
 
-Observed result during revision:
+Observed result during final diversity revision:
 
 ```text
-12 passed in 0.25s
+21 passed in 0.26s
 ```
 
-## Final mask-aware rerun
+## Final diversity-aware mask-aware rerun
 
 Run the complete final protocol from the repository root:
 
 ```bash
-python scripts/run_final_mask_aware_protocol.py \
-  --config configs/final_mask_aware_protocol.json
+python3 scripts/run_final_diversity_aware_masked_protocol.py \
+  --config configs/final_diversity_aware_masked_protocol.json
 ```
 
 This creates:
 
 ```text
-artifacts/final_masked_protocol/
-artifacts/protocol_comparison/
-artifacts/historical_protocol/
+artifacts/final_diversity_aware_masked_protocol/
+artifacts/final_masked_protocol_before_diversity_revision/
+artifacts/diversity_revision/
 ```
 
-The final rerun generates candidate pools, top-K outputs for every method/query/seed, aggregate metrics, query-stratified summaries, variance decomposition, candidate-pool sensitivity, historical-versus-final comparisons, implementation audits, and final figures.
+The final rerun generates candidate pools, top-K outputs for every method/query/seed, aggregate metrics, query-stratified summaries, variance decomposition, candidate-pool sensitivity, catalog coverage, top-K overlap, diversity-representation comparisons, zero-diversity diagnosis, final figures, and a local grounded explanation rerun.
 
 ## Manuscript builds
 
@@ -51,6 +51,8 @@ From `manuscript/`:
 cd manuscript
 latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 latexmk -pdf -interaction=nonstopmode -halt-on-error supplementary_material.tex
+cp main.pdf main_submission_ready.pdf
+cp supplementary_material.pdf supplementary_material_submission_ready.pdf
 ```
 
 Observed result during revision:
@@ -60,7 +62,7 @@ main.pdf generated successfully
 supplementary_material.pdf generated successfully
 ```
 
-The main manuscript log has minor overfull table-box warnings only.
+The main and supplementary manuscript logs have minor overfull/underfull table-box warnings only.
 
 ## Descriptor coverage audit
 

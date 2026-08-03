@@ -1,0 +1,51 @@
+record_type,query,query_id,seed,same_topk_set,same_order,topk_overlap,same_rel,same_ndcg,same_diversity,same_scores,notes
+weighted_sum_vs_lea_no_diversity,stable porous MOFs for CO2 adsorption,q1_co2_adsorption,42,False,False,0.0,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,stable porous MOFs for CO2 adsorption,q1_co2_adsorption,43,False,False,0.0,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,stable porous MOFs for CO2 adsorption,q1_co2_adsorption,44,False,False,0.0,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,stable porous MOFs for CO2 adsorption,q1_co2_adsorption,45,False,False,0.4,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,stable porous MOFs for CO2 adsorption,q1_co2_adsorption,46,False,False,0.0,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,stable porous MOFs for CO2 adsorption,q1_co2_adsorption,47,False,False,0.2,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,stable porous MOFs for CO2 adsorption,q1_co2_adsorption,48,False,False,0.2,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,stable porous MOFs for CO2 adsorption,q1_co2_adsorption,49,False,False,0.0,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,stable porous MOFs for CO2 adsorption,q1_co2_adsorption,50,False,False,0.2,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,stable porous MOFs for CO2 adsorption,q1_co2_adsorption,51,False,False,0.2,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,photocatalytic MOFs with suitable band gaps,q2_photocatalysis,42,True,False,1.0,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,photocatalytic MOFs with suitable band gaps,q2_photocatalysis,43,True,False,1.0,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,photocatalytic MOFs with suitable band gaps,q2_photocatalysis,44,True,False,1.0,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,photocatalytic MOFs with suitable band gaps,q2_photocatalysis,45,True,False,1.0,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,photocatalytic MOFs with suitable band gaps,q2_photocatalysis,46,True,False,1.0,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,photocatalytic MOFs with suitable band gaps,q2_photocatalysis,47,True,False,1.0,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,photocatalytic MOFs with suitable band gaps,q2_photocatalysis,48,True,False,1.0,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,photocatalytic MOFs with suitable band gaps,q2_photocatalysis,49,True,False,1.0,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,photocatalytic MOFs with suitable band gaps,q2_photocatalysis,50,True,False,1.0,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,photocatalytic MOFs with suitable band gaps,q2_photocatalysis,51,True,False,1.0,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,lightweight gas storage MOFs with low density,q3_lightweight_storage,42,False,False,0.8,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,lightweight gas storage MOFs with low density,q3_lightweight_storage,43,False,False,0.6,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,lightweight gas storage MOFs with low density,q3_lightweight_storage,44,False,False,0.6,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,lightweight gas storage MOFs with low density,q3_lightweight_storage,45,False,False,0.6,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,lightweight gas storage MOFs with low density,q3_lightweight_storage,46,False,False,0.8,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,lightweight gas storage MOFs with low density,q3_lightweight_storage,47,False,False,0.8,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,lightweight gas storage MOFs with low density,q3_lightweight_storage,48,False,False,0.6,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,lightweight gas storage MOFs with low density,q3_lightweight_storage,49,False,False,0.8,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,lightweight gas storage MOFs with low density,q3_lightweight_storage,50,False,False,0.8,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,lightweight gas storage MOFs with low density,q3_lightweight_storage,51,False,False,0.8,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,balanced stable MOF candidates for general materials discovery,q4_balanced_discovery,42,False,False,0.8,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,balanced stable MOF candidates for general materials discovery,q4_balanced_discovery,43,False,False,0.6,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,balanced stable MOF candidates for general materials discovery,q4_balanced_discovery,44,False,False,0.6,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,balanced stable MOF candidates for general materials discovery,q4_balanced_discovery,45,False,False,0.6,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,balanced stable MOF candidates for general materials discovery,q4_balanced_discovery,46,False,False,0.8,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,balanced stable MOF candidates for general materials discovery,q4_balanced_discovery,47,False,False,0.8,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,balanced stable MOF candidates for general materials discovery,q4_balanced_discovery,48,False,False,0.6,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,balanced stable MOF candidates for general materials discovery,q4_balanced_discovery,49,False,False,0.8,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,balanced stable MOF candidates for general materials discovery,q4_balanced_discovery,50,False,False,0.8,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,balanced stable MOF candidates for general materials discovery,q4_balanced_discovery,51,False,False,0.8,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,wide band gap insulating MOFs with low density,q5_insulating_frameworks,42,False,False,0.6,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,wide band gap insulating MOFs with low density,q5_insulating_frameworks,43,False,False,0.4,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,wide band gap insulating MOFs with low density,q5_insulating_frameworks,44,False,False,0.4,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,wide band gap insulating MOFs with low density,q5_insulating_frameworks,45,False,False,0.4,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,wide band gap insulating MOFs with low density,q5_insulating_frameworks,46,False,False,0.6,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,wide band gap insulating MOFs with low density,q5_insulating_frameworks,47,False,False,0.4,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,wide band gap insulating MOFs with low density,q5_insulating_frameworks,48,False,False,0.4,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,wide band gap insulating MOFs with low density,q5_insulating_frameworks,49,False,False,0.4,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,wide band gap insulating MOFs with low density,q5_insulating_frameworks,50,False,False,0.2,True,,True,,list-level comparison from final mask-aware rerun
+weighted_sum_vs_lea_no_diversity,wide band gap insulating MOFs with low density,q5_insulating_frameworks,51,False,False,0.4,True,,True,,list-level comparison from final mask-aware rerun

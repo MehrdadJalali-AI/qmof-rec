@@ -1,0 +1,6 @@
+query,query_id,seed,method,rank,qmof_id,formula,semantic_score,band_gap,band_gap_available,density,density_available,stability_score,graph_score,availability_mask,relevance_score,balance_score,diversity_contribution,final_score,runtime_ms
+stable porous MOFs for CO2 adsorption,q1_co2_adsorption,46,LEA,1,qmof-1ca4ac2,Co2Cu4Br4C30H60N6S12,0.716667,2.866054,True,1.689685123,True,0.7,,1|1|1|1,0.7598757655234476,0.8723204284906387,0.0,0.8596077576279639,91.28408299999968
+stable porous MOFs for CO2 adsorption,q1_co2_adsorption,46,LEA,2,qmof-c1d4910,Ag2Co2C52H68N4O16,0.716667,3.401985,True,1.591390503,True,0.7,,1|1|1|1,0.7598757655234476,0.8723204284906387,0.0,0.8596077576279639,91.28408299999968
+stable porous MOFs for CO2 adsorption,q1_co2_adsorption,46,LEA,3,qmof-8bbce0c,Co2C48H32N12O12,0.716667,2.64074,True,1.614965635,True,0.7,,1|1|1|1,0.7598757655234476,0.8723204284906387,0.0,0.8596077576279639,91.28408299999968
+stable porous MOFs for CO2 adsorption,q1_co2_adsorption,46,LEA,4,qmof-32457b4,Co2C46H32N8O10,0.716667,2.692662,True,1.566836939,True,0.7,,1|1|1|1,0.7598757655234476,0.8723204284906387,0.0,0.8596077576279639,91.28408299999968
+stable porous MOFs for CO2 adsorption,q1_co2_adsorption,46,LEA,5,qmof-6a9204c,Co2C40Cl4H28N4O8,0.716667,3.097808,True,1.759352827,True,0.7,,1|1|1|1,0.7598757655234476,0.8723204284906387,0.0,0.8596077576279639,91.28408299999968

@@ -1,0 +1,13 @@
+{
+  "python": "3.9.6 (default, Dec  2 2025, 07:27:58) \n[Clang 17.0.0 (clang-1700.6.3.2)]",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "machine": "arm64",
+  "processor": "arm",
+  "git_commit": "b1bea645a86b1b95e44117ee910b450fd2d87522",
+  "config": "configs/final_mask_aware_protocol.json",
+  "elapsed_seconds": 141.991158917,
+  "packages": {
+    "numpy": "1.26.4",
+    "matplotlib": "3.9.4"
+  }
+}

@@ -225,3 +225,15 @@ python scripts/run_final_mask_aware_protocol.py \
 ```
 
 Outputs are written to `artifacts/final_masked_protocol/`, with historical comparisons in `artifacts/protocol_comparison/` and preserved historical files in `artifacts/historical_protocol/`. The final rerun uses explicit descriptor masks and excludes void fraction from every numerical ranking calculation because void fraction is unavailable for all 20,372 local metadata records.
+
+## Final Diversity-Aware Manuscript Rerun
+
+The submission-ready revision uses the diversity-aware follow-up protocol:
+
+```bash
+PYTHONPATH=backend pytest -q backend/tests
+python3 scripts/run_final_diversity_aware_masked_protocol.py \
+  --config configs/final_diversity_aware_masked_protocol.json
+```
+
+Outputs are written to `artifacts/final_diversity_aware_masked_protocol/`, with the zero-diversity diagnosis and representation comparison in `artifacts/diversity_revision/`. The selected diversity metric is a full-precision hybrid material distance over observed density, observed band gap, formula-derived descriptors, and formula-derived graph proxies; void fraction remains excluded.

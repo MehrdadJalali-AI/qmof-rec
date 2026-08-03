@@ -1,0 +1,9 @@
+scenario,num_queries,groundedness_score,metadata_consistency_score,limitation_awareness_score,explanation_quality_score,hallucination_rate,unsupported_adsorption_claims,metadata_inconsistencies,limitation_awareness_failures
+balanced_discovery,5,5.0,5.0,5.0,4.5,0.0,0,0,0
+co2_adsorption,5,5.0,5.0,5.0,4.5,0.0,0,0,0
+general_recommendation,3,5.0,5.0,5.0,4.5,0.0,0,0,0
+lightweight_gas_storage,5,5.0,5.0,5.0,4.5,0.0,0,0,0
+missing_information_trap,3,5.0,5.0,5.0,4.5,0.0,0,0,0
+photocatalysis,5,5.0,5.0,5.0,4.5,0.0,0,0,0
+wide_band_gap,4,5.0,5.0,5.0,4.5,0.0,0,0,0
+OVERALL,30,5.0,5.0,5.0,4.5,0.0,0,0,0

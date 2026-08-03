@@ -38,3 +38,15 @@ Branch: `reviewer-arnd-revision`
 - Reran the final mask-aware protocol over 20,372 local QMOF metadata records, five query scenarios, ten seeds, top-K = 5, and candidate-pool sizes 50/100/200.
 - Updated the manuscript interpretation: baseline LEA ties WeightedSum/TOPSIS/ParetoCrowding on the aligned masked relevance metrics in the final deterministic protocol and does not show a baseline diversity advantage.
 - Added list-level WeightedSum versus LEA-no-diversity comparison with saved top-K IDs.
+
+## Final diversity-aware correction
+
+- Preserved the previous final-mask-aware outputs under `artifacts/final_masked_protocol_before_diversity_revision/`.
+- Added `configs/final_diversity_aware_masked_protocol.json`.
+- Added `scripts/run_final_diversity_aware_masked_protocol.py`.
+- Diagnosed the previous zero-diversity result as utility-score binning/saturation rather than identical raw materials or a distance bug.
+- Selected a full-precision hybrid material diversity representation using observed density, observed band gap, formula-derived descriptors, and formula-derived graph proxies.
+- Reran all ranking methods, ablations, graph-aware variants, candidate-pool sensitivity, diversity-representation comparisons, and a local grounded explanation evaluation.
+- Updated the manuscript and supplement with final values: LEA Rel@5 = 0.8479, NDCG@5 = 1.0000, diversity = 0.0224; WeightedSum diversity = 0.0187; MMR diversity = 0.0241.
+- Corrected `Unique@K` versus actual catalog coverage terminology.
+- Created `manuscript/main_submission_ready.pdf`, `manuscript/supplementary_material_submission_ready.pdf`, and `manuscript/title_page.docx`.
