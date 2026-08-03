@@ -1,0 +1,7 @@
+query_scenario,weighted_sum_diversity,lea_diversity,lea_minus_weighted_sum,number_of_seeds,summary_mean,summary_median,summary_standard_deviation,summary_minimum,summary_maximum,notes
+CO2 adsorption,0.0163,0.0288,0.0125,10,,,,,,"Query-level mean over ten seeds."
+Photocatalysis,0.0150,0.0150,0.0000,10,,,,,,"Query-level mean over ten seeds."
+Lightweight storage,0.0165,0.0193,0.0028,10,,,,,,"Query-level mean over ten seeds."
+Balanced discovery,0.0165,0.0194,0.0029,10,,,,,,"Query-level mean over ten seeds."
+Insulating frameworks,0.0293,0.0294,0.0001,10,,,,,,"Query-level mean over ten seeds."
+SUMMARY,,,,,0.0037,0.0028,0.0051,0.0000,0.0125,"Five query blocks only; descriptive robustness summary, not a statistical-superiority claim."

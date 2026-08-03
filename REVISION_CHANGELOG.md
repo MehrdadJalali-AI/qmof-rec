@@ -58,3 +58,14 @@ Branch: `reviewer-arnd-revision`
 - Moderated LEA diversity claims: the LEA pipeline shows a modest diversity difference versus WeightedSum, but explicit diversity and self-cleaning ablations do not isolate a measurable aggregate benefit in this configuration.
 - Clarified that the 30-query explanation evaluation is deterministic, local, and candidate-conditioned rather than a live LLM generation benchmark.
 - Regenerated the final radar figure with explicit score-axis labels and added a supplementary method-minus-WeightedSum diversity figure.
+
+## Final submission formatting pass
+
+- Reduced the manuscript keywords to seven journal-style terms.
+- Reordered and expanded supplementary coverage reporting so catalog coverage is Supplementary Table S6 and query-block LEA--WeightedSum hybrid-diversity differences are Supplementary Table S7.
+- Replaced artifact-only wording in the main ablation caption with the exact Supplementary Table S6 reference.
+- Added root-level `catalog_coverage.csv` and `lea_vs_weightedsum_query_block_diversity.csv` deliverables for the final submission check.
+- Strengthened the query-block diversity wording with mean, median, standard deviation, minimum, maximum, individual query differences, and explicit descriptive-only caveats.
+- Trimmed the final abstract to 249 words while preserving the numerical results and validation-limit statements.
+- Updated Supplementary Table S6 to include the requested aggregation-protocol column and Supplementary Table S7 to use the requested query-block column names.
+- Added `FINAL_SUBMISSION_CHECKLIST.md` and generated final v2 PDFs for the main manuscript and supplementary material.

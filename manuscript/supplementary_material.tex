@@ -26,12 +26,12 @@ The screenshots below illustrate representative query--response behavior in the 
 
 \section*{Descriptor Availability and Masking}
 
-The reproducible QMOF-Rec evaluation uses 20{,}372 local vector-metadata records. Descriptor coverage was audited before revision: density is available for 20{,}372/20{,}372 records, band gap for 10{,}810/20{,}372 records, and void fraction for 0/20{,}372 records. Void fraction is therefore treated as unavailable rather than as zero, and porosity is excluded from active numerical ranking, diversity distances, and LEA candidate remapping.
+The reproducible QMOF-Rec evaluation uses 20{,}372 local vector-metadata records. Descriptor coverage was audited before revision: density is available for 20{,}372/20{,}372 records, band gap for 10{,}810/20{,}372 records, and void fraction for 0/20{,}372 records. Void fraction is therefore treated as unavailable rather than as zero, and porosity is excluded from active numerical ranking, final hybrid material diversity, and LEA candidate remapping.
 
 \section*{Final Diversity-Aware Mask-Aware Rerun Artifacts}
 
 The final protocol was rerun with the repository configuration file
-\path{configs/final_diversity_aware_masked_protocol.json}. The rerun uses five query scenarios, ten random seeds (42--51), top-$K=5$, a main candidate-pool size of 100, and candidate-pool sensitivity at 50, 100, and 200. All ranking methods use the same saved candidate pool for a given query and seed. The complete machine-readable outputs are stored under the final diversity-aware artifact directory and include candidate pools, top-$K$ identifiers, aggregate metrics, per-query/seed metrics, query-stratified summaries, variance decomposition, candidate-pool sensitivity, catalog coverage, top-$K$ overlap, list-level comparisons, and the final grounded explanation rerun.
+\path{configs/final_diversity_aware_masked_protocol.json}. The rerun uses five query scenarios, ten random seeds (42--51), top-$K=5$, a main candidate-pool size of 100, and candidate-pool sensitivity at 50, 100, and 200. All ranking methods use the same saved candidate pool for a given query and seed. The complete machine-readable outputs are stored under \path{artifacts/final_diversity_aware_masked_protocol/} and include candidate pools, top-$K$ identifiers, aggregate metrics, per-query/seed metrics, query-stratified summaries, variance decomposition, candidate-pool sensitivity, catalog coverage, top-$K$ overlap, list-level comparisons, and the final deterministic local candidate-conditioned grounded explanation rerun.
 
 Historical artifacts used in earlier drafts are preserved read-only under the historical artifact directory. The prior final-mask-aware outputs are preserved under the before-diversity-revision directory. The zero-diversity diagnosis is stored in the diversity-revision artifacts and shows that the previous zero-diversity result was caused by binned active utility scores: band gaps between 1.0 and 3.5 eV mapped to the same score, densities between 1.0 and 2.0 g/cm$^3$ mapped to the same score, and the stability proxy often inherited the binned density score. The top CO$_2$ candidates had different raw values but identical transformed active objective vectors.
 
@@ -219,6 +219,55 @@ WeightedSum & 0.004815 & 0.000000 & 481{,}544.3\\
 
 \begin{table}[H]
 \centering
+\caption{Catalog coverage across ranking methods in the final diversity-aware rerun. Catalog coverage is defined as $\left|\bigcup_{q\in Q}S_K(q)\right|/20{,}372$ across the five query scenarios and ten seeds, with top-$K=5$. This metric is distinct from Unique@K, which measures within-list uniqueness.}
+\label{tab:s_catalog_coverage}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrrrrrp{4.3cm}}
+\toprule
+\textbf{Method} & \textbf{Number of unique recommended QMOF records} & \textbf{Total catalog size} & \textbf{Catalog coverage} & \textbf{Query scenarios} & \textbf{Number of seeds} & \textbf{Top-K} & \textbf{Aggregation protocol}\\
+\midrule
+WeightedSum & 16 & 20{,}372 & 0.000785 & 5 & 10 & 5 & Union of saved top-$K$ lists divided by 20{,}372\\
+LEA baseline & 32 & 20{,}372 & 0.001571 & 5 & 10 & 5 & Union of saved top-$K$ lists divided by 20{,}372\\
+MMR & 34 & 20{,}372 & 0.001669 & 5 & 10 & 5 & Union of saved top-$K$ lists divided by 20{,}372\\
+ParetoCrowding & 50 & 20{,}372 & 0.002454 & 5 & 10 & 5 & Union of saved top-$K$ lists divided by 20{,}372\\
+SemanticOnly & 163 & 20{,}372 & 0.008001 & 5 & 10 & 5 & Union of saved top-$K$ lists divided by 20{,}372\\
+Random & 236 & 20{,}372 & 0.011585 & 5 & 10 & 5 & Union of saved top-$K$ lists divided by 20{,}372\\
+\bottomrule
+\end{tabular}
+\unskip}
+\end{table}
+
+Aggregation protocol: for each method, unique QMOF identifiers were pooled over all saved top-$K$ recommendation lists from the five query scenarios and ten seeds, then divided by the full local catalog size of 20{,}372 records. Unique@K remains a separate within-list metric and equals 1.000 for every method in the aggregate table.
+
+\begin{table}[H]
+\centering
+\caption{Query-block LEA--WeightedSum hybrid material diversity differences. Values are query-level means over ten seeds.}
+\label{tab:s_query_block_diversity}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{p{3.1cm}rrrr}
+\toprule
+\textbf{Query scenario} & \textbf{WeightedSum diversity} & \textbf{LEA diversity} & \textbf{LEA minus WeightedSum} & \textbf{Number of seeds}\\
+\midrule
+CO$_2$ adsorption & 0.0163 & 0.0288 & 0.0125 & 10\\
+Photocatalysis & 0.0150 & 0.0150 & 0.0000 & 10\\
+Lightweight storage & 0.0165 & 0.0193 & 0.0028 & 10\\
+Balanced discovery & 0.0165 & 0.0194 & 0.0029 & 10\\
+Insulating frameworks & 0.0293 & 0.0294 & 0.0001 & 10\\
+\midrule
+\textbf{Summary} & -- & -- & Mean 0.0037; median 0.0028; SD 0.0051; min 0.0000; max 0.0125 & --\\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+Because there are only five query blocks, these values are reported as descriptive robustness summaries rather than a statistical-superiority claim.
+
+\begin{table}[H]
+\centering
 \caption{Candidate-pool-size sensitivity for the available repeated-seed LEA pool variants. The saved artifacts contain pool sizes 50, 100, and 200. Pool size 100 is retained as the predefined main experimental setting to maintain consistency with the primary evaluation, not because this sensitivity analysis establishes it as optimal. Pool sizes 50--200 produce broadly similar quality, while runtime increases moderately with pool size.}
 \small
 \begin{tabular}{rrrrrr}
@@ -251,27 +300,6 @@ Equal components & 0.0183 & 0.0217 & 0.0237 & 0.0263 & No\\
 \end{tabular}
 \end{table}
 
-\begin{table}[H]
-\centering
-\caption{Query-blocked LEA minus WeightedSum diversity differences under the final hybrid material representation. Values are query-level means over ten seeds.}
-\small
-\begin{tabular}{lrrr}
-\toprule
-\textbf{Scenario} & \textbf{LEA div.} & \textbf{WeightedSum div.} & \textbf{Diff.}\\
-\midrule
-CO$_2$ adsorption & 0.0288 & 0.0163 & 0.0125\\
-Photocatalysis & 0.0150 & 0.0150 & 0.0000\\
-Lightweight storage & 0.0193 & 0.0165 & 0.0028\\
-Balanced discovery & 0.0194 & 0.0165 & 0.0029\\
-Insulating frameworks & 0.0294 & 0.0293 & 0.0001\\
-\midrule
-\textbf{Summary} & -- & -- & Mean 0.0037\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-The median difference is 0.0028, the range is 0.0000--0.0125, and the descriptive bootstrap interval is 0.0006--0.0081. Because there are only five query blocks, this interval is reported as a robustness summary rather than a statistical-superiority claim.
-
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.82\linewidth]{figures/figure_s_method_minus_weightedsum.png}
@@ -291,24 +319,6 @@ Same NDCG@5 & 50/50 & yes\\
 Same diversity & 11/50 & only where top-$K$ set matches\\
 Same top-K IDs & 11/50 & exact set match\\
 Same top-K order & 0/50 & no exact order match\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\caption{Actual catalog coverage in the final diversity-aware rerun. Coverage is the number of unique QMOF records selected across all top-$K$ lists for a method divided by the full catalog size of 20{,}372 records. This is distinct from Unique@K, which is 1.000 for every method in the aggregate table.}
-\small
-\begin{tabular}{lrr}
-\toprule
-\textbf{Method} & \textbf{Unique catalog items} & \textbf{Catalog coverage}\\
-\midrule
-WeightedSum & 16 & 0.000785\\
-LEA baseline & 32 & 0.001571\\
-MMR & 34 & 0.001669\\
-ParetoCrowding & 50 & 0.002454\\
-SemanticOnly & 163 & 0.008001\\
-Random & 236 & 0.011585\\
 \bottomrule
 \end{tabular}
 \end{table}
