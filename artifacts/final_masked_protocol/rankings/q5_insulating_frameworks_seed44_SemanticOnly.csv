@@ -1,6 +1,0 @@
-query,query_id,seed,method,rank,qmof_id,formula,semantic_score,band_gap,band_gap_available,density,density_available,stability_score,graph_score,availability_mask,relevance_score,balance_score,diversity_contribution,final_score,runtime_ms
-wide band gap insulating MOFs with low density,q5_insulating_frameworks,44,SemanticOnly,1,qmof-ff6a634,Li2C46H58N2O6,0.755,3.519878,True,1.235143727,True,0.7,,1|1|1|1,0.66925,0.9028290808200836,0.0,0.66925,0.06095800000593954
-wide band gap insulating MOFs with low density,q5_insulating_frameworks,44,SemanticOnly,2,qmof-feb06f2,Cu2C20H16N8O12,0.755,3.655573,True,1.931833854,True,0.7,,1|1|1|1,0.66925,0.9028290808200836,0.0,0.66925,0.06095800000593954
-wide band gap insulating MOFs with low density,q5_insulating_frameworks,44,SemanticOnly,3,qmof-fd5d0f6,Ca4C36H48O40,0.755,4.585452,True,1.773466367,True,0.7,,1|1|1|1,0.66925,0.9028290808200836,0.0,0.66925,0.06095800000593954
-wide band gap insulating MOFs with low density,q5_insulating_frameworks,44,SemanticOnly,4,qmof-f58baa7,Cd2C28H24N20,0.755,4.168024,True,1.746495513,True,0.7,,1|1|1|1,0.66925,0.9028290808200836,0.0,0.66925,0.06095800000593954
-wide band gap insulating MOFs with low density,q5_insulating_frameworks,44,SemanticOnly,5,qmof-f55c6c1,Mg4C20H24N8O24,0.755,5.230363,True,1.796465237,True,0.7,,1|1|1|1,0.66925,0.9028290808200836,0.0,0.66925,0.06095800000593954
