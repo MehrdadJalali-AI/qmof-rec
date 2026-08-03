@@ -1,1 +1,0 @@
-Clean-clone validation was not executed by this local rerun. The final protocol script, focused tests, manuscript compile commands, and environment snapshot are recorded for a separate clean-clone check.

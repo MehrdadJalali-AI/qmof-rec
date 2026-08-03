@@ -1,7 +1,0 @@
-query_id,lea_diversity,weighted_sum_diversity,difference,difference_mean,difference_sd,difference_min,difference_median,difference_max,bootstrap_ci_2.5,bootstrap_ci_97.5,notes
-q1_co2_adsorption,0.028806257752983795,0.016303138590087134,0.012503119162896661,,,,,,,,query-block mean over ten seeds
-q2_photocatalysis,0.014997367011425126,0.014997367011425126,0.0,,,,,,,,query-block mean over ten seeds
-q3_lightweight_storage,0.01925188458392926,0.016496155656918622,0.0027557289270106373,,,,,,,,query-block mean over ten seeds
-q4_balanced_discovery,0.01937214253584076,0.016496155656918622,0.002875986878922137,,,,,,,,query-block mean over ten seeds
-q5_insulating_frameworks,0.02939530060063234,0.02926487577977203,0.0001304248208603108,,,,,,,,query-block mean over ten seeds
-SUMMARY,,,,0.0036530519579379495,0.005135328588450164,0.0,0.0027557289270106373,0.012503119162896661,0.0006012823399564896,0.008079102247312186,"Five query blocks only; bootstrap is descriptive, not a claim of statistical superiority."

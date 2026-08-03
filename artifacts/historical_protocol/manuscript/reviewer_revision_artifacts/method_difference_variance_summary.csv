@@ -1,6 +1,0 @@
-method_vs_weighted_sum,observations,query_scenarios,mean_difference,sd_all_query_seed_rows,sd_query_means,interpretation
-LEA,5,5,-0.002157348394393921,0.002934384155356438,0.002934384155356438,"descriptive; five query scenarios with repeated seeds, not independent scientific queries"
-ParetoCrowding,5,5,-0.0028994858264922985,0.0026274379865090813,0.0026274379865090813,"descriptive; five query scenarios with repeated seeds, not independent scientific queries"
-Random,5,5,-0.013060837984085073,0.008070807411022342,0.008070807411022342,"descriptive; five query scenarios with repeated seeds, not independent scientific queries"
-SemanticOnly,5,5,-0.014309507608413697,0.007800647213045122,0.007800647213045122,"descriptive; five query scenarios with repeated seeds, not independent scientific queries"
-TOPSIS,5,5,-0.0024688363075256346,0.005056724398826312,0.005056724398826312,"descriptive; five query scenarios with repeated seeds, not independent scientific queries"
