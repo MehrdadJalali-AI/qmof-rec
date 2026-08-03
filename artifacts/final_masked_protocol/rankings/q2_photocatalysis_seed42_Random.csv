@@ -1,0 +1,6 @@
+query,query_id,seed,method,rank,qmof_id,formula,semantic_score,band_gap,band_gap_available,density,density_available,stability_score,graph_score,availability_mask,relevance_score,balance_score,diversity_contribution,final_score,runtime_ms
+photocatalytic MOFs with suitable band gaps,q2_photocatalysis,42,Random,1,qmof-b0aae08,Cu2C30H30I2N12S6,0.643333,2.820553,True,1.958150027,True,0.7,,1|1|1|1,0.75516655,0.8599924892187119,0.0,0.75516655,0.05412499999835063
+photocatalytic MOFs with suitable band gaps,q2_photocatalysis,42,Random,2,qmof-1e80f26,Cd2C68H52N8O8,0.643333,3.488716,True,1.440411124,True,0.7,,1|1|1|1,0.75516655,0.8599924892187119,0.0,0.75516655,0.05412499999835063
+photocatalytic MOFs with suitable band gaps,q2_photocatalysis,42,Random,3,qmof-b792eba,CdC46H42N8O6S2,0.643333,2.985777,True,1.497328152,True,0.7,,1|1|1|1,0.75516655,0.8599924892187119,0.0,0.75516655,0.05412499999835063
+photocatalytic MOFs with suitable band gaps,q2_photocatalysis,42,Random,4,qmof-6417424,Cu2C22Cl4H20N4S4,0.643333,2.876975,True,1.061456028,True,0.7,,1|1|1|1,0.75516655,0.8599924892187119,0.0,0.75516655,0.05412499999835063
+photocatalytic MOFs with suitable band gaps,q2_photocatalysis,42,Random,5,qmof-c998a82,Cd2C38H30N4O12,0.643333,3.20983,True,1.84530304,True,0.7,,1|1|1|1,0.75516655,0.8599924892187119,0.0,0.75516655,0.05412499999835063

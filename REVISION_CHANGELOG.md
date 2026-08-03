@@ -30,3 +30,11 @@ Branch: `reviewer-arnd-revision`
 - Added descriptor coverage and repeated-seed caveats to the supplementary material.
 - Added reviewer-requested Seko et al. and Qu et al. references, plus a narrow KadiAssistant comparison.
 - Added a generative-AI-use declaration.
+
+## Final mask-aware rerun
+
+- Added a single final configuration at `configs/final_mask_aware_protocol.json`.
+- Added `scripts/run_final_mask_aware_protocol.py` to create candidate pools, run all final rankers and ablations, calculate metrics, generate figures, preserve historical artifacts, and write protocol comparisons.
+- Reran the final mask-aware protocol over 20,372 local QMOF metadata records, five query scenarios, ten seeds, top-K = 5, and candidate-pool sizes 50/100/200.
+- Updated the manuscript interpretation: baseline LEA ties WeightedSum/TOPSIS/ParetoCrowding on the aligned masked relevance metrics in the final deterministic protocol and does not show a baseline diversity advantage.
+- Added list-level WeightedSum versus LEA-no-diversity comparison with saved top-K IDs.

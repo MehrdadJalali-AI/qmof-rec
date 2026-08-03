@@ -21,14 +21,34 @@ PYTHONPATH=backend pytest -q backend/tests/test_missing_data_masks.py
 Observed result during revision:
 
 ```text
-8 passed in 0.33s
+12 passed in 0.25s
 ```
+
+## Final mask-aware rerun
+
+Run the complete final protocol from the repository root:
+
+```bash
+python scripts/run_final_mask_aware_protocol.py \
+  --config configs/final_mask_aware_protocol.json
+```
+
+This creates:
+
+```text
+artifacts/final_masked_protocol/
+artifacts/protocol_comparison/
+artifacts/historical_protocol/
+```
+
+The final rerun generates candidate pools, top-K outputs for every method/query/seed, aggregate metrics, query-stratified summaries, variance decomposition, candidate-pool sensitivity, historical-versus-final comparisons, implementation audits, and final figures.
 
 ## Manuscript builds
 
-From `/Users/mehrdadjalali/Documents/SRH_Research/QMOF-Rec/QMOF_Rec`:
+From `manuscript/`:
 
 ```bash
+cd manuscript
 latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 latexmk -pdf -interaction=nonstopmode -halt-on-error supplementary_material.tex
 ```

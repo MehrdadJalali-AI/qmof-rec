@@ -6,6 +6,7 @@ from app.recommendation.hybrid_ranker import hybrid_ranker
 from app.recommendation.lea_optimizer import LotusEffectOptimizer
 from app.recommendation.material_similarity import material_similarity
 from app.recommendation.objective_utils import masked_balance_score, masked_distance
+from app.recommendation.objective_utils import masked_weighted_sum
 
 
 def test_missing_and_genuine_zero_have_different_masks():
@@ -63,6 +64,15 @@ def test_masked_distance_ignores_unsupported_dimensions():
     assert masked_distance(left, right, left_mask, right_mask) == 0.0
 
 
+def test_masked_distance_no_overlap_fallback_is_zero():
+    left = np.array([1.0, 0.2, 0.9])
+    right = np.array([0.0, 0.8, 0.1])
+    left_mask = np.array([True, False, False])
+    right_mask = np.array([False, True, True])
+
+    assert masked_distance(left, right, left_mask, right_mask) == 0.0
+
+
 def test_masked_distance_detects_observed_difference_symmetrically():
     left = np.array([1.0, 0.2, 0.9])
     right = np.array([0.0, 0.8, 0.1])
@@ -96,6 +106,48 @@ def test_masked_balance_measures_evenness_not_mean_quality():
     assert ignored_missing_extreme == 1.0
 
 
+def test_masked_relevance_renormalizes_over_observed_dimensions():
+    scores = {
+        "semantic_score": 0.2,
+        "band_gap_score": 1.0,
+        "density_score": 0.0,
+        "stability_score": 0.0,
+    }
+    weights = {"semantic": 0.25, "band_gap": 0.25, "density": 0.25, "stability": 0.25}
+    availability = {"semantic": True, "band_gap": True, "density": False, "stability": False}
+
+    assert masked_weighted_sum(scores, weights, availability) == 0.6
+
+
+def test_void_fraction_weight_does_not_change_weighted_sum():
+    scores = {
+        "semantic_score": 0.8,
+        "band_gap_score": 0.6,
+        "density_score": 0.4,
+        "stability_score": 0.2,
+        "porosity_score": 1.0,
+    }
+    availability = {
+        "semantic": True,
+        "band_gap": True,
+        "density": True,
+        "stability": True,
+        "porosity": True,
+    }
+    base = masked_weighted_sum(
+        scores,
+        {"semantic": 0.25, "band_gap": 0.25, "density": 0.25, "stability": 0.25},
+        availability,
+    )
+    with_porosity = masked_weighted_sum(
+        scores,
+        {"semantic": 0.25, "band_gap": 0.25, "density": 0.25, "stability": 0.25, "porosity": 100.0},
+        availability,
+    )
+
+    assert base == with_porosity
+
+
 def test_lea_ignores_porosity_score_when_ranking():
     materials = [
         {
@@ -125,3 +177,26 @@ def test_lea_ignores_porosity_score_when_ranking():
     )
 
     assert ranked[0]["qmof_id"] == "a"
+
+
+def test_lea_preserves_candidate_identifiers():
+    materials = [
+        {
+            "qmof_id": f"qmof-{idx}",
+            "semantic_score": 1.0 - idx * 0.1,
+            "band_gap_score": 0.5,
+            "density_score": 0.5,
+            "stability_score": 0.5,
+            "availability": {"semantic": True, "band_gap": True, "density": True, "stability": True},
+        }
+        for idx in range(5)
+    ]
+    optimizer = LotusEffectOptimizer(population_size=20, max_iterations=5, top_k=3, seed=1)
+    ranked = optimizer.rank(
+        materials=materials,
+        weights={"semantic": 1.0, "band_gap": 0.0, "density": 0.0, "stability": 0.0},
+        top_k=3,
+    )
+
+    assert len(ranked) == 3
+    assert {item["qmof_id"] for item in ranked}.issubset({item["qmof_id"] for item in materials})

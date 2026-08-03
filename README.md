@@ -213,3 +213,15 @@ To enable it later, provision the CIF data via one of:
 3. Git LFS (adds the data to the repo with separate storage)
 
 then set `QMOF_CIF_DIR` accordingly in Railway's environment variables.
+
+## Final Mask-Aware Manuscript Rerun
+
+The final manuscript rerun is reproducible from the repository root:
+
+```bash
+PYTHONPATH=backend pytest -q backend/tests/test_missing_data_masks.py
+python scripts/run_final_mask_aware_protocol.py \
+  --config configs/final_mask_aware_protocol.json
+```
+
+Outputs are written to `artifacts/final_masked_protocol/`, with historical comparisons in `artifacts/protocol_comparison/` and preserved historical files in `artifacts/historical_protocol/`. The final rerun uses explicit descriptor masks and excludes void fraction from every numerical ranking calculation because void fraction is unavailable for all 20,372 local metadata records.

@@ -1,0 +1,48 @@
+{
+  "random_seeds": [42, 43, 44, 45, 46, 47, 48, 49, 50, 51],
+  "query_scenarios": [
+    {
+      "query_id": "q1_co2_adsorption",
+      "query": "stable porous MOFs for CO2 adsorption"
+    },
+    {
+      "query_id": "q2_photocatalysis",
+      "query": "photocatalytic MOFs with suitable band gaps"
+    },
+    {
+      "query_id": "q3_lightweight_storage",
+      "query": "lightweight gas storage MOFs with low density"
+    },
+    {
+      "query_id": "q4_balanced_discovery",
+      "query": "balanced stable MOF candidates for general materials discovery"
+    },
+    {
+      "query_id": "q5_insulating_frameworks",
+      "query": "wide band gap insulating MOFs with low density"
+    }
+  ],
+  "candidate_pool_sizes": [50, 100, 200],
+  "main_candidate_pool_size": 100,
+  "top_k": 5,
+  "lea_population_size": 30,
+  "lea_iterations": 60,
+  "lea_alpha": 1.0,
+  "lea_beta": 0.1,
+  "lea_gamma": 0.1,
+  "lea_eta": 0.0,
+  "lea_delta": 0.0,
+  "redundancy_penalty": 0.05,
+  "self_clean_interval": 10,
+  "self_clean_fraction": 0.15,
+  "distance_metric": "masked Euclidean distance over jointly observed active objectives; no-overlap fallback = 0.0",
+  "missing_value_policy": "missing descriptors carry availability_mask=false and are excluded from relevance, balance, distance, diversity, remapping, and aggregate metrics",
+  "void_fraction_policy": "void fraction is unavailable for 0/20372 records and excluded from every numerical ranking calculation",
+  "semantic_proxy_method": "deterministic metadata-token and application-keyword proxy over local metadata text/formula; live retrieval uses SentenceTransformer metadata embeddings in FAISS L2 index",
+  "graph_model_settings": {
+    "GraphSAGE": "formula-derived metadata graph proxy used for reranking because no per-record trained GraphSAGE embeddings are stored for the full 20372-record local metadata set",
+    "GAT": "formula-derived metadata graph proxy used for reranking because GAT is present only as a future-extension stub in backend/app/ml/models/gat.py"
+  },
+  "train_validation_test_split": "not retrained in final rerun; final ranking rerun uses existing local vector metadata and formula-derived graph proxies",
+  "software_versions": {}
+}
