@@ -1,7 +1,0 @@
-method,unique_recommended_qmof_records,total_catalog_size,catalog_coverage,query_scenarios,number_of_seeds,top_k,aggregation_protocol
-WeightedSum,16,20372,0.000785,5,10,5,"Unique QMOF identifiers pooled across all saved top-K lists for the method over five query scenarios and ten seeds, divided by the full local catalog size."
-LEA baseline,32,20372,0.001571,5,10,5,"Unique QMOF identifiers pooled across all saved top-K lists for the method over five query scenarios and ten seeds, divided by the full local catalog size."
-MMR,34,20372,0.001669,5,10,5,"Unique QMOF identifiers pooled across all saved top-K lists for the method over five query scenarios and ten seeds, divided by the full local catalog size."
-ParetoCrowding,50,20372,0.002454,5,10,5,"Unique QMOF identifiers pooled across all saved top-K lists for the method over five query scenarios and ten seeds, divided by the full local catalog size."
-SemanticOnly,163,20372,0.008001,5,10,5,"Unique QMOF identifiers pooled across all saved top-K lists for the method over five query scenarios and ten seeds, divided by the full local catalog size."
-Random,236,20372,0.011585,5,10,5,"Unique QMOF identifiers pooled across all saved top-K lists for the method over five query scenarios and ten seeds, divided by the full local catalog size."
