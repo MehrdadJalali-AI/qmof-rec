@@ -1,21 +1,49 @@
 {
   "diversity_representation": "hybrid_material",
-  "physical_features": ["density", "band_gap"],
-  "semantic_features": ["deterministic_semantic_proxy"],
-  "formula_features": ["element_fraction_C", "element_fraction_H", "element_fraction_N", "element_fraction_O", "element_fraction_metal", "atom_count_scaled", "element_count_scaled"],
-  "graph_features": ["graphsage_proxy", "gat_proxy"],
+  "physical_features": [
+    "density",
+    "band_gap"
+  ],
+  "semantic_features": [
+    "deterministic_semantic_proxy"
+  ],
+  "formula_features": [
+    "element_fraction_C",
+    "element_fraction_H",
+    "element_fraction_N",
+    "element_fraction_O",
+    "element_fraction_metal",
+    "atom_count_scaled",
+    "element_count_scaled",
+    "element_fraction_hetero"
+  ],
+  "graph_features": [
+    "graphsage_proxy",
+    "gat_proxy"
+  ],
   "normalization": "full-catalog min-max for continuous physical descriptors; formula fractions are naturally normalized; graph proxies are clipped to [0,1]",
   "distance_metric": "masked root-mean-square Euclidean distance over jointly observed feature dimensions",
   "missing_dimension_policy": "missing descriptors are masked out of distances; void fraction is unavailable and excluded",
   "hybrid_weights": {
     "physical": 0.55,
-    "formula": 0.30,
+    "formula": 0.3,
     "graph": 0.15,
     "semantic": 0.0
   },
   "precision_policy": "full precision is used for ranking and distance calculations; rounding is used only for manuscript display",
   "rounding_policy": "no rounding before distance calculation",
-  "random_seeds": [42, 43, 44, 45, 46, 47, 48, 49, 50, 51],
+  "random_seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
   "query_scenarios": [
     {
       "query_id": "q1_co2_adsorption",
@@ -47,7 +75,11 @@
     "general_recommendation",
     "missing_information_trap"
   ],
-  "candidate_pool_sizes": [50, 100, 200],
+  "candidate_pool_sizes": [
+    50,
+    100,
+    200
+  ],
   "main_candidate_pool_size": 100,
   "top_k": 5,
   "lea_parameters": {

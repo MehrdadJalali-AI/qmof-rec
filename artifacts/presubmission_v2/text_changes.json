@@ -1,0 +1,212 @@
+[
+  {
+    "file": "main.tex",
+    "before": "graph-aware material relationships",
+    "after": "engineered metadata-proxy signals",
+    "reason": "Executed benchmark terminology (C)."
+  },
+  {
+    "file": "main.tex",
+    "before": "graph-level signals",
+    "after": "metadata-proxy signals",
+    "reason": "Executed benchmark terminology (C)."
+  },
+  {
+    "file": "main.tex",
+    "before": "observed descriptors or graph neighbourhood",
+    "after": "observed descriptors or formula-derived metadata proxies",
+    "reason": "Executed benchmark terminology (C)."
+  },
+  {
+    "file": "main.tex",
+    "before": "property and graph scoring",
+    "after": "property and metadata-proxy scoring",
+    "reason": "Executed benchmark terminology (C)."
+  },
+  {
+    "file": "main.tex",
+    "before": "available graph-aware signals",
+    "after": "available engineered metadata proxies",
+    "reason": "Executed benchmark terminology (C)."
+  },
+  {
+    "file": "main.tex",
+    "before": "graph-derived representations",
+    "after": "engineered metadata-proxy representations",
+    "reason": "Executed benchmark terminology (C)."
+  },
+  {
+    "file": "main.tex",
+    "before": "property scores, graph embeddings, and semantic retrieval signals",
+    "after": "property scores, engineered metadata proxies, and semantic retrieval signals",
+    "reason": "Executed benchmark terminology (C)."
+  },
+  {
+    "file": "main.tex",
+    "before": "descriptor masks, graph-aware signals",
+    "after": "descriptor masks, metadata-proxy augmentation",
+    "reason": "Executed benchmark terminology (C)."
+  },
+  {
+    "file": "main.tex",
+    "before": "QMOF-Rec formulates MOF discovery",
+    "after": "QMOF-Rec formulates MOF candidate screening",
+    "reason": "Executed benchmark terminology (C)."
+  },
+  {
+    "file": "main.tex",
+    "before": "graph-learning signals",
+    "after": "engineered metadata proxies",
+    "reason": "Executed benchmark terminology (C)."
+  },
+  {
+    "file": "main.tex",
+    "before": "formula-derived graph signals",
+    "after": "formula-derived metadata proxies",
+    "reason": "Executed benchmark terminology (C)."
+  },
+  {
+    "file": "main.tex",
+    "before": "formula-derived GraphSAGE and GAT proxy scores",
+    "after": "proxy-S and proxy-A engineered metadata scores",
+    "reason": "Executed benchmark terminology (C)."
+  },
+  {
+    "file": "main.tex",
+    "before": "formula-derived graph proxies",
+    "after": "formula-derived metadata proxies",
+    "reason": "Executed benchmark terminology (C)."
+  },
+  {
+    "file": "main.tex",
+    "before": "formula and graph-proxy features",
+    "after": "formula and metadata-proxy features",
+    "reason": "Executed benchmark terminology (C)."
+  },
+  {
+    "file": "main.tex",
+    "before": "Graph features are engineered formula-derived proxy scores",
+    "after": "The proxy coordinates are engineered metadata scores",
+    "reason": "Executed benchmark terminology (C)."
+  },
+  {
+    "file": "main.tex",
+    "before": "graph-aware, ablation",
+    "after": "metadata-proxy, ablation",
+    "reason": "Executed benchmark terminology (C)."
+  },
+  {
+    "file": "main.tex",
+    "before": "diversity, and optional graph-aware similarity",
+    "after": "diversity, and optional metadata-proxy scores",
+    "reason": "Executed benchmark terminology (C)."
+  },
+  {
+    "file": "main.tex",
+    "before": "and graph signal;",
+    "after": "and metadata-proxy signal;",
+    "reason": "Executed benchmark terminology (C)."
+  },
+  {
+    "file": "main.tex",
+    "before": "not as experimentally validated discoveries",
+    "after": "not as experimentally validated application-performance results",
+    "reason": "Executed benchmark terminology (C)."
+  },
+  {
+    "file": "main.tex",
+    "before": "balanced discovery",
+    "after": "balanced screening",
+    "reason": "Executed benchmark terminology (C)."
+  },
+  {
+    "file": "main.tex",
+    "before": "Balanced discovery",
+    "after": "Balanced screening",
+    "reason": "Executed benchmark terminology (C)."
+  },
+  {
+    "file": "main.tex",
+    "before": "The broader framework also supports graph-aware representation learning, property prediction, retrieval-augmented scientific assistance, and user feedback.",
+    "after": "The broader architecture includes prospective graph-aware representation learning and property prediction, together with retrieval-augmented assistance and user feedback.",
+    "reason": "Distinguish prospective capabilities (B)."
+  },
+  {
+    "file": "main.tex",
+    "before": "Formula-derived graph signals can be added as metadata-graph baselines when available. The evaluated signals are engineered formula- and descriptor-based proxies; prospective learned signals could encode metadata-neighborhood relationships and should not be interpreted as CIF-derived atomistic graph representations or as validated adsorption, synthesizability, or industrial-readiness evidence.",
+    "after": "The executed representation uses engineered formula/descriptor metadata proxies. Learned metadata graphs or atomistic representations are prospective extensions. The current proxy values do not validate adsorption, synthesizability, or industrial readiness.",
+    "reason": "Remove residual graph execution ambiguity (C versus B)."
+  },
+  {
+    "file": "main.tex",
+    "before": "If graph embeddings are available, QMOF-Rec can add a graph-aware signal from GraphSAGE/GAT models trained on the formula-derived metadata graph. This is a prospective extension, not a trained-model result of the final ranking protocol. The executed benchmark uses the engineered proxies specified below.",
+    "after": "The current benchmark can augment scoring with engineered metadata proxies S and A. A separate prospective extension could use learned GraphSAGE/GAT or CIF-derived representations; none is trained or evaluated in the final ranking protocol.",
+    "reason": "Current/prospective separation."
+  },
+  {
+    "file": "main.tex",
+    "before": "Graph signal & Use formula-derived GraphSAGE/GAT embeddings when available & Hybrid signal & Metadata-graph similarity baseline",
+    "after": "Metadata proxies & Engineered formula/descriptor metadata proxies & Current benchmark & Proxy S and proxy A augmentation\\\\\\nProspective learning & Learned GraphSAGE/GAT or CIF-derived representations & Future extension & Not executed in the benchmark",
+    "reason": "Explicit Table 2 distinction."
+  },
+  {
+    "file": "main.tex",
+    "before": "Each retrieved candidate is then represented with mask-aware scientific features. Availability masks prevent missing descriptors from being interpreted as physical zero values;",
+    "after": "Each retrieved candidate has masked active objectives and masked physical coordinates. The engineered proxy-A coordinate separately retains the missing-gap fallback disclosed in Section~\\ref{sec:graph}. Availability masks prevent missing physical coordinates from being interpreted as measured zeros;",
+    "reason": "Avoid whole-vector mask-purity claim."
+  },
+  {
+    "file": "main.tex",
+    "before": "with 30 random-key vectors over the 100 candidates",
+    "after": "with 30 random-key vectors over the 100 candidates",
+    "reason": "No numerical change."
+  },
+  {
+    "file": "main.tex",
+    "before": "The DE comparator uses SciPy 1.13.1 differential evolution \\cite{scipyde}",
+    "after": "The DE comparator uses the differential-evolution method of Storn and Price \\cite{storn1997}, implemented in SciPy 1.13.1 \\cite{scipyde}",
+    "reason": "Canonical method and software references."
+  },
+  {
+    "file": "main.tex",
+    "before": "\\bibitem{scipyde}",
+    "after": "\\bibitem{storn1997} R.~Storn and K.~Price. Differential Evolution---A Simple and Efficient Heuristic for Global Optimization over Continuous Spaces. \\textit{Journal of Global Optimization}, 11:341--359, 1997. doi:10.1023/A:1008202821328.\n\n\\bibitem{scipyde}",
+    "reason": "Canonical scientific citation."
+  },
+  {
+    "file": "main.tex",
+    "before": "The original code is available at the repository below. The reviewer-revision scripts and machine-readable artifacts accompany this revision locally and must be deposited with a versioned release before submission:",
+    "after": "The baseline source repository is linked below. The reviewer-revision code and machine-readable evidence are packaged in the accompanying versioned reproducibility archive \\texttt{qmof-rec-v1.1-COMMT-revision.tar.gz}:",
+    "reason": "Factual local archive status; permanent-link gate remains open."
+  },
+  {
+    "file": "main.tex",
+    "before": "The source repository is:",
+    "after": "The processed metadata and frozen result CSVs are included in the accompanying versioned reproducibility archive \\texttt{qmof-rec-v1.1-COMMT-revision.tar.gz}. The baseline source repository is:",
+    "reason": "Describe completed local packaging without inventing publication."
+  },
+  {
+    "file": "supplementary_material.tex",
+    "before": "Prove--ce and interpretation",
+    "after": "Provenance and interpretation",
+    "reason": "Correct substring-replacement typography defect."
+  },
+  {
+    "file": "supplementary_material.tex",
+    "before": "The final protocol uses eight formula coordinates, including heteroatom fraction, although the configuration's descriptive formula-feature list names seven.",
+    "after": "The final protocol and configuration metadata specify eight formula coordinates, including heteroatom fraction.",
+    "reason": "Descriptive configuration correction; execution unchanged."
+  },
+  {
+    "file": "supplementary_material.tex",
+    "before": "These new artifacts require a versioned deposit before submission; no publication or upload is claimed here.",
+    "after": "The versioned reproducibility archive \\texttt{qmof-rec-v1.1-COMMT-revision.tar.gz} contains the frozen evidence, executable ranking code, regression tests, and a SHA-256 manifest.",
+    "reason": "Completed local archive; publication tracked separately in gate."
+  },
+  {
+    "file": "supplementary_material.tex",
+    "before": "Chemically novel candidate scenario.",
+    "after": "Candidate-diversity interface scenario.",
+    "reason": "Historical UI illustration, not novelty validation."
+  }
+]

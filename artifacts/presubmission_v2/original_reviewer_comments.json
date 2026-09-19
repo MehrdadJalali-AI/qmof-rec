@@ -1,0 +1,45 @@
+{
+  "Reviewer 1": [
+    {
+      "number": 1,
+      "comment": "The novelty of the proposed framework needs to be clarified. The current method mainly combines existing techniques, including retrieval-based recommendation, weighted ranking, diversity optimization, graph signals, and RAG. The authors should better explain the fundamental methodological contribution of QMOF-Rec compared with existing multi-objective recommendation and materials screening approaches."
+    },
+    {
+      "number": 2,
+      "comment": "The advantage of the Lotus Effect Algorithm (LEA) is not sufficiently demonstrated. The reported results show that LEA achieves similar ranking performance to several baselines, with only limited improvement in diversity. The authors should provide stronger comparisons with advanced optimization methods and discuss why LEA is preferable for this task."
+    },
+    {
+      "number": 3,
+      "comment": "The evaluation mainly measures ranking consistency rather than actual materials discovery capability. The recommended candidates are evaluated using predefined objectives such as relevance, density, and band gap, but no external validation using experimental data, adsorption performance, or known high-performance MOFs is provided. Additional validation or elaboration is needed to demonstrate practical usefulness."
+    },
+    {
+      "number": 4,
+      "comment": "The graph-based representation should be described more carefully. The current graph features are derived from formula-level and metadata relationships rather than atomistic structures. The manuscript should avoid implying that these features capture genuine structural information and clearly distinguish them from CIF-based graph neural network approaches."
+    },
+    {
+      "number": 5,
+      "comment": "The role of the LLM/RAG component is unclear. Currently, the LLM mainly provides explanation rather than contributing to candidate selection or optimization. The authors should clarify whether this component is a core scientific contribution or an auxiliary interface module."
+    },
+    {
+      "number": 6,
+      "comment": "More comprehensive baseline comparisons are needed. The evaluation should include modern AI-based materials screening methods, such as graph neural network-based ranking, transformer-based material representations, Bayesian optimization, or active learning approaches."
+    },
+    {
+      "number": 7,
+      "comment": "The contribution of individual components requires further ablation analysis. The manuscript is recommended to provide clearer ablation studies to quantify the effects of LEA, diversity optimization, graph features, retrieval module, and missing-value handling."
+    },
+    {
+      "number": 8,
+      "comment": "The terminology should be refined. Since the framework mainly ranks existing QMOF database entries rather than discovering new materials, terms such as “materials discovery” should be used carefully. The work may be more accurately described as a materials screening or recommendation framework. If it is indeed truly generative, please highlight this."
+    },
+    {
+      "number": 9,
+      "comment": "The computational efficiency should be reported in more detail. The authors should provide runtime and scalability analysis, especially for the LEA reranking process, and compare its computational cost with other ranking methods."
+    },
+    {
+      "number": 10,
+      "comment": "The manuscript organization and contribution statements should be revised. The abstract is presented in multiple paragraphs, which is inconsistent with the common format of research articles in materials science journals. Moreover, the numbered contribution list contains several items describing general framework components or evaluation procedures rather than clear methodological advances. The authors should revise the presentation style and better distinguish genuine scientific contributions from implementation details."
+    }
+  ],
+  "Reviewer 3": "Section 1 states that the \"core novelty is the mask-aware post-retrieval reranking layer\" (LEA). The reported results do not support LEA as an improvement over the baselines: (Table 4): LEA ties WeightedSum, TOPSIS and MMR on Rel@5 (0.8479) and NDCG@5 (1.0000). Note that Rel@K (Eq. 26) is the mean of the same score R (Eq. 6) that WeightedSum sorts by, so a tie with WeightedSum on these metrics is expected for any method that recovers its ordering; please state this and specify rel_r used in Eq. 27. Now if we look at Table 4 that compares LEA with the other methods this is what we find: Diversity (Table 4): LEA (0.0224) is exceeded by ParetoCrowding (0.0263), MMR (0.0241), SemanticOnly (0.0240) and Random (0.0237). Ablation (Table 7): \"LEA no diversity\" and \"LEA no self-clean\" produce metrics identical to baseline LEA (0.8479 / 1.0000 / 0.0224), so LEA's distinguishing mechanisms have no measurable effect in this configuration. Per-scenario (Sec. 17): the mean LEA–WeightedSum diversity difference (0.0037) is driven almost entirely by the CO₂ scenario (0.0125); it is 0.0000 for photocatalysis. So instead of being the core novelty, a better framing would be, LEA is second on diversity and on the hypervolume proxy (0.0141 vs 0.0150 for MMR) while running ~25× faster than MMR (83.92 vs 2114.36 ms). I recommend repositioning LEA as a relevance-preserving middle ground between WeightedSum and MMR rather than as the core novelty. To support the middle-ground framing, please add (i) per-scenario results for Table 4, and (ii) a sensitivity sweep over γ (and the 0.05 redundancy-penalty weight) showing where, the diversity term becomes active. The SemanticOnly, WeightedSum, MMR and LEA rows appear verbatim in both Table 4 and Table 7. Please merge them into a single results table, or restrict Table 7 to the rows not already in Table 4 (LEA no diversity, LEA no self-clean, GraphSAGE only, GAT only, LEA + GraphSAGE, LEA + GAT), with a note that the LEA baseline row is repeated for reference."
+}

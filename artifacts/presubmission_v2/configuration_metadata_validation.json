@@ -1,0 +1,362 @@
+{
+  "decision": "descriptive metadata only; append element_fraction_hetero; executable protocol unchanged",
+  "config_key_unused_by_runner": true,
+  "regression_tests": "21 passed in 0.32s",
+  "pool_vector_masks_checked": 5000,
+  "lea_paired_rankings_checked": 50,
+  "frozen_csv_hashes_unchanged": true,
+  "checks": [
+    {
+      "query_id": "q1_co2_adsorption",
+      "seed": 42,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q1_co2_adsorption",
+      "seed": 43,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q1_co2_adsorption",
+      "seed": 44,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q1_co2_adsorption",
+      "seed": 45,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q1_co2_adsorption",
+      "seed": 46,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q1_co2_adsorption",
+      "seed": 47,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q1_co2_adsorption",
+      "seed": 48,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q1_co2_adsorption",
+      "seed": 49,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q1_co2_adsorption",
+      "seed": 50,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q1_co2_adsorption",
+      "seed": 51,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q2_photocatalysis",
+      "seed": 42,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q2_photocatalysis",
+      "seed": 43,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q2_photocatalysis",
+      "seed": 44,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q2_photocatalysis",
+      "seed": 45,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q2_photocatalysis",
+      "seed": 46,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q2_photocatalysis",
+      "seed": 47,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q2_photocatalysis",
+      "seed": 48,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q2_photocatalysis",
+      "seed": 49,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q2_photocatalysis",
+      "seed": 50,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q2_photocatalysis",
+      "seed": 51,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q3_lightweight_storage",
+      "seed": 42,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q3_lightweight_storage",
+      "seed": 43,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q3_lightweight_storage",
+      "seed": 44,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q3_lightweight_storage",
+      "seed": 45,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q3_lightweight_storage",
+      "seed": 46,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q3_lightweight_storage",
+      "seed": 47,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q3_lightweight_storage",
+      "seed": 48,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q3_lightweight_storage",
+      "seed": 49,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q3_lightweight_storage",
+      "seed": 50,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q3_lightweight_storage",
+      "seed": 51,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q4_balanced_discovery",
+      "seed": 42,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q4_balanced_discovery",
+      "seed": 43,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q4_balanced_discovery",
+      "seed": 44,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q4_balanced_discovery",
+      "seed": 45,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q4_balanced_discovery",
+      "seed": 46,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q4_balanced_discovery",
+      "seed": 47,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q4_balanced_discovery",
+      "seed": 48,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q4_balanced_discovery",
+      "seed": 49,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q4_balanced_discovery",
+      "seed": 50,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q4_balanced_discovery",
+      "seed": 51,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q5_insulating_frameworks",
+      "seed": 42,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q5_insulating_frameworks",
+      "seed": 43,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q5_insulating_frameworks",
+      "seed": 44,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q5_insulating_frameworks",
+      "seed": 45,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q5_insulating_frameworks",
+      "seed": 46,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q5_insulating_frameworks",
+      "seed": 47,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q5_insulating_frameworks",
+      "seed": 48,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q5_insulating_frameworks",
+      "seed": 49,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q5_insulating_frameworks",
+      "seed": 50,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    },
+    {
+      "query_id": "q5_insulating_frameworks",
+      "seed": 51,
+      "vector_and_mask_identity": true,
+      "top5_order_identity": true,
+      "metric_identity": true
+    }
+  ],
+  "old_config_sha256": "b1ecb6f011979c4c13c96954982c54c399f445f6718791586d5e0334d6a9978c",
+  "corrected_config_sha256": "578a3174b13dadded5c883a11777d4420e1da0fdd79d4a1cd5ebd6dbd78006f9"
+}

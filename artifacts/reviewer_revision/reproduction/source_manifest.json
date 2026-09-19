@@ -1,0 +1,26 @@
+{
+  "repository": "/Users/mehrdadjalali/Documents/GitHub/qmof-rec",
+  "commit": "10082124cf81a90ce40b4bd6306862416a46d2e6",
+  "date": "2026-09-19",
+  "python": "3.9.6",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "files_sha256": {
+    "configs/final_diversity_aware_masked_protocol.json": "b1ecb6f011979c4c13c96954982c54c399f445f6718791586d5e0334d6a9978c",
+    "scripts/run_final_diversity_aware_masked_protocol.py": "4ad97c80f53cf65a2108222563473bf3b1d4299561541aaba681c418e4247738",
+    "backend/tests/test_missing_data_masks.py": "a33411e86687ffd34a590caa2c218cae0be7f6838c36b2ec928e1c26c96e8ba6",
+    "backend/app/recommendation/objective_utils.py": "494209f10ea936c51dc546323bf45c7f97cf49716f359078f8533ad3d6d3493b",
+    "backend/app/recommendation/lea_optimizer.py": "c1b51508dc451a7948b5da694bb5a65689d7d4b3b6c8f52d6a13a1980b91df15",
+    "backend/app/recommendation/hybrid_ranker.py": "efb8f6321dc4b4e06719a749c489a733b37820b66066f0e9b317eb6b10cec402",
+    "backend/vector_db/metadata.json": "c406f8c5eb1612e26b1c165f084910e85c89b68ab342f9e6fde9b1a1a6574545"
+  },
+  "records": 20372,
+  "finite_descriptor_counts": {
+    "density": 20372,
+    "band_gap": 10810,
+    "void_fraction": 0
+  },
+  "focused_tests": "21 passed in 0.27s",
+  "preexisting_artifact_directories": false,
+  "reproduction_status": "passed",
+  "manuscript_edited": true
+}
