@@ -4,6 +4,9 @@ Audit date: 19 September 2026 (Europe/Berlin)
 
 ## Recovery conclusion
 
+Recovery snapshot commit: `0c27e1c0` on branch `revision/COMMT-final-recovery`,
+based on verified executable/reproducibility commit `39973ed4`.
+
 The active reviewer-driven manuscript sources are the correct later revision. They are
 paired with executable repository commit `39973ed4f38cc2b22ea0180f0023c751e7de14d4`
 and the machine-readable results under `artifacts/reviewer_revision/`. The active
