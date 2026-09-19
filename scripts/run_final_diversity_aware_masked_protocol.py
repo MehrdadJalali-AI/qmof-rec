@@ -43,9 +43,9 @@ except Exception:  # pragma: no cover
 
 
 ARTIFACTS = ROOT / "artifacts"
-BEFORE = ARTIFACTS / "final_masked_protocol_before_diversity_revision"
-REVISION = ARTIFACTS / "diversity_revision"
-FINAL = ARTIFACTS / "final_diversity_aware_masked_protocol"
+PREVIOUS = ARTIFACTS / "previous_masked_protocol"
+ANALYSIS = ARTIFACTS / "representation_analysis"
+FINAL = ARTIFACTS / "benchmark"
 
 
 @dataclass
@@ -75,7 +75,7 @@ def write_csv(path: Path, rows: list[dict[str, Any]], fieldnames: list[str] | No
                 if key not in fieldnames:
                     fieldnames.append(key)
     with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
         for row in rows:
             writer.writerow({key: row.get(key, "") for key in fieldnames})
@@ -160,11 +160,11 @@ def semantic_proxy(row: dict[str, Any], query_id: str, query: str) -> float:
     return max(0.0, min(1.0, score))
 
 
-def graph_proxy(row: dict[str, Any], flavor: str) -> float:
+def metadata_proxy(row: dict[str, Any], flavor: str) -> float:
     features = formula_features(row.get("formula", ""))
     density = finite_float(row.get("density"), 2.0) or 2.0
     band = finite_float(row.get("band_gap"), 0.0) or 0.0
-    if flavor == "gat":
+    if flavor == "a":
         raw = 0.45 * features["formula_hetero_frac"] + 0.30 * min(1.0, band / 5.0) + 0.25 * max(0.0, 1.0 - density / 4.0)
     else:
         raw = 0.45 * features["formula_metal_frac"] + 0.25 * features["formula_hetero_frac"] + 0.30 * max(0.0, 1.0 - density / 4.0)
@@ -205,8 +205,8 @@ def score_record(row: dict[str, Any], query_id: str, query: str, weights: dict[s
     density_norm, density_mask = normalize_physical(row["density"], "density", ranges)
     band_norm, band_mask = normalize_physical(row["band_gap"], "band_gap", ranges)
     f = formula_features(row["formula"])
-    graph_sage = graph_proxy(row, "graphsage")
-    graph_gat = graph_proxy(row, "gat")
+    proxy_s = metadata_proxy(row, "s")
+    proxy_a = metadata_proxy(row, "a")
     return {
         **row,
         **scores,
@@ -224,8 +224,8 @@ def score_record(row: dict[str, Any], query_id: str, query: str, weights: dict[s
         "stability_available": bool(availability["stability"]),
         "relevance_score": relevance,
         "balance_score": masked_balance_score(active_values, active_mask),
-        "graphsage_score": graph_sage,
-        "gat_score": graph_gat,
+        "proxy_s_score": proxy_s,
+        "proxy_a_score": proxy_a,
     }
 
 
@@ -243,8 +243,8 @@ def vector_for(item: dict[str, Any], representation: str, config: dict[str, Any]
     elif representation == "semantic":
         vals = [item["semantic_score"]]
         mask = [True]
-    elif representation == "graph":
-        vals = [item["graphsage_score"], item["gat_score"]]
+    elif representation == "proxy":
+        vals = [item["proxy_s_score"], item["proxy_a_score"]]
         mask = [True, True]
     elif representation == "hybrid_material":
         hw = config["hybrid_weights"]
@@ -259,8 +259,8 @@ def vector_for(item: dict[str, Any], representation: str, config: dict[str, Any]
         for key in ["formula_c_frac", "formula_h_frac", "formula_n_frac", "formula_o_frac", "formula_metal_frac", "formula_atom_count_scaled", "formula_element_count_scaled", "formula_hetero_frac"]:
             vals.append(math.sqrt(hw["formula"] / 8.0) * item[key])
             mask.append(True)
-        vals.append(math.sqrt(hw["graph"] / 2.0) * item["graphsage_score"])
-        vals.append(math.sqrt(hw["graph"] / 2.0) * item["gat_score"])
+        vals.append(math.sqrt(hw["proxy"] / 2.0) * item["proxy_s_score"])
+        vals.append(math.sqrt(hw["proxy"] / 2.0) * item["proxy_a_score"])
         mask.extend([True, True])
     else:
         raise ValueError(f"Unknown diversity representation: {representation}")
@@ -289,27 +289,27 @@ def diversity_contribution(item: dict[str, Any], selected: list[dict[str, Any]],
     return float(np.mean([item_distance(item, other, representation, config) for other in selected]))
 
 
-def objective_array(item: dict[str, Any], graph: str | None = None) -> tuple[np.ndarray, np.ndarray]:
+def objective_array(item: dict[str, Any], proxy: str | None = None) -> tuple[np.ndarray, np.ndarray]:
     vals = [item[name] for name in ACTIVE_OBJECTIVES]
     mask = [item["availability"][name.replace("_score", "")] for name in ACTIVE_OBJECTIVES]
-    if graph == "graphsage":
-        vals.append(item["graphsage_score"])
+    if proxy == "s":
+        vals.append(item["proxy_s_score"])
         mask.append(True)
-    elif graph == "gat":
-        vals.append(item["gat_score"])
+    elif proxy == "a":
+        vals.append(item["proxy_a_score"])
         mask.append(True)
     return np.array(vals, dtype=np.float64), np.array(mask, dtype=bool)
 
 
-def rank_weighted(candidates: list[dict[str, Any]], weights: dict[str, float], graph: str | None = None) -> list[dict[str, Any]]:
-    graph_weight = 0.15 if graph else 0.0
+def rank_weighted(candidates: list[dict[str, Any]], weights: dict[str, float], proxy: str | None = None) -> list[dict[str, Any]]:
+    proxy_weight = 0.15 if proxy else 0.0
     rows = []
     for item in candidates:
         score = item["relevance_score"]
-        if graph == "graphsage":
-            score = (1 - graph_weight) * score + graph_weight * item["graphsage_score"]
-        elif graph == "gat":
-            score = (1 - graph_weight) * score + graph_weight * item["gat_score"]
+        if proxy == "s":
+            score = (1 - proxy_weight) * score + proxy_weight * item["proxy_s_score"]
+        elif proxy == "a":
+            score = (1 - proxy_weight) * score + proxy_weight * item["proxy_a_score"]
         rows.append((score, item["semantic_score"], item["qmof_id"], item))
     return [item for *_rest, item in sorted(rows, reverse=True)]
 
@@ -349,11 +349,11 @@ def rank_pareto(candidates: list[dict[str, Any]], config: dict[str, Any], repres
     return [item for *_rest, item in sorted(scores, reverse=True)]
 
 
-def rank_mmr(candidates: list[dict[str, Any]], config: dict[str, Any], representation: str) -> list[dict[str, Any]]:
+def mmr_top_k(candidates: list[dict[str, Any]], config: dict[str, Any], representation: str) -> list[dict[str, Any]]:
     remaining = list(candidates)
     selected: list[dict[str, Any]] = []
     lam = float(config["mmr_parameters"]["lambda_relevance"])
-    while remaining:
+    while remaining and len(selected) < int(config["top_k"]):
         best = None
         best_score = -1e9
         for item in remaining:
@@ -375,7 +375,7 @@ def rank_lea(
     representation: str,
     gamma: float | None = None,
     self_clean: bool = True,
-    graph: str | None = None,
+    proxy: str | None = None,
 ) -> tuple[list[dict[str, Any]], list[float]]:
     params = config["lea_parameters"]
     rng = np.random.default_rng(seed)
@@ -390,7 +390,7 @@ def rank_lea(
     div_values = []
     div_masks = []
     for item in candidates:
-        ov, om = objective_array(item, graph)
+        ov, om = objective_array(item, proxy)
         dv, dm = vector_for(item, representation, config)
         obj_values.append(ov)
         obj_masks.append(om)
@@ -401,7 +401,7 @@ def rank_lea(
     div_matrix = np.vstack(div_values).astype(np.float64)
     div_mask_matrix = np.vstack(div_masks).astype(bool)
     w = np.array([normalize_weights(weights)[key] for key in WEIGHT_KEYS], dtype=np.float64)
-    if graph:
+    if proxy:
         w = np.concatenate([w * 0.85, np.array([0.15], dtype=np.float64)])
     population = [obj_matrix[i % len(obj_matrix)].copy() for i in range(pop_size)]
     pop_masks = [obj_mask_matrix[i % len(obj_mask_matrix)].copy() for i in range(pop_size)]
@@ -613,7 +613,7 @@ def row_for_rank(item: dict[str, Any], query: str, query_id: str, seed: int, met
         "relevance": item["relevance_score"],
         "balance": item["balance_score"],
         "diversity_contribution": diversity_contribution(item, selected_before, representation, config),
-        "graph_score": "",
+        "proxy_score": "",
         "final_score": item.get("lea_score", item["relevance_score"]),
         "runtime_ms": runtime_ms,
         "band_gap": item["band_gap"],
@@ -626,7 +626,7 @@ def row_for_rank(item: dict[str, Any], query: str, query_id: str, seed: int, met
 
 
 def run_methods(pool: list[dict[str, Any]], weights: dict[str, float], query_id: str, query: str, seed: int, config: dict[str, Any], representation: str) -> dict[str, MethodResult]:
-    methods = ["SemanticOnly", "WeightedSum", "TOPSIS", "ParetoCrowding", "Random", "MMR", "LEA", "LEA no diversity", "LEA no self-cleaning", "GraphSAGE only", "GAT only", "LEA + GraphSAGE", "LEA + GAT"]
+    methods = ["SemanticOnly", "WeightedSum", "TOPSIS", "ParetoCrowding", "Random", "MMR top-5", "LEA", "LEA gamma=0 only", "LEA true no diversity", "LEA no self-cleaning", "Proxy S only", "Proxy A only", "LEA + proxy S", "LEA + proxy A"]
     out = {}
     for method in methods:
         start = time.perf_counter()
@@ -642,22 +642,26 @@ def run_methods(pool: list[dict[str, Any]], weights: dict[str, float], query_id:
         elif method == "Random":
             ranked = list(pool)
             random.Random(seed).shuffle(ranked)
-        elif method == "MMR":
-            ranked = rank_mmr(pool, config, representation)
+        elif method == "MMR top-5":
+            ranked = mmr_top_k(pool, config, representation)
         elif method == "LEA":
             ranked, history = rank_lea(pool, weights, seed, config, representation)
-        elif method == "LEA no diversity":
+        elif method == "LEA gamma=0 only":
             ranked, history = rank_lea(pool, weights, seed, config, representation, gamma=0.0)
+        elif method == "LEA true no diversity":
+            no_diversity_config = json.loads(json.dumps(config))
+            no_diversity_config["lea_parameters"]["redundancy_penalty"] = 0.0
+            ranked, history = rank_lea(pool, weights, seed, no_diversity_config, representation, gamma=0.0)
         elif method == "LEA no self-cleaning":
             ranked, history = rank_lea(pool, weights, seed, config, representation, self_clean=False)
-        elif method == "GraphSAGE only":
-            ranked = rank_weighted(pool, weights, graph="graphsage")
-        elif method == "GAT only":
-            ranked = rank_weighted(pool, weights, graph="gat")
-        elif method == "LEA + GraphSAGE":
-            ranked, history = rank_lea(pool, weights, seed, config, representation, graph="graphsage")
-        elif method == "LEA + GAT":
-            ranked, history = rank_lea(pool, weights, seed, config, representation, graph="gat")
+        elif method == "Proxy S only":
+            ranked = rank_weighted(pool, weights, proxy="s")
+        elif method == "Proxy A only":
+            ranked = rank_weighted(pool, weights, proxy="a")
+        elif method == "LEA + proxy S":
+            ranked, history = rank_lea(pool, weights, seed, config, representation, proxy="s")
+        elif method == "LEA + proxy A":
+            ranked, history = rank_lea(pool, weights, seed, config, representation, proxy="a")
         runtime_ms = (time.perf_counter() - start) * 1000
         out[method] = MethodResult(method, ranked, runtime_ms, history)
     return out
@@ -701,17 +705,17 @@ def run_protocol(config: dict[str, Any], metadata: list[dict[str, Any]], ranges:
                 selected_before: list[dict[str, Any]] = []
                 for rank, item in enumerate(ranked[:top_k], start=1):
                     row = row_for_rank(item, query, query_id, seed, method, rank, selected_before, result.runtime_ms, representation, config)
-                    if method == "GraphSAGE only" or method == "LEA + GraphSAGE":
-                        row["graph_score"] = item["graphsage_score"]
-                    elif method == "GAT only" or method == "LEA + GAT":
-                        row["graph_score"] = item["gat_score"]
+                    if method == "Proxy S only" or method == "LEA + proxy S":
+                        row["proxy_score"] = item["proxy_s_score"]
+                    elif method == "Proxy A only" or method == "LEA + proxy A":
+                        row["proxy_score"] = item["proxy_a_score"]
                     ranking_rows.append(row)
                     out_rows.append(row)
                     selected_before.append(item)
                 write_csv(FINAL / "rankings" / f"{query_id}_seed{seed}_{method.replace(' ', '_').replace('+', 'plus')}.csv", out_rows)
 
             ws = method_rankings["WeightedSum"]
-            lea_no = method_rankings["LEA no diversity"]
+            lea_no = method_rankings["LEA true no diversity"]
             ws_vs_lea.append(compare_weighted_sum_lea(query_id, query, seed, ws.ranked[:top_k], lea_no.ranked[:top_k], pool, ws.runtime_ms, lea_no.runtime_ms, representation, config))
 
             base_ids = [x["qmof_id"] for x in method_rankings["LEA"].ranked[:top_k]]
@@ -749,18 +753,18 @@ def run_protocol(config: dict[str, Any], metadata: list[dict[str, Any]], ranges:
 
 
 def diagnose_previous_results(config: dict[str, Any], metadata: list[dict[str, Any]], ranges: dict[str, tuple[float, float]]) -> None:
-    REVISION.mkdir(parents=True, exist_ok=True)
+    ANALYSIS.mkdir(parents=True, exist_ok=True)
     audit_rows = []
-    if BEFORE.exists():
-        for path in sorted(BEFORE.rglob("*")):
+    if PREVIOUS.exists():
+        for path in sorted(PREVIOUS.rglob("*")):
             if path.is_file():
-                audit_rows.append({"artifact": path.name, "source_file": str(path.relative_to(ROOT)), "script": "scripts/run_final_mask_aware_protocol.py", "configuration": "configs/final_mask_aware_protocol.json", "candidate_pool": "shared pool100 where applicable", "query": "", "seed": "", "method": "", "metric_definition": "masked active objective-score distance", "notes": "preserved before diversity revision"})
-    write_csv(REVISION / "current_result_audit.csv", audit_rows, ["artifact", "source_file", "script", "configuration", "candidate_pool", "query", "seed", "method", "metric_definition", "notes"])
+                audit_rows.append({"artifact": path.name, "source_file": str(path.relative_to(ROOT)), "script": "scripts/run_final_mask_aware_protocol.py", "configuration": "configs/final_mask_aware_protocol.json", "candidate_pool": "shared pool100 where applicable", "query": "", "seed": "", "method": "", "metric_definition": "masked active objective-score distance", "notes": "previous masked protocol"})
+    write_csv(ANALYSIS / "current_result_audit.csv", audit_rows, ["artifact", "source_file", "script", "configuration", "candidate_pool", "query", "seed", "method", "metric_definition", "notes"])
 
     by_id = {row["qmof_id"]: row for row in metadata}
     active_rows = []
     pair_rows = []
-    ranking_files = sorted((BEFORE / "rankings").glob("*.csv")) if (BEFORE / "rankings").exists() else []
+    ranking_files = sorted((PREVIOUS / "rankings").glob("*.csv")) if (PREVIOUS / "rankings").exists() else []
     for path in ranking_files:
         for r in read_csv(path):
             meta = by_id.get(r["qmof_id"], {})
@@ -780,12 +784,12 @@ def diagnose_previous_results(config: dict[str, Any], metadata: list[dict[str, A
                 "raw_band_gap": scored.get("band_gap", ""),
                 "raw_semantic_score": scored.get("semantic_score", ""),
                 "raw_stability_score": scored.get("stability_score", ""),
-                "raw_graph_score": "",
+                "raw_proxy_score": "",
                 "normalized_density_score": scored.get("density_score", ""),
                 "normalized_band_gap_score": scored.get("band_gap_score", ""),
                 "normalized_semantic_score": scored.get("semantic_score", ""),
                 "normalized_stability_score": scored.get("stability_score", ""),
-                "normalized_graph_score": "",
+                "normalized_proxy_score": "",
                 "availability_mask": scored.get("availability_mask", ""),
                 "active_objective_vector": "|".join(str(x) for x in active_vec),
                 "pairwise_masked_distance": "",
@@ -804,8 +808,8 @@ def diagnose_previous_results(config: dict[str, Any], metadata: list[dict[str, A
                 mask = np.array([x == "1" for x in rows[i]["availability_mask"].split("|")], dtype=bool)
                 rmask = np.array([x == "1" for x in rows[j]["availability_mask"].split("|")], dtype=bool)
                 pair_rows.append({"query": key[0], "seed": key[1], "method": key[2], "rank_i": rows[i]["rank"], "rank_j": rows[j]["rank"], "qmof_id_i": rows[i]["qmof_id"], "qmof_id_j": rows[j]["qmof_id"], "objective_score_distance": masked_distance(left, right, mask, rmask), "raw_physical_distance": "", "notes": "previous final-masked protocol distance"})
-    write_csv(REVISION / "topk_active_vectors.csv", active_rows)
-    write_csv(REVISION / "topk_pairwise_distances.csv", pair_rows)
+    write_csv(ANALYSIS / "topk_active_vectors.csv", active_rows)
+    write_csv(ANALYSIS / "topk_pairwise_distances.csv", pair_rows)
 
     co2 = [r for r in active_rows if r["query"] == "stable porous MOFs for CO2 adsorption" and r["seed"] == "42" and r["method"] == "LEA"]
     report = [
@@ -824,9 +828,9 @@ def diagnose_previous_results(config: dict[str, Any], metadata: list[dict[str, A
         "",
         "Because intra-list diversity in the previous final-masked protocol was computed over this transformed active objective vector, every pair among these tied candidates has zero distance. Pairwise distance uses full-precision arithmetic and the no-overlap fallback is not triggered for these rows; their masks are identical (`1|1|1|1`). The collapse occurs before the distance calculation, at the property-score discretization/clipping step.",
         "",
-        "The scientifically appropriate correction is to keep mask-aware relevance on the application-oriented score vector, but measure list diversity over a richer, full-precision material representation that includes continuous physical descriptors and query-independent formula/graph-derived features.",
+        "The appropriate correction is to keep mask-aware relevance on the application-oriented score vector, but measure list diversity over a richer, full-precision material representation that includes continuous physical descriptors and query-independent formula features and engineered metadata proxies.",
     ])
-    (REVISION / "zero_diversity_diagnosis.md").write_text("\n".join(report) + "\n", encoding="utf-8")
+    (ANALYSIS / "zero_diversity_diagnosis.md").write_text("\n".join(report) + "\n", encoding="utf-8")
 
 
 def evaluate_representations(config: dict[str, Any], metadata: list[dict[str, Any]], ranges: dict[str, tuple[float, float]]) -> None:
@@ -837,8 +841,8 @@ def evaluate_representations(config: dict[str, Any], metadata: list[dict[str, An
         ("physical", "Masked continuous physical-descriptor distance", "uses density and band gap at full precision; interpretable but limited by missing band gaps and absent structural descriptors"),
         ("formula", "Formula-derived descriptor distance", "available for all formula-bearing records; chemically interpretable but not structure-aware"),
         ("semantic", "Deterministic semantic-proxy distance", "reproducible existing semantic score; query-dependent and therefore less suitable as material diversity"),
-        ("graph", "Formula-derived graph-proxy distance", "available for all records but proxy-based, not CIF-derived graph embeddings"),
-        ("hybrid_material", "Hybrid material distance", "chosen final representation: full-precision physical descriptors plus formula and graph proxies; excludes void fraction and gives better material resolution without tuning to outcome"),
+        ("proxy", "Engineered metadata-proxy distance", "available for all records and derived from formula and observed metadata"),
+        ("hybrid_material", "Hybrid material distance", "chosen representation: full-precision physical descriptors, formula features, and engineered metadata proxies; excludes void fraction"),
     ]
     for rep, label, note in reps:
         tmp_config = dict(config)
@@ -869,11 +873,11 @@ def evaluate_representations(config: dict[str, Any], metadata: list[dict[str, An
                 ws_ids = [x["qmof_id"] for x in rank_weighted(pool, weights)[: int(config["top_k"])]]
                 lea_ids = rows_by_group[(qd["query_id"], seed)]
                 ws_overlap.append(len(set(ws_ids) & set(lea_ids)) / int(config["top_k"]))
-        rows.append({"representation": rep, "description": label, "rel_at_5": agg["rel_at_5"], "ndcg_at_5": agg["ndcg_at_5"], "diversity": agg["diversity"], "topk_overlap_with_weighted_sum": float(np.mean(ws_overlap)), "candidate_pool_coverage": int(config["main_candidate_pool_size"]) / len(metadata), "runtime_ms": agg["runtime_ms"], "seed_variation_diversity_sd": float(np.std([m["diversity"] for m in metric_rows], ddof=1)), "interpretable": "yes", "available_for_all_records": "partial" if rep in {"objective", "physical"} else "yes", "introduces_leakage": "semantic is query-dependent" if rep == "semantic" else "no", "depends_on_heuristic_scores": "yes" if rep in {"objective", "semantic", "graph", "hybrid_material"} else "no", "suitable_for_scientific_claim": "selected" if rep == "hybrid_material" else "diagnostic comparison", "notes": note})
+        rows.append({"representation": rep, "description": label, "rel_at_5": agg["rel_at_5"], "ndcg_at_5": agg["ndcg_at_5"], "diversity": agg["diversity"], "topk_overlap_with_weighted_sum": float(np.mean(ws_overlap)), "candidate_pool_coverage": int(config["main_candidate_pool_size"]) / len(metadata), "runtime_ms": agg["runtime_ms"], "seed_variation_diversity_sd": float(np.std([m["diversity"] for m in metric_rows], ddof=1)), "interpretable": "yes", "available_for_all_records": "partial" if rep in {"objective", "physical"} else "yes", "introduces_leakage": "semantic is query-dependent" if rep == "semantic" else "no", "depends_on_heuristic_scores": "yes" if rep in {"objective", "semantic", "proxy", "hybrid_material"} else "no", "suitable_for_scientific_claim": "selected" if rep == "hybrid_material" else "diagnostic comparison", "notes": note})
         assessment.extend([f"## {label}", "", note, f" Aggregate LEA Rel@5={agg['rel_at_5']:.4f}, NDCG@5={agg['ndcg_at_5']:.4f}, diversity={agg['diversity']:.4f}.", ""])
-    write_csv(REVISION / "diversity_representation_comparison.csv", rows)
-    assessment.append("The final protocol selects the hybrid material representation because it avoids absent void fraction, uses full-precision observed density and band gap, keeps missing dimensions masked, and adds query-independent formula/graph-derived resolution. The objective-score representation is retained as a cautionary diagnostic because it is useful for scoring relevance but too discretized for material diversity.")
-    (REVISION / "diversity_representation_assessment.md").write_text("\n".join(assessment) + "\n", encoding="utf-8")
+    write_csv(ANALYSIS / "diversity_representation_comparison.csv", rows)
+    assessment.append("The protocol selects the hybrid material representation because it avoids absent void fraction, uses full-precision observed density and band gap, keeps missing dimensions masked, and adds query-independent formula and metadata-proxy resolution. The objective-score representation is retained as a diagnostic because it is useful for scoring relevance but too discretized for material diversity.")
+    (ANALYSIS / "diversity_representation_assessment.md").write_text("\n".join(assessment) + "\n", encoding="utf-8")
 
 
 def run_rag_evaluation(config: dict[str, Any], ranking_rows: list[dict[str, Any]]) -> None:
@@ -935,7 +939,7 @@ def run_rag_evaluation(config: dict[str, Any], ranking_rows: list[dict[str, Any]
             "limitation_awareness_score": limitation,
             "explanation_quality_score": explanation,
             "hallucination_flags": json.dumps(flags),
-            "human_review_status": "not human reviewed; deterministic local automated rerun",
+            "evaluation_status": "deterministic local automated evaluation",
         })
     write_csv(final_dir / "rag_llm_final_results.csv", rows)
     summary = []
@@ -966,7 +970,7 @@ def plot_outputs(aggregate_rows: list[dict[str, Any]], convergence_rows: list[di
         return
     fig_dir = FINAL / "figures"
     fig_dir.mkdir(parents=True, exist_ok=True)
-    primary = [r for r in aggregate_rows if r["method"] in {"SemanticOnly", "WeightedSum", "TOPSIS", "ParetoCrowding", "Random", "MMR", "LEA"}]
+    primary = [r for r in aggregate_rows if r["method"] in {"SemanticOnly", "WeightedSum", "TOPSIS", "ParetoCrowding", "Random", "MMR top-5", "LEA"}]
     methods = [r["method"] for r in primary]
     x = np.arange(len(methods))
     fig, axes = plt.subplots(1, 2, figsize=(10, 4.2))
@@ -1005,7 +1009,7 @@ def plot_outputs(aggregate_rows: list[dict[str, Any]], convergence_rows: list[di
     plt.savefig(fig_dir / "figure_6_lea_convergence.png", dpi=300)
     plt.close()
 
-    compare = [r for r in aggregate_rows if r["method"] in {"WeightedSum", "MMR", "LEA", "LEA + GraphSAGE", "LEA + GAT"}]
+    compare = [r for r in aggregate_rows if r["method"] in {"WeightedSum", "MMR top-5", "LEA", "LEA + proxy S", "LEA + proxy A"}]
     labels = ["Rel@5", "NDCG@5", "Hybrid diversity", "Band-gap score", "Density score"]
     angles = np.linspace(0, 2 * np.pi, len(labels), endpoint=False).tolist()
     plt.figure(figsize=(5.8, 5.2))
@@ -1057,7 +1061,7 @@ def main() -> int:
     started = time.perf_counter()
     config_path = Path(args.config)
     config = json.loads(config_path.read_text(encoding="utf-8"))
-    for path in [REVISION, FINAL]:
+    for path in [ANALYSIS, FINAL]:
         path.mkdir(parents=True, exist_ok=True)
     for path in [FINAL / "rankings", FINAL / "candidate_pools", FINAL / "figures", FINAL / "rag_llm_evaluation"]:
         if path.exists():

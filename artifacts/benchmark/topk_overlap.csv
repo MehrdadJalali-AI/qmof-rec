@@ -1,0 +1,701 @@
+query_id,seed,method,topk_overlap_with_weighted_sum,same_topk_set_as_weighted_sum
+q1_co2_adsorption,42,LEA,0.0,False
+q1_co2_adsorption,42,LEA + proxy A,0.0,False
+q1_co2_adsorption,42,LEA + proxy S,0.2,False
+q1_co2_adsorption,42,LEA gamma=0 only,0.0,False
+q1_co2_adsorption,42,LEA no self-cleaning,0.0,False
+q1_co2_adsorption,42,LEA true no diversity,0.0,False
+q1_co2_adsorption,42,MMR top-5,0.0,False
+q1_co2_adsorption,42,ParetoCrowding,0.0,False
+q1_co2_adsorption,42,Proxy A only,0.0,False
+q1_co2_adsorption,42,Proxy S only,0.2,False
+q1_co2_adsorption,42,Random,0.0,False
+q1_co2_adsorption,42,SemanticOnly,0.6,False
+q1_co2_adsorption,42,TOPSIS,1.0,True
+q1_co2_adsorption,42,WeightedSum,1.0,True
+q1_co2_adsorption,43,LEA,0.0,False
+q1_co2_adsorption,43,LEA + proxy A,0.2,False
+q1_co2_adsorption,43,LEA + proxy S,0.2,False
+q1_co2_adsorption,43,LEA gamma=0 only,0.0,False
+q1_co2_adsorption,43,LEA no self-cleaning,0.0,False
+q1_co2_adsorption,43,LEA true no diversity,0.0,False
+q1_co2_adsorption,43,MMR top-5,0.0,False
+q1_co2_adsorption,43,ParetoCrowding,0.0,False
+q1_co2_adsorption,43,Proxy A only,0.0,False
+q1_co2_adsorption,43,Proxy S only,0.2,False
+q1_co2_adsorption,43,Random,0.0,False
+q1_co2_adsorption,43,SemanticOnly,0.6,False
+q1_co2_adsorption,43,TOPSIS,1.0,True
+q1_co2_adsorption,43,WeightedSum,1.0,True
+q1_co2_adsorption,44,LEA,0.0,False
+q1_co2_adsorption,44,LEA + proxy A,0.0,False
+q1_co2_adsorption,44,LEA + proxy S,0.2,False
+q1_co2_adsorption,44,LEA gamma=0 only,0.0,False
+q1_co2_adsorption,44,LEA no self-cleaning,0.0,False
+q1_co2_adsorption,44,LEA true no diversity,0.0,False
+q1_co2_adsorption,44,MMR top-5,0.0,False
+q1_co2_adsorption,44,ParetoCrowding,0.0,False
+q1_co2_adsorption,44,Proxy A only,0.0,False
+q1_co2_adsorption,44,Proxy S only,0.2,False
+q1_co2_adsorption,44,Random,0.0,False
+q1_co2_adsorption,44,SemanticOnly,0.6,False
+q1_co2_adsorption,44,TOPSIS,1.0,True
+q1_co2_adsorption,44,WeightedSum,1.0,True
+q1_co2_adsorption,45,LEA,0.0,False
+q1_co2_adsorption,45,LEA + proxy A,0.2,False
+q1_co2_adsorption,45,LEA + proxy S,0.2,False
+q1_co2_adsorption,45,LEA gamma=0 only,0.0,False
+q1_co2_adsorption,45,LEA no self-cleaning,0.0,False
+q1_co2_adsorption,45,LEA true no diversity,0.4,False
+q1_co2_adsorption,45,MMR top-5,0.0,False
+q1_co2_adsorption,45,ParetoCrowding,0.0,False
+q1_co2_adsorption,45,Proxy A only,0.0,False
+q1_co2_adsorption,45,Proxy S only,0.2,False
+q1_co2_adsorption,45,Random,0.2,False
+q1_co2_adsorption,45,SemanticOnly,0.6,False
+q1_co2_adsorption,45,TOPSIS,1.0,True
+q1_co2_adsorption,45,WeightedSum,1.0,True
+q1_co2_adsorption,46,LEA,0.0,False
+q1_co2_adsorption,46,LEA + proxy A,0.2,False
+q1_co2_adsorption,46,LEA + proxy S,0.2,False
+q1_co2_adsorption,46,LEA gamma=0 only,0.0,False
+q1_co2_adsorption,46,LEA no self-cleaning,0.0,False
+q1_co2_adsorption,46,LEA true no diversity,0.0,False
+q1_co2_adsorption,46,MMR top-5,0.0,False
+q1_co2_adsorption,46,ParetoCrowding,0.0,False
+q1_co2_adsorption,46,Proxy A only,0.0,False
+q1_co2_adsorption,46,Proxy S only,0.2,False
+q1_co2_adsorption,46,Random,0.0,False
+q1_co2_adsorption,46,SemanticOnly,0.8,False
+q1_co2_adsorption,46,TOPSIS,1.0,True
+q1_co2_adsorption,46,WeightedSum,1.0,True
+q1_co2_adsorption,47,LEA,0.0,False
+q1_co2_adsorption,47,LEA + proxy A,0.4,False
+q1_co2_adsorption,47,LEA + proxy S,0.4,False
+q1_co2_adsorption,47,LEA gamma=0 only,0.0,False
+q1_co2_adsorption,47,LEA no self-cleaning,0.0,False
+q1_co2_adsorption,47,LEA true no diversity,0.2,False
+q1_co2_adsorption,47,MMR top-5,0.0,False
+q1_co2_adsorption,47,ParetoCrowding,0.0,False
+q1_co2_adsorption,47,Proxy A only,0.0,False
+q1_co2_adsorption,47,Proxy S only,0.2,False
+q1_co2_adsorption,47,Random,0.0,False
+q1_co2_adsorption,47,SemanticOnly,0.6,False
+q1_co2_adsorption,47,TOPSIS,1.0,True
+q1_co2_adsorption,47,WeightedSum,1.0,True
+q1_co2_adsorption,48,LEA,0.0,False
+q1_co2_adsorption,48,LEA + proxy A,0.0,False
+q1_co2_adsorption,48,LEA + proxy S,0.0,False
+q1_co2_adsorption,48,LEA gamma=0 only,0.0,False
+q1_co2_adsorption,48,LEA no self-cleaning,0.0,False
+q1_co2_adsorption,48,LEA true no diversity,0.2,False
+q1_co2_adsorption,48,MMR top-5,0.0,False
+q1_co2_adsorption,48,ParetoCrowding,0.0,False
+q1_co2_adsorption,48,Proxy A only,0.0,False
+q1_co2_adsorption,48,Proxy S only,0.2,False
+q1_co2_adsorption,48,Random,0.2,False
+q1_co2_adsorption,48,SemanticOnly,0.8,False
+q1_co2_adsorption,48,TOPSIS,1.0,True
+q1_co2_adsorption,48,WeightedSum,1.0,True
+q1_co2_adsorption,49,LEA,0.0,False
+q1_co2_adsorption,49,LEA + proxy A,0.2,False
+q1_co2_adsorption,49,LEA + proxy S,0.4,False
+q1_co2_adsorption,49,LEA gamma=0 only,0.0,False
+q1_co2_adsorption,49,LEA no self-cleaning,0.0,False
+q1_co2_adsorption,49,LEA true no diversity,0.0,False
+q1_co2_adsorption,49,MMR top-5,0.0,False
+q1_co2_adsorption,49,ParetoCrowding,0.0,False
+q1_co2_adsorption,49,Proxy A only,0.0,False
+q1_co2_adsorption,49,Proxy S only,0.2,False
+q1_co2_adsorption,49,Random,0.0,False
+q1_co2_adsorption,49,SemanticOnly,0.6,False
+q1_co2_adsorption,49,TOPSIS,1.0,True
+q1_co2_adsorption,49,WeightedSum,1.0,True
+q1_co2_adsorption,50,LEA,0.0,False
+q1_co2_adsorption,50,LEA + proxy A,0.0,False
+q1_co2_adsorption,50,LEA + proxy S,0.0,False
+q1_co2_adsorption,50,LEA gamma=0 only,0.0,False
+q1_co2_adsorption,50,LEA no self-cleaning,0.0,False
+q1_co2_adsorption,50,LEA true no diversity,0.2,False
+q1_co2_adsorption,50,MMR top-5,0.0,False
+q1_co2_adsorption,50,ParetoCrowding,0.0,False
+q1_co2_adsorption,50,Proxy A only,0.0,False
+q1_co2_adsorption,50,Proxy S only,0.2,False
+q1_co2_adsorption,50,Random,0.0,False
+q1_co2_adsorption,50,SemanticOnly,0.4,False
+q1_co2_adsorption,50,TOPSIS,1.0,True
+q1_co2_adsorption,50,WeightedSum,1.0,True
+q1_co2_adsorption,51,LEA,0.0,False
+q1_co2_adsorption,51,LEA + proxy A,0.2,False
+q1_co2_adsorption,51,LEA + proxy S,0.2,False
+q1_co2_adsorption,51,LEA gamma=0 only,0.0,False
+q1_co2_adsorption,51,LEA no self-cleaning,0.0,False
+q1_co2_adsorption,51,LEA true no diversity,0.2,False
+q1_co2_adsorption,51,MMR top-5,0.0,False
+q1_co2_adsorption,51,ParetoCrowding,0.0,False
+q1_co2_adsorption,51,Proxy A only,0.0,False
+q1_co2_adsorption,51,Proxy S only,0.2,False
+q1_co2_adsorption,51,Random,0.0,False
+q1_co2_adsorption,51,SemanticOnly,0.8,False
+q1_co2_adsorption,51,TOPSIS,1.0,True
+q1_co2_adsorption,51,WeightedSum,1.0,True
+q2_photocatalysis,42,LEA,1.0,True
+q2_photocatalysis,42,LEA + proxy A,1.0,True
+q2_photocatalysis,42,LEA + proxy S,1.0,True
+q2_photocatalysis,42,LEA gamma=0 only,1.0,True
+q2_photocatalysis,42,LEA no self-cleaning,1.0,True
+q2_photocatalysis,42,LEA true no diversity,1.0,True
+q2_photocatalysis,42,MMR top-5,1.0,True
+q2_photocatalysis,42,ParetoCrowding,1.0,True
+q2_photocatalysis,42,Proxy A only,1.0,True
+q2_photocatalysis,42,Proxy S only,1.0,True
+q2_photocatalysis,42,Random,0.0,False
+q2_photocatalysis,42,SemanticOnly,0.0,False
+q2_photocatalysis,42,TOPSIS,1.0,True
+q2_photocatalysis,42,WeightedSum,1.0,True
+q2_photocatalysis,43,LEA,1.0,True
+q2_photocatalysis,43,LEA + proxy A,1.0,True
+q2_photocatalysis,43,LEA + proxy S,1.0,True
+q2_photocatalysis,43,LEA gamma=0 only,1.0,True
+q2_photocatalysis,43,LEA no self-cleaning,1.0,True
+q2_photocatalysis,43,LEA true no diversity,1.0,True
+q2_photocatalysis,43,MMR top-5,1.0,True
+q2_photocatalysis,43,ParetoCrowding,1.0,True
+q2_photocatalysis,43,Proxy A only,1.0,True
+q2_photocatalysis,43,Proxy S only,1.0,True
+q2_photocatalysis,43,Random,0.2,False
+q2_photocatalysis,43,SemanticOnly,0.0,False
+q2_photocatalysis,43,TOPSIS,1.0,True
+q2_photocatalysis,43,WeightedSum,1.0,True
+q2_photocatalysis,44,LEA,1.0,True
+q2_photocatalysis,44,LEA + proxy A,1.0,True
+q2_photocatalysis,44,LEA + proxy S,1.0,True
+q2_photocatalysis,44,LEA gamma=0 only,1.0,True
+q2_photocatalysis,44,LEA no self-cleaning,1.0,True
+q2_photocatalysis,44,LEA true no diversity,1.0,True
+q2_photocatalysis,44,MMR top-5,1.0,True
+q2_photocatalysis,44,ParetoCrowding,1.0,True
+q2_photocatalysis,44,Proxy A only,1.0,True
+q2_photocatalysis,44,Proxy S only,1.0,True
+q2_photocatalysis,44,Random,0.0,False
+q2_photocatalysis,44,SemanticOnly,0.0,False
+q2_photocatalysis,44,TOPSIS,1.0,True
+q2_photocatalysis,44,WeightedSum,1.0,True
+q2_photocatalysis,45,LEA,1.0,True
+q2_photocatalysis,45,LEA + proxy A,1.0,True
+q2_photocatalysis,45,LEA + proxy S,1.0,True
+q2_photocatalysis,45,LEA gamma=0 only,1.0,True
+q2_photocatalysis,45,LEA no self-cleaning,1.0,True
+q2_photocatalysis,45,LEA true no diversity,1.0,True
+q2_photocatalysis,45,MMR top-5,1.0,True
+q2_photocatalysis,45,ParetoCrowding,1.0,True
+q2_photocatalysis,45,Proxy A only,1.0,True
+q2_photocatalysis,45,Proxy S only,1.0,True
+q2_photocatalysis,45,Random,0.0,False
+q2_photocatalysis,45,SemanticOnly,0.0,False
+q2_photocatalysis,45,TOPSIS,1.0,True
+q2_photocatalysis,45,WeightedSum,1.0,True
+q2_photocatalysis,46,LEA,1.0,True
+q2_photocatalysis,46,LEA + proxy A,1.0,True
+q2_photocatalysis,46,LEA + proxy S,1.0,True
+q2_photocatalysis,46,LEA gamma=0 only,1.0,True
+q2_photocatalysis,46,LEA no self-cleaning,1.0,True
+q2_photocatalysis,46,LEA true no diversity,1.0,True
+q2_photocatalysis,46,MMR top-5,1.0,True
+q2_photocatalysis,46,ParetoCrowding,1.0,True
+q2_photocatalysis,46,Proxy A only,1.0,True
+q2_photocatalysis,46,Proxy S only,1.0,True
+q2_photocatalysis,46,Random,0.0,False
+q2_photocatalysis,46,SemanticOnly,0.0,False
+q2_photocatalysis,46,TOPSIS,1.0,True
+q2_photocatalysis,46,WeightedSum,1.0,True
+q2_photocatalysis,47,LEA,1.0,True
+q2_photocatalysis,47,LEA + proxy A,1.0,True
+q2_photocatalysis,47,LEA + proxy S,1.0,True
+q2_photocatalysis,47,LEA gamma=0 only,1.0,True
+q2_photocatalysis,47,LEA no self-cleaning,1.0,True
+q2_photocatalysis,47,LEA true no diversity,1.0,True
+q2_photocatalysis,47,MMR top-5,1.0,True
+q2_photocatalysis,47,ParetoCrowding,1.0,True
+q2_photocatalysis,47,Proxy A only,1.0,True
+q2_photocatalysis,47,Proxy S only,1.0,True
+q2_photocatalysis,47,Random,0.0,False
+q2_photocatalysis,47,SemanticOnly,0.0,False
+q2_photocatalysis,47,TOPSIS,1.0,True
+q2_photocatalysis,47,WeightedSum,1.0,True
+q2_photocatalysis,48,LEA,1.0,True
+q2_photocatalysis,48,LEA + proxy A,1.0,True
+q2_photocatalysis,48,LEA + proxy S,1.0,True
+q2_photocatalysis,48,LEA gamma=0 only,1.0,True
+q2_photocatalysis,48,LEA no self-cleaning,1.0,True
+q2_photocatalysis,48,LEA true no diversity,1.0,True
+q2_photocatalysis,48,MMR top-5,1.0,True
+q2_photocatalysis,48,ParetoCrowding,1.0,True
+q2_photocatalysis,48,Proxy A only,1.0,True
+q2_photocatalysis,48,Proxy S only,1.0,True
+q2_photocatalysis,48,Random,0.0,False
+q2_photocatalysis,48,SemanticOnly,0.0,False
+q2_photocatalysis,48,TOPSIS,1.0,True
+q2_photocatalysis,48,WeightedSum,1.0,True
+q2_photocatalysis,49,LEA,1.0,True
+q2_photocatalysis,49,LEA + proxy A,1.0,True
+q2_photocatalysis,49,LEA + proxy S,1.0,True
+q2_photocatalysis,49,LEA gamma=0 only,1.0,True
+q2_photocatalysis,49,LEA no self-cleaning,1.0,True
+q2_photocatalysis,49,LEA true no diversity,1.0,True
+q2_photocatalysis,49,MMR top-5,1.0,True
+q2_photocatalysis,49,ParetoCrowding,1.0,True
+q2_photocatalysis,49,Proxy A only,1.0,True
+q2_photocatalysis,49,Proxy S only,1.0,True
+q2_photocatalysis,49,Random,0.0,False
+q2_photocatalysis,49,SemanticOnly,0.0,False
+q2_photocatalysis,49,TOPSIS,1.0,True
+q2_photocatalysis,49,WeightedSum,1.0,True
+q2_photocatalysis,50,LEA,1.0,True
+q2_photocatalysis,50,LEA + proxy A,1.0,True
+q2_photocatalysis,50,LEA + proxy S,1.0,True
+q2_photocatalysis,50,LEA gamma=0 only,1.0,True
+q2_photocatalysis,50,LEA no self-cleaning,1.0,True
+q2_photocatalysis,50,LEA true no diversity,1.0,True
+q2_photocatalysis,50,MMR top-5,1.0,True
+q2_photocatalysis,50,ParetoCrowding,1.0,True
+q2_photocatalysis,50,Proxy A only,1.0,True
+q2_photocatalysis,50,Proxy S only,1.0,True
+q2_photocatalysis,50,Random,0.2,False
+q2_photocatalysis,50,SemanticOnly,0.0,False
+q2_photocatalysis,50,TOPSIS,1.0,True
+q2_photocatalysis,50,WeightedSum,1.0,True
+q2_photocatalysis,51,LEA,1.0,True
+q2_photocatalysis,51,LEA + proxy A,1.0,True
+q2_photocatalysis,51,LEA + proxy S,1.0,True
+q2_photocatalysis,51,LEA gamma=0 only,1.0,True
+q2_photocatalysis,51,LEA no self-cleaning,1.0,True
+q2_photocatalysis,51,LEA true no diversity,1.0,True
+q2_photocatalysis,51,MMR top-5,1.0,True
+q2_photocatalysis,51,ParetoCrowding,1.0,True
+q2_photocatalysis,51,Proxy A only,1.0,True
+q2_photocatalysis,51,Proxy S only,1.0,True
+q2_photocatalysis,51,Random,0.2,False
+q2_photocatalysis,51,SemanticOnly,0.0,False
+q2_photocatalysis,51,TOPSIS,1.0,True
+q2_photocatalysis,51,WeightedSum,1.0,True
+q3_lightweight_storage,42,LEA,0.6,False
+q3_lightweight_storage,42,LEA + proxy A,0.6,False
+q3_lightweight_storage,42,LEA + proxy S,0.6,False
+q3_lightweight_storage,42,LEA gamma=0 only,0.6,False
+q3_lightweight_storage,42,LEA no self-cleaning,0.6,False
+q3_lightweight_storage,42,LEA true no diversity,0.8,False
+q3_lightweight_storage,42,MMR top-5,0.6,False
+q3_lightweight_storage,42,ParetoCrowding,0.0,False
+q3_lightweight_storage,42,Proxy A only,0.6,False
+q3_lightweight_storage,42,Proxy S only,0.6,False
+q3_lightweight_storage,42,Random,0.0,False
+q3_lightweight_storage,42,SemanticOnly,0.0,False
+q3_lightweight_storage,42,TOPSIS,1.0,True
+q3_lightweight_storage,42,WeightedSum,1.0,True
+q3_lightweight_storage,43,LEA,0.6,False
+q3_lightweight_storage,43,LEA + proxy A,0.6,False
+q3_lightweight_storage,43,LEA + proxy S,0.6,False
+q3_lightweight_storage,43,LEA gamma=0 only,0.6,False
+q3_lightweight_storage,43,LEA no self-cleaning,0.6,False
+q3_lightweight_storage,43,LEA true no diversity,0.6,False
+q3_lightweight_storage,43,MMR top-5,0.6,False
+q3_lightweight_storage,43,ParetoCrowding,0.2,False
+q3_lightweight_storage,43,Proxy A only,0.6,False
+q3_lightweight_storage,43,Proxy S only,0.6,False
+q3_lightweight_storage,43,Random,0.2,False
+q3_lightweight_storage,43,SemanticOnly,0.0,False
+q3_lightweight_storage,43,TOPSIS,1.0,True
+q3_lightweight_storage,43,WeightedSum,1.0,True
+q3_lightweight_storage,44,LEA,0.6,False
+q3_lightweight_storage,44,LEA + proxy A,0.6,False
+q3_lightweight_storage,44,LEA + proxy S,0.6,False
+q3_lightweight_storage,44,LEA gamma=0 only,0.6,False
+q3_lightweight_storage,44,LEA no self-cleaning,0.6,False
+q3_lightweight_storage,44,LEA true no diversity,0.6,False
+q3_lightweight_storage,44,MMR top-5,0.8,False
+q3_lightweight_storage,44,ParetoCrowding,0.2,False
+q3_lightweight_storage,44,Proxy A only,0.6,False
+q3_lightweight_storage,44,Proxy S only,0.6,False
+q3_lightweight_storage,44,Random,0.0,False
+q3_lightweight_storage,44,SemanticOnly,0.0,False
+q3_lightweight_storage,44,TOPSIS,1.0,True
+q3_lightweight_storage,44,WeightedSum,1.0,True
+q3_lightweight_storage,45,LEA,0.8,False
+q3_lightweight_storage,45,LEA + proxy A,0.6,False
+q3_lightweight_storage,45,LEA + proxy S,0.6,False
+q3_lightweight_storage,45,LEA gamma=0 only,0.8,False
+q3_lightweight_storage,45,LEA no self-cleaning,0.8,False
+q3_lightweight_storage,45,LEA true no diversity,0.6,False
+q3_lightweight_storage,45,MMR top-5,0.8,False
+q3_lightweight_storage,45,ParetoCrowding,0.2,False
+q3_lightweight_storage,45,Proxy A only,0.6,False
+q3_lightweight_storage,45,Proxy S only,0.6,False
+q3_lightweight_storage,45,Random,0.2,False
+q3_lightweight_storage,45,SemanticOnly,0.0,False
+q3_lightweight_storage,45,TOPSIS,1.0,True
+q3_lightweight_storage,45,WeightedSum,1.0,True
+q3_lightweight_storage,46,LEA,0.6,False
+q3_lightweight_storage,46,LEA + proxy A,0.6,False
+q3_lightweight_storage,46,LEA + proxy S,0.6,False
+q3_lightweight_storage,46,LEA gamma=0 only,0.6,False
+q3_lightweight_storage,46,LEA no self-cleaning,0.6,False
+q3_lightweight_storage,46,LEA true no diversity,0.8,False
+q3_lightweight_storage,46,MMR top-5,0.8,False
+q3_lightweight_storage,46,ParetoCrowding,0.0,False
+q3_lightweight_storage,46,Proxy A only,0.6,False
+q3_lightweight_storage,46,Proxy S only,0.6,False
+q3_lightweight_storage,46,Random,0.0,False
+q3_lightweight_storage,46,SemanticOnly,0.0,False
+q3_lightweight_storage,46,TOPSIS,1.0,True
+q3_lightweight_storage,46,WeightedSum,1.0,True
+q3_lightweight_storage,47,LEA,0.6,False
+q3_lightweight_storage,47,LEA + proxy A,0.6,False
+q3_lightweight_storage,47,LEA + proxy S,0.6,False
+q3_lightweight_storage,47,LEA gamma=0 only,0.6,False
+q3_lightweight_storage,47,LEA no self-cleaning,0.6,False
+q3_lightweight_storage,47,LEA true no diversity,0.8,False
+q3_lightweight_storage,47,MMR top-5,0.6,False
+q3_lightweight_storage,47,ParetoCrowding,0.2,False
+q3_lightweight_storage,47,Proxy A only,0.6,False
+q3_lightweight_storage,47,Proxy S only,0.6,False
+q3_lightweight_storage,47,Random,0.0,False
+q3_lightweight_storage,47,SemanticOnly,0.0,False
+q3_lightweight_storage,47,TOPSIS,1.0,True
+q3_lightweight_storage,47,WeightedSum,1.0,True
+q3_lightweight_storage,48,LEA,0.6,False
+q3_lightweight_storage,48,LEA + proxy A,0.6,False
+q3_lightweight_storage,48,LEA + proxy S,0.6,False
+q3_lightweight_storage,48,LEA gamma=0 only,0.6,False
+q3_lightweight_storage,48,LEA no self-cleaning,0.6,False
+q3_lightweight_storage,48,LEA true no diversity,0.6,False
+q3_lightweight_storage,48,MMR top-5,0.8,False
+q3_lightweight_storage,48,ParetoCrowding,0.2,False
+q3_lightweight_storage,48,Proxy A only,0.6,False
+q3_lightweight_storage,48,Proxy S only,0.6,False
+q3_lightweight_storage,48,Random,0.0,False
+q3_lightweight_storage,48,SemanticOnly,0.0,False
+q3_lightweight_storage,48,TOPSIS,1.0,True
+q3_lightweight_storage,48,WeightedSum,1.0,True
+q3_lightweight_storage,49,LEA,0.6,False
+q3_lightweight_storage,49,LEA + proxy A,0.6,False
+q3_lightweight_storage,49,LEA + proxy S,0.6,False
+q3_lightweight_storage,49,LEA gamma=0 only,0.6,False
+q3_lightweight_storage,49,LEA no self-cleaning,0.6,False
+q3_lightweight_storage,49,LEA true no diversity,0.8,False
+q3_lightweight_storage,49,MMR top-5,0.8,False
+q3_lightweight_storage,49,ParetoCrowding,0.0,False
+q3_lightweight_storage,49,Proxy A only,0.6,False
+q3_lightweight_storage,49,Proxy S only,0.6,False
+q3_lightweight_storage,49,Random,0.0,False
+q3_lightweight_storage,49,SemanticOnly,0.0,False
+q3_lightweight_storage,49,TOPSIS,1.0,True
+q3_lightweight_storage,49,WeightedSum,1.0,True
+q3_lightweight_storage,50,LEA,0.6,False
+q3_lightweight_storage,50,LEA + proxy A,0.6,False
+q3_lightweight_storage,50,LEA + proxy S,0.6,False
+q3_lightweight_storage,50,LEA gamma=0 only,0.6,False
+q3_lightweight_storage,50,LEA no self-cleaning,0.6,False
+q3_lightweight_storage,50,LEA true no diversity,0.8,False
+q3_lightweight_storage,50,MMR top-5,0.6,False
+q3_lightweight_storage,50,ParetoCrowding,0.0,False
+q3_lightweight_storage,50,Proxy A only,0.6,False
+q3_lightweight_storage,50,Proxy S only,0.6,False
+q3_lightweight_storage,50,Random,0.2,False
+q3_lightweight_storage,50,SemanticOnly,0.0,False
+q3_lightweight_storage,50,TOPSIS,1.0,True
+q3_lightweight_storage,50,WeightedSum,1.0,True
+q3_lightweight_storage,51,LEA,0.6,False
+q3_lightweight_storage,51,LEA + proxy A,0.6,False
+q3_lightweight_storage,51,LEA + proxy S,0.6,False
+q3_lightweight_storage,51,LEA gamma=0 only,0.6,False
+q3_lightweight_storage,51,LEA no self-cleaning,0.6,False
+q3_lightweight_storage,51,LEA true no diversity,0.8,False
+q3_lightweight_storage,51,MMR top-5,0.6,False
+q3_lightweight_storage,51,ParetoCrowding,0.2,False
+q3_lightweight_storage,51,Proxy A only,0.6,False
+q3_lightweight_storage,51,Proxy S only,0.6,False
+q3_lightweight_storage,51,Random,0.2,False
+q3_lightweight_storage,51,SemanticOnly,0.0,False
+q3_lightweight_storage,51,TOPSIS,1.0,True
+q3_lightweight_storage,51,WeightedSum,1.0,True
+q4_balanced_discovery,42,LEA,0.6,False
+q4_balanced_discovery,42,LEA + proxy A,0.6,False
+q4_balanced_discovery,42,LEA + proxy S,0.6,False
+q4_balanced_discovery,42,LEA gamma=0 only,0.6,False
+q4_balanced_discovery,42,LEA no self-cleaning,0.6,False
+q4_balanced_discovery,42,LEA true no diversity,0.8,False
+q4_balanced_discovery,42,MMR top-5,0.6,False
+q4_balanced_discovery,42,ParetoCrowding,0.8,False
+q4_balanced_discovery,42,Proxy A only,0.6,False
+q4_balanced_discovery,42,Proxy S only,0.6,False
+q4_balanced_discovery,42,Random,0.0,False
+q4_balanced_discovery,42,SemanticOnly,0.0,False
+q4_balanced_discovery,42,TOPSIS,1.0,True
+q4_balanced_discovery,42,WeightedSum,1.0,True
+q4_balanced_discovery,43,LEA,0.8,False
+q4_balanced_discovery,43,LEA + proxy A,0.6,False
+q4_balanced_discovery,43,LEA + proxy S,0.6,False
+q4_balanced_discovery,43,LEA gamma=0 only,0.8,False
+q4_balanced_discovery,43,LEA no self-cleaning,0.8,False
+q4_balanced_discovery,43,LEA true no diversity,0.6,False
+q4_balanced_discovery,43,MMR top-5,0.6,False
+q4_balanced_discovery,43,ParetoCrowding,0.8,False
+q4_balanced_discovery,43,Proxy A only,0.6,False
+q4_balanced_discovery,43,Proxy S only,0.6,False
+q4_balanced_discovery,43,Random,0.2,False
+q4_balanced_discovery,43,SemanticOnly,0.0,False
+q4_balanced_discovery,43,TOPSIS,1.0,True
+q4_balanced_discovery,43,WeightedSum,1.0,True
+q4_balanced_discovery,44,LEA,0.6,False
+q4_balanced_discovery,44,LEA + proxy A,0.6,False
+q4_balanced_discovery,44,LEA + proxy S,0.6,False
+q4_balanced_discovery,44,LEA gamma=0 only,0.6,False
+q4_balanced_discovery,44,LEA no self-cleaning,0.6,False
+q4_balanced_discovery,44,LEA true no diversity,0.6,False
+q4_balanced_discovery,44,MMR top-5,0.8,False
+q4_balanced_discovery,44,ParetoCrowding,0.8,False
+q4_balanced_discovery,44,Proxy A only,0.6,False
+q4_balanced_discovery,44,Proxy S only,0.6,False
+q4_balanced_discovery,44,Random,0.0,False
+q4_balanced_discovery,44,SemanticOnly,0.0,False
+q4_balanced_discovery,44,TOPSIS,1.0,True
+q4_balanced_discovery,44,WeightedSum,1.0,True
+q4_balanced_discovery,45,LEA,0.8,False
+q4_balanced_discovery,45,LEA + proxy A,0.6,False
+q4_balanced_discovery,45,LEA + proxy S,0.6,False
+q4_balanced_discovery,45,LEA gamma=0 only,0.8,False
+q4_balanced_discovery,45,LEA no self-cleaning,0.8,False
+q4_balanced_discovery,45,LEA true no diversity,0.6,False
+q4_balanced_discovery,45,MMR top-5,0.8,False
+q4_balanced_discovery,45,ParetoCrowding,0.8,False
+q4_balanced_discovery,45,Proxy A only,0.6,False
+q4_balanced_discovery,45,Proxy S only,0.6,False
+q4_balanced_discovery,45,Random,0.2,False
+q4_balanced_discovery,45,SemanticOnly,0.0,False
+q4_balanced_discovery,45,TOPSIS,1.0,True
+q4_balanced_discovery,45,WeightedSum,1.0,True
+q4_balanced_discovery,46,LEA,0.8,False
+q4_balanced_discovery,46,LEA + proxy A,0.6,False
+q4_balanced_discovery,46,LEA + proxy S,0.6,False
+q4_balanced_discovery,46,LEA gamma=0 only,0.8,False
+q4_balanced_discovery,46,LEA no self-cleaning,0.8,False
+q4_balanced_discovery,46,LEA true no diversity,0.8,False
+q4_balanced_discovery,46,MMR top-5,0.8,False
+q4_balanced_discovery,46,ParetoCrowding,0.8,False
+q4_balanced_discovery,46,Proxy A only,0.6,False
+q4_balanced_discovery,46,Proxy S only,0.6,False
+q4_balanced_discovery,46,Random,0.0,False
+q4_balanced_discovery,46,SemanticOnly,0.0,False
+q4_balanced_discovery,46,TOPSIS,1.0,True
+q4_balanced_discovery,46,WeightedSum,1.0,True
+q4_balanced_discovery,47,LEA,0.8,False
+q4_balanced_discovery,47,LEA + proxy A,0.6,False
+q4_balanced_discovery,47,LEA + proxy S,0.6,False
+q4_balanced_discovery,47,LEA gamma=0 only,0.8,False
+q4_balanced_discovery,47,LEA no self-cleaning,0.8,False
+q4_balanced_discovery,47,LEA true no diversity,0.8,False
+q4_balanced_discovery,47,MMR top-5,0.6,False
+q4_balanced_discovery,47,ParetoCrowding,0.8,False
+q4_balanced_discovery,47,Proxy A only,0.6,False
+q4_balanced_discovery,47,Proxy S only,0.6,False
+q4_balanced_discovery,47,Random,0.0,False
+q4_balanced_discovery,47,SemanticOnly,0.0,False
+q4_balanced_discovery,47,TOPSIS,1.0,True
+q4_balanced_discovery,47,WeightedSum,1.0,True
+q4_balanced_discovery,48,LEA,0.8,False
+q4_balanced_discovery,48,LEA + proxy A,0.6,False
+q4_balanced_discovery,48,LEA + proxy S,0.6,False
+q4_balanced_discovery,48,LEA gamma=0 only,0.8,False
+q4_balanced_discovery,48,LEA no self-cleaning,0.8,False
+q4_balanced_discovery,48,LEA true no diversity,0.6,False
+q4_balanced_discovery,48,MMR top-5,0.8,False
+q4_balanced_discovery,48,ParetoCrowding,0.8,False
+q4_balanced_discovery,48,Proxy A only,0.6,False
+q4_balanced_discovery,48,Proxy S only,0.6,False
+q4_balanced_discovery,48,Random,0.0,False
+q4_balanced_discovery,48,SemanticOnly,0.0,False
+q4_balanced_discovery,48,TOPSIS,1.0,True
+q4_balanced_discovery,48,WeightedSum,1.0,True
+q4_balanced_discovery,49,LEA,0.8,False
+q4_balanced_discovery,49,LEA + proxy A,0.6,False
+q4_balanced_discovery,49,LEA + proxy S,0.6,False
+q4_balanced_discovery,49,LEA gamma=0 only,0.8,False
+q4_balanced_discovery,49,LEA no self-cleaning,0.8,False
+q4_balanced_discovery,49,LEA true no diversity,0.8,False
+q4_balanced_discovery,49,MMR top-5,0.8,False
+q4_balanced_discovery,49,ParetoCrowding,0.8,False
+q4_balanced_discovery,49,Proxy A only,0.6,False
+q4_balanced_discovery,49,Proxy S only,0.6,False
+q4_balanced_discovery,49,Random,0.0,False
+q4_balanced_discovery,49,SemanticOnly,0.0,False
+q4_balanced_discovery,49,TOPSIS,1.0,True
+q4_balanced_discovery,49,WeightedSum,1.0,True
+q4_balanced_discovery,50,LEA,1.0,True
+q4_balanced_discovery,50,LEA + proxy A,0.6,False
+q4_balanced_discovery,50,LEA + proxy S,0.6,False
+q4_balanced_discovery,50,LEA gamma=0 only,1.0,True
+q4_balanced_discovery,50,LEA no self-cleaning,1.0,True
+q4_balanced_discovery,50,LEA true no diversity,0.8,False
+q4_balanced_discovery,50,MMR top-5,0.6,False
+q4_balanced_discovery,50,ParetoCrowding,0.8,False
+q4_balanced_discovery,50,Proxy A only,0.6,False
+q4_balanced_discovery,50,Proxy S only,0.6,False
+q4_balanced_discovery,50,Random,0.2,False
+q4_balanced_discovery,50,SemanticOnly,0.2,False
+q4_balanced_discovery,50,TOPSIS,1.0,True
+q4_balanced_discovery,50,WeightedSum,1.0,True
+q4_balanced_discovery,51,LEA,0.8,False
+q4_balanced_discovery,51,LEA + proxy A,0.6,False
+q4_balanced_discovery,51,LEA + proxy S,0.6,False
+q4_balanced_discovery,51,LEA gamma=0 only,0.8,False
+q4_balanced_discovery,51,LEA no self-cleaning,0.8,False
+q4_balanced_discovery,51,LEA true no diversity,0.8,False
+q4_balanced_discovery,51,MMR top-5,0.6,False
+q4_balanced_discovery,51,ParetoCrowding,0.8,False
+q4_balanced_discovery,51,Proxy A only,0.6,False
+q4_balanced_discovery,51,Proxy S only,0.6,False
+q4_balanced_discovery,51,Random,0.2,False
+q4_balanced_discovery,51,SemanticOnly,0.2,False
+q4_balanced_discovery,51,TOPSIS,1.0,True
+q4_balanced_discovery,51,WeightedSum,1.0,True
+q5_insulating_frameworks,42,LEA,0.4,False
+q5_insulating_frameworks,42,LEA + proxy A,0.4,False
+q5_insulating_frameworks,42,LEA + proxy S,0.6,False
+q5_insulating_frameworks,42,LEA gamma=0 only,0.4,False
+q5_insulating_frameworks,42,LEA no self-cleaning,0.4,False
+q5_insulating_frameworks,42,LEA true no diversity,0.6,False
+q5_insulating_frameworks,42,MMR top-5,0.4,False
+q5_insulating_frameworks,42,ParetoCrowding,0.6,False
+q5_insulating_frameworks,42,Proxy A only,0.4,False
+q5_insulating_frameworks,42,Proxy S only,0.6,False
+q5_insulating_frameworks,42,Random,0.0,False
+q5_insulating_frameworks,42,SemanticOnly,0.0,False
+q5_insulating_frameworks,42,TOPSIS,1.0,True
+q5_insulating_frameworks,42,WeightedSum,1.0,True
+q5_insulating_frameworks,43,LEA,0.4,False
+q5_insulating_frameworks,43,LEA + proxy A,0.4,False
+q5_insulating_frameworks,43,LEA + proxy S,0.6,False
+q5_insulating_frameworks,43,LEA gamma=0 only,0.4,False
+q5_insulating_frameworks,43,LEA no self-cleaning,0.4,False
+q5_insulating_frameworks,43,LEA true no diversity,0.4,False
+q5_insulating_frameworks,43,MMR top-5,0.4,False
+q5_insulating_frameworks,43,ParetoCrowding,0.6,False
+q5_insulating_frameworks,43,Proxy A only,0.4,False
+q5_insulating_frameworks,43,Proxy S only,0.6,False
+q5_insulating_frameworks,43,Random,0.0,False
+q5_insulating_frameworks,43,SemanticOnly,0.0,False
+q5_insulating_frameworks,43,TOPSIS,1.0,True
+q5_insulating_frameworks,43,WeightedSum,1.0,True
+q5_insulating_frameworks,44,LEA,0.6,False
+q5_insulating_frameworks,44,LEA + proxy A,0.4,False
+q5_insulating_frameworks,44,LEA + proxy S,0.6,False
+q5_insulating_frameworks,44,LEA gamma=0 only,0.6,False
+q5_insulating_frameworks,44,LEA no self-cleaning,0.6,False
+q5_insulating_frameworks,44,LEA true no diversity,0.4,False
+q5_insulating_frameworks,44,MMR top-5,0.6,False
+q5_insulating_frameworks,44,ParetoCrowding,0.6,False
+q5_insulating_frameworks,44,Proxy A only,0.4,False
+q5_insulating_frameworks,44,Proxy S only,0.6,False
+q5_insulating_frameworks,44,Random,0.0,False
+q5_insulating_frameworks,44,SemanticOnly,0.0,False
+q5_insulating_frameworks,44,TOPSIS,1.0,True
+q5_insulating_frameworks,44,WeightedSum,1.0,True
+q5_insulating_frameworks,45,LEA,0.6,False
+q5_insulating_frameworks,45,LEA + proxy A,0.4,False
+q5_insulating_frameworks,45,LEA + proxy S,0.6,False
+q5_insulating_frameworks,45,LEA gamma=0 only,0.6,False
+q5_insulating_frameworks,45,LEA no self-cleaning,0.6,False
+q5_insulating_frameworks,45,LEA true no diversity,0.4,False
+q5_insulating_frameworks,45,MMR top-5,0.4,False
+q5_insulating_frameworks,45,ParetoCrowding,0.6,False
+q5_insulating_frameworks,45,Proxy A only,0.4,False
+q5_insulating_frameworks,45,Proxy S only,0.6,False
+q5_insulating_frameworks,45,Random,0.0,False
+q5_insulating_frameworks,45,SemanticOnly,0.0,False
+q5_insulating_frameworks,45,TOPSIS,1.0,True
+q5_insulating_frameworks,45,WeightedSum,1.0,True
+q5_insulating_frameworks,46,LEA,0.4,False
+q5_insulating_frameworks,46,LEA + proxy A,0.4,False
+q5_insulating_frameworks,46,LEA + proxy S,0.6,False
+q5_insulating_frameworks,46,LEA gamma=0 only,0.4,False
+q5_insulating_frameworks,46,LEA no self-cleaning,0.4,False
+q5_insulating_frameworks,46,LEA true no diversity,0.6,False
+q5_insulating_frameworks,46,MMR top-5,0.4,False
+q5_insulating_frameworks,46,ParetoCrowding,0.6,False
+q5_insulating_frameworks,46,Proxy A only,0.4,False
+q5_insulating_frameworks,46,Proxy S only,0.6,False
+q5_insulating_frameworks,46,Random,0.0,False
+q5_insulating_frameworks,46,SemanticOnly,0.0,False
+q5_insulating_frameworks,46,TOPSIS,1.0,True
+q5_insulating_frameworks,46,WeightedSum,1.0,True
+q5_insulating_frameworks,47,LEA,0.6,False
+q5_insulating_frameworks,47,LEA + proxy A,0.4,False
+q5_insulating_frameworks,47,LEA + proxy S,0.6,False
+q5_insulating_frameworks,47,LEA gamma=0 only,0.6,False
+q5_insulating_frameworks,47,LEA no self-cleaning,0.6,False
+q5_insulating_frameworks,47,LEA true no diversity,0.4,False
+q5_insulating_frameworks,47,MMR top-5,0.4,False
+q5_insulating_frameworks,47,ParetoCrowding,0.6,False
+q5_insulating_frameworks,47,Proxy A only,0.4,False
+q5_insulating_frameworks,47,Proxy S only,0.6,False
+q5_insulating_frameworks,47,Random,0.0,False
+q5_insulating_frameworks,47,SemanticOnly,0.0,False
+q5_insulating_frameworks,47,TOPSIS,1.0,True
+q5_insulating_frameworks,47,WeightedSum,1.0,True
+q5_insulating_frameworks,48,LEA,0.4,False
+q5_insulating_frameworks,48,LEA + proxy A,0.4,False
+q5_insulating_frameworks,48,LEA + proxy S,0.6,False
+q5_insulating_frameworks,48,LEA gamma=0 only,0.4,False
+q5_insulating_frameworks,48,LEA no self-cleaning,0.4,False
+q5_insulating_frameworks,48,LEA true no diversity,0.4,False
+q5_insulating_frameworks,48,MMR top-5,0.4,False
+q5_insulating_frameworks,48,ParetoCrowding,0.6,False
+q5_insulating_frameworks,48,Proxy A only,0.4,False
+q5_insulating_frameworks,48,Proxy S only,0.6,False
+q5_insulating_frameworks,48,Random,0.0,False
+q5_insulating_frameworks,48,SemanticOnly,0.0,False
+q5_insulating_frameworks,48,TOPSIS,1.0,True
+q5_insulating_frameworks,48,WeightedSum,1.0,True
+q5_insulating_frameworks,49,LEA,0.4,False
+q5_insulating_frameworks,49,LEA + proxy A,0.4,False
+q5_insulating_frameworks,49,LEA + proxy S,0.6,False
+q5_insulating_frameworks,49,LEA gamma=0 only,0.4,False
+q5_insulating_frameworks,49,LEA no self-cleaning,0.4,False
+q5_insulating_frameworks,49,LEA true no diversity,0.4,False
+q5_insulating_frameworks,49,MMR top-5,0.2,False
+q5_insulating_frameworks,49,ParetoCrowding,0.6,False
+q5_insulating_frameworks,49,Proxy A only,0.4,False
+q5_insulating_frameworks,49,Proxy S only,0.6,False
+q5_insulating_frameworks,49,Random,0.0,False
+q5_insulating_frameworks,49,SemanticOnly,0.0,False
+q5_insulating_frameworks,49,TOPSIS,1.0,True
+q5_insulating_frameworks,49,WeightedSum,1.0,True
+q5_insulating_frameworks,50,LEA,0.6,False
+q5_insulating_frameworks,50,LEA + proxy A,0.4,False
+q5_insulating_frameworks,50,LEA + proxy S,0.6,False
+q5_insulating_frameworks,50,LEA gamma=0 only,0.6,False
+q5_insulating_frameworks,50,LEA no self-cleaning,0.6,False
+q5_insulating_frameworks,50,LEA true no diversity,0.2,False
+q5_insulating_frameworks,50,MMR top-5,0.4,False
+q5_insulating_frameworks,50,ParetoCrowding,0.6,False
+q5_insulating_frameworks,50,Proxy A only,0.4,False
+q5_insulating_frameworks,50,Proxy S only,0.6,False
+q5_insulating_frameworks,50,Random,0.4,False
+q5_insulating_frameworks,50,SemanticOnly,0.0,False
+q5_insulating_frameworks,50,TOPSIS,1.0,True
+q5_insulating_frameworks,50,WeightedSum,1.0,True
+q5_insulating_frameworks,51,LEA,0.4,False
+q5_insulating_frameworks,51,LEA + proxy A,0.4,False
+q5_insulating_frameworks,51,LEA + proxy S,0.6,False
+q5_insulating_frameworks,51,LEA gamma=0 only,0.4,False
+q5_insulating_frameworks,51,LEA no self-cleaning,0.4,False
+q5_insulating_frameworks,51,LEA true no diversity,0.4,False
+q5_insulating_frameworks,51,MMR top-5,0.4,False
+q5_insulating_frameworks,51,ParetoCrowding,0.6,False
+q5_insulating_frameworks,51,Proxy A only,0.4,False
+q5_insulating_frameworks,51,Proxy S only,0.6,False
+q5_insulating_frameworks,51,Random,0.0,False
+q5_insulating_frameworks,51,SemanticOnly,0.0,False
+q5_insulating_frameworks,51,TOPSIS,1.0,True
+q5_insulating_frameworks,51,WeightedSum,1.0,True

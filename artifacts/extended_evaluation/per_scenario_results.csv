@@ -1,0 +1,511 @@
+query_id,query,method,metric,mean,sd,min,max,n
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,DE portfolio,rel_at_5,0.7598756790987566,0.0,0.7598756790987566,0.7598756790987566,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,DE portfolio,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,DE portfolio,diversity,0.03492164394966107,0.0014228745908803485,0.031639594581149386,0.03622167655803544,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,DE portfolio,unique_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,DE portfolio,runtime_ms,65.54522920000025,0.4942771108576599,64.66941600000098,66.17387500000405,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,DE portfolio,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA,rel_at_5,0.7598756790987566,0.0,0.7598756790987566,0.7598756790987566,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA,diversity,0.028806257752983795,0.0025725606128370595,0.025076174461317748,0.03414729069233199,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA,unique_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA,runtime_ms,83.47836240000106,1.2773748003925165,81.92379200001199,85.84858300000064,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA + proxy A,rel_at_5,0.7598756790987566,0.0,0.7598756790987566,0.7598756790987566,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA + proxy A,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA + proxy A,diversity,0.01725214311293959,0.0036024135079874148,0.011330574099422055,0.023661836279131487,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA + proxy A,unique_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA + proxy A,runtime_ms,81.8313998999983,1.0276667629201939,80.86362500000632,84.13166599999045,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA + proxy A,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA + proxy S,rel_at_5,0.7598756790987566,0.0,0.7598756790987566,0.7598756790987566,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA + proxy S,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA + proxy S,diversity,0.022085695606417207,0.0037479513384926976,0.013684802221020554,0.02646211027282188,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA + proxy S,unique_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA + proxy S,runtime_ms,82.71230840000214,1.7756754041835434,81.19295800000259,87.07695799999726,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA + proxy S,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA gamma=0 only,rel_at_5,0.7598756790987566,0.0,0.7598756790987566,0.7598756790987566,20
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA gamma=0 only,ndcg_at_5,1.0,0.0,1.0,1.0,20
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA gamma=0 only,diversity,0.0288062577529838,0.0025039466313567195,0.025076174461317748,0.03414729069233199,20
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA gamma=0 only,unique_at_5,1.0,0.0,1.0,1.0,20
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA gamma=0 only,runtime_ms,81.5531708499991,1.4500206068352406,79.95029200000303,86.29091599999583,20
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA gamma=0 only,missing_band_gap_top5,0.0,0.0,0.0,0.0,20
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA no self-cleaning,rel_at_5,0.7598756790987566,0.0,0.7598756790987566,0.7598756790987566,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA no self-cleaning,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA no self-cleaning,diversity,0.028806257752983795,0.0025725606128370595,0.025076174461317748,0.03414729069233199,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA no self-cleaning,unique_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA no self-cleaning,runtime_ms,83.91243340000045,4.716028696896885,81.49583399999472,96.72308300000054,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA no self-cleaning,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA true no diversity,rel_at_5,0.7598756790987566,0.0,0.7598756790987566,0.7598756790987566,20
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA true no diversity,ndcg_at_5,1.0,0.0,1.0,1.0,20
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA true no diversity,diversity,0.016361523172691555,0.003089681580124476,0.012481417951076122,0.021455374707666695,20
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA true no diversity,unique_at_5,1.0,0.0,1.0,1.0,20
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA true no diversity,runtime_ms,82.68737085000011,2.542149305808866,80.04162499999978,90.02183399999808,20
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA true no diversity,missing_band_gap_top5,0.0,0.0,0.0,0.0,20
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA uniform candidate pool,rel_at_5,0.8315244733505134,0.0048299144274781824,0.8292334437763325,0.8406885916472369,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA uniform candidate pool,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA uniform candidate pool,diversity,0.02554265018171571,0.002585757362271144,0.020865845911367774,0.029568891905019434,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA uniform candidate pool,unique_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA uniform candidate pool,runtime_ms,81.52038330000089,0.8749105078725611,80.7347500000013,83.369624999996,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,LEA uniform candidate pool,missing_band_gap_top5,5.0,0.0,5.0,5.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,MMR top-5,rel_at_5,0.7598756790987566,0.0,0.7598756790987566,0.7598756790987566,20
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,MMR top-5,ndcg_at_5,1.0,0.0,1.0,1.0,20
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,MMR top-5,diversity,0.03330849004557753,0.0010264148816338868,0.031194135291421093,0.034798660807358404,20
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,MMR top-5,unique_at_5,1.0,0.0,1.0,1.0,20
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,MMR top-5,runtime_ms,12.219637599999134,0.2667970878599229,11.857709000000938,13.040500000002453,20
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,MMR top-5,missing_band_gap_top5,0.0,0.0,0.0,0.0,20
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,ParetoCrowding,rel_at_5,0.7598756790987566,0.0,0.7598756790987566,0.7598756790987566,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,ParetoCrowding,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,ParetoCrowding,diversity,0.029678773900061434,0.0008368277218866171,0.027297120450762952,0.0299434020610946,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,ParetoCrowding,unique_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,ParetoCrowding,runtime_ms,212.4729000000002,3.702369580730061,204.58175000000267,219.1879169999993,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,ParetoCrowding,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,Proxy A only,rel_at_5,0.7598756790987566,0.0,0.7598756790987566,0.7598756790987566,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,Proxy A only,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,Proxy A only,diversity,0.017929024901184868,0.0,0.017929024901184868,0.017929024901184868,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,Proxy A only,unique_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,Proxy A only,runtime_ms,0.0364748999984954,0.0016302808523143552,0.03474999999752981,0.03929100000732433,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,Proxy A only,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,Proxy S only,rel_at_5,0.7598756790987566,0.0,0.7598756790987566,0.7598756790987566,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,Proxy S only,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,Proxy S only,diversity,0.022151221668967557,3.657118196434064e-18,0.02215122166896756,0.02215122166896756,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,Proxy S only,unique_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,Proxy S only,runtime_ms,0.03914569999921014,0.0018474743121287781,0.036832999995795035,0.04237499999248939,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,Proxy S only,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,Random,rel_at_5,0.737653901276539,0.022763852061335795,0.6858030863580307,0.7598756790987566,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,Random,ndcg_at_5,0.9643954326296826,0.03766622608964326,0.8739261029635533,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,Random,diversity,0.018895119075593273,0.004277031109997519,0.013000376593490173,0.026630383040872896,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,Random,unique_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,Random,runtime_ms,0.052587499999390275,0.005741737837401908,0.045666999994864454,0.062374999998837666,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,Random,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,SemanticOnly,rel_at_5,0.7265430123654301,0.011711905262737427,0.7043212345432123,0.7413575309135754,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,SemanticOnly,ndcg_at_5,0.939455346402624,0.018895647129399232,0.9227633232278667,0.9800805165128221,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,SemanticOnly,diversity,0.022751332999128796,0.0035465957919062516,0.015514988750621822,0.028188043115413085,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,SemanticOnly,unique_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,SemanticOnly,runtime_ms,0.03105830000009746,0.0016552017033379441,0.02824999999972988,0.03366600000731523,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,SemanticOnly,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,TOPSIS,rel_at_5,0.7598756790987566,0.0,0.7598756790987566,0.7598756790987566,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,TOPSIS,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,TOPSIS,diversity,0.016303138590087134,0.0,0.016303138590087134,0.016303138590087134,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,TOPSIS,unique_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,TOPSIS,runtime_ms,1.0097708000017747,0.06088803729645518,0.9730419999982587,1.1613340000025119,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,TOPSIS,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,WeightedSum,rel_at_5,0.7598756790987566,0.0,0.7598756790987566,0.7598756790987566,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,WeightedSum,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,WeightedSum,diversity,0.016303138590087134,0.0,0.016303138590087134,0.016303138590087134,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,WeightedSum,unique_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,WeightedSum,runtime_ms,0.04688740000204916,0.0028025771976174715,0.04466699999738921,0.054208000008770796,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,WeightedSum,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,WeightedSum zero-imputation diagnostic,rel_at_5,0.7598756790987566,0.0,0.7598756790987566,0.7598756790987566,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,WeightedSum zero-imputation diagnostic,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,WeightedSum zero-imputation diagnostic,diversity,0.016303138590087134,0.0,0.016303138590087134,0.016303138590087134,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,WeightedSum zero-imputation diagnostic,unique_at_5,1.0,0.0,1.0,1.0,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,WeightedSum zero-imputation diagnostic,runtime_ms,0.0677374999999536,0.009488664011396647,0.04112500000008623,0.07374999999854026,10
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,WeightedSum zero-imputation diagnostic,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,DE portfolio,rel_at_5,0.8751666666666666,0.0,0.8751666666666666,0.8751666666666666,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,DE portfolio,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,DE portfolio,diversity,0.014997367011425126,0.0,0.014997367011425126,0.014997367011425126,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,DE portfolio,unique_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,DE portfolio,runtime_ms,67.90836670000076,2.88301697363307,65.58383300000514,74.46837499999504,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,DE portfolio,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA,rel_at_5,0.8751666666666666,0.0,0.8751666666666666,0.8751666666666666,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA,diversity,0.014997367011425126,1.635512977795599e-18,0.014997367011425126,0.014997367011425128,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA,unique_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA,runtime_ms,81.04707489999896,1.1175743367123858,79.88204099999052,82.74795799999879,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA + proxy A,rel_at_5,0.8751666666666666,0.0,0.8751666666666666,0.8751666666666666,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA + proxy A,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA + proxy A,diversity,0.014997367011425126,0.0,0.014997367011425126,0.014997367011425126,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA + proxy A,unique_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA + proxy A,runtime_ms,81.61723739999616,2.989939447825052,79.42241700000352,89.30695799999455,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA + proxy A,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA + proxy S,rel_at_5,0.8751666666666666,0.0,0.8751666666666666,0.8751666666666666,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA + proxy S,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA + proxy S,diversity,0.014997367011425128,0.0,0.014997367011425128,0.014997367011425128,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA + proxy S,unique_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA + proxy S,runtime_ms,80.76792920000031,0.8623325629834753,79.58779099999447,81.94700000001376,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA + proxy S,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA gamma=0 only,rel_at_5,0.8751666666666665,1.1390647892519134e-16,0.8751666666666666,0.8751666666666666,20
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA gamma=0 only,ndcg_at_5,1.0,0.0,1.0,1.0,20
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA gamma=0 only,diversity,0.014997367011425126,1.5918914372148441e-18,0.014997367011425126,0.014997367011425128,20
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA gamma=0 only,unique_at_5,1.0,0.0,1.0,1.0,20
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA gamma=0 only,runtime_ms,81.45273950000096,2.026534326007397,79.46037499999647,87.67199999999775,20
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA gamma=0 only,missing_band_gap_top5,0.0,0.0,0.0,0.0,20
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA no self-cleaning,rel_at_5,0.8751666666666666,0.0,0.8751666666666666,0.8751666666666666,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA no self-cleaning,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA no self-cleaning,diversity,0.014997367011425126,1.635512977795599e-18,0.014997367011425126,0.014997367011425128,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA no self-cleaning,unique_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA no self-cleaning,runtime_ms,80.8958706999988,0.8494505607465161,79.96783299999777,82.27195799999265,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA no self-cleaning,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA true no diversity,rel_at_5,0.8751666666666665,1.1390647892519134e-16,0.8751666666666666,0.8751666666666666,20
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA true no diversity,ndcg_at_5,1.0,0.0,1.0,1.0,20
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA true no diversity,diversity,0.014997367011425126,1.4890780887492768e-18,0.014997367011425126,0.014997367011425128,20
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA true no diversity,unique_at_5,1.0,0.0,1.0,1.0,20
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA true no diversity,runtime_ms,82.81695635000297,5.6831238593982825,79.74266700000499,104.46537500000375,20
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA true no diversity,missing_band_gap_top5,0.0,0.0,0.0,0.0,20
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA uniform candidate pool,rel_at_5,0.7480711111111111,0.0017708754896943082,0.7447111111111111,0.7503111111111112,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA uniform candidate pool,ndcg_at_5,0.9904752205996159,0.0037508773627352196,0.9832005155926714,0.995205461482625,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA uniform candidate pool,diversity,0.030923159261343695,0.004972564485488156,0.025928824168418317,0.04153528436878484,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA uniform candidate pool,unique_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA uniform candidate pool,runtime_ms,82.8896083999986,2.127373536205639,80.8404159999867,87.54145900000765,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,LEA uniform candidate pool,missing_band_gap_top5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,MMR top-5,rel_at_5,0.8751666666666665,1.1390647892519134e-16,0.8751666666666666,0.8751666666666666,20
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,MMR top-5,ndcg_at_5,1.0,0.0,1.0,1.0,20
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,MMR top-5,diversity,0.014997367011425126,1.3786184246949757e-18,0.014997367011425126,0.014997367011425128,20
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,MMR top-5,unique_at_5,1.0,0.0,1.0,1.0,20
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,MMR top-5,runtime_ms,12.211964649999985,0.28934280635409043,11.970375000004196,13.187041999998428,20
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,MMR top-5,missing_band_gap_top5,0.0,0.0,0.0,0.0,20
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,ParetoCrowding,rel_at_5,0.8751666666666666,0.0,0.8751666666666666,0.8751666666666666,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,ParetoCrowding,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,ParetoCrowding,diversity,0.014997367011425126,0.0,0.014997367011425126,0.014997367011425126,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,ParetoCrowding,unique_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,ParetoCrowding,runtime_ms,212.58594999999613,3.754499549100452,208.2213749999937,220.3198329999907,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,ParetoCrowding,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,Proxy A only,rel_at_5,0.8751666666666666,0.0,0.8751666666666666,0.8751666666666666,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,Proxy A only,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,Proxy A only,diversity,0.014997367011425126,0.0,0.014997367011425126,0.014997367011425126,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,Proxy A only,unique_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,Proxy A only,runtime_ms,0.0357834000013213,0.0006261938293627114,0.03512499999658303,0.03733399999816811,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,Proxy A only,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,Proxy S only,rel_at_5,0.8751666666666666,0.0,0.8751666666666666,0.8751666666666666,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,Proxy S only,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,Proxy S only,diversity,0.014997367011425128,0.0,0.014997367011425128,0.014997367011425128,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,Proxy S only,unique_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,Proxy S only,runtime_ms,0.04073299999873825,0.0041452438343943885,0.03741700000148285,0.047291000001337125,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,Proxy S only,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,Random,rel_at_5,0.7623666666666666,0.011593101396951525,0.7551666666666667,0.7791666666666667,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,Random,ndcg_at_5,0.8328746846855022,0.014029603245379066,0.8245146242108996,0.8620660842915441,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,Random,diversity,0.02322433146068547,0.006097770347531045,0.015891397357165778,0.03259677780540204,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,Random,unique_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,Random,runtime_ms,0.04980009999684398,0.004759282494845151,0.04491699999675802,0.05812499999535703,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,Random,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,SemanticOnly,rel_at_5,0.7551666666666667,0.0,0.7551666666666667,0.7551666666666667,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,SemanticOnly,ndcg_at_5,0.8245146242108996,0.0,0.8245146242108996,0.8245146242108996,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,SemanticOnly,diversity,0.021302252183478226,0.004910473946051493,0.013310083824448319,0.02620161963639057,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,SemanticOnly,unique_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,SemanticOnly,runtime_ms,0.03159979999765028,0.0024227932835042786,0.028624999998783096,0.03679099999942537,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,SemanticOnly,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,TOPSIS,rel_at_5,0.8751666666666666,0.0,0.8751666666666666,0.8751666666666666,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,TOPSIS,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,TOPSIS,diversity,0.014997367011425126,0.0,0.014997367011425126,0.014997367011425126,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,TOPSIS,unique_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,TOPSIS,runtime_ms,1.0049375999983567,0.05064791574927041,0.9506659999942713,1.1123339999983273,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,TOPSIS,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,WeightedSum,rel_at_5,0.8751666666666666,0.0,0.8751666666666666,0.8751666666666666,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,WeightedSum,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,WeightedSum,diversity,0.014997367011425126,0.0,0.014997367011425126,0.014997367011425126,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,WeightedSum,unique_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,WeightedSum,runtime_ms,0.04957920000094873,0.0037884173716487136,0.0458749999978636,0.05645800000309009,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,WeightedSum,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,WeightedSum zero-imputation diagnostic,rel_at_5,0.8751666666666666,0.0,0.8751666666666666,0.8751666666666666,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,WeightedSum zero-imputation diagnostic,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,WeightedSum zero-imputation diagnostic,diversity,0.014997367011425126,0.0,0.014997367011425126,0.014997367011425126,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,WeightedSum zero-imputation diagnostic,unique_at_5,1.0,0.0,1.0,1.0,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,WeightedSum zero-imputation diagnostic,runtime_ms,0.0874458000005518,0.004569801572660865,0.08016700000013088,0.0972920000066324,10
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,WeightedSum zero-imputation diagnostic,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,DE portfolio,rel_at_5,0.9173960253168174,0.0,0.9173960253168174,0.9173960253168174,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,DE portfolio,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,DE portfolio,diversity,0.01941366715756363,0.0010902448737992278,0.017796212471053483,0.020954158886591603,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,DE portfolio,unique_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,DE portfolio,runtime_ms,70.11038329999622,8.569965614598042,65.48004199999014,93.97141599998804,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,DE portfolio,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA,rel_at_5,0.9173960253168174,0.0,0.9173960253168174,0.9173960253168174,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA,diversity,0.01925188458392926,0.0022115825025104544,0.013331551056953194,0.0209541588865916,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA,unique_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA,runtime_ms,81.87930840000064,1.1291504606117053,80.46758300000079,83.84387500001367,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA + proxy A,rel_at_5,0.9173960253168174,0.0,0.9173960253168174,0.9173960253168174,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA + proxy A,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA + proxy A,diversity,0.013331551056953198,0.0,0.013331551056953198,0.013331551056953198,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA + proxy A,unique_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA + proxy A,runtime_ms,81.12461260000572,1.3032311353899375,78.85962500000687,83.57800000000282,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA + proxy A,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA + proxy S,rel_at_5,0.9173960253168174,0.0,0.9173960253168174,0.9173960253168174,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA + proxy S,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA + proxy S,diversity,0.019313080599108072,0.0,0.019313080599108072,0.019313080599108072,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA + proxy S,unique_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA + proxy S,runtime_ms,81.03974580000113,1.0855006044576665,78.36883400000261,82.094749999996,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA + proxy S,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA gamma=0 only,rel_at_5,0.9173960253168175,1.1390647892519134e-16,0.9173960253168174,0.9173960253168174,20
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA gamma=0 only,ndcg_at_5,1.0,0.0,1.0,1.0,20
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA gamma=0 only,diversity,0.01925188458392926,0.002152596339031045,0.013331551056953194,0.0209541588865916,20
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA gamma=0 only,unique_at_5,1.0,0.0,1.0,1.0,20
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA gamma=0 only,runtime_ms,82.90133744999935,2.3264265500899826,79.86654100000123,88.37741600000015,20
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA gamma=0 only,missing_band_gap_top5,0.0,0.0,0.0,0.0,20
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA no self-cleaning,rel_at_5,0.9173960253168174,0.0,0.9173960253168174,0.9173960253168174,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA no self-cleaning,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA no self-cleaning,diversity,0.01925188458392926,0.0022115825025104544,0.013331551056953194,0.0209541588865916,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA no self-cleaning,unique_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA no self-cleaning,runtime_ms,81.75964160000149,1.2733034750295424,79.29949999999053,84.11145799999531,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA no self-cleaning,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA true no diversity,rel_at_5,0.9173960253168175,1.1390647892519134e-16,0.9173960253168174,0.9173960253168174,20
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA true no diversity,ndcg_at_5,1.0,0.0,1.0,1.0,20
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA true no diversity,diversity,0.01842289076801735,0.001358248394635283,0.016176268607304978,0.0209541588865916,20
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA true no diversity,unique_at_5,1.0,0.0,1.0,1.0,20
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA true no diversity,runtime_ms,83.85237500000073,3.797591335896659,78.9948339999853,91.00808300000551,20
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA true no diversity,missing_band_gap_top5,0.0,0.0,0.0,0.0,20
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA uniform candidate pool,rel_at_5,0.894446371519854,0.0,0.894446371519854,0.894446371519854,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA uniform candidate pool,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA uniform candidate pool,diversity,0.025691746495750917,0.0036805481100936,0.017585771506499592,0.03083525865364194,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA uniform candidate pool,unique_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA uniform candidate pool,runtime_ms,84.51667490000006,2.858192262632036,81.4453330000049,88.56383400001278,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,LEA uniform candidate pool,missing_band_gap_top5,5.0,0.0,5.0,5.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,MMR top-5,rel_at_5,0.9173960253168175,1.1390647892519134e-16,0.9173960253168174,0.9173960253168174,20
+q3_lightweight_storage,lightweight gas storage MOFs with low density,MMR top-5,ndcg_at_5,1.0,0.0,1.0,1.0,20
+q3_lightweight_storage,lightweight gas storage MOFs with low density,MMR top-5,diversity,0.02036058934993764,0.0006090269791650972,0.019759415127024255,0.0209541588865916,20
+q3_lightweight_storage,lightweight gas storage MOFs with low density,MMR top-5,unique_at_5,1.0,0.0,1.0,1.0,20
+q3_lightweight_storage,lightweight gas storage MOFs with low density,MMR top-5,runtime_ms,12.321437549999104,0.3161422947746265,11.963708000010342,12.96949999999697,20
+q3_lightweight_storage,lightweight gas storage MOFs with low density,MMR top-5,missing_band_gap_top5,0.0,0.0,0.0,0.0,20
+q3_lightweight_storage,lightweight gas storage MOFs with low density,ParetoCrowding,rel_at_5,0.9013312676589431,0.003245571165143288,0.894446371519854,0.9036262330386394,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,ParetoCrowding,ndcg_at_5,0.9760821684140504,0.005496594746793378,0.9664603228683291,0.9850126768789257,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,ParetoCrowding,diversity,0.03780896357102709,0.00554136317286139,0.023640730360760087,0.04268834977031199,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,ParetoCrowding,unique_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,ParetoCrowding,runtime_ms,215.16753730000036,3.637389900317555,210.05908300000442,219.54266599999528,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,ParetoCrowding,missing_band_gap_top5,3.5,0.7071067811865476,3.0,5.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,Proxy A only,rel_at_5,0.9173960253168174,0.0,0.9173960253168174,0.9173960253168174,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,Proxy A only,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,Proxy A only,diversity,0.013331551056953198,0.0,0.013331551056953198,0.013331551056953198,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,Proxy A only,unique_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,Proxy A only,runtime_ms,0.037424999997881514,0.0023309902507104865,0.03529200000684796,0.040832999985696006,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,Proxy A only,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,Proxy S only,rel_at_5,0.9173960253168174,0.0,0.9173960253168174,0.9173960253168174,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,Proxy S only,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,Proxy S only,diversity,0.019313080599108072,0.0,0.019313080599108072,0.019313080599108072,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,Proxy S only,unique_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,Proxy S only,runtime_ms,0.03972930000202268,0.0034160289880942178,0.03612499999405827,0.047250000022813765,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,Proxy S only,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,Random,rel_at_5,0.8967413368995505,0.0032455711651432967,0.894446371519854,0.9036262330386393,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,Random,ndcg_at_5,0.9691956734569487,0.0038031484520497346,0.9664603228683291,0.9765485606965231,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,Random,diversity,0.02663809864665554,0.00536569009368893,0.01763391176296833,0.03453059464093088,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,Random,unique_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,Random,runtime_ms,0.0502166999993392,0.003754635744216088,0.04633300000023155,0.05649999999945976,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,Random,missing_band_gap_top5,4.5,0.7071067811865476,3.0,5.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,SemanticOnly,rel_at_5,0.894446371519854,0.0,0.894446371519854,0.894446371519854,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,SemanticOnly,ndcg_at_5,0.9664603228683291,0.0,0.9664603228683291,0.9664603228683291,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,SemanticOnly,diversity,0.025975520265157138,0.00322194840170591,0.02192313453995242,0.03035635896639318,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,SemanticOnly,unique_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,SemanticOnly,runtime_ms,0.031495700001471505,0.0019883316310529984,0.028708000002097833,0.03620900000100846,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,SemanticOnly,missing_band_gap_top5,5.0,0.0,5.0,5.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,TOPSIS,rel_at_5,0.9173960253168174,0.0,0.9173960253168174,0.9173960253168174,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,TOPSIS,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,TOPSIS,diversity,0.016496155656918622,3.657118196434064e-18,0.016496155656918626,0.016496155656918626,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,TOPSIS,unique_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,TOPSIS,runtime_ms,1.0093539999971313,0.02937788214367005,0.9827500000056943,1.0564170000009199,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,TOPSIS,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,WeightedSum,rel_at_5,0.9173960253168174,0.0,0.9173960253168174,0.9173960253168174,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,WeightedSum,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,WeightedSum,diversity,0.016496155656918622,3.657118196434064e-18,0.016496155656918626,0.016496155656918626,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,WeightedSum,unique_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,WeightedSum,runtime_ms,0.04814139999780309,0.0024234453077655056,0.0458749999978636,0.05237499999566353,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,WeightedSum,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,WeightedSum zero-imputation diagnostic,rel_at_5,0.9173960253168174,0.0,0.9173960253168174,0.9173960253168174,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,WeightedSum zero-imputation diagnostic,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,WeightedSum zero-imputation diagnostic,diversity,0.016496155656918622,3.657118196434064e-18,0.016496155656918626,0.016496155656918626,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,WeightedSum zero-imputation diagnostic,unique_at_5,1.0,0.0,1.0,1.0,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,WeightedSum zero-imputation diagnostic,runtime_ms,0.16242079999813086,0.14634536564977987,0.08512499999824286,0.5382079999947109,10
+q3_lightweight_storage,lightweight gas storage MOFs with low density,WeightedSum zero-imputation diagnostic,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,DE portfolio,rel_at_5,0.897905,0.0,0.897905,0.897905,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,DE portfolio,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,DE portfolio,diversity,0.01985525013303446,0.00122386149290229,0.01838042849497171,0.020954158886591603,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,DE portfolio,unique_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,DE portfolio,runtime_ms,67.41195419999855,2.337783639859526,65.08708299998034,71.63887499999078,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,DE portfolio,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA,rel_at_5,0.897905,0.0,0.897905,0.897905,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA,diversity,0.01937214253584076,0.001021407669442012,0.016496155656918633,0.019778426842672857,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA,unique_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA,runtime_ms,82.23417510000672,1.7688423379545721,80.81612500001256,86.7953340000156,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA + proxy A,rel_at_5,0.897905,0.0,0.897905,0.897905,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA + proxy A,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA + proxy A,diversity,0.013331551056953198,0.0,0.013331551056953198,0.013331551056953198,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA + proxy A,unique_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA + proxy A,runtime_ms,81.69116240000278,3.8673574773223915,79.16666700000974,92.53645800001209,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA + proxy A,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA + proxy S,rel_at_5,0.897905,0.0,0.897905,0.897905,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA + proxy S,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA + proxy S,diversity,0.019313080599108072,0.0,0.019313080599108072,0.019313080599108072,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA + proxy S,unique_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA + proxy S,runtime_ms,81.11727509999298,0.9537894836992034,79.51420899999562,82.30737499999918,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA + proxy S,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA gamma=0 only,rel_at_5,0.8979050000000001,1.1390647892519134e-16,0.897905,0.897905,20
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA gamma=0 only,ndcg_at_5,1.0,0.0,1.0,1.0,20
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA gamma=0 only,diversity,0.01937214253584076,0.00099416522214446,0.016496155656918633,0.019778426842672857,20
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA gamma=0 only,unique_at_5,1.0,0.0,1.0,1.0,20
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA gamma=0 only,runtime_ms,83.09189165000106,2.915574959404853,80.15574999998876,91.26125000000229,20
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA gamma=0 only,missing_band_gap_top5,0.0,0.0,0.0,0.0,20
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA no self-cleaning,rel_at_5,0.897905,0.0,0.897905,0.897905,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA no self-cleaning,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA no self-cleaning,diversity,0.01937214253584076,0.001021407669442012,0.016496155656918633,0.019778426842672857,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA no self-cleaning,unique_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA no self-cleaning,runtime_ms,81.76229150000154,0.7974585232010504,80.94033300000092,83.33008299999278,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA no self-cleaning,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA true no diversity,rel_at_5,0.8979050000000001,1.1390647892519134e-16,0.897905,0.897905,20
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA true no diversity,ndcg_at_5,1.0,0.0,1.0,1.0,20
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA true no diversity,diversity,0.01842289076801735,0.001358248394635283,0.016176268607304978,0.0209541588865916,20
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA true no diversity,unique_at_5,1.0,0.0,1.0,1.0,20
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA true no diversity,runtime_ms,83.79127495000063,4.276283737176865,80.83837500001323,100.43979100001366,20
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA true no diversity,missing_band_gap_top5,0.0,0.0,0.0,0.0,20
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA uniform candidate pool,rel_at_5,0.834198560060629,0.0,0.834198560060629,0.834198560060629,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA uniform candidate pool,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA uniform candidate pool,diversity,0.024831990562127697,0.00333361165977231,0.017585771506499596,0.029568891905019434,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA uniform candidate pool,unique_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA uniform candidate pool,runtime_ms,83.23825419999622,2.1026465515179757,81.21579199999474,86.64537499998914,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,LEA uniform candidate pool,missing_band_gap_top5,5.0,0.0,5.0,5.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,MMR top-5,rel_at_5,0.8979050000000001,1.1390647892519134e-16,0.897905,0.897905,20
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,MMR top-5,ndcg_at_5,1.0,0.0,1.0,1.0,20
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,MMR top-5,diversity,0.02036058934993764,0.0006090269791650972,0.019759415127024255,0.0209541588865916,20
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,MMR top-5,unique_at_5,1.0,0.0,1.0,1.0,20
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,MMR top-5,runtime_ms,12.365204099995708,0.3477808559330457,11.954874999986487,13.341708000012886,20
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,MMR top-5,missing_band_gap_top5,0.0,0.0,0.0,0.0,20
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,ParetoCrowding,rel_at_5,0.897905,0.0,0.897905,0.897905,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,ParetoCrowding,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,ParetoCrowding,diversity,0.018478508590692534,3.657118196434064e-18,0.018478508590692538,0.018478508590692538,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,ParetoCrowding,unique_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,ParetoCrowding,runtime_ms,207.56912070000052,2.5577289830417196,203.84779100001538,210.3285000000028,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,ParetoCrowding,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,Proxy A only,rel_at_5,0.897905,0.0,0.897905,0.897905,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,Proxy A only,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,Proxy A only,diversity,0.013331551056953198,0.0,0.013331551056953198,0.013331551056953198,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,Proxy A only,unique_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,Proxy A only,runtime_ms,0.035429100000783365,0.0005065340759854796,0.03437499998426574,0.036249999993742676,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,Proxy A only,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,Proxy S only,rel_at_5,0.897905,0.0,0.897905,0.897905,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,Proxy S only,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,Proxy S only,diversity,0.019313080599108072,0.0,0.019313080599108072,0.019313080599108072,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,Proxy S only,unique_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,Proxy S only,runtime_ms,0.0399625000056858,0.003402233425681486,0.036250000022164386,0.04487500001459921,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,Proxy S only,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,Random,rel_at_5,0.7647390000000002,0.020095168684150063,0.747905,0.8079050000000001,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,Random,ndcg_at_5,0.8062364552585253,0.022914182441167896,0.7868720474725598,0.8509777770683453,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,Random,diversity,0.025589483398297565,0.004420372584130045,0.016812042470577875,0.029809431587675163,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,Random,unique_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,Random,runtime_ms,0.04977499999938573,0.003653665096774424,0.04454199998349395,0.05537499998808926,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,Random,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,SemanticOnly,rel_at_5,0.754822,0.014741626662843775,0.747905,0.7870750000000001,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,SemanticOnly,ndcg_at_5,0.7979619943690912,0.02673006299334953,0.7868720474725598,0.869808046906465,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,SemanticOnly,diversity,0.02499078713141007,0.005134136542615863,0.01998256850663508,0.03691783224118138,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,SemanticOnly,unique_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,SemanticOnly,runtime_ms,0.03242500000339987,0.003260279134012781,0.027999999986150215,0.037208000009059106,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,SemanticOnly,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,TOPSIS,rel_at_5,0.897905,0.0,0.897905,0.897905,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,TOPSIS,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,TOPSIS,diversity,0.016496155656918622,3.657118196434064e-18,0.016496155656918626,0.016496155656918626,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,TOPSIS,unique_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,TOPSIS,runtime_ms,1.00775409999585,0.046616445810186834,0.9599169999887636,1.1067909999837866,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,TOPSIS,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,WeightedSum,rel_at_5,0.897905,0.0,0.897905,0.897905,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,WeightedSum,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,WeightedSum,diversity,0.016496155656918622,3.657118196434064e-18,0.016496155656918626,0.016496155656918626,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,WeightedSum,unique_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,WeightedSum,runtime_ms,0.046741600004907013,0.00256269030961368,0.044457999990754615,0.05212499999629472,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,WeightedSum,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,WeightedSum zero-imputation diagnostic,rel_at_5,0.897905,0.0,0.897905,0.897905,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,WeightedSum zero-imputation diagnostic,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,WeightedSum zero-imputation diagnostic,diversity,0.016496155656918622,3.657118196434064e-18,0.016496155656918626,0.016496155656918626,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,WeightedSum zero-imputation diagnostic,unique_at_5,1.0,0.0,1.0,1.0,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,WeightedSum zero-imputation diagnostic,runtime_ms,0.1461497999940775,0.05922588684180308,0.08854199998609147,0.26437500000042746,10
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,WeightedSum zero-imputation diagnostic,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,DE portfolio,rel_at_5,0.78925,0.0,0.78925,0.78925,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,DE portfolio,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,DE portfolio,diversity,0.03172191956236787,0.0010660801090675931,0.029932551474619346,0.03307182696872194,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,DE portfolio,unique_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,DE portfolio,runtime_ms,66.95311649999383,1.6241157305940315,65.10108300000184,69.3153329999916,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,DE portfolio,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA,rel_at_5,0.78925,0.0,0.78925,0.78925,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA,diversity,0.02939530060063234,0.0014152461674230969,0.026795840553765292,0.03150325115467005,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA,unique_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA,runtime_ms,81.73862920000659,1.6233214617434635,79.97112500001435,84.57525000000032,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA + proxy A,rel_at_5,0.78925,0.0,0.78925,0.78925,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA + proxy A,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA + proxy A,diversity,0.020259211733426007,3.657118196434064e-18,0.020259211733426003,0.020259211733426003,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA + proxy A,unique_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA + proxy A,runtime_ms,85.33375000000092,18.5324289284672,78.79216699998892,138.04325000000972,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA + proxy A,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA + proxy S,rel_at_5,0.78925,0.0,0.78925,0.78925,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA + proxy S,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA + proxy S,diversity,0.026760381302712244,0.0,0.026760381302712244,0.026760381302712244,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA + proxy S,unique_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA + proxy S,runtime_ms,92.42797499999824,38.42550827568169,79.16216699999268,201.71083299999282,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA + proxy S,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA gamma=0 only,rel_at_5,0.7892499999999998,2.278129578503827e-16,0.78925,0.78925,20
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA gamma=0 only,ndcg_at_5,1.0,0.0,1.0,1.0,20
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA gamma=0 only,diversity,0.029395300600632335,0.001377499467175439,0.026795840553765292,0.03150325115467005,20
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA gamma=0 only,unique_at_5,1.0,0.0,1.0,1.0,20
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA gamma=0 only,runtime_ms,82.01628104999799,2.2793322605247974,79.3330420000018,88.49612500000603,20
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA gamma=0 only,missing_band_gap_top5,0.0,0.0,0.0,0.0,20
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA no self-cleaning,rel_at_5,0.78925,0.0,0.78925,0.78925,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA no self-cleaning,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA no self-cleaning,diversity,0.02939530060063234,0.0014152461674230969,0.026795840553765292,0.03150325115467005,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA no self-cleaning,unique_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA no self-cleaning,runtime_ms,80.94133319999628,1.7361261906008292,79.15237499997829,84.59150000001614,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA no self-cleaning,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA true no diversity,rel_at_5,0.7892499999999998,2.278129578503827e-16,0.78925,0.78925,20
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA true no diversity,ndcg_at_5,1.0,0.0,1.0,1.0,20
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA true no diversity,diversity,0.025084020516643917,0.001975059186926183,0.0222478686458542,0.028961781130744695,20
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA true no diversity,unique_at_5,1.0,0.0,1.0,1.0,20
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA true no diversity,runtime_ms,81.8931395000007,1.971646726664162,79.26645900002427,86.73824999999624,20
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA true no diversity,missing_band_gap_top5,0.0,0.0,0.0,0.0,20
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA uniform candidate pool,rel_at_5,0.7690000000000001,0.0,0.7690000000000001,0.7690000000000001,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA uniform candidate pool,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA uniform candidate pool,diversity,0.024909369448222685,0.0033323460015875234,0.017585771506499596,0.029568891905019434,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA uniform candidate pool,unique_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA uniform candidate pool,runtime_ms,83.1435708000015,2.0232994494544156,81.05199999999968,87.10949999999684,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,LEA uniform candidate pool,missing_band_gap_top5,5.0,0.0,5.0,5.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,MMR top-5,rel_at_5,0.7892499999999998,2.278129578503827e-16,0.78925,0.78925,20
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,MMR top-5,ndcg_at_5,1.0,0.0,1.0,1.0,20
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,MMR top-5,diversity,0.03155183749275299,0.001706415210146663,0.028120808573857882,0.03307182696872195,20
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,MMR top-5,unique_at_5,1.0,0.0,1.0,1.0,20
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,MMR top-5,runtime_ms,12.262714600002766,0.2919023126597578,11.938167000010935,12.86858299999949,20
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,MMR top-5,missing_band_gap_top5,0.0,0.0,0.0,0.0,20
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,ParetoCrowding,rel_at_5,0.78925,0.0,0.78925,0.78925,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,ParetoCrowding,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,ParetoCrowding,diversity,0.030312910698282437,0.0005521001997695169,0.02988525572245341,0.030954393162025973,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,ParetoCrowding,unique_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,ParetoCrowding,runtime_ms,210.86460829999965,2.6744321557241197,206.77120800002058,214.98016699999312,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,ParetoCrowding,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,Proxy A only,rel_at_5,0.78925,0.0,0.78925,0.78925,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,Proxy A only,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,Proxy A only,diversity,0.020259211733426007,3.657118196434064e-18,0.020259211733426003,0.020259211733426003,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,Proxy A only,unique_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,Proxy A only,runtime_ms,0.03595809999410449,0.0011446211878658418,0.035042000007479146,0.03895800000464078,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,Proxy A only,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,Proxy S only,rel_at_5,0.78925,0.0,0.78925,0.78925,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,Proxy S only,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,Proxy S only,diversity,0.026760381302712244,0.0,0.026760381302712244,0.026760381302712244,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,Proxy S only,unique_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,Proxy S only,runtime_ms,0.03794170000617214,0.0018134480976630743,0.03570800001284624,0.041334000002279936,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,Proxy S only,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,Random,rel_at_5,0.6860499999999999,0.016198765385053243,0.66925,0.7172499999999999,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,Random,ndcg_at_5,0.8320088594066191,0.020397538660162477,0.8105817734409172,0.8675559688400233,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,Random,diversity,0.02407243000616772,0.0061475609936783235,0.012086134279981085,0.03045663986885238,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,Random,unique_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,Random,runtime_ms,0.05186680000690558,0.006909436617767458,0.04454100002249106,0.06566700000121273,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,Random,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,SemanticOnly,rel_at_5,0.66925,0.0,0.66925,0.66925,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,SemanticOnly,ndcg_at_5,0.8105817734409172,0.0,0.8105817734409172,0.8105817734409172,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,SemanticOnly,diversity,0.024906607390067097,0.005434455495010923,0.018111213788820517,0.036129316120193634,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,SemanticOnly,unique_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,SemanticOnly,runtime_ms,0.03273769999623255,0.002136259659474726,0.030541999990418844,0.03629099998647689,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,SemanticOnly,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,TOPSIS,rel_at_5,0.78925,0.0,0.78925,0.78925,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,TOPSIS,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,TOPSIS,diversity,0.02926487577977203,0.0,0.02926487577977203,0.02926487577977203,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,TOPSIS,unique_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,TOPSIS,runtime_ms,0.9774582999966697,0.00797514155688083,0.965250000007245,0.9874159999867516,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,TOPSIS,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,WeightedSum,rel_at_5,0.78925,0.0,0.78925,0.78925,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,WeightedSum,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,WeightedSum,diversity,0.02926487577977203,0.0,0.02926487577977203,0.02926487577977203,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,WeightedSum,unique_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,WeightedSum,runtime_ms,0.04586250000215841,0.001905350082327736,0.04416699999865159,0.05104199999550474,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,WeightedSum,missing_band_gap_top5,0.0,0.0,0.0,0.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,WeightedSum zero-imputation diagnostic,rel_at_5,0.78925,0.0,0.78925,0.78925,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,WeightedSum zero-imputation diagnostic,ndcg_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,WeightedSum zero-imputation diagnostic,diversity,0.02926487577977203,0.0,0.02926487577977203,0.02926487577977203,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,WeightedSum zero-imputation diagnostic,unique_at_5,1.0,0.0,1.0,1.0,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,WeightedSum zero-imputation diagnostic,runtime_ms,0.11898740000333419,0.026901596935563345,0.09354200000188939,0.16041599999994105,10
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,WeightedSum zero-imputation diagnostic,missing_band_gap_top5,0.0,0.0,0.0,0.0,10

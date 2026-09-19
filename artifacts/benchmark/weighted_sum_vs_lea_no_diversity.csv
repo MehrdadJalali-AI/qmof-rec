@@ -1,0 +1,51 @@
+query_id,query,seed,same_topk_set,same_order,overlap,same_rel_at_5,same_ndcg_at_5,same_diversity,same_final_scores,weighted_sum_runtime_ms,lea_no_diversity_runtime_ms
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,42,False,False,0.0,True,True,False,False,0.04500000000007276,82.78937500000438
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,43,False,False,0.0,True,True,False,False,0.045958000001178334,88.57033299999273
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,44,False,False,0.0,True,True,False,False,0.04629100000386188,90.02183399999808
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,45,False,False,0.4,True,True,False,False,0.04579100000512426,82.74420800000826
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,46,False,False,0.0,True,True,False,False,0.04591700000844412,81.94304200000602
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,47,False,False,0.2,True,True,False,False,0.04608400000449819,81.83691700000395
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,48,False,False,0.2,True,True,False,False,0.04887500000450018,82.37774999999203
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,49,False,False,0.0,True,True,False,False,0.046082999986651885,81.94437500000618
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,50,False,False,0.2,True,True,False,False,0.054208000008770796,83.45345899999757
+q1_co2_adsorption,stable porous MOFs for CO2 adsorption,51,False,False,0.2,True,True,False,False,0.04466699999738921,81.69720799999425
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,42,True,False,1.0,True,True,True,False,0.0516249999975571,82.07041699999706
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,43,True,False,1.0,True,True,True,False,0.04841599999849677,80.29983400000162
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,44,True,False,1.0,True,True,True,False,0.04645900000355141,80.43887499999869
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,45,True,False,1.0,True,True,True,False,0.0458749999978636,82.00354200000959
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,46,True,False,1.0,True,True,True,False,0.04612499999723241,83.16591700000231
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,47,True,False,1.0,True,True,True,False,0.05099999999913507,79.74266700000499
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,48,True,False,1.0,True,True,True,False,0.055000000003246896,79.84362500000941
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,49,True,False,1.0,True,True,True,False,0.047125000008918505,80.78383300001235
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,50,True,False,1.0,True,True,True,False,0.04770900000039546,80.21600000000717
+q2_photocatalysis,photocatalytic MOFs with suitable band gaps,51,True,False,1.0,True,True,True,False,0.05645800000309009,80.86400000000538
+q3_lightweight_storage,lightweight gas storage MOFs with low density,42,False,False,0.8,True,True,False,False,0.0458749999978636,80.336458000005
+q3_lightweight_storage,lightweight gas storage MOFs with low density,43,False,False,0.6,True,True,False,False,0.046457999999915955,82.56595800000355
+q3_lightweight_storage,lightweight gas storage MOFs with low density,44,False,False,0.6,True,True,False,False,0.05158300000118743,81.34154199998989
+q3_lightweight_storage,lightweight gas storage MOFs with low density,45,False,False,0.6,True,True,False,False,0.05237499999566353,81.55975000001092
+q3_lightweight_storage,lightweight gas storage MOFs with low density,46,False,False,0.8,True,True,False,False,0.04683299999896917,81.89883299999678
+q3_lightweight_storage,lightweight gas storage MOFs with low density,47,False,False,0.8,True,True,False,False,0.047541000000705935,81.94399999999291
+q3_lightweight_storage,lightweight gas storage MOFs with low density,48,False,False,0.6,True,True,False,False,0.046040999990282216,82.79904200000487
+q3_lightweight_storage,lightweight gas storage MOFs with low density,49,False,False,0.8,True,True,False,False,0.04991599999470964,82.05437500001267
+q3_lightweight_storage,lightweight gas storage MOFs with low density,50,False,False,0.8,True,True,False,False,0.04887500000450018,78.9948339999853
+q3_lightweight_storage,lightweight gas storage MOFs with low density,51,False,False,0.8,True,True,False,False,0.045916999994233265,79.66249999998354
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,42,False,False,0.8,True,True,False,False,0.04450000000133514,82.11345800000913
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,43,False,False,0.6,True,True,False,False,0.046625000010180884,81.76612500000147
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,44,False,False,0.6,True,True,False,False,0.05212499999629472,80.92024999999126
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,45,False,False,0.6,True,True,False,False,0.044583999994074475,80.83837500001323
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,46,False,False,0.8,True,True,False,False,0.04612500001144326,82.96958299999346
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,47,False,False,0.8,True,True,False,False,0.04500000000007276,82.80641700000047
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,48,False,False,0.6,True,True,False,False,0.04583300000149393,87.1488749999969
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,49,False,False,0.8,True,True,False,False,0.049166000025024914,81.51408399999127
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,50,False,False,0.8,True,True,False,False,0.044457999990754615,82.42533400002117
+q4_balanced_discovery,balanced stable MOF candidates for general materials discovery,51,False,False,0.8,True,True,False,False,0.04900000001839544,100.43979100001366
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,42,False,False,0.6,True,True,False,False,0.04624999999691681,81.74437499999954
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,43,False,False,0.4,True,True,False,False,0.0450830000033875,84.44487500000264
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,44,False,False,0.4,True,True,False,False,0.04574999999817919,82.40366699999413
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,45,False,False,0.4,True,True,False,False,0.04562500001270564,80.01437499999042
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,46,False,False,0.6,True,True,False,False,0.04475000000070395,80.68779199999199
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,47,False,False,0.4,True,True,False,False,0.045209000006707356,79.26645900002427
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,48,False,False,0.4,True,True,False,False,0.05104199999550474,79.55358300000626
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,49,False,False,0.4,True,True,False,False,0.04416699999865159,83.55274999999551
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,50,False,False,0.2,True,True,False,False,0.04533300000275631,80.04895900000975
+q5_insulating_frameworks,wide band gap insulating MOFs with low density,51,False,False,0.4,True,True,False,False,0.045416000006071044,81.11358299998983

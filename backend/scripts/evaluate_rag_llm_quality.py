@@ -238,7 +238,7 @@ def run_single_query(
 
 def build_summary(df):
     """
-    Builds the manuscript-ready Table B: per-scenario and overall summary
+    Builds the per-scenario and overall evaluation summary.
     of the RAG/LLM evaluation results.
     """
 

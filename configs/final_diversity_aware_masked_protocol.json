@@ -17,9 +17,9 @@
     "element_count_scaled",
     "element_fraction_hetero"
   ],
-  "graph_features": [
-    "graphsage_proxy",
-    "gat_proxy"
+  "proxy_features": [
+    "proxy_s",
+    "proxy_a"
   ],
   "normalization": "full-catalog min-max for continuous physical descriptors; formula fractions are naturally normalized; graph proxies are clipped to [0,1]",
   "distance_metric": "masked root-mean-square Euclidean distance over jointly observed feature dimensions",
@@ -27,10 +27,10 @@
   "hybrid_weights": {
     "physical": 0.55,
     "formula": 0.3,
-    "graph": 0.15,
+    "proxy": 0.15,
     "semantic": 0.0
   },
-  "precision_policy": "full precision is used for ranking and distance calculations; rounding is used only for manuscript display",
+  "precision_policy": "full precision is used for ranking and distance calculations; rounding is used only for displayed summaries",
   "rounding_policy": "no rounding before distance calculation",
   "random_seeds": [
     42,
@@ -95,9 +95,9 @@
   "mmr_parameters": {
     "lambda_relevance": 0.7
   },
-  "graph_parameters": {
-    "graph_weight": 0.15,
-    "GraphSAGE": "formula-derived metadata graph proxy",
-    "GAT": "formula-derived metadata graph proxy"
+  "proxy_parameters": {
+    "proxy_weight": 0.15,
+    "proxy_s": "engineered metadata proxy derived from formula and density",
+    "proxy_a": "engineered metadata proxy derived from formula, density, and available band gap"
   }
 }
