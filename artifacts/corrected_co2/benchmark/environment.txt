@@ -1,0 +1,7 @@
+{
+  "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "git_commit": "9d685df34608d8e5eb18715ad1c08f9a074086d9",
+  "config": "configs/final_diversity_aware_masked_protocol.json",
+  "elapsed_seconds": 150.9597545
+}
