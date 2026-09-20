@@ -22,43 +22,50 @@ LEA uses population 30, 60 iterations, alpha 1.0, beta 0.1, gamma 0.1, redundanc
 PYTHONPATH=backend python3 -m pytest -q
 ```
 
-The focused tests cover missing-value masks, masked relevance and balance, active-objective remapping, hybrid-distance invariants, deterministic seeds, top-k uniqueness, MMR termination, LEA ablations, the DE portfolio, and sensitivity-grid dimensions.
+The focused tests cover missing-value masks, masked relevance and balance, active-objective remapping, hybrid-distance invariants, deterministic seeds, top-k uniqueness, MMR termination, LEA ablations, the DE portfolio, sensitivity-grid dimensions, and positive/negative exact-token tests for `CO2` versus cobalt formula `Co2`.
 
 ## Main benchmark
 
 ```bash
 python3 scripts/run_final_diversity_aware_masked_protocol.py \
-  --config configs/final_diversity_aware_masked_protocol.json
+  --config configs/final_diversity_aware_masked_protocol.json \
+  --output-dir artifacts/corrected_co2/benchmark \
+  --analysis-dir artifacts/corrected_co2/representation_analysis
 ```
 
-The command rewrites `artifacts/benchmark/`. The principal files are `aggregate_metrics.csv`, `metrics_per_query_seed.csv`, `query_stratified_results.csv`, and `rankings_all_topk.csv`.
+The command writes the isolated corrected benchmark. `artifacts/benchmark/` is the preserved historical run and is not overwritten. The principal corrected files are `aggregate_metrics.csv`, `metrics_per_query_seed.csv`, `query_stratified_results.csv`, and `rankings_all_topk.csv`.
 
 | Method | Rel@5 | Diversity | NDCG@5 |
 |---|---:|---:|---:|
-| WeightedSum | 0.8479 | 0.0187 | 1.0000 |
-| LEA | 0.8479 | 0.0224 | 1.0000 |
-| TOPSIS | 0.8479 | 0.0187 | 1.0000 |
-| ParetoCrowding | 0.8447 | 0.0263 | 0.9952 |
-| MMR top-5 | 0.8479 | 0.0241 | 1.0000 |
+| WeightedSum | 0.8655 | 0.0188 | 1.0000 |
+| LEA | 0.8655 | 0.0204 | 1.0000 |
+| TOPSIS | 0.8655 | 0.0188 | 1.0000 |
+| ParetoCrowding | 0.8623 | 0.0240 | 0.9952 |
+| MMR top-5 | 0.8655 | 0.0215 | 1.0000 |
 
 Runtime varies by machine and is recorded in milliseconds.
 
 ## Extended evaluation
 
 ```bash
-python3 scripts/run_extended_evaluation.py
+python3 scripts/run_extended_evaluation.py \
+  --benchmark-dir artifacts/corrected_co2/benchmark \
+  --output-root artifacts/corrected_co2 \
+  --skip-regression-gate
 ```
 
-This command checks the main benchmark at four-decimal precision, then runs the DE portfolio, ablations, descriptor checks, and runtime scaling. The DE baseline uses SciPy `differential_evolution` with `best1bin`, a 30-member explicit initial population, 59 generations, default mutation `(0.5, 1.0)`, crossover 0.7, `polish=False`, one worker, and a seed-controlled random-key encoding. Each decoded portfolio contains exactly five unique candidates.
+This command runs the DE portfolio, ablations, descriptor checks, sensitivity grid, and runtime scaling against the corrected benchmark. `--skip-regression-gate` bypasses only the obsolete historical-value assertion; run the test suite before this command. The DE baseline uses SciPy `differential_evolution` with `best1bin`, a 30-member explicit initial population, 59 generations, default mutation `(0.5, 1.0)`, crossover 0.7, `polish=False`, one worker, and a seed-controlled random-key encoding. Each decoded portfolio contains exactly five unique candidates.
 
-The expected DE aggregate is Rel@5 0.8479, diversity 0.0242, and NDCG@5 1.0000.
+The corrected DE aggregate is Rel@5 0.8655, diversity 0.0212, and NDCG@5 1.0000.
 
 ## Sensitivity analysis
 
 ```bash
-python3 scripts/run_sensitivity_analysis.py
+python3 scripts/run_extended_evaluation.py \
+  --benchmark-dir artifacts/corrected_co2/benchmark \
+  --output-root artifacts/corrected_co2 --skip-regression-gate
 ```
 
-The sensitivity grid contains gamma values `0`, `0.025`, `0.05`, `0.10`, `0.20`, `0.40`, `0.80` and redundancy penalties `0`, `0.025`, `0.05`, `0.10`, `0.20`. Across five scenarios and ten seeds, the output contains 1,750 runs in `artifacts/sensitivity/gamma_lambda_sensitivity.csv`.
+The sensitivity grid contains gamma values `0`, `0.025`, `0.05`, `0.10`, `0.20`, `0.40`, `0.80` and redundancy penalties `0`, `0.025`, `0.05`, `0.10`, `0.20`. Across five scenarios and ten seeds, the output contains 1,750 runs in `artifacts/corrected_co2/sensitivity/gamma_lambda_sensitivity.csv`.
 
 The ablation output distinguishes the LEA baseline (gamma 0.10, penalty 0.05), gamma-only mode (gamma 0, penalty 0.05), true no-diversity mode (gamma 0, penalty 0), and disabled self-cleaning.

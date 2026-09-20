@@ -42,6 +42,22 @@ def test_proxy_a_missing_band_gap_fallback_matches_zero_contribution():
     assert protocol.metadata_proxy(missing, "a") == protocol.metadata_proxy(zero, "a")
 
 
+def test_co2_query_does_not_match_cobalt_formula_or_formula_label():
+    cobalt = {
+        "formula": "Co2C22H16N4O10",
+        "text": "Material ID: example\nFormula: Co2C22H16N4O10\nDensity: 1.2",
+    }
+    assert protocol.semantic_overlap(cobalt, "stable porous MOFs for CO2 adsorption") == 0.0
+
+
+def test_co2_query_matches_explicit_co2_text_token():
+    explicit = {
+        "formula": "Zn4O",
+        "text": "Candidate discussed for CO2 adsorption in a separate textual annotation",
+    }
+    assert protocol.semantic_overlap(explicit, "CO2 adsorption") == 1.0
+
+
 def test_candidate_pool_is_deterministic_for_a_seed():
     rows, _, query_def = candidates()
     first = protocol.candidate_pool(rows, query_def["query_id"], query_def["query"], 42, 6)

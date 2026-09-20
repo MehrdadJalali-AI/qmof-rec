@@ -132,16 +132,22 @@ def formula_features(formula: str) -> dict[str, float]:
     }
 
 
+def semantic_overlap(row: dict[str, Any], query: str) -> float:
+    """Exact token overlap that does not confuse CO2 with cobalt stoichiometry."""
+    import re
+
+    query_tokens = [token for token in re.findall(r"[a-z0-9]+", query.casefold()) if len(token) > 2]
+    text_tokens = set(re.findall(r"[a-z0-9]+", str(row.get("text", "")).casefold()))
+    return sum(token in text_tokens for token in query_tokens) / max(1, len(query_tokens))
+
+
 def semantic_proxy(row: dict[str, Any], query_id: str, query: str) -> float:
-    text = f"{row.get('text','')} {row.get('formula','')}".lower()
-    q_tokens = [tok for tok in query.lower().replace("-", " ").split() if len(tok) > 2]
-    overlap = sum(1 for tok in q_tokens if tok in text) / max(1, len(q_tokens))
+    overlap = semantic_overlap(row, query)
     counts = formula_counts(row.get("formula", ""))
     band = finite_float(row.get("band_gap"))
     density = finite_float(row.get("density"))
     score = 0.35 + 0.20 * overlap
     if query_id == "q1_co2_adsorption":
-        score += 0.18 if counts.get("Co", 0) > 0 else 0.0
         score += 0.08 if density is not None and density < 1.8 else 0.0
         score += 0.04 if band is not None else 0.0
     elif query_id == "q2_photocatalysis":
@@ -1055,9 +1061,14 @@ def write_environment(config_path: Path, started: float) -> None:
 
 
 def main() -> int:
+    global FINAL, ANALYSIS
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", default=str(ROOT / "configs" / "final_diversity_aware_masked_protocol.json"))
+    parser.add_argument("--output-dir", default=str(FINAL))
+    parser.add_argument("--analysis-dir", default=str(ANALYSIS))
     args = parser.parse_args()
+    FINAL = Path(args.output_dir)
+    ANALYSIS = Path(args.analysis_dir)
     started = time.perf_counter()
     config_path = Path(args.config)
     config = json.loads(config_path.read_text(encoding="utf-8"))

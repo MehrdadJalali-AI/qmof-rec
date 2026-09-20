@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Extended sensitivity, ablation, scalability, and baseline evaluation."""
 from pathlib import Path
-import csv, copy, hashlib, json, math, platform, random, sys, time
+import argparse, csv, copy, hashlib, json, math, platform, random, sys, time
 from collections import defaultdict
 import numpy as np
 from scipy.optimize import differential_evolution
@@ -93,8 +93,34 @@ def self_test(cfg,metadata,ranges):
     assert len(set(ids(ranked)))==5 and info['function_evaluations']==1800
     return 'matrix distances agree with scalar masked distances; MMR prefix agrees; DE returns five unique IDs, uses 1800 evaluations, and preserves initial portfolio utility'
 
-def main():
-    OUT.mkdir(parents=True,exist_ok=True); gate(); print('BENCHMARK REGRESSION CHECK PASSED',flush=True)
+def configure_outputs(output_root):
+    global OUT, OUTPUTS
+    root=Path(output_root)
+    OUT=root/'extended_evaluation'
+    OUTPUTS={
+        'sensitivity.csv': root/'sensitivity/gamma_lambda_sensitivity.csv',
+        'ablations.csv': root/'ablation/ablation_results.csv',
+        'additional_methods.csv': root/'advanced_baselines/baseline_results.csv',
+        'screening.csv': root/'descriptor_checks/descriptor_checks.csv',
+        'runtime_scaling.csv': root/'scalability/runtime_scaling.csv',
+        'de_diagnostics.csv': root/'advanced_baselines/de_diagnostics.csv',
+        'additional_rankings.csv': root/'advanced_baselines/de_rankings.csv',
+        'validation.csv': OUT/'validation.csv',
+        'aggregate_extended.csv': OUT/'aggregate_results.csv',
+        'per_scenario_extended.csv': OUT/'per_scenario_results.csv',
+    }
+
+def main(argv=None):
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--benchmark-dir',default=str(p.FINAL))
+    parser.add_argument('--output-root',default=str(ROOT/'artifacts'))
+    parser.add_argument('--skip-regression-gate',action='store_true')
+    args=parser.parse_args(argv)
+    p.FINAL=Path(args.benchmark_dir)
+    configure_outputs(args.output_root)
+    OUT.mkdir(parents=True,exist_ok=True)
+    if not args.skip_regression_gate:
+        gate(); print('BENCHMARK REGRESSION CHECK PASSED',flush=True)
     cfg=json.loads(CONFIG.read_text()); meta=p.load_metadata(p.BACKEND/'vector_db/metadata.json'); ranges=p.physical_ranges(meta)
     validation=self_test(cfg,meta,ranges)
     original_rankings=read('rankings_all_topk.csv'); original_metrics=read('metrics_per_query_seed.csv')

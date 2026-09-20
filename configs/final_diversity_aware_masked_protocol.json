@@ -7,6 +7,7 @@
   "semantic_features": [
     "deterministic_semantic_proxy"
   ],
+  "semantic_overlap_policy": "case-folded exact alphanumeric tokens from metadata text; formula strings are not substring-matched",
   "formula_features": [
     "element_fraction_C",
     "element_fraction_H",
