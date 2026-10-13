@@ -1,0 +1,100 @@
+[
+  {
+    "query_id": "q1_co2_adsorption",
+    "weights": {
+      "semantic": 0.25925925925925924,
+      "band_gap": 0.18518518518518517,
+      "density": 0.25925925925925924,
+      "stability": 0.2962962962962963
+    },
+    "rules": [
+      "co2_adsorption",
+      "stability"
+    ],
+    "pool_size": 100,
+    "mean_density": 1.41897265906,
+    "observed_gaps": 100,
+    "mean_observed_gap": 3.0180769099999996,
+    "gap_ge_3_5_fraction": 0.12,
+    "metadata_co2_token_count": 0,
+    "top_weightedsum": "qmof-e566fbb"
+  },
+  {
+    "query_id": "q2_photocatalysis",
+    "weights": {
+      "semantic": 0.27999999999999997,
+      "band_gap": 0.4,
+      "density": 0.16,
+      "stability": 0.16
+    },
+    "rules": [
+      "photocatalysis"
+    ],
+    "pool_size": 100,
+    "mean_density": 1.6283040064399998,
+    "observed_gaps": 100,
+    "mean_observed_gap": 2.8632845,
+    "gap_ge_3_5_fraction": 0.0,
+    "metadata_co2_token_count": 0,
+    "top_weightedsum": "qmof-e566fbb"
+  },
+  {
+    "query_id": "q3_lightweight_storage",
+    "weights": {
+      "semantic": 0.30434782608695654,
+      "band_gap": 0.2173913043478261,
+      "density": 0.30434782608695654,
+      "stability": 0.1739130434782609
+    },
+    "rules": [
+      "lightweight_storage"
+    ],
+    "pool_size": 100,
+    "mean_density": 0.6721733232599998,
+    "observed_gaps": 7,
+    "mean_observed_gap": 2.8729614285714287,
+    "gap_ge_3_5_fraction": 0.0,
+    "metadata_co2_token_count": 0,
+    "top_weightedsum": "qmof-e566fbb"
+  },
+  {
+    "query_id": "q4_balanced_discovery",
+    "weights": {
+      "semantic": 0.29166666666666663,
+      "band_gap": 0.20833333333333331,
+      "density": 0.16666666666666666,
+      "stability": 0.3333333333333333
+    },
+    "rules": [
+      "balanced_screening",
+      "stability"
+    ],
+    "pool_size": 100,
+    "mean_density": 1.5131531067400001,
+    "observed_gaps": 100,
+    "mean_observed_gap": 3.0109944400000006,
+    "gap_ge_3_5_fraction": 0.12,
+    "metadata_co2_token_count": 0,
+    "top_weightedsum": "qmof-e566fbb"
+  },
+  {
+    "query_id": "q5_insulating_frameworks",
+    "weights": {
+      "semantic": 0.25,
+      "band_gap": 0.35714285714285715,
+      "density": 0.25,
+      "stability": 0.14285714285714288
+    },
+    "rules": [
+      "lightweight_storage",
+      "insulating_frameworks"
+    ],
+    "pool_size": 100,
+    "mean_density": 1.62267985617,
+    "observed_gaps": 100,
+    "mean_observed_gap": 4.356237770000002,
+    "gap_ge_3_5_fraction": 1.0,
+    "metadata_co2_token_count": 0,
+    "top_weightedsum": "qmof-e3dcc4d"
+  }
+]

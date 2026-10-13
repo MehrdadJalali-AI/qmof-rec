@@ -111,11 +111,14 @@ def configure_outputs(output_root):
     }
 
 def main(argv=None):
+    global CONFIG
     parser=argparse.ArgumentParser()
+    parser.add_argument('--config',default=str(CONFIG))
     parser.add_argument('--benchmark-dir',default=str(p.FINAL))
     parser.add_argument('--output-root',default=str(ROOT/'artifacts'))
     parser.add_argument('--skip-regression-gate',action='store_true')
     args=parser.parse_args(argv)
+    CONFIG=Path(args.config)
     p.FINAL=Path(args.benchmark_dir)
     configure_outputs(args.output_root)
     OUT.mkdir(parents=True,exist_ok=True)

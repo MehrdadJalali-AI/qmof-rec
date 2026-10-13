@@ -1,0 +1,55 @@
+{
+  "status": "complete",
+  "validation": "matrix distances agree with scalar masked distances; MMR prefix agrees; DE returns five unique IDs, uses 1800 evaluations, and preserves initial portfolio utility",
+  "python": "3.9.6",
+  "numpy": "1.26.4",
+  "scipy": "1.13.1",
+  "gamma_grid": [
+    0,
+    0.025,
+    0.05,
+    0.1,
+    0.2,
+    0.4,
+    0.8
+  ],
+  "penalty_grid": [
+    0,
+    0.025,
+    0.05,
+    0.1,
+    0.2
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "runtime_seeds": [
+    42,
+    43,
+    44
+  ],
+  "runtime_repeats": 3,
+  "de_strategy": "best1bin",
+  "de_evaluations": 1800,
+  "de_population": 30,
+  "de_generations": 59,
+  "de_mutation": [
+    0.5,
+    1.0
+  ],
+  "de_crossover": 0.7,
+  "de_polish": false,
+  "de_workers": 1,
+  "de_representation": "random keys selecting exactly top_k unique candidates",
+  "de_policy": "fixed list utility: mean relevance + 0.1 mean balance + 0.1 diversity - 0.05 exp(-diversity); WeightedSum constructive seed plus 29 seeded random populations",
+  "baseline_config_sha256": "1abd191bbbe0fd10746df047451f2e53a1a7e603a6ee11cbef4334023286ecc4"
+}

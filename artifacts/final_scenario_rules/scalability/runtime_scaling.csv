@@ -1,0 +1,901 @@
+query_id,seed,pool_size,method,repeat,runtime_ms,top5_ids
+q1_co2_adsorption,42,50,WeightedSum,0,0.03691599999999795,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,50,WeightedSum,1,0.01783300000024468,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,50,WeightedSum,2,0.017708999999754838,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,50,TOPSIS,0,0.5205829999992417,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,50,TOPSIS,1,0.46374999999976296,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,50,TOPSIS,2,0.468958999999991,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,50,LEA,0,75.92429099999976,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q1_co2_adsorption,42,50,LEA,1,76.01716699999983,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q1_co2_adsorption,42,50,LEA,2,76.33549999999988,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q1_co2_adsorption,42,50,MMR top-5,0,6.164375,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,42,50,MMR top-5,1,6.024917000000407,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,42,50,MMR top-5,2,6.011583000000265,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,42,100,WeightedSum,0,0.08179199999958087,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,100,WeightedSum,1,0.04004100000010169,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,100,WeightedSum,2,0.039124999999806676,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,100,TOPSIS,0,0.9996670000003149,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,100,TOPSIS,1,0.962583999999822,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,100,TOPSIS,2,0.9252079999999552,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,100,LEA,0,83.43408300000021,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q1_co2_adsorption,42,100,LEA,1,82.92141699999966,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q1_co2_adsorption,42,100,LEA,2,81.48254099999974,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q1_co2_adsorption,42,100,MMR top-5,0,12.313417000000548,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,42,100,MMR top-5,1,12.11925000000047,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,42,100,MMR top-5,2,12.244041999999844,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,42,200,WeightedSum,0,0.1811670000000376,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,200,WeightedSum,1,0.08845799999956938,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,200,WeightedSum,2,0.08650000000010039,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,200,TOPSIS,0,2.089875000000241,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,200,TOPSIS,1,1.8039579999999944,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,200,TOPSIS,2,1.8207919999992939,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,200,LEA,0,97.67641699999973,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q1_co2_adsorption,42,200,LEA,1,98.91700000000014,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q1_co2_adsorption,42,200,LEA,2,98.16858300000052,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q1_co2_adsorption,42,200,MMR top-5,0,26.094916999999995,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,42,200,MMR top-5,1,25.621166999999723,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,42,200,MMR top-5,2,24.620750000000413,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,42,500,WeightedSum,0,0.4703340000000722,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,500,WeightedSum,1,0.2631249999991425,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,500,WeightedSum,2,0.25541699999998,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,500,TOPSIS,0,4.906791999999882,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,500,TOPSIS,1,4.598209000000075,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,500,TOPSIS,2,4.551375000000135,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,500,LEA,0,140.29695799999953,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q1_co2_adsorption,42,500,LEA,1,139.4289999999998,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q1_co2_adsorption,42,500,LEA,2,140.2350840000004,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q1_co2_adsorption,42,500,MMR top-5,0,65.54333400000002,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,42,500,MMR top-5,1,65.33079200000014,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,42,500,MMR top-5,2,65.80970899999983,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,42,1000,WeightedSum,0,1.0388749999998836,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,1000,WeightedSum,1,0.557624999999895,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,1000,WeightedSum,2,0.5773339999999294,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,1000,TOPSIS,0,10.103040999999813,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,1000,TOPSIS,1,9.444082999999992,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,1000,TOPSIS,2,9.341290999999252,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,42,1000,LEA,0,209.94779200000036,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q1_co2_adsorption,42,1000,LEA,1,209.10595900000038,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q1_co2_adsorption,42,1000,LEA,2,208.73187500000068,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q1_co2_adsorption,42,1000,MMR top-5,0,131.06299999999925,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,42,1000,MMR top-5,1,131.56566700000027,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,42,1000,MMR top-5,2,129.9569579999993,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,43,50,WeightedSum,0,0.035958999999863295,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,50,WeightedSum,1,0.018082999998725313,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,50,WeightedSum,2,0.017624999999910074,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,50,TOPSIS,0,0.5085840000003117,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,50,TOPSIS,1,0.4587909999997919,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,50,TOPSIS,2,0.45616599999931395,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,50,LEA,0,79.16220799999962,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q1_co2_adsorption,43,50,LEA,1,75.92329200000059,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q1_co2_adsorption,43,50,LEA,2,76.49516700000092,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q1_co2_adsorption,43,50,MMR top-5,0,5.929374999999126,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,43,50,MMR top-5,1,5.767415999999415,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,43,50,MMR top-5,2,5.868999999998792,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,43,100,WeightedSum,0,0.14933299999952965,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,100,WeightedSum,1,0.04462499999924319,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,100,WeightedSum,2,0.039917000000500025,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,100,TOPSIS,0,1.1283750000004034,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,100,TOPSIS,1,0.9344169999998542,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,100,TOPSIS,2,1.048083000000588,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,100,LEA,0,83.42949999999938,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q1_co2_adsorption,43,100,LEA,1,82.34862500000162,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q1_co2_adsorption,43,100,LEA,2,82.46633299999928,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q1_co2_adsorption,43,100,MMR top-5,0,12.318958999999907,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,43,100,MMR top-5,1,12.02074999999958,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,43,100,MMR top-5,2,12.892707999998976,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,43,200,WeightedSum,0,0.15008399999949518,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,200,WeightedSum,1,0.08708400000045913,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,200,WeightedSum,2,0.08683299999923122,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,200,TOPSIS,0,1.9284580000000773,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,200,TOPSIS,1,1.82775000000035,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,200,TOPSIS,2,1.793292000000335,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,200,LEA,0,98.29979200000061,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q1_co2_adsorption,43,200,LEA,1,98.0718749999987,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q1_co2_adsorption,43,200,LEA,2,97.94374999999889,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q1_co2_adsorption,43,200,MMR top-5,0,25.199875000000205,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,43,200,MMR top-5,1,26.296540999998896,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,43,200,MMR top-5,2,25.97308300000023,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,43,500,WeightedSum,0,0.546916999999425,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,500,WeightedSum,1,0.36333299999924407,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,500,WeightedSum,2,0.2616250000002651,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,500,TOPSIS,0,5.325457999999728,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,500,TOPSIS,1,5.1782080000002395,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,500,TOPSIS,2,4.8697909999990685,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,500,LEA,0,140.07741700000054,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q1_co2_adsorption,43,500,LEA,1,139.19575000000071,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q1_co2_adsorption,43,500,LEA,2,138.19212499999978,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q1_co2_adsorption,43,500,MMR top-5,0,63.38650000000001,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,43,500,MMR top-5,1,64.9102500000005,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,43,500,MMR top-5,2,65.33745800000013,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,43,1000,WeightedSum,0,0.9099169999995382,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,1000,WeightedSum,1,0.5694170000012377,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,1000,WeightedSum,2,0.5795829999986069,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,1000,TOPSIS,0,10.788707999999758,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,1000,TOPSIS,1,10.1934159999999,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,1000,TOPSIS,2,10.145416000000296,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,43,1000,LEA,0,211.28345800000048,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q1_co2_adsorption,43,1000,LEA,1,209.57399999999993,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q1_co2_adsorption,43,1000,LEA,2,211.86304200000095,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q1_co2_adsorption,43,1000,MMR top-5,0,128.11995800000096,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,43,1000,MMR top-5,1,132.55099999999942,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,43,1000,MMR top-5,2,132.4197079999987,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q1_co2_adsorption,44,50,WeightedSum,0,0.0496249999990539,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,50,WeightedSum,1,0.01874999999884608,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,50,WeightedSum,2,0.01737500000231762,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,50,TOPSIS,0,0.5759170000025904,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,50,TOPSIS,1,0.4786249999995107,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,50,TOPSIS,2,0.4935830000007968,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,50,LEA,0,117.4409169999997,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q1_co2_adsorption,44,50,LEA,1,76.33804199999972,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q1_co2_adsorption,44,50,LEA,2,77.51308300000304,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q1_co2_adsorption,44,50,MMR top-5,0,5.987708999999342,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q1_co2_adsorption,44,50,MMR top-5,1,6.009959000000009,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q1_co2_adsorption,44,50,MMR top-5,2,6.046333000000459,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q1_co2_adsorption,44,100,WeightedSum,0,0.07241699999838147,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,100,WeightedSum,1,0.039375000000063665,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,100,WeightedSum,2,0.03916699999706452,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,100,TOPSIS,0,0.9687920000018835,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,100,TOPSIS,1,0.897542000000584,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,100,TOPSIS,2,0.8934160000002578,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,100,LEA,0,83.48983300000157,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q1_co2_adsorption,44,100,LEA,1,83.23050000000265,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q1_co2_adsorption,44,100,LEA,2,83.90337499999845,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q1_co2_adsorption,44,100,MMR top-5,0,12.474582999999484,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q1_co2_adsorption,44,100,MMR top-5,1,12.62916599999997,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q1_co2_adsorption,44,100,MMR top-5,2,12.141667000001632,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q1_co2_adsorption,44,200,WeightedSum,0,0.22895800000100053,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,200,WeightedSum,1,0.08758400000274946,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,200,WeightedSum,2,0.08620799999903284,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,200,TOPSIS,0,1.970249999999396,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,200,TOPSIS,1,1.8511249999981771,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,200,TOPSIS,2,1.8628750000004857,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,200,LEA,0,98.18979199999944,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q1_co2_adsorption,44,200,LEA,1,98.4792910000003,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q1_co2_adsorption,44,200,LEA,2,97.10166600000036,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q1_co2_adsorption,44,200,MMR top-5,0,24.578915999999396,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q1_co2_adsorption,44,200,MMR top-5,1,25.986000000003173,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q1_co2_adsorption,44,200,MMR top-5,2,26.558874999999205,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q1_co2_adsorption,44,500,WeightedSum,0,0.5009999999998627,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,500,WeightedSum,1,0.2506659999994554,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,500,WeightedSum,2,0.24404200000205378,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,500,TOPSIS,0,4.873041999999828,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,500,TOPSIS,1,4.6072499999993966,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,500,TOPSIS,2,5.435082999998286,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,500,LEA,0,140.54949999999877,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q1_co2_adsorption,44,500,LEA,1,138.9910410000006,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q1_co2_adsorption,44,500,LEA,2,142.49725000000169,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q1_co2_adsorption,44,500,MMR top-5,0,65.70766700000163,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q1_co2_adsorption,44,500,MMR top-5,1,65.1563330000009,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q1_co2_adsorption,44,500,MMR top-5,2,65.02937500000172,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q1_co2_adsorption,44,1000,WeightedSum,0,0.9991249999998786,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,1000,WeightedSum,1,0.5419579999994539,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,1000,WeightedSum,2,0.5440420000013546,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,1000,TOPSIS,0,10.64270799999889,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,1000,TOPSIS,1,10.333457999998075,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,1000,TOPSIS,2,10.830792000000145,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q1_co2_adsorption,44,1000,LEA,0,210.94599999999986,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q1_co2_adsorption,44,1000,LEA,1,211.1842500000023,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q1_co2_adsorption,44,1000,LEA,2,210.28862500000045,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q1_co2_adsorption,44,1000,MMR top-5,0,132.85591600000046,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q1_co2_adsorption,44,1000,MMR top-5,1,131.37945900000148,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q1_co2_adsorption,44,1000,MMR top-5,2,132.39154200000058,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q2_photocatalysis,42,50,WeightedSum,0,0.050665999999921496,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,50,WeightedSum,1,0.018875000002083198,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,50,WeightedSum,2,0.018375000003345576,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,50,TOPSIS,0,0.6222909999991089,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,50,TOPSIS,1,0.49595899999843596,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,50,TOPSIS,2,0.4578750000021614,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,50,LEA,0,75.1770000000036,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,50,LEA,1,74.64079199999674,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,50,LEA,2,74.95195799999976,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,50,MMR top-5,0,6.370957999997984,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,50,MMR top-5,1,5.982707999997672,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,50,MMR top-5,2,6.11783300000468,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,100,WeightedSum,0,0.1738749999944389,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,100,WeightedSum,1,0.058166999998832125,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,100,WeightedSum,2,0.046040999997387644,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,100,TOPSIS,0,1.3284159999997769,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,100,TOPSIS,1,0.9212089999977024,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,100,TOPSIS,2,0.8979999999993993,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,100,LEA,0,83.58337499999635,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,100,LEA,1,81.39674999999613,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,100,LEA,2,82.43695800000239,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,100,MMR top-5,0,12.375833000000114,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,100,MMR top-5,1,12.813291000000504,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,100,MMR top-5,2,12.889416000000153,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,200,WeightedSum,0,0.16800000000216642,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,200,WeightedSum,1,0.09004099999998516,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,200,WeightedSum,2,0.09024999999951433,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,200,TOPSIS,0,1.9130419999981996,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,200,TOPSIS,1,1.78804199999405,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,200,TOPSIS,2,1.779208999998616,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,200,LEA,0,97.56566599999417,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,200,LEA,1,97.06241599999998,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,200,LEA,2,97.93058300000013,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,200,MMR top-5,0,25.66787500000345,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,200,MMR top-5,1,25.232541999997693,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,200,MMR top-5,2,25.269292000004384,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,500,WeightedSum,0,0.4057089999989216,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,500,WeightedSum,1,0.24795800000276813,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,500,WeightedSum,2,0.24562499999802867,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,500,TOPSIS,0,4.771083000001397,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,500,TOPSIS,1,4.494874999998899,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,500,TOPSIS,2,5.102542000003041,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,500,LEA,0,137.8304589999999,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,500,LEA,1,138.79529199999752,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,500,LEA,2,141.86875000000043,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,500,MMR top-5,0,66.59779199999605,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,500,MMR top-5,1,65.3184170000003,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,500,MMR top-5,2,65.34804200000366,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,1000,WeightedSum,0,1.0215840000000753,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,1000,WeightedSum,1,0.5373750000003952,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,1000,WeightedSum,2,0.5346250000002328,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,1000,TOPSIS,0,10.564291999997977,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,1000,TOPSIS,1,9.952832999999828,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,1000,TOPSIS,2,9.800625000004004,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,42,1000,LEA,0,211.1453329999975,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,1000,LEA,1,210.19783300000228,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,1000,LEA,2,211.46108399999974,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,1000,MMR top-5,0,126.69908299999832,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,1000,MMR top-5,1,127.36820800000004,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,42,1000,MMR top-5,2,129.04841700000702,qmof-13a76dd|qmof-ac6a77a|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,43,50,WeightedSum,0,0.043665999996278515,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,50,WeightedSum,1,0.018707999998923697,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,50,WeightedSum,2,0.018458000006660313,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,50,TOPSIS,0,0.5620000000021719,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,50,TOPSIS,1,0.45825000000121463,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,50,TOPSIS,2,0.4548339999956852,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,50,LEA,0,76.1287499999952,qmof-c0f392b|qmof-ac6a77a|qmof-e566fbb|qmof-13a76dd|qmof-cef46c3
+q2_photocatalysis,43,50,LEA,1,76.33279199999521,qmof-c0f392b|qmof-ac6a77a|qmof-e566fbb|qmof-13a76dd|qmof-cef46c3
+q2_photocatalysis,43,50,LEA,2,78.061500000004,qmof-c0f392b|qmof-ac6a77a|qmof-e566fbb|qmof-13a76dd|qmof-cef46c3
+q2_photocatalysis,43,50,MMR top-5,0,5.829666000003897,qmof-c0f392b|qmof-13a76dd|qmof-ac6a77a|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,43,50,MMR top-5,1,6.2579590000027,qmof-c0f392b|qmof-13a76dd|qmof-ac6a77a|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,43,50,MMR top-5,2,5.83650000000091,qmof-c0f392b|qmof-13a76dd|qmof-ac6a77a|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,43,100,WeightedSum,0,0.08908399999540961,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,100,WeightedSum,1,0.042041000000381246,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,100,WeightedSum,2,0.040875000003381956,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,100,TOPSIS,0,0.9880829999957541,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,100,TOPSIS,1,0.9108330000060505,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,100,TOPSIS,2,0.9122499999989486,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,100,LEA,0,82.84970799999769,qmof-c0f392b|qmof-ac6a77a|qmof-e566fbb|qmof-13a76dd|qmof-cef46c3
+q2_photocatalysis,43,100,LEA,1,84.34691699999775,qmof-c0f392b|qmof-ac6a77a|qmof-e566fbb|qmof-13a76dd|qmof-cef46c3
+q2_photocatalysis,43,100,LEA,2,85.17466700000398,qmof-c0f392b|qmof-ac6a77a|qmof-e566fbb|qmof-13a76dd|qmof-cef46c3
+q2_photocatalysis,43,100,MMR top-5,0,12.078583000004528,qmof-c0f392b|qmof-13a76dd|qmof-ac6a77a|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,43,100,MMR top-5,1,12.035374999996407,qmof-c0f392b|qmof-13a76dd|qmof-ac6a77a|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,43,100,MMR top-5,2,12.832041000002903,qmof-c0f392b|qmof-13a76dd|qmof-ac6a77a|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,43,200,WeightedSum,0,0.19066600000172684,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,200,WeightedSum,1,0.09337499999872989,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,200,WeightedSum,2,0.0912080000006199,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,200,TOPSIS,0,1.936166000000128,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,200,TOPSIS,1,1.8677079999989132,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,200,TOPSIS,2,1.7984169999962774,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,200,LEA,0,96.77854100000616,qmof-c0f392b|qmof-ac6a77a|qmof-e566fbb|qmof-13a76dd|qmof-cef46c3
+q2_photocatalysis,43,200,LEA,1,98.30125000000578,qmof-c0f392b|qmof-ac6a77a|qmof-e566fbb|qmof-13a76dd|qmof-cef46c3
+q2_photocatalysis,43,200,LEA,2,100.50904199999877,qmof-c0f392b|qmof-ac6a77a|qmof-e566fbb|qmof-13a76dd|qmof-cef46c3
+q2_photocatalysis,43,200,MMR top-5,0,25.75429200000201,qmof-c0f392b|qmof-13a76dd|qmof-ac6a77a|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,43,200,MMR top-5,1,25.692165999998906,qmof-c0f392b|qmof-13a76dd|qmof-ac6a77a|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,43,200,MMR top-5,2,25.626834000000542,qmof-c0f392b|qmof-13a76dd|qmof-ac6a77a|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,43,500,WeightedSum,0,0.4544170000002623,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,500,WeightedSum,1,0.3136670000003505,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,500,WeightedSum,2,0.3183749999990937,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,500,TOPSIS,0,9.820292000000563,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,500,TOPSIS,1,9.43033300000451,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,500,TOPSIS,2,8.707916999995291,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,500,LEA,0,161.52341699999795,qmof-c0f392b|qmof-ac6a77a|qmof-e566fbb|qmof-13a76dd|qmof-cef46c3
+q2_photocatalysis,43,500,LEA,1,137.98233400000015,qmof-c0f392b|qmof-ac6a77a|qmof-e566fbb|qmof-13a76dd|qmof-cef46c3
+q2_photocatalysis,43,500,LEA,2,137.63025000000084,qmof-c0f392b|qmof-ac6a77a|qmof-e566fbb|qmof-13a76dd|qmof-cef46c3
+q2_photocatalysis,43,500,MMR top-5,0,65.5337080000038,qmof-c0f392b|qmof-13a76dd|qmof-ac6a77a|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,43,500,MMR top-5,1,63.336249999998984,qmof-c0f392b|qmof-13a76dd|qmof-ac6a77a|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,43,500,MMR top-5,2,62.728749999998,qmof-c0f392b|qmof-13a76dd|qmof-ac6a77a|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,43,1000,WeightedSum,0,0.9411670000005756,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,1000,WeightedSum,1,0.5446670000068821,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,1000,WeightedSum,2,0.5418750000032446,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,1000,TOPSIS,0,9.43879199999742,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,1000,TOPSIS,1,9.063499999996338,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,1000,TOPSIS,2,9.049416000003419,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,43,1000,LEA,0,205.73433399999885,qmof-c0f392b|qmof-ac6a77a|qmof-e566fbb|qmof-13a76dd|qmof-cef46c3
+q2_photocatalysis,43,1000,LEA,1,210.25983300000206,qmof-c0f392b|qmof-ac6a77a|qmof-e566fbb|qmof-13a76dd|qmof-cef46c3
+q2_photocatalysis,43,1000,LEA,2,212.2408749999991,qmof-c0f392b|qmof-ac6a77a|qmof-e566fbb|qmof-13a76dd|qmof-cef46c3
+q2_photocatalysis,43,1000,MMR top-5,0,131.0186669999993,qmof-c0f392b|qmof-13a76dd|qmof-ac6a77a|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,43,1000,MMR top-5,1,198.78645800000072,qmof-c0f392b|qmof-13a76dd|qmof-ac6a77a|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,43,1000,MMR top-5,2,132.43483400000144,qmof-c0f392b|qmof-13a76dd|qmof-ac6a77a|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,44,50,WeightedSum,0,0.052290999995818765,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,50,WeightedSum,1,0.018375000003345576,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,50,WeightedSum,2,0.01749999999844931,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,50,TOPSIS,0,0.6003749999976549,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,50,TOPSIS,1,0.4619169999955375,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,50,TOPSIS,2,0.4714999999961833,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,50,LEA,0,75.98962500000539,qmof-ac6a77a|qmof-13a76dd|qmof-e566fbb|qmof-cef46c3|qmof-c0f392b
+q2_photocatalysis,44,50,LEA,1,76.0123750000048,qmof-ac6a77a|qmof-13a76dd|qmof-e566fbb|qmof-cef46c3|qmof-c0f392b
+q2_photocatalysis,44,50,LEA,2,75.67529199999967,qmof-ac6a77a|qmof-13a76dd|qmof-e566fbb|qmof-cef46c3|qmof-c0f392b
+q2_photocatalysis,44,50,MMR top-5,0,6.6343329999938305,qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,44,50,MMR top-5,1,5.99070799999879,qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,44,50,MMR top-5,2,5.945124999996665,qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,44,100,WeightedSum,0,0.07270800000469535,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,100,WeightedSum,1,0.04104199999943603,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,100,WeightedSum,2,0.0404590000044891,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,100,TOPSIS,0,0.9823749999995357,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,100,TOPSIS,1,0.9032500000003552,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,100,TOPSIS,2,0.8956249999982901,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,100,LEA,0,84.02895899999407,qmof-ac6a77a|qmof-13a76dd|qmof-e566fbb|qmof-cef46c3|qmof-c0f392b
+q2_photocatalysis,44,100,LEA,1,82.97529200000042,qmof-ac6a77a|qmof-13a76dd|qmof-e566fbb|qmof-cef46c3|qmof-c0f392b
+q2_photocatalysis,44,100,LEA,2,84.10641700000099,qmof-ac6a77a|qmof-13a76dd|qmof-e566fbb|qmof-cef46c3|qmof-c0f392b
+q2_photocatalysis,44,100,MMR top-5,0,12.67949999999729,qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,44,100,MMR top-5,1,12.237125000005733,qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,44,100,MMR top-5,2,12.125249999996868,qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,44,200,WeightedSum,0,0.17870899999650192,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,200,WeightedSum,1,0.08991700000393621,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,200,WeightedSum,2,0.08808399999793437,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,200,TOPSIS,0,1.9178330000002575,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,200,TOPSIS,1,1.8944589999989603,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,200,TOPSIS,2,1.8223339999963173,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,200,LEA,0,98.0358329999973,qmof-ac6a77a|qmof-13a76dd|qmof-e566fbb|qmof-cef46c3|qmof-c0f392b
+q2_photocatalysis,44,200,LEA,1,98.70866600000028,qmof-ac6a77a|qmof-13a76dd|qmof-e566fbb|qmof-cef46c3|qmof-c0f392b
+q2_photocatalysis,44,200,LEA,2,97.82666600000312,qmof-ac6a77a|qmof-13a76dd|qmof-e566fbb|qmof-cef46c3|qmof-c0f392b
+q2_photocatalysis,44,200,MMR top-5,0,25.776583000002518,qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,44,200,MMR top-5,1,24.862957999999935,qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,44,200,MMR top-5,2,25.418333000004623,qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,44,500,WeightedSum,0,0.39654100000063863,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,500,WeightedSum,1,0.24816699999519187,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,500,WeightedSum,2,0.24662500000260934,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,500,TOPSIS,0,4.825624999995171,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,500,TOPSIS,1,4.565415999998379,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,500,TOPSIS,2,5.139374999998836,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,500,LEA,0,139.849667,qmof-ac6a77a|qmof-13a76dd|qmof-e566fbb|qmof-cef46c3|qmof-c0f392b
+q2_photocatalysis,44,500,LEA,1,140.26920799999942,qmof-ac6a77a|qmof-13a76dd|qmof-e566fbb|qmof-cef46c3|qmof-c0f392b
+q2_photocatalysis,44,500,LEA,2,141.65091699999977,qmof-ac6a77a|qmof-13a76dd|qmof-e566fbb|qmof-cef46c3|qmof-c0f392b
+q2_photocatalysis,44,500,MMR top-5,0,63.67300000000142,qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,44,500,MMR top-5,1,65.01362499999885,qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,44,500,MMR top-5,2,66.65833299999946,qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,44,1000,WeightedSum,0,0.894833000003814,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,1000,WeightedSum,1,0.5513340000007361,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,1000,WeightedSum,2,0.5727079999999773,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,1000,TOPSIS,0,10.307500000003245,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,1000,TOPSIS,1,9.422833000002129,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,1000,TOPSIS,2,9.530542000000253,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-13a76dd
+q2_photocatalysis,44,1000,LEA,0,212.63000000000432,qmof-ac6a77a|qmof-13a76dd|qmof-e566fbb|qmof-cef46c3|qmof-c0f392b
+q2_photocatalysis,44,1000,LEA,1,211.55162499999847,qmof-ac6a77a|qmof-13a76dd|qmof-e566fbb|qmof-cef46c3|qmof-c0f392b
+q2_photocatalysis,44,1000,LEA,2,234.33562499999994,qmof-ac6a77a|qmof-13a76dd|qmof-e566fbb|qmof-cef46c3|qmof-c0f392b
+q2_photocatalysis,44,1000,MMR top-5,0,133.91525000000115,qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,44,1000,MMR top-5,1,132.29066600000294,qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q2_photocatalysis,44,1000,MMR top-5,2,130.17645899999764,qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-e566fbb|qmof-cef46c3
+q3_lightweight_storage,42,50,WeightedSum,0,0.06033399999694211,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,50,WeightedSum,1,0.024791000001300745,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,50,WeightedSum,2,0.02254100000698145,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,50,TOPSIS,0,0.6820830000009437,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,50,TOPSIS,1,0.4784590000070921,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,50,TOPSIS,2,0.45475000000294585,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,50,LEA,0,78.10750000000155,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,50,LEA,1,78.43033400000365,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,50,LEA,2,77.4158749999998,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,50,MMR top-5,0,5.879875000005086,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,50,MMR top-5,1,6.256832999994799,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,50,MMR top-5,2,5.960000000001742,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,100,WeightedSum,0,0.08799999999098418,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,100,WeightedSum,1,0.041125000009856194,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,100,WeightedSum,2,0.0402499999978545,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,100,TOPSIS,0,1.099499999995146,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,100,TOPSIS,1,0.9507919999975911,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,100,TOPSIS,2,1.1099589999901127,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,100,LEA,0,87.15612500000702,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,100,LEA,1,84.90429200000449,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,100,LEA,2,85.44145899999478,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,100,MMR top-5,0,12.613333000004445,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,100,MMR top-5,1,13.046833999993623,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,100,MMR top-5,2,12.643083000000388,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,200,WeightedSum,0,0.1766660000015463,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,200,WeightedSum,1,0.08920899999509402,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,200,WeightedSum,2,0.08820800000819418,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,200,TOPSIS,0,1.9893749999937427,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,200,TOPSIS,1,1.7974999999950114,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,200,TOPSIS,2,1.7889579999916805,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,200,LEA,0,100.93416600000182,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,200,LEA,1,98.97583299999724,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,200,LEA,2,101.19983299999546,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,200,MMR top-5,0,25.931584000005614,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,200,MMR top-5,1,25.850541999986376,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,200,MMR top-5,2,25.309625000005553,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,500,WeightedSum,0,0.3865000000047303,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,500,WeightedSum,1,0.24654099999565915,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,500,WeightedSum,2,0.24404199999139564,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,500,TOPSIS,0,4.711790999991194,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,500,TOPSIS,1,5.195333000003188,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,500,TOPSIS,2,4.80949999999325,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,500,LEA,0,138.8230419999985,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,500,LEA,1,138.63929199999347,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,500,LEA,2,138.42650000000845,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,500,MMR top-5,0,65.35408300000256,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,500,MMR top-5,1,64.1853750000081,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,500,MMR top-5,2,63.8607909999962,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,1000,WeightedSum,0,0.8012919999913493,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,1000,WeightedSum,1,0.5450000000024602,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,1000,WeightedSum,2,0.5298340000052804,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,1000,TOPSIS,0,9.426292000000558,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,1000,TOPSIS,1,9.149917000002006,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,1000,TOPSIS,2,10.409709000001044,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,42,1000,LEA,0,207.6931249999916,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,1000,LEA,1,210.69029200000955,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,1000,LEA,2,208.84066700000403,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,1000,MMR top-5,0,129.37862500000108,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,1000,MMR top-5,1,128.06079199999942,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,42,1000,MMR top-5,2,128.54716699999358,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,50,WeightedSum,0,0.035334000003217625,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,50,WeightedSum,1,0.01858299999923929,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,50,WeightedSum,2,0.018124999996871338,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,50,TOPSIS,0,0.50154199999497,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,50,TOPSIS,1,0.4537909999982048,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,50,TOPSIS,2,0.45337499999220654,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,50,LEA,0,78.04154199999402,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,50,LEA,1,77.03695799999366,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,50,LEA,2,76.49579099999926,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,50,MMR top-5,0,6.048332999995409,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,50,MMR top-5,1,6.004250000003708,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,50,MMR top-5,2,5.928500000010217,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,100,WeightedSum,0,0.1537910000024567,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,100,WeightedSum,1,0.04479199999707362,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,100,WeightedSum,2,0.1570419999978867,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,100,TOPSIS,0,1.1970409999975118,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,100,TOPSIS,1,0.936792000004516,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,100,TOPSIS,2,0.9560830000054921,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,100,LEA,0,82.88154100000611,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,100,LEA,1,83.15908299999819,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,100,LEA,2,84.08933299999433,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,100,MMR top-5,0,12.574541000006434,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,100,MMR top-5,1,12.105542000000469,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,100,MMR top-5,2,12.008542000003786,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,200,WeightedSum,0,0.16995800000074723,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,200,WeightedSum,1,0.09149999999635838,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,200,WeightedSum,2,0.08908300000598501,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,200,TOPSIS,0,2.1827500000028977,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,200,TOPSIS,1,1.8122919999967735,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,200,TOPSIS,2,2.218416999994588,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,200,LEA,0,97.50208299999485,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,200,LEA,1,99.27695899999378,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,200,LEA,2,98.52295800000377,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,200,MMR top-5,0,25.458249999999794,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,200,MMR top-5,1,24.522582999992437,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,200,MMR top-5,2,25.40554099999781,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,500,WeightedSum,0,0.3722499999980755,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,500,WeightedSum,1,0.2462919999999258,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,500,WeightedSum,2,0.24408400000197616,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,500,TOPSIS,0,4.658292000002007,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,500,TOPSIS,1,5.207083000001944,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,500,TOPSIS,2,4.829749999998967,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,500,LEA,0,140.39841600001068,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,500,LEA,1,138.1068749999912,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,500,LEA,2,138.65624999999682,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,500,MMR top-5,0,65.89241599999696,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,500,MMR top-5,1,64.80391600000246,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,500,MMR top-5,2,65.03291699999636,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,1000,WeightedSum,0,0.9522080000010646,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,1000,WeightedSum,1,0.5674169999991818,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,1000,WeightedSum,2,0.5300830000010137,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,1000,TOPSIS,0,9.923374999999623,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,1000,TOPSIS,1,9.55058300000644,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,1000,TOPSIS,2,10.402750000011451,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,43,1000,LEA,0,211.63270899999986,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,1000,LEA,1,212.5557919999892,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,1000,LEA,2,210.20979099999693,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,1000,MMR top-5,0,129.64170799999408,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,1000,MMR top-5,1,132.37391600000592,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,43,1000,MMR top-5,2,129.88095899999053,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q3_lightweight_storage,44,50,WeightedSum,0,0.053125000007980816,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,50,WeightedSum,1,0.018666999991978628,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,50,WeightedSum,2,0.01808300000050167,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,50,TOPSIS,0,0.5419579999994539,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,50,TOPSIS,1,0.45154199999331013,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,50,TOPSIS,2,0.45083300000214876,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,50,LEA,0,76.68612499999483,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q3_lightweight_storage,44,50,LEA,1,75.7188339999999,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q3_lightweight_storage,44,50,LEA,2,76.89025000000527,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q3_lightweight_storage,44,50,MMR top-5,0,6.788207999989027,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q3_lightweight_storage,44,50,MMR top-5,1,6.602125000000569,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q3_lightweight_storage,44,50,MMR top-5,2,6.092917000003695,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q3_lightweight_storage,44,100,WeightedSum,0,0.09249999999383363,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,100,WeightedSum,1,0.04912500000386899,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,100,WeightedSum,2,0.0399159999915355,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,100,TOPSIS,0,1.035415999993461,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,100,TOPSIS,1,0.9086660000008351,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,100,TOPSIS,2,1.0457919999993237,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,100,LEA,0,84.90058300000669,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q3_lightweight_storage,44,100,LEA,1,84.6274999999963,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q3_lightweight_storage,44,100,LEA,2,85.03424999999254,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q3_lightweight_storage,44,100,MMR top-5,0,12.555457999994246,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q3_lightweight_storage,44,100,MMR top-5,1,12.858374999993316,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q3_lightweight_storage,44,100,MMR top-5,2,12.846125000010034,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q3_lightweight_storage,44,200,WeightedSum,0,0.16420800000105373,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,200,WeightedSum,1,0.08850000000393266,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,200,WeightedSum,2,0.0880420000015647,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,200,TOPSIS,0,1.9566670000017439,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,200,TOPSIS,1,2.016625000010208,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,200,TOPSIS,2,2.2477919999914775,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,200,LEA,0,102.1054999999933,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q3_lightweight_storage,44,200,LEA,1,98.87949999999535,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q3_lightweight_storage,44,200,LEA,2,101.24104199999806,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q3_lightweight_storage,44,200,MMR top-5,0,25.89566599999671,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q3_lightweight_storage,44,200,MMR top-5,1,25.40141699999765,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q3_lightweight_storage,44,200,MMR top-5,2,25.499500000009334,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q3_lightweight_storage,44,500,WeightedSum,0,0.3897919999928945,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,500,WeightedSum,1,0.2470830000049773,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,500,WeightedSum,2,0.2457500000048185,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,500,TOPSIS,0,5.034790999999927,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,500,TOPSIS,1,4.593708999991009,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,500,TOPSIS,2,5.219582999998806,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,500,LEA,0,139.75966699999276,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q3_lightweight_storage,44,500,LEA,1,142.1361250000075,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q3_lightweight_storage,44,500,LEA,2,137.983332999994,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q3_lightweight_storage,44,500,MMR top-5,0,63.735583000010365,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q3_lightweight_storage,44,500,MMR top-5,1,63.434749999998985,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q3_lightweight_storage,44,500,MMR top-5,2,64.78025000001253,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q3_lightweight_storage,44,1000,WeightedSum,0,0.795667000005551,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,1000,WeightedSum,1,0.5502910000103611,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,1000,WeightedSum,2,0.5304580000000669,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,1000,TOPSIS,0,9.478209000008064,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,1000,TOPSIS,1,10.1716669999945,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,1000,TOPSIS,2,9.783333999990873,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q3_lightweight_storage,44,1000,LEA,0,209.40366600000004,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q3_lightweight_storage,44,1000,LEA,1,208.87837500001183,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q3_lightweight_storage,44,1000,LEA,2,212.11654100000032,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q3_lightweight_storage,44,1000,MMR top-5,0,128.5280410000098,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q3_lightweight_storage,44,1000,MMR top-5,1,128.97304199999837,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q3_lightweight_storage,44,1000,MMR top-5,2,130.92379100000073,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q4_balanced_discovery,42,50,WeightedSum,0,0.02833400000668007,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,50,WeightedSum,1,0.018082999986290815,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,50,WeightedSum,2,0.017583000015974903,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,50,TOPSIS,0,0.49029100000552717,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,50,TOPSIS,1,0.45670800000152667,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,50,TOPSIS,2,0.45754200002079415,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,50,LEA,0,73.68999999999915,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q4_balanced_discovery,42,50,LEA,1,73.40941599997564,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q4_balanced_discovery,42,50,LEA,2,77.98537499999725,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q4_balanced_discovery,42,50,MMR top-5,0,5.991292000004478,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,42,50,MMR top-5,1,5.844875000008187,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,42,50,MMR top-5,2,5.827500000009422,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,42,100,WeightedSum,0,0.07137500000453656,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,100,WeightedSum,1,0.03999999998427484,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,100,WeightedSum,2,0.03933300001790485,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,100,TOPSIS,0,0.9499580000067454,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,100,TOPSIS,1,0.9308340000018234,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,100,TOPSIS,2,0.8960410000042884,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,100,LEA,0,83.67158299998323,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q4_balanced_discovery,42,100,LEA,1,79.5215409999912,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q4_balanced_discovery,42,100,LEA,2,79.71929100000352,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q4_balanced_discovery,42,100,MMR top-5,0,11.853791999982377,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,42,100,MMR top-5,1,11.816667000005054,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,42,100,MMR top-5,2,11.779042000000572,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,42,200,WeightedSum,0,0.12650000002167872,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,200,WeightedSum,1,0.08729199998924742,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,200,WeightedSum,2,0.08570800000029521,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,200,TOPSIS,0,1.8242499999985284,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,200,TOPSIS,1,1.7832500000167784,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,200,TOPSIS,2,1.7674170000248068,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,200,LEA,0,94.08829200000923,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q4_balanced_discovery,42,200,LEA,1,96.78745900001218,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q4_balanced_discovery,42,200,LEA,2,97.52949999997895,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q4_balanced_discovery,42,200,MMR top-5,0,24.648458999990908,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,42,200,MMR top-5,1,25.204083999994964,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,42,200,MMR top-5,2,25.082083999990346,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,42,500,WeightedSum,0,0.4484590000117805,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,500,WeightedSum,1,0.25712499999031024,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,500,WeightedSum,2,0.2551660000165157,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,500,TOPSIS,0,4.947249999986525,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,500,TOPSIS,1,5.465333000017836,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,500,TOPSIS,2,4.772957999989558,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,500,LEA,0,135.37520799999925,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q4_balanced_discovery,42,500,LEA,1,133.19724999999494,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q4_balanced_discovery,42,500,LEA,2,132.77533299998368,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q4_balanced_discovery,42,500,MMR top-5,0,61.21287499999539,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,42,500,MMR top-5,1,64.873791999986,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,42,500,MMR top-5,2,60.64937499999701,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,42,1000,WeightedSum,0,0.7725410000034572,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,1000,WeightedSum,1,0.5321250000065447,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,1000,WeightedSum,2,0.5333329999928083,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,1000,TOPSIS,0,9.215915999988056,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,1000,TOPSIS,1,8.963499999993019,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,1000,TOPSIS,2,8.96866700000487,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,42,1000,LEA,0,199.1337919999978,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q4_balanced_discovery,42,1000,LEA,1,199.25820800000338,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q4_balanced_discovery,42,1000,LEA,2,199.85562499999787,qmof-13a76dd|qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-cef46c3
+q4_balanced_discovery,42,1000,MMR top-5,0,122.83558300001118,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,42,1000,MMR top-5,1,122.46479099999874,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,42,1000,MMR top-5,2,122.81645799998842,qmof-13a76dd|qmof-ac6a77a|qmof-a1a5849|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,43,50,WeightedSum,0,0.027917000011257187,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,50,WeightedSum,1,0.018124999996871338,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,50,WeightedSum,2,0.017582999987553194,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,50,TOPSIS,0,0.4903330000161077,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,50,TOPSIS,1,0.45916700000248056,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,50,TOPSIS,2,0.45683300001542193,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,50,LEA,0,73.4817919999955,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q4_balanced_discovery,43,50,LEA,1,73.18116700000132,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q4_balanced_discovery,43,50,LEA,2,74.54433300000574,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q4_balanced_discovery,43,50,MMR top-5,0,5.910625000012715,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,43,50,MMR top-5,1,5.821499999996149,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,43,50,MMR top-5,2,5.81054200000608,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,43,100,WeightedSum,0,0.05783299999961855,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,100,WeightedSum,1,0.03995899999154062,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,100,WeightedSum,2,0.039375000000063665,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,100,TOPSIS,0,0.9487089999993259,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,100,TOPSIS,1,0.9121659999777876,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,100,TOPSIS,2,0.9063340000068365,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,100,LEA,0,81.31966600001306,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q4_balanced_discovery,43,100,LEA,1,81.15499999999543,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q4_balanced_discovery,43,100,LEA,2,81.17279100000019,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q4_balanced_discovery,43,100,MMR top-5,0,12.041834000001472,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,43,100,MMR top-5,1,11.98708300000817,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,43,100,MMR top-5,2,12.008334000000787,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,43,200,WeightedSum,0,0.13104100000305152,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,200,WeightedSum,1,0.08808299998008806,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,200,WeightedSum,2,0.08712499999319334,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,200,TOPSIS,0,1.8699999999967076,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,200,TOPSIS,1,1.8122920000109843,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,200,TOPSIS,2,1.8127499999991414,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,200,LEA,0,95.3911670000025,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q4_balanced_discovery,43,200,LEA,1,97.8983330000176,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q4_balanced_discovery,43,200,LEA,2,98.19612499998698,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q4_balanced_discovery,43,200,MMR top-5,0,24.711207999985163,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,43,200,MMR top-5,1,24.206125000006296,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,43,200,MMR top-5,2,24.1302499999847,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,43,500,WeightedSum,0,0.34979199998019794,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,500,WeightedSum,1,0.24545799999486917,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,500,WeightedSum,2,0.24545900001271548,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,500,TOPSIS,0,4.589749999979631,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,500,TOPSIS,1,4.471916999989389,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,500,TOPSIS,2,4.462375000002794,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,500,LEA,0,134.1272499999775,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q4_balanced_discovery,43,500,LEA,1,134.53774999999268,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q4_balanced_discovery,43,500,LEA,2,134.7819579999907,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q4_balanced_discovery,43,500,MMR top-5,0,62.34395799998538,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,43,500,MMR top-5,1,62.63545900000622,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,43,500,MMR top-5,2,63.29750000000445,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,43,1000,WeightedSum,0,0.8548749999874872,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,1000,WeightedSum,1,0.5437920000019858,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,1000,WeightedSum,2,0.537291999989975,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,1000,TOPSIS,0,9.473250000013422,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,1000,TOPSIS,1,9.15108300000611,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,1000,TOPSIS,2,9.166500000020505,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,43,1000,LEA,0,206.04216600000314,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q4_balanced_discovery,43,1000,LEA,1,209.14837499998384,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q4_balanced_discovery,43,1000,LEA,2,199.7745840000107,qmof-a1a5849|qmof-ac6a77a|qmof-c0f392b|qmof-235f291|qmof-cef46c3
+q4_balanced_discovery,43,1000,MMR top-5,0,122.43850000001544,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,43,1000,MMR top-5,1,121.89520800001219,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,43,1000,MMR top-5,2,121.7366669999933,qmof-a1a5849|qmof-ac6a77a|qmof-13a76dd|qmof-c0f392b|qmof-235f291
+q4_balanced_discovery,44,50,WeightedSum,0,0.0324590000104763,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,50,WeightedSum,1,0.01816700000745186,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,50,WeightedSum,2,0.01741700000934543,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,50,TOPSIS,0,0.5165000000033615,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,50,TOPSIS,1,0.4599579999933212,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,50,TOPSIS,2,0.45849999997926716,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,50,LEA,0,73.38937500000497,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q4_balanced_discovery,44,50,LEA,1,73.21120900002143,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q4_balanced_discovery,44,50,LEA,2,73.18966599999044,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q4_balanced_discovery,44,50,MMR top-5,0,5.788542000004782,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q4_balanced_discovery,44,50,MMR top-5,1,5.750416000012137,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q4_balanced_discovery,44,50,MMR top-5,2,5.7455000000175005,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q4_balanced_discovery,44,100,WeightedSum,0,0.0554590000092503,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,100,WeightedSum,1,0.039667000010013,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,100,WeightedSum,2,0.039750000013327735,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,100,TOPSIS,0,0.938834000010047,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,100,TOPSIS,1,0.8987909999973454,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,100,TOPSIS,2,0.8937910000099691,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,100,LEA,0,82.62837500001297,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q4_balanced_discovery,44,100,LEA,1,81.18554099999642,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q4_balanced_discovery,44,100,LEA,2,80.03329199999598,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q4_balanced_discovery,44,100,MMR top-5,0,11.846082999994678,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q4_balanced_discovery,44,100,MMR top-5,1,11.833082999999078,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q4_balanced_discovery,44,100,MMR top-5,2,11.852125000018532,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q4_balanced_discovery,44,200,WeightedSum,0,0.12999999998442036,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,200,WeightedSum,1,0.08758300000977215,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,200,WeightedSum,2,0.08662499999445572,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,200,TOPSIS,0,1.8467090000058306,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,200,TOPSIS,1,1.79549999998585,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,200,TOPSIS,2,1.7832909999810909,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,200,LEA,0,93.99154100000828,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q4_balanced_discovery,44,200,LEA,1,93.42908399997896,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q4_balanced_discovery,44,200,LEA,2,93.51904100000752,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q4_balanced_discovery,44,200,MMR top-5,0,24.264041999998653,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q4_balanced_discovery,44,200,MMR top-5,1,24.137749999994185,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q4_balanced_discovery,44,200,MMR top-5,2,24.170666999992818,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q4_balanced_discovery,44,500,WeightedSum,0,0.4026249999924403,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,500,WeightedSum,1,0.24512500002060733,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,500,WeightedSum,2,0.24570899998366258,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,500,TOPSIS,0,4.932959000001347,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,500,TOPSIS,1,5.657167000009622,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,500,TOPSIS,2,4.8324589999992895,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,500,LEA,0,141.23299999999972,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q4_balanced_discovery,44,500,LEA,1,135.76779199999578,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q4_balanced_discovery,44,500,LEA,2,134.57604199999196,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q4_balanced_discovery,44,500,MMR top-5,0,61.65925000001948,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q4_balanced_discovery,44,500,MMR top-5,1,61.687875000018266,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q4_balanced_discovery,44,500,MMR top-5,2,61.86183399998413,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q4_balanced_discovery,44,1000,WeightedSum,0,0.7117920000041522,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,1000,WeightedSum,1,0.5329589999973905,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,1000,WeightedSum,2,0.5316250000078071,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,1000,TOPSIS,0,9.349374999999327,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,1000,TOPSIS,1,9.137833000011142,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,1000,TOPSIS,2,9.122292000000698,qmof-e566fbb|qmof-cef46c3|qmof-c0f392b|qmof-ac6a77a|qmof-a1a5849
+q4_balanced_discovery,44,1000,LEA,0,203.0851250000012,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q4_balanced_discovery,44,1000,LEA,1,202.38154099999406,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q4_balanced_discovery,44,1000,LEA,2,201.72512499999584,qmof-ac6a77a|qmof-235f291|qmof-a1a5849|qmof-e566fbb|qmof-13a76dd
+q4_balanced_discovery,44,1000,MMR top-5,0,128.8720420000118,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q4_balanced_discovery,44,1000,MMR top-5,1,124.57112499998857,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q4_balanced_discovery,44,1000,MMR top-5,2,123.22062500001607,qmof-ac6a77a|qmof-235f291|qmof-cef46c3|qmof-a1a5849|qmof-c0f392b
+q5_insulating_frameworks,42,50,WeightedSum,0,0.03437499998426574,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,50,WeightedSum,1,0.019166000015502505,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,50,WeightedSum,2,0.017999999982976078,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,50,TOPSIS,0,0.5104999999900883,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,50,TOPSIS,1,0.4556250000007367,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,50,TOPSIS,2,0.45304200000373385,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,50,LEA,0,72.68395899998836,qmof-4050181|qmof-b1cbe7a|qmof-175a5d9|qmof-8deddd1|qmof-694fdb2
+q5_insulating_frameworks,42,50,LEA,1,72.55695800000694,qmof-4050181|qmof-b1cbe7a|qmof-175a5d9|qmof-8deddd1|qmof-694fdb2
+q5_insulating_frameworks,42,50,LEA,2,72.66100000001074,qmof-4050181|qmof-b1cbe7a|qmof-175a5d9|qmof-8deddd1|qmof-694fdb2
+q5_insulating_frameworks,42,50,MMR top-5,0,5.824915999994573,qmof-4050181|qmof-175a5d9|qmof-694fdb2|qmof-b1cbe7a|qmof-a2d95c3
+q5_insulating_frameworks,42,50,MMR top-5,1,5.785959000007779,qmof-4050181|qmof-175a5d9|qmof-694fdb2|qmof-b1cbe7a|qmof-a2d95c3
+q5_insulating_frameworks,42,50,MMR top-5,2,5.782707999998138,qmof-4050181|qmof-175a5d9|qmof-694fdb2|qmof-b1cbe7a|qmof-a2d95c3
+q5_insulating_frameworks,42,100,WeightedSum,0,0.06016700001509889,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,100,WeightedSum,1,0.04066700000748824,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,100,WeightedSum,2,0.040458999990278244,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,100,TOPSIS,0,0.9358749999819338,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,100,TOPSIS,1,0.9072920000221529,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,100,TOPSIS,2,0.8989170000006652,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,100,LEA,0,79.37341600000991,qmof-4050181|qmof-b1cbe7a|qmof-175a5d9|qmof-8deddd1|qmof-694fdb2
+q5_insulating_frameworks,42,100,LEA,1,79.18362500001308,qmof-4050181|qmof-b1cbe7a|qmof-175a5d9|qmof-8deddd1|qmof-694fdb2
+q5_insulating_frameworks,42,100,LEA,2,79.95566700000722,qmof-4050181|qmof-b1cbe7a|qmof-175a5d9|qmof-8deddd1|qmof-694fdb2
+q5_insulating_frameworks,42,100,MMR top-5,0,11.95979199999897,qmof-4050181|qmof-175a5d9|qmof-694fdb2|qmof-b1cbe7a|qmof-a2d95c3
+q5_insulating_frameworks,42,100,MMR top-5,1,11.947833000022001,qmof-4050181|qmof-175a5d9|qmof-694fdb2|qmof-b1cbe7a|qmof-a2d95c3
+q5_insulating_frameworks,42,100,MMR top-5,2,11.980832999995528,qmof-4050181|qmof-175a5d9|qmof-694fdb2|qmof-b1cbe7a|qmof-a2d95c3
+q5_insulating_frameworks,42,200,WeightedSum,0,0.12599999999451938,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,200,WeightedSum,1,0.0902079999889338,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,200,WeightedSum,2,0.08783300000914096,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,200,TOPSIS,0,1.864165999990064,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,200,TOPSIS,1,1.8089999999801876,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,200,TOPSIS,2,1.795041999997693,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,200,LEA,0,94.90462499999808,qmof-4050181|qmof-b1cbe7a|qmof-175a5d9|qmof-8deddd1|qmof-694fdb2
+q5_insulating_frameworks,42,200,LEA,1,97.78329200000258,qmof-4050181|qmof-b1cbe7a|qmof-175a5d9|qmof-8deddd1|qmof-694fdb2
+q5_insulating_frameworks,42,200,LEA,2,94.12712499999998,qmof-4050181|qmof-b1cbe7a|qmof-175a5d9|qmof-8deddd1|qmof-694fdb2
+q5_insulating_frameworks,42,200,MMR top-5,0,24.233207999998285,qmof-4050181|qmof-175a5d9|qmof-694fdb2|qmof-b1cbe7a|qmof-a2d95c3
+q5_insulating_frameworks,42,200,MMR top-5,1,24.229874999974754,qmof-4050181|qmof-175a5d9|qmof-694fdb2|qmof-b1cbe7a|qmof-a2d95c3
+q5_insulating_frameworks,42,200,MMR top-5,2,24.204375000010714,qmof-4050181|qmof-175a5d9|qmof-694fdb2|qmof-b1cbe7a|qmof-a2d95c3
+q5_insulating_frameworks,42,500,WeightedSum,0,0.3600830000038968,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,500,WeightedSum,1,0.2547500000105174,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,500,WeightedSum,2,0.24612499998966086,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,500,TOPSIS,0,4.628416000002744,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,500,TOPSIS,1,4.5156249999820375,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,500,TOPSIS,2,4.505041999976811,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,500,LEA,0,133.84508299998288,qmof-4050181|qmof-b1cbe7a|qmof-175a5d9|qmof-8deddd1|qmof-694fdb2
+q5_insulating_frameworks,42,500,LEA,1,133.53479200000606,qmof-4050181|qmof-b1cbe7a|qmof-175a5d9|qmof-8deddd1|qmof-694fdb2
+q5_insulating_frameworks,42,500,LEA,2,132.9463339999961,qmof-4050181|qmof-b1cbe7a|qmof-175a5d9|qmof-8deddd1|qmof-694fdb2
+q5_insulating_frameworks,42,500,MMR top-5,0,60.85491700000034,qmof-4050181|qmof-175a5d9|qmof-694fdb2|qmof-b1cbe7a|qmof-a2d95c3
+q5_insulating_frameworks,42,500,MMR top-5,1,60.79216699998824,qmof-4050181|qmof-175a5d9|qmof-694fdb2|qmof-b1cbe7a|qmof-a2d95c3
+q5_insulating_frameworks,42,500,MMR top-5,2,60.87233400000969,qmof-4050181|qmof-175a5d9|qmof-694fdb2|qmof-b1cbe7a|qmof-a2d95c3
+q5_insulating_frameworks,42,1000,WeightedSum,0,0.6970409999951244,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,1000,WeightedSum,1,0.5347500000141281,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,1000,WeightedSum,2,0.53291699998681,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,1000,TOPSIS,0,9.200666000026558,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,1000,TOPSIS,1,9.045708999991575,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,1000,TOPSIS,2,9.00233400000161,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,42,1000,LEA,0,200.61758400001395,qmof-4050181|qmof-b1cbe7a|qmof-175a5d9|qmof-8deddd1|qmof-694fdb2
+q5_insulating_frameworks,42,1000,LEA,1,206.4204170000039,qmof-4050181|qmof-b1cbe7a|qmof-175a5d9|qmof-8deddd1|qmof-694fdb2
+q5_insulating_frameworks,42,1000,LEA,2,201.36350000001357,qmof-4050181|qmof-b1cbe7a|qmof-175a5d9|qmof-8deddd1|qmof-694fdb2
+q5_insulating_frameworks,42,1000,MMR top-5,0,123.21312499997816,qmof-4050181|qmof-175a5d9|qmof-694fdb2|qmof-b1cbe7a|qmof-a2d95c3
+q5_insulating_frameworks,42,1000,MMR top-5,1,123.76950000000875,qmof-4050181|qmof-175a5d9|qmof-694fdb2|qmof-b1cbe7a|qmof-a2d95c3
+q5_insulating_frameworks,42,1000,MMR top-5,2,123.33583399998815,qmof-4050181|qmof-175a5d9|qmof-694fdb2|qmof-b1cbe7a|qmof-a2d95c3
+q5_insulating_frameworks,43,50,WeightedSum,0,0.04041599999027312,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,50,WeightedSum,1,0.019874999992453013,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,50,WeightedSum,2,0.01925000000824184,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,50,TOPSIS,0,0.5362079999997604,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,50,TOPSIS,1,0.47066700000186756,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,50,TOPSIS,2,0.4635420000056456,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,50,LEA,0,75.96933299998909,qmof-19d3c65|qmof-017128d|qmof-e3dcc4d|qmof-b1cbe7a|qmof-175a5d9
+q5_insulating_frameworks,43,50,LEA,1,72.91837500000042,qmof-19d3c65|qmof-017128d|qmof-e3dcc4d|qmof-b1cbe7a|qmof-175a5d9
+q5_insulating_frameworks,43,50,LEA,2,72.80549999998698,qmof-19d3c65|qmof-017128d|qmof-e3dcc4d|qmof-b1cbe7a|qmof-175a5d9
+q5_insulating_frameworks,43,50,MMR top-5,0,5.7785420000016074,qmof-19d3c65|qmof-b1cbe7a|qmof-4050181|qmof-175a5d9|qmof-a2d95c3
+q5_insulating_frameworks,43,50,MMR top-5,1,5.753042000009145,qmof-19d3c65|qmof-b1cbe7a|qmof-4050181|qmof-175a5d9|qmof-a2d95c3
+q5_insulating_frameworks,43,50,MMR top-5,2,5.741875000012442,qmof-19d3c65|qmof-b1cbe7a|qmof-4050181|qmof-175a5d9|qmof-a2d95c3
+q5_insulating_frameworks,43,100,WeightedSum,0,0.06354199999236698,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,100,WeightedSum,1,0.041165999988379554,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,100,WeightedSum,2,0.04016699998032891,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,100,TOPSIS,0,0.948582999996006,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,100,TOPSIS,1,0.9052080000060414,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,100,TOPSIS,2,0.9032910000144057,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,100,LEA,0,79.71345900000415,qmof-19d3c65|qmof-017128d|qmof-e3dcc4d|qmof-b1cbe7a|qmof-175a5d9
+q5_insulating_frameworks,43,100,LEA,1,79.58179199999904,qmof-19d3c65|qmof-017128d|qmof-e3dcc4d|qmof-b1cbe7a|qmof-175a5d9
+q5_insulating_frameworks,43,100,LEA,2,79.60229099998628,qmof-19d3c65|qmof-017128d|qmof-e3dcc4d|qmof-b1cbe7a|qmof-175a5d9
+q5_insulating_frameworks,43,100,MMR top-5,0,11.918624999992744,qmof-19d3c65|qmof-b1cbe7a|qmof-4050181|qmof-175a5d9|qmof-a2d95c3
+q5_insulating_frameworks,43,100,MMR top-5,1,11.872167000007039,qmof-19d3c65|qmof-b1cbe7a|qmof-4050181|qmof-175a5d9|qmof-a2d95c3
+q5_insulating_frameworks,43,100,MMR top-5,2,11.854707999987113,qmof-19d3c65|qmof-b1cbe7a|qmof-4050181|qmof-175a5d9|qmof-a2d95c3
+q5_insulating_frameworks,43,200,WeightedSum,0,0.12591700001962636,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,200,WeightedSum,1,0.08862500001782792,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,200,WeightedSum,2,0.08766700000251149,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,200,TOPSIS,0,1.8502500000181499,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,200,TOPSIS,1,1.8167910000101983,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,200,TOPSIS,2,1.7925420000040049,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,200,LEA,0,94.17487499999311,qmof-19d3c65|qmof-017128d|qmof-e3dcc4d|qmof-b1cbe7a|qmof-175a5d9
+q5_insulating_frameworks,43,200,LEA,1,93.80374999997798,qmof-19d3c65|qmof-017128d|qmof-e3dcc4d|qmof-b1cbe7a|qmof-175a5d9
+q5_insulating_frameworks,43,200,LEA,2,93.6030839999944,qmof-19d3c65|qmof-017128d|qmof-e3dcc4d|qmof-b1cbe7a|qmof-175a5d9
+q5_insulating_frameworks,43,200,MMR top-5,0,24.08329099998241,qmof-19d3c65|qmof-b1cbe7a|qmof-4050181|qmof-175a5d9|qmof-a2d95c3
+q5_insulating_frameworks,43,200,MMR top-5,1,24.128125000004275,qmof-19d3c65|qmof-b1cbe7a|qmof-4050181|qmof-175a5d9|qmof-a2d95c3
+q5_insulating_frameworks,43,200,MMR top-5,2,25.276042000001553,qmof-19d3c65|qmof-b1cbe7a|qmof-4050181|qmof-175a5d9|qmof-a2d95c3
+q5_insulating_frameworks,43,500,WeightedSum,0,0.3715420000105496,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,500,WeightedSum,1,0.24766600000702965,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,500,WeightedSum,2,0.24474999997892155,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,500,TOPSIS,0,4.710625000001301,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,500,TOPSIS,1,4.508291000007603,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,500,TOPSIS,2,4.486374999999043,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,500,LEA,0,132.9766669999799,qmof-19d3c65|qmof-017128d|qmof-e3dcc4d|qmof-b1cbe7a|qmof-175a5d9
+q5_insulating_frameworks,43,500,LEA,1,135.43658399999003,qmof-19d3c65|qmof-017128d|qmof-e3dcc4d|qmof-b1cbe7a|qmof-175a5d9
+q5_insulating_frameworks,43,500,LEA,2,136.53033299999606,qmof-19d3c65|qmof-017128d|qmof-e3dcc4d|qmof-b1cbe7a|qmof-175a5d9
+q5_insulating_frameworks,43,500,MMR top-5,0,61.011415999985275,qmof-19d3c65|qmof-b1cbe7a|qmof-4050181|qmof-175a5d9|qmof-a2d95c3
+q5_insulating_frameworks,43,500,MMR top-5,1,61.60095799998544,qmof-19d3c65|qmof-b1cbe7a|qmof-4050181|qmof-175a5d9|qmof-a2d95c3
+q5_insulating_frameworks,43,500,MMR top-5,2,61.254791999999725,qmof-19d3c65|qmof-b1cbe7a|qmof-4050181|qmof-175a5d9|qmof-a2d95c3
+q5_insulating_frameworks,43,1000,WeightedSum,0,0.7275000000106502,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,1000,WeightedSum,1,0.5346669999823916,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,1000,WeightedSum,2,0.5342499999869688,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,1000,TOPSIS,0,9.214040999978579,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,1000,TOPSIS,1,8.976457999978038,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,1000,TOPSIS,2,8.964707999979282,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,43,1000,LEA,0,199.12866699999654,qmof-19d3c65|qmof-017128d|qmof-e3dcc4d|qmof-b1cbe7a|qmof-175a5d9
+q5_insulating_frameworks,43,1000,LEA,1,198.51658399997518,qmof-19d3c65|qmof-017128d|qmof-e3dcc4d|qmof-b1cbe7a|qmof-175a5d9
+q5_insulating_frameworks,43,1000,LEA,2,198.4430000000259,qmof-19d3c65|qmof-017128d|qmof-e3dcc4d|qmof-b1cbe7a|qmof-175a5d9
+q5_insulating_frameworks,43,1000,MMR top-5,0,121.64558300000294,qmof-19d3c65|qmof-b1cbe7a|qmof-4050181|qmof-175a5d9|qmof-a2d95c3
+q5_insulating_frameworks,43,1000,MMR top-5,1,121.66666600001008,qmof-19d3c65|qmof-b1cbe7a|qmof-4050181|qmof-175a5d9|qmof-a2d95c3
+q5_insulating_frameworks,43,1000,MMR top-5,2,127.77870899998334,qmof-19d3c65|qmof-b1cbe7a|qmof-4050181|qmof-175a5d9|qmof-a2d95c3
+q5_insulating_frameworks,44,50,WeightedSum,0,0.03183300000841882,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,50,WeightedSum,1,0.018958999987717107,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,50,WeightedSum,2,0.01829200002134712,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,50,TOPSIS,0,0.49833299999590963,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,50,TOPSIS,1,0.46454099998527454,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,50,TOPSIS,2,0.46229099999095524,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,50,LEA,0,73.19824999999014,qmof-e3dcc4d|qmof-b1cbe7a|qmof-8deddd1|qmof-175a5d9|qmof-694fdb2
+q5_insulating_frameworks,44,50,LEA,1,73.05583299998375,qmof-e3dcc4d|qmof-b1cbe7a|qmof-8deddd1|qmof-175a5d9|qmof-694fdb2
+q5_insulating_frameworks,44,50,LEA,2,73.29724999999598,qmof-e3dcc4d|qmof-b1cbe7a|qmof-8deddd1|qmof-175a5d9|qmof-694fdb2
+q5_insulating_frameworks,44,50,MMR top-5,0,5.834832999994433,qmof-e3dcc4d|qmof-b1cbe7a|qmof-694fdb2|qmof-a2d95c3|qmof-175a5d9
+q5_insulating_frameworks,44,50,MMR top-5,1,5.818750000003092,qmof-e3dcc4d|qmof-b1cbe7a|qmof-694fdb2|qmof-a2d95c3|qmof-175a5d9
+q5_insulating_frameworks,44,50,MMR top-5,2,5.799749999994219,qmof-e3dcc4d|qmof-b1cbe7a|qmof-694fdb2|qmof-a2d95c3|qmof-175a5d9
+q5_insulating_frameworks,44,100,WeightedSum,0,0.06070799997814902,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,100,WeightedSum,1,0.040833000014117715,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,100,WeightedSum,2,0.04079100000353719,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,100,TOPSIS,0,0.9626249999996617,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,100,TOPSIS,1,0.9026670000196191,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,100,TOPSIS,2,0.8995839999954569,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,100,LEA,0,79.86529199999381,qmof-e3dcc4d|qmof-b1cbe7a|qmof-8deddd1|qmof-175a5d9|qmof-694fdb2
+q5_insulating_frameworks,44,100,LEA,1,80.30462499999658,qmof-e3dcc4d|qmof-b1cbe7a|qmof-8deddd1|qmof-175a5d9|qmof-694fdb2
+q5_insulating_frameworks,44,100,LEA,2,81.82408299998656,qmof-e3dcc4d|qmof-b1cbe7a|qmof-8deddd1|qmof-175a5d9|qmof-694fdb2
+q5_insulating_frameworks,44,100,MMR top-5,0,13.292833000008386,qmof-e3dcc4d|qmof-b1cbe7a|qmof-694fdb2|qmof-a2d95c3|qmof-175a5d9
+q5_insulating_frameworks,44,100,MMR top-5,1,12.846042000006719,qmof-e3dcc4d|qmof-b1cbe7a|qmof-694fdb2|qmof-a2d95c3|qmof-175a5d9
+q5_insulating_frameworks,44,100,MMR top-5,2,11.874833999996781,qmof-e3dcc4d|qmof-b1cbe7a|qmof-694fdb2|qmof-a2d95c3|qmof-175a5d9
+q5_insulating_frameworks,44,200,WeightedSum,0,0.1307500000109485,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,200,WeightedSum,1,0.08916600000929975,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,200,WeightedSum,2,0.08762500002035267,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,200,TOPSIS,0,1.8809169999940423,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,200,TOPSIS,1,1.8015409999918575,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,200,TOPSIS,2,1.809875000020611,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,200,LEA,0,93.84712499999637,qmof-e3dcc4d|qmof-b1cbe7a|qmof-8deddd1|qmof-175a5d9|qmof-694fdb2
+q5_insulating_frameworks,44,200,LEA,1,93.54695799999035,qmof-e3dcc4d|qmof-b1cbe7a|qmof-8deddd1|qmof-175a5d9|qmof-694fdb2
+q5_insulating_frameworks,44,200,LEA,2,94.49075000000562,qmof-e3dcc4d|qmof-b1cbe7a|qmof-8deddd1|qmof-175a5d9|qmof-694fdb2
+q5_insulating_frameworks,44,200,MMR top-5,0,24.417999999997164,qmof-e3dcc4d|qmof-b1cbe7a|qmof-694fdb2|qmof-a2d95c3|qmof-175a5d9
+q5_insulating_frameworks,44,200,MMR top-5,1,24.290333000010378,qmof-e3dcc4d|qmof-b1cbe7a|qmof-694fdb2|qmof-a2d95c3|qmof-175a5d9
+q5_insulating_frameworks,44,200,MMR top-5,2,24.175041999995983,qmof-e3dcc4d|qmof-b1cbe7a|qmof-694fdb2|qmof-a2d95c3|qmof-175a5d9
+q5_insulating_frameworks,44,500,WeightedSum,0,0.34170899999708126,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,500,WeightedSum,1,0.24625000000355612,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,500,WeightedSum,2,0.24683300000560848,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,500,TOPSIS,0,4.649249999999938,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,500,TOPSIS,1,4.518832999991673,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,500,TOPSIS,2,4.5097910000038155,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,500,LEA,0,134.38345800000207,qmof-e3dcc4d|qmof-b1cbe7a|qmof-8deddd1|qmof-175a5d9|qmof-694fdb2
+q5_insulating_frameworks,44,500,LEA,1,133.85974999999917,qmof-e3dcc4d|qmof-b1cbe7a|qmof-8deddd1|qmof-175a5d9|qmof-694fdb2
+q5_insulating_frameworks,44,500,LEA,2,133.40849999997317,qmof-e3dcc4d|qmof-b1cbe7a|qmof-8deddd1|qmof-175a5d9|qmof-694fdb2
+q5_insulating_frameworks,44,500,MMR top-5,0,61.6311670000016,qmof-e3dcc4d|qmof-b1cbe7a|qmof-694fdb2|qmof-a2d95c3|qmof-175a5d9
+q5_insulating_frameworks,44,500,MMR top-5,1,61.33795799999575,qmof-e3dcc4d|qmof-b1cbe7a|qmof-694fdb2|qmof-a2d95c3|qmof-175a5d9
+q5_insulating_frameworks,44,500,MMR top-5,2,61.388124999979254,qmof-e3dcc4d|qmof-b1cbe7a|qmof-694fdb2|qmof-a2d95c3|qmof-175a5d9
+q5_insulating_frameworks,44,1000,WeightedSum,0,0.6890000000225882,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,1000,WeightedSum,1,0.5311660000018037,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,1000,WeightedSum,2,0.5329159999973854,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,1000,TOPSIS,0,9.206874999989623,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,1000,TOPSIS,1,9.055791999998064,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,1000,TOPSIS,2,9.024165999989009,qmof-e3dcc4d|qmof-c82daac|qmof-b1cbe7a|qmof-a2d95c3|qmof-8deddd1
+q5_insulating_frameworks,44,1000,LEA,0,206.5035420000072,qmof-e3dcc4d|qmof-b1cbe7a|qmof-8deddd1|qmof-175a5d9|qmof-694fdb2
+q5_insulating_frameworks,44,1000,LEA,1,200.9071249999863,qmof-e3dcc4d|qmof-b1cbe7a|qmof-8deddd1|qmof-175a5d9|qmof-694fdb2
+q5_insulating_frameworks,44,1000,LEA,2,200.13512500000274,qmof-e3dcc4d|qmof-b1cbe7a|qmof-8deddd1|qmof-175a5d9|qmof-694fdb2
+q5_insulating_frameworks,44,1000,MMR top-5,0,122.26479200000995,qmof-e3dcc4d|qmof-b1cbe7a|qmof-694fdb2|qmof-a2d95c3|qmof-175a5d9
+q5_insulating_frameworks,44,1000,MMR top-5,1,122.38762499998757,qmof-e3dcc4d|qmof-b1cbe7a|qmof-694fdb2|qmof-a2d95c3|qmof-175a5d9
+q5_insulating_frameworks,44,1000,MMR top-5,2,123.05474999999433,qmof-e3dcc4d|qmof-b1cbe7a|qmof-694fdb2|qmof-a2d95c3|qmof-175a5d9

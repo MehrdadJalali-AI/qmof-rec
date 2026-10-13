@@ -72,3 +72,16 @@ See [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) for environment details
 ## Web demo
 
 [https://qmofrecsystem.netlify.app/](https://qmofrecsystem.netlify.app/)
+
+
+## Frozen application-scenario protocol
+
+The current five-scenario experiment uses `configs/final_scenario_rules.json` and `artifacts/final_scenario_rules/`. Earlier `artifacts/benchmark/` and `artifacts/corrected_co2/` results are historical and remain unchanged. The rules were frozen before inspecting new outcomes. The protocol supports controlled token/phrase variants, excludes formulas from application-text overlap, distinguishes CO2 from Co2, increases photocatalysis band-gap weight, and gives insulating queries a wide-gap utility. Exact strings, activated rules, normalized weights, and heuristic limitations are in the configuration. These are preliminary metadata preferences, not measured adsorption or catalytic performance.
+
+```sh
+PYTHONPATH=backend python3 -m pytest -q
+python3 scripts/run_final_diversity_aware_masked_protocol.py --config configs/final_scenario_rules.json --output-dir artifacts/final_scenario_rules/benchmark --analysis-dir artifacts/final_scenario_rules/representation_analysis
+python3 scripts/run_extended_evaluation.py --config configs/final_scenario_rules.json --benchmark-dir artifacts/final_scenario_rules/benchmark --output-root artifacts/final_scenario_rules --skip-regression-gate
+```
+
+Use fresh explicit output directories when reproducing. The skip flag bypasses the obsolete historical numeric gate, not tests. `protocol_freeze.json` predates outcome inspection; `source_manifest.json` hashes the evaluated uncommitted implementation and metadata. A Git HEAD alone does not identify these working-tree changes. `smoke_test.json` verifies all five rules and candidate-pool descriptor constraints; `scenario_overlap.csv` quantifies pool and shortlist overlap. Repeated recommendations and null effects must not be interpreted as failures to optimize and must not trigger outcome-driven weight tuning.

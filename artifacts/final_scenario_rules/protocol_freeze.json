@@ -1,0 +1,10 @@
+{
+  "frozen_at_utc": "2026-09-20T17:39:44.022672+00:00",
+  "files": {
+    "configs/final_scenario_rules.json": "1abd191bbbe0fd10746df047451f2e53a1a7e603a6ee11cbef4334023286ecc4",
+    "backend/app/recommendation/dynamic_weight_engine.py": "d8c6db014fffbbf545fa5416d3e13df1de56a6c40eca5d19c46654d71ffe42ae",
+    "scripts/run_final_diversity_aware_masked_protocol.py": "87e491027041a7cc3ff7b301b18b9b7df45d4ad73906164a66ed2e9b158f7d73",
+    "scripts/run_extended_evaluation.py": "11d059013e498fea741d995f44341fd7a0341f37d1daddbcb9acea6c3d2e479b"
+  },
+  "note": "Recorded before smoke test and full experimental outcomes; working-tree changes intentionally uncommitted."
+}

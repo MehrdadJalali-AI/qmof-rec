@@ -15,3 +15,12 @@ node_modules/
 *.aux
 *.log
 *.out
+
+# Editorial materials belong in the separate revision workspace.
+/manuscript/
+/submission/
+/ReviewComments/
+/revision_reports/
+*.tex
+*response_to_reviewers*
+*cover_letter*

@@ -1,0 +1,31 @@
+{
+  "git_head": "659e84e29c6597ee94f8434966acb63b79588cb8",
+  "working_tree_uncommitted": true,
+  "note": "Source files below, rather than HEAD alone, identify this experiment. No commit or push authorized.",
+  "sha256": {
+    "backend/app/recommendation/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend/app/recommendation/constraint_engine.py": "56717a48e770996b331879213ed131fc203af54750ea36e10cdde4e55d5ad9b2",
+    "backend/app/recommendation/dynamic_weight_engine.py": "d8c6db014fffbbf545fa5416d3e13df1de56a6c40eca5d19c46654d71ffe42ae",
+    "backend/app/recommendation/explainability_engine.py": "e441b99b6975e69d9d285927d0f841d84cc0c511a9ecfc592a92f93545d44113",
+    "backend/app/recommendation/feature_extractor.py": "2ce96578c4e06d8e3dad2ff1ef1a297f0fa1cb2876c216cc0fe7cb1ee4625b32",
+    "backend/app/recommendation/feedback_ranker.py": "56717a48e770996b331879213ed131fc203af54750ea36e10cdde4e55d5ad9b2",
+    "backend/app/recommendation/hybrid_ranker.py": "efb8f6321dc4b4e06719a749c489a733b37820b66066f0e9b317eb6b10cec402",
+    "backend/app/recommendation/lea_optimizer.py": "c1b51508dc451a7948b5da694bb5a65689d7d4b3b6c8f52d6a13a1980b91df15",
+    "backend/app/recommendation/material_similarity.py": "dc4bba8980fb66cc62706707b47534db0cdc1a09578c6a14df681c7db4bf23cf",
+    "backend/app/recommendation/novelty_ranker.py": "cc477ad6e65a07e4dc372fa11af6650807c9b962ceb560a40de8139d5c908ee2",
+    "backend/app/recommendation/objective_utils.py": "494209f10ea936c51dc546323bf45c7f97cf49716f359078f8533ad3d6d3493b",
+    "backend/app/recommendation/property_scorer.py": "14dd43e140a429f8319ed486c3248e39f5d19175c811d13c031c3585ac2381be",
+    "backend/app/recommendation/query_feedback_engine.py": "cda7ce860bef370e8b5c38ee25b68bc409979024ee87d758db198c29b3d7720b",
+    "backend/app/recommendation/recommendation_pipeline.py": "9389d64a2e672332ab446bf5215494bbaf5536bdf6c3184661d1f77ba0ea964e",
+    "backend/vector_db/metadata.json": "c406f8c5eb1612e26b1c165f084910e85c89b68ab342f9e6fde9b1a1a6574545",
+    "configs/final_scenario_rules.json": "1abd191bbbe0fd10746df047451f2e53a1a7e603a6ee11cbef4334023286ecc4",
+    "scripts/run_extended_evaluation.py": "11d059013e498fea741d995f44341fd7a0341f37d1daddbcb9acea6c3d2e479b",
+    "scripts/run_final_diversity_aware_masked_protocol.py": "87e491027041a7cc3ff7b301b18b9b7df45d4ad73906164a66ed2e9b158f7d73",
+    "scripts/run_sensitivity_analysis.py": "3b5209876bb94c4041f3be9c1c164959577941d1d3df7a8da724017e8819ac12"
+  },
+  "test_commands": [
+    "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=backend python3 -m pytest -q -p no:cacheprovider backend/tests/test_scenario_rules.py backend/tests/test_reproducibility_workflow.py backend/tests/test_missing_data_masks.py",
+    "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=backend python3 -m pytest -q -p no:cacheprovider"
+  ],
+  "test_result": "40 passed in focused run; 40 passed in complete repository run"
+}

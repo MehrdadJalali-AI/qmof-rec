@@ -1,0 +1,7 @@
+{
+  "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "git_commit": "659e84e29c6597ee94f8434966acb63b79588cb8",
+  "config": "configs/final_scenario_rules.json",
+  "elapsed_seconds": 214.214274792
+}

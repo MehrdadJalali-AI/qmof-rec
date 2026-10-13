@@ -134,10 +134,13 @@ def formula_features(formula: str) -> dict[str, float]:
 
 def semantic_overlap(row: dict[str, Any], query: str) -> float:
     """Exact token overlap that does not confuse CO2 with cobalt stoichiometry."""
+    from app.recommendation.dynamic_weight_engine import tokens
     import re
-
-    query_tokens = [token for token in re.findall(r"[a-z0-9]+", query.casefold()) if len(token) > 2]
-    text_tokens = set(re.findall(r"[a-z0-9]+", str(row.get("text", "")).casefold()))
+    query_tokens = [token for token in tokens(query) if len(token) > 2]
+    # Serialized metadata may embed a Formula: line; remove it as well as
+    # excluding the dedicated formula field.
+    text = re.sub(r"(?im)^\s*formula\s*:.*$", "", str(row.get("text", "")))
+    text_tokens = set(tokens(text))
     return sum(token in text_tokens for token in query_tokens) / max(1, len(query_tokens))
 
 
@@ -199,6 +202,8 @@ def score_record(row: dict[str, Any], query_id: str, query: str, weights: dict[s
     semantic = semantic_proxy(row, query_id, query)
     scored = hybrid_ranker.compute_score(row, weights, semantic)
     availability = scored["availability"]
+    if "insulating_frameworks" in dynamic_weight_engine.activated_rules(query) and availability["band_gap"]:
+        scored["band_gap_score"] = 1.0 if float(row["band_gap"]) >= 3.5 else 0.5
     scores = {
         "semantic_score": semantic,
         "band_gap_score": scored["band_gap_score"],
