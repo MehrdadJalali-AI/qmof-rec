@@ -2,6 +2,17 @@
 
 QMOF-Rec is a query-driven, multi-objective recommender for screening existing QMOF material records when physical metadata are incomplete. It combines deterministic candidate generation, mask-aware utility scoring, and diversity-aware reranking.
 
+## Manuscript revision (COMMT-D-26-00255)
+
+The results reported in the revised manuscript were produced with the source tagged [`v1.2-COMMT-revision`](https://github.com/MehrdadJalali-AI/qmof-rec/tree/v1.2-COMMT-revision) (commit `b687056c`):
+
+```bash
+git clone https://github.com/MehrdadJalali-AI/qmof-rec && cd qmof-rec
+git checkout v1.2-COMMT-revision
+```
+
+Commands, expected outputs and file hashes are documented in [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md); the evaluated configuration is `configs/final_scenario_rules.json` and its results are in `artifacts/final_scenario_rules/`.
+
 ## Features
 
 - deterministic candidate generation for five material-screening scenarios with exact metadata-text token overlap;
