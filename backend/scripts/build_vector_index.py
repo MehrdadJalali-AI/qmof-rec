@@ -19,6 +19,11 @@ logging.basicConfig(
 logger = logging.getLogger("qmof.build_index")
 
 
+BAND_GAP_COLUMN = "outputs.hse06.bandgap"
+BAND_GAP_SOURCE = "qmof:outputs.hse06.bandgap"
+PBE_BAND_GAP_COLUMN = "outputs.pbe.bandgap"
+
+
 def value_or_unavailable(value):
     if pd.isna(value):
         return None
@@ -40,11 +45,14 @@ def build_vector_database():
 
     for idx, row in df.iterrows():
         try:
+            # All numeric fields go through display_value() so that missing
+            # values are serialized as "unavailable" rather than "nan".
+            # Band gap is the HSE06 value; the source is recorded below.
             text = (
                 f"Material ID: {row.get('qmof_id', '')}\n"
                 f"Formula: {row.get('info.formula', '')}\n"
-                f"Band Gap: {row.get('outputs.hse06.bandgap', '')}\n"
-                f"Density: {row.get('info.density', '')}\n"
+                f"Band Gap (HSE06): {display_value(row.get(BAND_GAP_COLUMN))}\n"
+                f"Density: {display_value(row.get('info.density'))}\n"
                 f"Void Fraction: {display_value(row.get('info.void_fraction'))}"
             )
 
@@ -53,7 +61,11 @@ def build_vector_database():
             metadata = {
                 "qmof_id": row.get("qmof_id"),
                 "formula": row.get("info.formula"),
-                "band_gap": value_or_unavailable(row.get("outputs.hse06.bandgap")),
+                "band_gap": value_or_unavailable(row.get(BAND_GAP_COLUMN)),
+                # Provenance: "missing" band gap means no HSE06 value.
+                "band_gap_source": BAND_GAP_SOURCE,
+                # Kept separate; never merged into band_gap.
+                "band_gap_pbe": value_or_unavailable(row.get(PBE_BAND_GAP_COLUMN)),
                 "density": value_or_unavailable(row.get("info.density")),
                 "void_fraction": value_or_unavailable(row.get("info.void_fraction")),
                 "text": text,

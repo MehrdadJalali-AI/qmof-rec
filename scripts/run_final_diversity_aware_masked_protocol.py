@@ -35,6 +35,13 @@ from app.recommendation.objective_utils import (
     normalize_weights,
 )
 from app.recommendation.property_scorer import property_scorer
+from app.recommendation.trace_logger import (
+    code_version,
+    file_sha256,
+    proxy_record,
+    trace_material,
+    write_jsonl,
+)
 
 try:
     import matplotlib.pyplot as plt
@@ -951,6 +958,11 @@ def run_rag_evaluation(config: dict[str, Any], ranking_rows: list[dict[str, Any]
             "explanation_quality_score": explanation,
             "hallucination_flags": json.dumps(flags),
             "evaluation_status": "deterministic local automated evaluation",
+            # The response is a fixed template. Metadata-consistency and
+            # explanation scores and all flags are constants set here;
+            # groundedness and limitation scores are keyword checks on the
+            # template itself. They are not a measurement of factual accuracy.
+            "scoring_note": "template_output; constant_or_keyword_scores; not_independent_verification",
         })
     write_csv(final_dir / "rag_llm_final_results.csv", rows)
     summary = []
@@ -958,6 +970,16 @@ def run_rag_evaluation(config: dict[str, Any], ranking_rows: list[dict[str, Any]
         summary.append(rag_summary_row(scenario, sub))
     summary.append(rag_summary_row("OVERALL", rows))
     write_csv(final_dir / "rag_llm_final_summary.csv", summary)
+    (final_dir / "README.md").write_text(
+        "# Status of these files\n\n"
+        "Responses are produced by a fixed template in `run_rag_evaluation()`. "
+        "Metadata-consistency and explanation-quality scores and all "
+        "hallucination flags are constants assigned by the script; groundedness "
+        "and limitation scores are keyword checks on that template. They cannot "
+        "demonstrate factual accuracy or a zero hallucination rate. Independent "
+        "claim verification is the subject of QMOF-Audit.\n",
+        encoding="utf-8",
+    )
 
 
 def rag_summary_row(name: str, rows: list[dict[str, Any]]) -> dict[str, Any]:
@@ -1065,6 +1087,92 @@ def write_environment(config_path: Path, started: float) -> None:
     (FINAL / "environment.txt").write_text(json.dumps(env, indent=2), encoding="utf-8")
 
 
+# Query ids whose semantic_proxy rule uses band gap (see semantic_proxy()).
+SEMANTIC_BAND_GAP_QUERIES = {"q1_co2_adsorption", "q2_photocatalysis", "q4_balanced_discovery", "q5_insulating_frameworks"}
+INSULATING_BAND_GAP_RULE = "insulating_wide_gap_v1: bg>=3.5 -> 1.0, else 0.5 (scenario rule)"
+
+
+def build_execution_traces(ranking_rows: list[dict[str, Any]], metadata: list[dict[str, Any]], config_path: Path) -> int:
+    """QMOF-Audit Phase A: record how every value behind every recommended
+    candidate was produced. Read-only: does not alter any ranking output."""
+    by_id = {row["qmof_id"]: row for row in metadata}
+    version = code_version(ROOT)
+    config_hash = file_sha256(config_path)
+    metadata_hash = file_sha256(BACKEND / "vector_db" / "metadata.json")
+    rules_cache: dict[str, list[str]] = {}
+    records: list[dict[str, Any]] = []
+    for row in ranking_rows:
+        material = by_id.get(row["qmof_id"], row)
+        band_known = finite_float(material.get("band_gap")) is not None
+        density_known = finite_float(material.get("density")) is not None
+        query = row["query"]
+        if query not in rules_cache:
+            rules_cache[query] = sorted(dynamic_weight_engine.activated_rules(query))
+        rules = rules_cache[query]
+        context = {
+            "run_id": f"{row['query_id']}|seed{row['seed']}|{row['method']}",
+            "query_id": row["query_id"],
+            "activated_rules": rules,
+            "seed": row["seed"],
+            "method": row["method"],
+            "rank": row["rank"],
+            "code_version": version,
+            "config_sha256": config_hash,
+            "metadata_sha256": metadata_hash,
+        }
+        # Output scores are taken from the ranking row, i.e. the values that
+        # were actually used, so scenario-specific rescoring is captured.
+        overrides = {
+            "band_gap": {"output_score": row.get("band_gap_score")},
+            "density": {"output_score": row.get("density_score")},
+            "stability": {"output_score": row.get("stability_score")},
+        }
+        if "insulating_frameworks" in rules and band_known:
+            overrides["band_gap"]["transformation"] = INSULATING_BAND_GAP_RULE
+        extra = [
+            proxy_record(
+                "semantic_relevance",
+                "deterministic_semantic_proxy_v2 (exact-token overlap excluding formulas + query-specific rules)",
+                ["text", "formula", "band_gap", "density"],
+                row.get("semantic_score"),
+                used_in_ranking=True,
+                used_in_diversity=False,
+                # Only queries whose semantic rule reads band gap can lose a bonus.
+                fallbacks=(
+                    {"band_gap": "query-specific band-gap bonus not applied"}
+                    if not band_known and row["query_id"] in SEMANTIC_BAND_GAP_QUERIES
+                    else {}
+                ),
+                note="offline benchmark proxy, not an embedding similarity",
+            ),
+            proxy_record(
+                "proxy_s",
+                "metadata_proxy_s_v1 (metal + hetero fraction + density)",
+                ["formula", "density"],
+                metadata_proxy(material, "s"),
+                used_in_ranking=row["method"] in ("Proxy S only", "LEA + proxy S"),
+                used_in_diversity=True,
+                fallbacks={} if density_known else {"density": "replaced by 2.0"},
+                note="engineered formula-derived score, not a trained GNN embedding",
+            ),
+            proxy_record(
+                "proxy_a",
+                "metadata_proxy_a_v1 (hetero fraction + band gap + density)",
+                ["formula", "band_gap", "density"],
+                metadata_proxy(material, "a"),
+                used_in_ranking=row["method"] in ("Proxy A only", "LEA + proxy A"),
+                used_in_diversity=True,
+                fallbacks={
+                    **({} if band_known else {"band_gap": "replaced by 0.0"}),
+                    **({} if density_known else {"density": "replaced by 2.0"}),
+                },
+                note="engineered formula-derived score, not a trained GNN embedding",
+            ),
+        ]
+        records.extend(trace_material(material, context, extra, overrides))
+    return write_jsonl(FINAL / "execution_traces" / "traces.jsonl", records)
+
+
 def main() -> int:
     global FINAL, ANALYSIS
     parser = argparse.ArgumentParser()
@@ -1079,7 +1187,7 @@ def main() -> int:
     config = json.loads(config_path.read_text(encoding="utf-8"))
     for path in [ANALYSIS, FINAL]:
         path.mkdir(parents=True, exist_ok=True)
-    for path in [FINAL / "rankings", FINAL / "candidate_pools", FINAL / "figures", FINAL / "rag_llm_evaluation"]:
+    for path in [FINAL / "rankings", FINAL / "candidate_pools", FINAL / "figures", FINAL / "rag_llm_evaluation", FINAL / "execution_traces"]:
         if path.exists():
             shutil.rmtree(path)
         path.mkdir(parents=True, exist_ok=True)
@@ -1101,6 +1209,8 @@ def main() -> int:
     write_csv(FINAL / "weighted_sum_vs_lea_no_diversity.csv", ws_vs_lea)
     write_csv(FINAL / "candidate_pool_sensitivity.csv", sensitivity_rows)
     write_csv(FINAL / "lea_convergence.csv", convergence_rows)
+    n_traces = build_execution_traces(ranking_rows, metadata, config_path)
+    print(f"Wrote {n_traces} execution-trace records")
     run_rag_evaluation(config, ranking_rows)
     plot_outputs(aggregate_rows, convergence_rows, sensitivity_rows)
     write_environment(config_path, started)
