@@ -100,6 +100,15 @@ def masked_distance(left: np.ndarray, right: np.ndarray, left_mask: np.ndarray, 
     return float(np.sqrt(np.mean(diff * diff)))
 
 
+def masked_distance_with_support(left: np.ndarray, right: np.ndarray, left_mask: np.ndarray, right_mask: np.ndarray) -> tuple[float, int]:
+    """Same distance as masked_distance, plus the number of jointly observed
+    dimensions. n_joint == 0 means the 0.0 distance is a no-evidence fallback,
+    not a statement that the two materials are identical."""
+    joint = np.logical_and(left_mask.astype(bool), right_mask.astype(bool))
+    n_joint = int(np.count_nonzero(joint))
+    return masked_distance(left, right, left_mask, right_mask), n_joint
+
+
 def masked_cosine(left: np.ndarray, right: np.ndarray, left_mask: np.ndarray, right_mask: np.ndarray) -> float:
     joint = np.logical_and(left_mask.astype(bool), right_mask.astype(bool))
     if not np.any(joint):

@@ -11,6 +11,11 @@ from app.utils.json_utils import (
 )
 
 
+STABILITY_MEASURED = "measured"
+STABILITY_DENSITY_PROXY = "density_proxy"
+STABILITY_MISSING = "missing"
+
+
 class HybridRanker:
 
     def _compute_stability_score(
@@ -20,6 +25,27 @@ class HybridRanker:
         density_available,
     ):
 
+        score, available, _source = self._compute_stability_score_with_source(
+            material=material,
+            density_score=density_score,
+            density_available=density_available,
+        )
+
+        return score, available
+
+    def _compute_stability_score_with_source(
+        self,
+        material,
+        density_score,
+        density_available,
+    ):
+        """Return (score, available, source).
+
+        source is STABILITY_MEASURED, STABILITY_DENSITY_PROXY or
+        STABILITY_MISSING. Without a measured stability value the score is the
+        binned density score: a heuristic proxy, not stability evidence.
+        """
+
         real_stability = material.get("stability")
 
         if is_observed(real_stability):
@@ -27,16 +53,16 @@ class HybridRanker:
             return sanitize_number(
                 real_stability,
                 default=0.0,
-            ), True
+            ), True, STABILITY_MEASURED
 
         if density_available:
 
             return sanitize_number(
                 density_score,
                 default=0.0,
-            ), True
+            ), True, STABILITY_DENSITY_PROXY
 
-        return 0.0, False
+        return 0.0, False, STABILITY_MISSING
 
     def compute_score(
         self,
@@ -72,7 +98,11 @@ class HybridRanker:
             else 0.0
         )
 
-        stability_score, stability_available = self._compute_stability_score(
+        (
+            stability_score,
+            stability_available,
+            stability_source,
+        ) = self._compute_stability_score_with_source(
             material=material,
             density_score=density_score,
             density_available=density_available,
@@ -123,6 +153,15 @@ class HybridRanker:
             "availability": availability,
             "void_fraction_available": void_fraction_available,
             "void_fraction_note": "unavailable; excluded from numerical ranking",
+            # Provenance fields (QMOF-Audit Phase A). They do not affect
+            # final_score; they record how each objective score was produced.
+            "stability_source": stability_source,
+            "provenance": {
+                "band_gap": "observed" if band_gap_available else "missing_masked",
+                "density": "observed" if density_available else "missing_masked",
+                "stability": stability_source,
+                "void_fraction": "observed" if void_fraction_available else "missing_excluded",
+            },
         }
 
 
