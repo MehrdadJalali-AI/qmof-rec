@@ -1,0 +1,160 @@
+@prefix qa:      <https://github.com/MehrdadJalali-AI/qmof-rec/audit#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix qudt:    <http://qudt.org/schema/qudt/> .
+@prefix unit:    <http://qudt.org/vocab/unit/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# ---------------------------------------------------------------------------
+# QMOF-Audit vocabulary, version 1.
+#
+# Reuses PROV-O (entities, activities, agents) and QUDT (values and units).
+# Only what PROV-O and QUDT do not already provide is defined here:
+# evidence types, availability statuses, fallback policies, claims and
+# verification results. See audit/README.md for the mapping table.
+# ---------------------------------------------------------------------------
+
+<https://github.com/MehrdadJalali-AI/qmof-rec/audit>
+    a owl:Ontology ;
+    dcterms:title "QMOF-Audit vocabulary" ;
+    owl:versionInfo "1.0.0" ;
+    owl:imports <http://www.w3.org/ns/prov-o#> ;
+    rdfs:comment "Provenance-aware vocabulary for verifying claims in QMOF-Rec explanations." .
+
+# --- Classes ---------------------------------------------------------------
+
+qa:Material a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "Material" ;
+    rdfs:comment "One QMOF record, identified by its QMOF ID." .
+
+qa:PropertyObservation a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "Property observation" ;
+    rdfs:comment """One property of one material as recorded in a source snapshot.
+A missing property is still an observation node, with availability qa:Missing
+and no value: a missing calculated property is conceptually a calculated
+property whose value is absent, never a zero.""" .
+
+qa:Score a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "Score" ;
+    rdfs:comment "A value produced by a Transformation and consumed by a ranking (e.g. a binned band-gap score)." .
+
+qa:Source a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "Source snapshot" ;
+    rdfs:comment "A dataset snapshot identified by its content hash." .
+
+qa:Transformation a owl:Class ;
+    rdfs:subClassOf prov:Activity ;
+    rdfs:label "Transformation" ;
+    rdfs:comment "A computation deriving a Score from observations (prov:used) under a named rule, possibly applying a fallback." .
+
+qa:RecommendationRun a owl:Class ;
+    rdfs:subClassOf prov:Activity ;
+    rdfs:label "Recommendation run" ;
+    rdfs:comment "One QMOF-Rec ranking execution (query, seed, method)." .
+
+qa:Selection a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "Selection" ;
+    rdfs:comment "A material placed at a rank by a RecommendationRun." .
+
+qa:Claim a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "Claim" ;
+    rdfs:comment "One atomic statement extracted from a generated explanation. Never tagged with a verdict directly." .
+
+qa:VerificationResult a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "Verification result" ;
+    rdfs:comment "The verdict for one Claim, with its reason, the evidence inspected, the rule version and the graph snapshot used." .
+
+# --- Controlled vocabularies ----------------------------------------------
+
+qa:EvidenceType a owl:Class ; rdfs:subClassOf skos:Concept ;
+    rdfs:comment "What kind of evidence a value is. Kept separate from availability." .
+qa:EvidenceTypeScheme a skos:ConceptScheme .
+qa:Computed       a qa:EvidenceType ; skos:inScheme qa:EvidenceTypeScheme ; skos:prefLabel "computed" ;
+    skos:definition "Value from a quantum-chemical or structure calculation (e.g. QMOF HSE06 band gap, relaxed-structure density)." .
+qa:Predicted      a qa:EvidenceType ; skos:inScheme qa:EvidenceTypeScheme ; skos:prefLabel "predicted" ;
+    skos:definition "Value output by a trained ML model." .
+qa:HeuristicProxy a qa:EvidenceType ; skos:inScheme qa:EvidenceTypeScheme ; skos:prefLabel "heuristic proxy" ;
+    skos:definition "Value from a hand-written rule standing in for a property that was not computed or measured." .
+qa:Experimental   a qa:EvidenceType ; skos:inScheme qa:EvidenceTypeScheme ; skos:prefLabel "experimental" ;
+    skos:definition "Measured value." .
+
+qa:AvailabilityStatus a owl:Class ; rdfs:subClassOf skos:Concept .
+qa:AvailabilityScheme a skos:ConceptScheme .
+qa:Observed a qa:AvailabilityStatus ; skos:inScheme qa:AvailabilityScheme ; skos:prefLabel "observed" .
+qa:Missing  a qa:AvailabilityStatus ; skos:inScheme qa:AvailabilityScheme ; skos:prefLabel "missing" .
+qa:Masked   a qa:AvailabilityStatus ; skos:inScheme qa:AvailabilityScheme ; skos:prefLabel "masked" ;
+    skos:definition "Present in the source but deliberately excluded from a computation." .
+
+qa:ClaimType a owl:Class ; rdfs:subClassOf skos:Concept .
+qa:ComputationClaim a qa:ClaimType ; skos:prefLabel "computation" ;
+    skos:definition "A statement about what the pipeline did." .
+qa:PropertyClaim    a qa:ClaimType ; skos:prefLabel "property" ;
+    skos:definition "A statement about a material property." .
+qa:ApplicationClaim a qa:ClaimType ; skos:prefLabel "application" ;
+    skos:definition "A statement about a use-case outcome, which a property alone cannot establish." .
+
+qa:Verdict a owl:Class ; rdfs:subClassOf skos:Concept .
+qa:Supported            a qa:Verdict ; skos:prefLabel "supported" .
+qa:Contradicted         a qa:Verdict ; skos:prefLabel "contradicted" .
+qa:InsufficientEvidence a qa:Verdict ; skos:prefLabel "insufficient evidence" .
+
+# --- Properties -------------------------------------------------------------
+
+qa:qmofId        a owl:DatatypeProperty ; rdfs:domain qa:Material ; rdfs:range xsd:string .
+qa:formula       a owl:DatatypeProperty ; rdfs:domain qa:Material ; rdfs:range xsd:string .
+
+qa:ofMaterial    a owl:ObjectProperty ; rdfs:range qa:Material ;
+    rdfs:comment "Links an observation, selection or score to its material." .
+qa:propertyName  a owl:DatatypeProperty ; rdfs:range xsd:string .
+qa:evidenceType  a owl:ObjectProperty ; rdfs:range qa:EvidenceType .
+qa:availability  a owl:ObjectProperty ; rdfs:domain qa:PropertyObservation ; rdfs:range qa:AvailabilityStatus .
+qa:hasValue      a owl:ObjectProperty ; rdfs:range qudt:QuantityValue ;
+    rdfs:comment "The QUDT quantity value. Present only when availability is qa:Observed." .
+qa:sourceField   a owl:DatatypeProperty ; rdfs:range xsd:string ;
+    rdfs:comment "Field in the source snapshot, e.g. 'outputs.hse06.bandgap'." .
+qa:methodNote    a owl:DatatypeProperty ; rdfs:range xsd:string .
+qa:sha256        a owl:DatatypeProperty ; rdfs:range xsd:string .
+
+qa:rule          a owl:DatatypeProperty ; rdfs:domain qa:Transformation ; rdfs:range xsd:string ;
+    rdfs:comment "Versioned rule identifier, e.g. 'band_gap_bin_v1'." .
+qa:missingInput  a owl:ObjectProperty ; rdfs:domain qa:Transformation ; rdfs:range qa:PropertyObservation ;
+    rdfs:comment "An input the transformation needed but whose observation is missing." .
+qa:fallbackPolicy a owl:DatatypeProperty ; rdfs:domain qa:Transformation ; rdfs:range xsd:string ;
+    rdfs:comment "Fallback rule applied because an input was missing. Attached to the activity, not to the output value." .
+qa:standsInFor   a owl:DatatypeProperty ; rdfs:domain qa:Score ; rdfs:range xsd:string ;
+    rdfs:comment "The property a heuristic score stands in for, e.g. 'stability'." .
+qa:scoreValue    a owl:DatatypeProperty ; rdfs:domain qa:Score ; rdfs:range xsd:double .
+qa:usedInRanking   a owl:DatatypeProperty ; rdfs:domain qa:Score ; rdfs:range xsd:boolean .
+qa:usedInDiversity a owl:DatatypeProperty ; rdfs:domain qa:Score ; rdfs:range xsd:boolean .
+
+qa:queryId     a owl:DatatypeProperty ; rdfs:domain qa:RecommendationRun ; rdfs:range xsd:string .
+qa:method      a owl:DatatypeProperty ; rdfs:domain qa:RecommendationRun ; rdfs:range xsd:string .
+qa:seed        a owl:DatatypeProperty ; rdfs:domain qa:RecommendationRun ; rdfs:range xsd:integer .
+qa:activatedRule a owl:DatatypeProperty ; rdfs:domain qa:RecommendationRun ; rdfs:range xsd:string .
+qa:codeVersion a owl:DatatypeProperty ; rdfs:range xsd:string .
+qa:configSha256 a owl:DatatypeProperty ; rdfs:range xsd:string .
+qa:rank        a owl:DatatypeProperty ; rdfs:domain qa:Selection ; rdfs:range xsd:integer .
+
+qa:text        a owl:DatatypeProperty ; rdfs:domain qa:Claim ; rdfs:range xsd:string .
+qa:claimType   a owl:ObjectProperty ; rdfs:domain qa:Claim ; rdfs:range qa:ClaimType .
+qa:aboutMaterial a owl:ObjectProperty ; rdfs:domain qa:Claim ; rdfs:range qa:Material .
+qa:aboutRun    a owl:ObjectProperty ; rdfs:domain qa:Claim ; rdfs:range qa:RecommendationRun .
+
+qa:verifies    a owl:ObjectProperty ; rdfs:domain qa:VerificationResult ; rdfs:range qa:Claim .
+qa:verdict     a owl:ObjectProperty ; rdfs:domain qa:VerificationResult ; rdfs:range qa:Verdict .
+qa:reason      a owl:DatatypeProperty ; rdfs:domain qa:VerificationResult ; rdfs:range xsd:string .
+qa:inspected   a owl:ObjectProperty ; rdfs:domain qa:VerificationResult ;
+    rdfs:comment "Evidence node the verifier looked at." .
+qa:ruleVersion a owl:DatatypeProperty ; rdfs:domain qa:VerificationResult ; rdfs:range xsd:string .
+qa:graphSnapshot a owl:DatatypeProperty ; rdfs:domain qa:VerificationResult ; rdfs:range xsd:string ;
+    rdfs:comment "Hash of the graph the verdict was computed against, so it can be replayed." .

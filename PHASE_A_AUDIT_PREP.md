@@ -56,3 +56,11 @@ floating-point weights with `==` and fails on 0.33333333333337 vs
 - `run_rag_evaluation()` uses a template response; metadata and explanation
   scores and all flags are constants, groundedness and limitation scores are
   keyword checks on the template.
+
+## Correction (18 Nov 2026)
+
+The semantic-relevance trace flagged "band-gap bonus not applied" for every
+missing band gap, but the lightweight-storage rule (`q3`) never reads band gap.
+The flag is now limited to queries whose semantic rule uses band gap
+(`SEMANTIC_BAND_GAP_QUERIES`). All 130 missing-band-gap slots are in `q3`, so
+no semantic record carries this fallback any more. Rankings are unchanged.

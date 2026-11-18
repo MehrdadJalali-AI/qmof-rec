@@ -1087,6 +1087,8 @@ def write_environment(config_path: Path, started: float) -> None:
     (FINAL / "environment.txt").write_text(json.dumps(env, indent=2), encoding="utf-8")
 
 
+# Query ids whose semantic_proxy rule uses band gap (see semantic_proxy()).
+SEMANTIC_BAND_GAP_QUERIES = {"q1_co2_adsorption", "q2_photocatalysis", "q4_balanced_discovery", "q5_insulating_frameworks"}
 INSULATING_BAND_GAP_RULE = "insulating_wide_gap_v1: bg>=3.5 -> 1.0, else 0.5 (scenario rule)"
 
 
@@ -1135,7 +1137,12 @@ def build_execution_traces(ranking_rows: list[dict[str, Any]], metadata: list[di
                 row.get("semantic_score"),
                 used_in_ranking=True,
                 used_in_diversity=False,
-                fallbacks={} if band_known else {"band_gap": "query-specific band-gap bonus not applied"},
+                # Only queries whose semantic rule reads band gap can lose a bonus.
+                fallbacks=(
+                    {"band_gap": "query-specific band-gap bonus not applied"}
+                    if not band_known and row["query_id"] in SEMANTIC_BAND_GAP_QUERIES
+                    else {}
+                ),
                 note="offline benchmark proxy, not an embedding similarity",
             ),
             proxy_record(

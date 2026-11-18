@@ -1,0 +1,142 @@
+@prefix qa:   <https://github.com/MehrdadJalali-AI/qmof-rec/audit#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# SHACL shapes for QMOF-Audit graphs, version 1.
+# Each shape encodes one rule the expose relies on. Violations mean the graph
+# cannot be trusted as evidence, so the graph builder refuses to write it.
+
+qa:MaterialShape a sh:NodeShape ;
+    sh:targetClass qa:Material ;
+    sh:property [ sh:path qa:qmofId ; sh:minCount 1 ; sh:maxCount 1 ;
+                  sh:datatype xsd:string ; sh:pattern "^qmof-[0-9a-f]{7}$" ] ;
+    sh:property [ sh:path qa:formula ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+qa:PropertyObservationShape a sh:NodeShape ;
+    sh:targetClass qa:PropertyObservation ;
+    sh:property [ sh:path qa:ofMaterial ; sh:minCount 1 ; sh:maxCount 1 ; sh:class qa:Material ] ;
+    sh:property [ sh:path qa:propertyName ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path qa:evidenceType ; sh:minCount 1 ; sh:maxCount 1 ;
+                  sh:in ( qa:Computed qa:Predicted qa:HeuristicProxy qa:Experimental ) ] ;
+    sh:property [ sh:path qa:availability ; sh:minCount 1 ; sh:maxCount 1 ;
+                  sh:in ( qa:Observed qa:Missing qa:Masked ) ] ;
+    sh:property [ sh:path prov:wasDerivedFrom ; sh:minCount 1 ; sh:class qa:Source ] ;
+    sh:property [ sh:path qa:hasValue ; sh:maxCount 1 ; sh:node qa:QuantityValueShape ] ;
+    # Rule: an observed property must carry a value with a unit.
+    sh:sparql [
+        sh:message "Observed property has no value." ;
+        sh:select """
+            SELECT $this WHERE {
+                $this <https://github.com/MehrdadJalali-AI/qmof-rec/audit#availability>
+                      <https://github.com/MehrdadJalali-AI/qmof-rec/audit#Observed> .
+                FILTER NOT EXISTS { $this <https://github.com/MehrdadJalali-AI/qmof-rec/audit#hasValue> ?v }
+            }""" ] ;
+    # Rule: a missing property must not carry a value. This is what stops a
+    # fallback zero from being recorded as a calculated zero.
+    sh:sparql [
+        sh:message "Missing property carries a value; missing must never be recorded as a number." ;
+        sh:select """
+            SELECT $this WHERE {
+                $this <https://github.com/MehrdadJalali-AI/qmof-rec/audit#availability>
+                      <https://github.com/MehrdadJalali-AI/qmof-rec/audit#Missing> ;
+                      <https://github.com/MehrdadJalali-AI/qmof-rec/audit#hasValue> ?v .
+            }""" ] .
+
+qa:QuantityValueShape a sh:NodeShape ;
+    sh:property [ sh:path qudt:numericValue ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:double ] ;
+    sh:property [ sh:path qudt:unit ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] .
+
+qa:SourceShape a sh:NodeShape ;
+    sh:targetClass qa:Source ;
+    sh:property [ sh:path qa:sha256 ; sh:minCount 1 ; sh:maxCount 1 ; sh:pattern "^[0-9a-f]{64}$" ] ;
+    sh:property [ sh:path prov:wasAttributedTo ; sh:minCount 1 ; sh:class prov:Agent ] .
+
+qa:TransformationShape a sh:NodeShape ;
+    sh:targetClass qa:Transformation ;
+    sh:property [ sh:path qa:rule ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path prov:used ; sh:minCount 1 ] ;
+    sh:property [ sh:path qa:missingInput ; sh:class qa:PropertyObservation ] ;
+    # Rule: a missing input must be declared together with the fallback applied.
+    sh:sparql [
+        sh:message "Transformation has a missing input but no fallback policy." ;
+        sh:select """
+            PREFIX qa: <https://github.com/MehrdadJalali-AI/qmof-rec/audit#>
+            SELECT $this WHERE {
+                $this qa:missingInput ?m .
+                FILTER NOT EXISTS { $this qa:fallbackPolicy ?p }
+            }""" ] ;
+    # Rule: every declared missing input really is missing.
+    sh:sparql [
+        sh:message "missingInput points to an observation that is not missing." ;
+        sh:select """
+            PREFIX qa: <https://github.com/MehrdadJalali-AI/qmof-rec/audit#>
+            SELECT $this WHERE {
+                $this qa:missingInput ?m .
+                FILTER NOT EXISTS { ?m qa:availability qa:Missing }
+            }""" ] .
+
+qa:ScoreShape a sh:NodeShape ;
+    sh:targetClass qa:Score ;
+    sh:property [ sh:path qa:ofMaterial ; sh:minCount 1 ; sh:maxCount 1 ; sh:class qa:Material ] ;
+    sh:property [ sh:path qa:propertyName ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path prov:wasGeneratedBy ; sh:minCount 1 ; sh:maxCount 1 ; sh:class qa:Transformation ] ;
+    sh:property [ sh:path qa:evidenceType ; sh:minCount 1 ; sh:maxCount 1 ;
+                  sh:in ( qa:Computed qa:Predicted qa:HeuristicProxy qa:Experimental ) ] ;
+    sh:property [ sh:path qa:scoreValue ; sh:maxCount 1 ; sh:datatype xsd:double ] ;
+    sh:property [ sh:path qa:usedInRanking ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:boolean ] ;
+    sh:property [ sh:path qa:usedInDiversity ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:boolean ] ;
+    # Rule: a heuristic stand-in must say what it stands in for.
+    sh:sparql [
+        sh:message "Heuristic-proxy score does not declare what it stands in for." ;
+        sh:select """
+            PREFIX qa: <https://github.com/MehrdadJalali-AI/qmof-rec/audit#>
+            SELECT $this WHERE {
+                $this qa:evidenceType qa:HeuristicProxy .
+                FILTER NOT EXISTS { $this qa:standsInFor ?p }
+            }""" ] .
+
+qa:RecommendationRunShape a sh:NodeShape ;
+    sh:targetClass qa:RecommendationRun ;
+    sh:property [ sh:path qa:queryId ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path qa:method ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path qa:seed ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:integer ] ;
+    sh:property [ sh:path qa:codeVersion ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path qa:configSha256 ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path prov:wasAssociatedWith ; sh:minCount 1 ; sh:class prov:Agent ] .
+
+qa:SelectionShape a sh:NodeShape ;
+    sh:targetClass qa:Selection ;
+    sh:property [ sh:path qa:ofMaterial ; sh:minCount 1 ; sh:maxCount 1 ; sh:class qa:Material ] ;
+    sh:property [ sh:path qa:rank ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:integer ; sh:minInclusive 1 ] ;
+    sh:property [ sh:path prov:wasGeneratedBy ; sh:minCount 1 ; sh:maxCount 1 ; sh:class qa:RecommendationRun ] .
+
+qa:ClaimShape a sh:NodeShape ;
+    sh:targetClass qa:Claim ;
+    sh:property [ sh:path qa:text ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path qa:claimType ; sh:minCount 1 ; sh:maxCount 1 ;
+                  sh:in ( qa:ComputationClaim qa:PropertyClaim qa:ApplicationClaim ) ] ;
+    # Rule: claims never carry a verdict themselves.
+    sh:property [ sh:path qa:verdict ; sh:maxCount 0 ;
+                  sh:message "Verdicts belong on a VerificationResult, not on the Claim." ] .
+
+qa:VerificationResultShape a sh:NodeShape ;
+    sh:targetClass qa:VerificationResult ;
+    sh:property [ sh:path qa:verifies ; sh:minCount 1 ; sh:maxCount 1 ; sh:class qa:Claim ] ;
+    sh:property [ sh:path qa:verdict ; sh:minCount 1 ; sh:maxCount 1 ;
+                  sh:in ( qa:Supported qa:Contradicted qa:InsufficientEvidence ) ] ;
+    sh:property [ sh:path qa:reason ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path qa:ruleVersion ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path qa:graphSnapshot ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    # Rule: supported and contradicted verdicts must cite the evidence inspected.
+    sh:sparql [
+        sh:message "Supported or contradicted verdict cites no evidence." ;
+        sh:select """
+            PREFIX qa: <https://github.com/MehrdadJalali-AI/qmof-rec/audit#>
+            SELECT $this WHERE {
+                $this qa:verdict ?v .
+                FILTER (?v IN (qa:Supported, qa:Contradicted))
+                FILTER NOT EXISTS { $this qa:inspected ?e }
+            }""" ] .
